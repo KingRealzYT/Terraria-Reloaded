@@ -1,5 +1,6 @@
 package com.kingrealzyt.terrariareloaded;
 
+import com.kingrealzyt.terrariareloaded.init.DimensionInit;
 import com.kingrealzyt.terrariareloaded.init.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -7,6 +8,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -30,8 +32,11 @@ public class TerrariaReloaded
     public TerrariaReloaded() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        modEventBus.addListener(this::setup);
 
         ModItems.init();
+        DimensionInit.MOD_DIMENSIONS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
