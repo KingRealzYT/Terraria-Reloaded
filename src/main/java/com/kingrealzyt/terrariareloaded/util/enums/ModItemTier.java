@@ -8,7 +8,8 @@ import java.util.function.Supplier;
 
 public enum ModItemTier implements IItemTier {
 
-    COPPER_SHORT(2, 0, 4.0F, 3.0F, 5, () -> { return Ingredient.fromItems(ModItems.COPPER_STARTER_SWORD.get()); });
+    COPPER_SHORT(2, 0, 4.0F, 3.0F, 5, () -> { return Ingredient.fromItems(ModItems.COPPER_SHORTSWORD.get()); }),
+    COPPER_BROAD(2, 0, 4.0F, 3.0F, 5, () -> { return Ingredient.fromItems(ModItems.COPPER_BROADSWORD.get()); });
 
     private final int harvestLevel;
     private final int maxUses;

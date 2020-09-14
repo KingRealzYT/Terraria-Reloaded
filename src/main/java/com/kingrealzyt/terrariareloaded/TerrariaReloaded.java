@@ -56,7 +56,21 @@ public class TerrariaReloaded
 
         @Override
         public ItemStack createIcon() {
-            return  new ItemStack(ModItems.COPPER_STARTER_SWORD.get());
+            return  new ItemStack(ModItems.COPPER_SHORTSWORD.get());
+        }
+    };
+
+    public static final ItemGroup AXE = new ItemGroup("Axe") {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(ModItems.COPPER_AXE.get());
+        }
+    };
+
+    public static final ItemGroup PICKAXE = new ItemGroup("Pickaxe") {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(ModItems.COPPER_PICKAXE.get());
         }
     };
 }

@@ -1,4 +1,9 @@
 {
-  "item.terrariareloaded.copper_starter_sword": "Copper Starter Sword",
-  "itemGroup.Swords": "TerrariaReloaded Swords"
+  "item.terrariareloaded.copper_shortsword": "Copper Shortsword",
+  "item.terrariareloaded.copper_broadsword": "Copper Broadsword",
+  "item.terrariareloaded.copper_axe": "Copper Axe",
+  "item.terrariareloaded.copper_pickaxe": "Copper Pickaxe",
+  "itemGroup.Swords": "TerrariaReloaded Swords",
+  "itemGroup.Axe": "TerrariaReloaded Axes",
+  "itemGroup.Pickaxe": "TerrariaReloaded Pickaxes"
 }
