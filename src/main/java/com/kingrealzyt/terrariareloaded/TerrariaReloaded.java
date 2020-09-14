@@ -1,7 +1,10 @@
 package com.kingrealzyt.terrariareloaded;
 
+import com.kingrealzyt.terrariareloaded.init.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -22,10 +25,13 @@ import java.util.stream.Collectors;
 public class TerrariaReloaded
 {
     private static final Logger LOGGER = LogManager.getLogger();
+    public static final String MOD_ID = "terrariareloaded";
 
     public TerrariaReloaded() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+
+        ModItems.init();
 
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -45,4 +51,12 @@ public class TerrariaReloaded
     {
 
     }
+
+    public static final ItemGroup SWORDS = new ItemGroup("Swords") {
+
+        @Override
+        public ItemStack createIcon() {
+            return  new ItemStack(ModItems.COPPER_STARTER_SWORD.get());
+        }
+    };
 }
