@@ -1,6 +1,8 @@
 package com.kingrealzyt.terrariareloaded.init;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
+import com.kingrealzyt.terrariareloaded.items.GuideVoodoo;
+import com.kingrealzyt.terrariareloaded.items.ItemBand;
 import com.kingrealzyt.terrariareloaded.items.MagicMirror;
 import com.kingrealzyt.terrariareloaded.util.enums.ModItemTier;
 import net.minecraft.item.AxeItem;
@@ -22,6 +24,9 @@ public class ModItems {
 
     // Items
     public static final RegistryObject<Item> MAGIC_MIRROR = ITEMS.register("magic_mirror", MagicMirror::new);
+    public static final RegistryObject<Item> ICE_MIRROR = ITEMS.register("ice_mirror", MagicMirror::new);
+    public static final RegistryObject<Item> GUIDE_VOODOO = ITEMS.register("guide_voodoo_doll", GuideVoodoo::new);
+    public static final RegistryObject<Item> BAND_REGENERATION = ITEMS.register("band_of_regeneration", ItemBand::new);
 
     // Tools
     public static final RegistryObject<SwordItem> COPPER_SHORTSWORD = ITEMS.register("copper_shortsword", () -> new SwordItem(ModItemTier.COPPER_SHORT, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.SWORDS).setNoRepair()));
