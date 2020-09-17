@@ -12,6 +12,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
+import net.minecraft.world.dimension.DimensionType;
+import net.minecraft.world.dimension.EndDimension;
+import net.minecraft.world.dimension.NetherDimension;
+import net.minecraft.world.dimension.OverworldDimension;
 
 import java.util.List;
 
@@ -32,7 +36,11 @@ public class MagicMirror extends Item {
         BlockPos cords =  playerIn.getBedLocation(playerIn.dimension);
         if(cords == null)
             cords = worldIn.getSpawnPoint();
-        playerIn.setPositionAndUpdate(cords.getX(), cords.getY(), cords.getZ());
+        if(worldIn.dimension instanceof NetherDimension || worldIn.dimension instanceof EndDimension){}
+        else
+        {
+            playerIn.setPositionAndUpdate(cords.getX(), cords.getY(), cords.getZ());
+        }
         playerIn.getCooldownTracker().setCooldown(this, 200);
         return super.onItemRightClick(worldIn, playerIn, handIn);
     }
