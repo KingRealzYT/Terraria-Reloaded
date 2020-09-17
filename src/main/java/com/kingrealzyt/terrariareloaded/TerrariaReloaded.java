@@ -1,7 +1,9 @@
 package com.kingrealzyt.terrariareloaded;
 
 import com.kingrealzyt.terrariareloaded.init.DimensionInit;
+import com.kingrealzyt.terrariareloaded.init.ModEntityTypes;
 import com.kingrealzyt.terrariareloaded.init.ModItems;
+import com.kingrealzyt.terrariareloaded.init.SoundInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
@@ -35,7 +37,9 @@ public class TerrariaReloaded
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::setup);
 
+        SoundInit.SOUNDS.register(modEventBus);
         ModItems.init();
+        ModEntityTypes.ENTITY_TYPES.register(modEventBus);
         DimensionInit.MOD_DIMENSIONS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
