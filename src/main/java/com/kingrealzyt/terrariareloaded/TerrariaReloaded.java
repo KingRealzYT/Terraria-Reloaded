@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 @Mod("terrariareloaded")
 public class TerrariaReloaded
 {
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "terrariareloaded";
 
     public TerrariaReloaded() {

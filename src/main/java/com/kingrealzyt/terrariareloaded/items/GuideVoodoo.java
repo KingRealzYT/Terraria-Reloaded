@@ -26,6 +26,4 @@ public class GuideVoodoo extends Item {
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 
-    
-
 }
