@@ -38,7 +38,7 @@ public class ModItems {
 
 
     // Throwing weapons
-    public static final RegistryObject<Item> THROWING_KNIFE_ITEM = ITEMS.register("throwing_knife",
+    public static final RegistryObject<Item> THROWING_KNIFE_ITEM = ITEMS.register("throwing_knife_item",
             () -> new ThrowingKnifeItem(new Item.Properties().group(ItemGroup.COMBAT)));
 
 }
