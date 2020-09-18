@@ -4,11 +4,9 @@ import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.items.GuideVoodoo;
 import com.kingrealzyt.terrariareloaded.items.ItemBand;
 import com.kingrealzyt.terrariareloaded.items.MagicMirror;
+import com.kingrealzyt.terrariareloaded.items.weapons.throwing.ThrowingKnifeItem;
 import com.kingrealzyt.terrariareloaded.util.enums.ModItemTier;
-import net.minecraft.item.AxeItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.PickaxeItem;
-import net.minecraft.item.SwordItem;
+import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -37,5 +35,10 @@ public class ModItems {
 
 
     // Block Items
+
+
+    // Throwing weapons
+    public static final RegistryObject<Item> THROWING_KNIFE_ITEM = ITEMS.register("throwing_knife",
+            () -> new ThrowingKnifeItem(new Item.Properties().group(ItemGroup.COMBAT)));
 
 }
