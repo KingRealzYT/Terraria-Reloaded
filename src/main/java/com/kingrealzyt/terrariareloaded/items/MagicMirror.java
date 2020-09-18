@@ -1,5 +1,6 @@
 package com.kingrealzyt.terrariareloaded.items;
 
+import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.init.ModItems;
 import com.kingrealzyt.terrariareloaded.init.SoundInit;
 import net.minecraft.block.Block;
@@ -26,7 +27,7 @@ import java.util.List;
 public class MagicMirror extends Item {
 
     public MagicMirror() {
-        super(new Item.Properties().group(ItemGroup.MISC));
+        super(new Item.Properties().group(TerrariaReloaded.MISC));
     }
 
     @Override

@@ -8,5 +8,7 @@
 
   "itemGroup.Swords": "TerrariaReloaded Swords",
   "itemGroup.Axe": "TerrariaReloaded Axes",
-  "itemGroup.Pickaxe": "TerrariaReloaded Pickaxes"
+  "itemGroup.Pickaxe": "TerrariaReloaded Pickaxes",
+  "itemGroup.Boss": "TerrariaReloaded Boss Spawns",
+  "itemGroup.Miscellaneous": "TerrariaReloaded Miscellaneous"
 }

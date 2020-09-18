@@ -1,5 +1,6 @@
 package com.kingrealzyt.terrariareloaded.items;
 
+import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -17,7 +18,7 @@ import java.util.List;
 public class GuideVoodoo extends Item {
 
     public GuideVoodoo() {
-        super(new Properties().group(ItemGroup.MISC));
+        super(new Properties().group(TerrariaReloaded.BOSS));
     }
 
     @Override
