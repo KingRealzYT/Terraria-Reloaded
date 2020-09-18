@@ -3,6 +3,7 @@ package com.kingrealzyt.terrariareloaded.init;
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.items.GuideVoodoo;
 import com.kingrealzyt.terrariareloaded.items.ItemBand;
+import com.kingrealzyt.terrariareloaded.items.Lens;
 import com.kingrealzyt.terrariareloaded.items.MagicMirror;
 import com.kingrealzyt.terrariareloaded.items.weapons.throwing.ThrowingKnifeItem;
 import com.kingrealzyt.terrariareloaded.util.enums.ModItemTier;
@@ -25,6 +26,7 @@ public class ModItems {
     public static final RegistryObject<Item> ICE_MIRROR = ITEMS.register("ice_mirror", MagicMirror::new);
     public static final RegistryObject<Item> GUIDE_VOODOO = ITEMS.register("guide_voodoo_doll", GuideVoodoo::new);
     public static final RegistryObject<Item> BAND_REGENERATION = ITEMS.register("band_of_regeneration", ItemBand::new);
+    public static final RegistryObject<Item> LENS = ITEMS.register("lens", Lens::new);
 
     // Tools
     public static final RegistryObject<SwordItem> COPPER_SHORTSWORD = ITEMS.register("copper_shortsword", () -> new SwordItem(ModItemTier.COPPER_SHORT, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.SWORDS).setNoRepair()));
@@ -38,7 +40,6 @@ public class ModItems {
 
 
     // Throwing weapons
-    public static final RegistryObject<Item> THROWING_KNIFE_ITEM = ITEMS.register("throwing_knife_item",
-            () -> new ThrowingKnifeItem(new Item.Properties().group(ItemGroup.COMBAT)));
+    public static final RegistryObject<Item> THROWING_KNIFE_ITEM = ITEMS.register("throwing_knife_item", () -> new ThrowingKnifeItem(new Item.Properties().group(TerrariaReloaded.THROW)));
 
 }

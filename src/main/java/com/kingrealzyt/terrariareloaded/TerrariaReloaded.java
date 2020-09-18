@@ -51,11 +51,21 @@ public class TerrariaReloaded
 
     }
 
+
+    // Tabs
+
     public static final ItemGroup SWORDS = new ItemGroup("Swords") {
 
         @Override
         public ItemStack createIcon() {
             return  new ItemStack(ModItems.COPPER_SHORTSWORD.get());
+        }
+    };
+
+    public static final ItemGroup THROW = new ItemGroup("Throwable") {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(ModItems.THROWING_KNIFE_ITEM.get());
         }
     };
 

@@ -5,8 +5,10 @@
   "item.terrariareloaded.copper_pickaxe": "Copper Pickaxe",
   "item.terrariareloaded.magic_mirror": "Magic Mirror",
   "item.terrariareloaded.throwing_knife_item": "Throwing Knife",
+  "item.terrariareloaded.lens": "Lens",
 
   "itemGroup.Swords": "TerrariaReloaded Swords",
+  "itemGroup.Throwable": "TerrariaReloaded Throwable",
   "itemGroup.Axe": "TerrariaReloaded Axes",
   "itemGroup.Pickaxe": "TerrariaReloaded Pickaxes",
   "itemGroup.Boss": "TerrariaReloaded Boss Spawns",
