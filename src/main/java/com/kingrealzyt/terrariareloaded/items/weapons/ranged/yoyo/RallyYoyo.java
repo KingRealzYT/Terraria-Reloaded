@@ -10,30 +10,27 @@ public class RallyYoyo extends AbstractYoyoItem {
         return YoyoType.RALLY;
     }
 
-    @Override
-    public double getWeight(ItemStack yoyoStack) {
-        return 1.0;
-    }
 
     @Override
     public double getLength(ItemStack yoyoStack) {
-        return 5.0;
+        return 10;
     }
 
     @Override
     public int getDuration(ItemStack yoyoStack) {
-        return 200;
+        return 100;
     }
 
-    @Override
-    public int getAttackInterval(ItemStack yoyoStack) {
-        return 20;
-    }
 
 
     @Override
     public float getDamage() {
-        return 10.0F;
+        return 14.0F;
+    }
+
+    @Override
+    public float getKnockback() {
+        return 3.5F;
     }
 
 }

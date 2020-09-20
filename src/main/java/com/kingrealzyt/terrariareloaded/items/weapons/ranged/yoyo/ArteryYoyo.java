@@ -11,28 +11,23 @@ public class ArteryYoyo extends AbstractYoyoItem {
     }
 
     @Override
-    public double getWeight(ItemStack yoyoStack) {
-        return 1.0;
-    }
-
-    @Override
     public double getLength(ItemStack yoyoStack) {
-        return 5.0;
+        return 12.5;
     }
 
     @Override
     public int getDuration(ItemStack yoyoStack) {
-        return 200;
-    }
-
-    @Override
-    public int getAttackInterval(ItemStack yoyoStack) {
-        return 20;
+        return 120;
     }
 
 
     @Override
     public float getDamage() {
-        return 10.0F;
+        return 17.0F;
+    }
+
+    @Override
+    public float getKnockback() {
+        return 4;
     }
 }

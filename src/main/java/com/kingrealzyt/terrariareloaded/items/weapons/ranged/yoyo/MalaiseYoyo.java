@@ -10,30 +10,26 @@ public class MalaiseYoyo extends AbstractYoyoItem {
         return YoyoType.MALAISE;
     }
 
-    @Override
-    public double getWeight(ItemStack yoyoStack) {
-        return 1.0;
-    }
 
     @Override
     public double getLength(ItemStack yoyoStack) {
-        return 5.0;
+        return 14;
     }
 
     @Override
     public int getDuration(ItemStack yoyoStack) {
-        return 200;
-    }
-
-    @Override
-    public int getAttackInterval(ItemStack yoyoStack) {
-        return 20;
+        return 140;
     }
 
 
     @Override
     public float getDamage() {
-        return 10.0F;
+        return 16;
+    }
+
+    @Override
+    public float getKnockback() {
+        return 4.5F;
     }
 
 }

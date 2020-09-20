@@ -11,29 +11,24 @@ public class WoodenYoyo extends AbstractYoyoItem {
     }
 
     @Override
-    public double getWeight(ItemStack yoyoStack) {
-        return 1.0;
-    }
-
-    @Override
     public double getLength(ItemStack yoyoStack) {
-        return 5.0;
+        return 9;
     }
 
     @Override
     public int getDuration(ItemStack yoyoStack) {
-        return 200;
-    }
-
-    @Override
-    public int getAttackInterval(ItemStack yoyoStack) {
-        return 20;
+        return 80;
     }
 
 
     @Override
     public float getDamage() {
-        return 10.0F;
+        return 9.0F;
+    }
+
+    @Override
+    public float getKnockback() {
+        return 2.5F;
     }
 
 }

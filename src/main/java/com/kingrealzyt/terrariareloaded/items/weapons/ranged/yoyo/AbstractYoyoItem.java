@@ -38,11 +38,24 @@ public abstract class AbstractYoyoItem extends Item implements IYoyo {
 
     public abstract float getDamage();
 
+    public abstract float getKnockback();
+
+    @Override
+    public double getWeight(ItemStack yoyoStack) {
+        return 1.0;
+    }
+
+    @Override
+    public int getAttackInterval(ItemStack yoyoStack) {
+        return 25;
+    }
+
     @Override
     public void entityInteraction(ItemStack yoyoStack, PlayerEntity playerEntity, Hand hand, YoyoEntity yoyoEntity, Entity targetEntity) {
         if(targetEntity instanceof LivingEntity) {
             LivingEntity livingEntity = (LivingEntity) targetEntity;
             livingEntity.attackEntityFrom(DamageSource.GENERIC, this.getDamage());
+            livingEntity.knockBack(livingEntity, getKnockback(), livingEntity.getPosX() - playerEntity.getPosX(), livingEntity.getPosZ() - playerEntity.getPosZ());
         }
     }
 

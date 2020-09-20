@@ -48,10 +48,26 @@ public class ModItems {
 
     // Throwing weapons
     public static final RegistryObject<Item> THROWING_KNIFE_ITEM = ITEMS.register("throwing_knife_item", () -> new ThrowingKnifeItem(new Item.Properties().group(TerrariaReloaded.THROW)));
+    //Yoyos
+    public static final RegistryObject<Item> AMAROK_YOYO = ITEMS.register("amarok_yoyo", AmarokYoyo::new);
     public static final RegistryObject<Item> AMAZON_YOYO = ITEMS.register("amazon_yoyo", AmazonYoyo::new);
     public static final RegistryObject<Item> ARTERY_YOYO = ITEMS.register("artery_yoyo", ArteryYoyo::new);
+    public static final RegistryObject<Item> CASCADE_YOYO = ITEMS.register("cascade_yoyo", CascadeYoyo::new);
+    public static final RegistryObject<Item> CHICK_YOYO = ITEMS.register("chick_yoyo", ChickYoyo::new);
+    public static final RegistryObject<Item> CODE_1_YOYO = ITEMS.register("code_1_yoyo", Code1Yoyo::new);
+    public static final RegistryObject<Item> CODE_2_YOYO = ITEMS.register("code_2_yoyo", Code2Yoyo::new);
+    public static final RegistryObject<Item> FORMAT_C_YOYO = ITEMS.register("format_c_yoyo", FormatCYoyo::new);
+    public static final RegistryObject<Item> GRADIENT_YOYO = ITEMS.register("gradient_yoyo", GradientYoyo::new);
+    public static final RegistryObject<Item> HEL_FIRE_YOYO = ITEMS.register("hel_fire_yoyo", HelFireYoyo::new);
+    public static final RegistryObject<Item> KRAKEN_YOYO = ITEMS.register("kraken_yoyo", KrakenYoyo::new);
     public static final RegistryObject<Item> MALAISE_YOYO = ITEMS.register("malaise_yoyo", MalaiseYoyo::new);
     public static final RegistryObject<Item> RALLY_YOYO = ITEMS.register("rally_yoyo", RallyYoyo::new);
+    public static final RegistryObject<Item> REDS_THROW_YOYO = ITEMS.register("red_throw_yoyo", RedsThrowYoyo::new);
+    public static final RegistryObject<Item> TERRARIAN_YOYO = ITEMS.register("terrarian_yoyo", TerrarianYoyo::new);
+    public static final RegistryObject<Item> THE_EYE_OF_CTHULU_YOYO = ITEMS.register("the_eye_of_cthulu_yoyo", TheEyeOfCthuluYoyo::new);
+    public static final RegistryObject<Item> VALKYRIE_YOYO = ITEMS.register("valkyrie_yoyo", ValkyrieYoyo::new);
+    public static final RegistryObject<Item> VALOR_YOYO = ITEMS.register("valor_yoyo", ValorYoyo::new);
     public static final RegistryObject<Item> WOODEN_YOYO = ITEMS.register("wooden_yoyo", WoodenYoyo::new);
+    public static final RegistryObject<Item> YELETS_YOYO = ITEMS.register("yelets_yoyo", YeletsYoyo::new);
 
 }
