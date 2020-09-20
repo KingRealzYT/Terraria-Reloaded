@@ -37,6 +37,11 @@ public class MagicMirror extends Item {
     }
 
     @Override
+    public int getItemStackLimit(ItemStack stack) {
+        return 1;
+    }
+
+    @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         worldIn.playSound(playerIn, playerIn.getPosition(), SoundInit.MAGICMIRRORUSE.get(), SoundCategory.BLOCKS, 1, 1);
         BlockPos cords =  playerIn.getBedLocation(playerIn.dimension);

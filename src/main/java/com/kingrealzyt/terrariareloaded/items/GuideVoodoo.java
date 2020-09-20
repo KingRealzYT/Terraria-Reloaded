@@ -26,5 +26,10 @@ public class GuideVoodoo extends Item {
         tooltip.add(new StringTextComponent("You are a terrible person"));
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
+    @Override
+    public int getItemStackLimit(ItemStack stack) {
+        return 1;
+    }
+
 
 }
