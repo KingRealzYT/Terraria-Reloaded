@@ -9,10 +9,12 @@
   "item.terrariareloaded.lens": "Lens",
   "item.terrariareloaded.picksaw": "Picksaw",
   "item.terrariareloaded.pickaxe_Axe": "Pickaxe Axe",
-  
+  "item.terrariareloaded.hallowed_repeater_item": "Hallowed Repeater",
+
   "item.terrariareloaded.guide_voodoo_doll": "Guide Voodoo Doll",
 
   "itemGroup.Swords": "Terraria Reloaded Swords",
+  "itemGroup.Ranged": "Terraria Reloaded Ranged",
   "itemGroup.Throwable": "Terraria Reloaded Throwable",
   "itemGroup.Axe": "Terraria Reloaded Axes",
   "itemGroup.Pickaxe": "Terraria Reloaded Pickaxes",

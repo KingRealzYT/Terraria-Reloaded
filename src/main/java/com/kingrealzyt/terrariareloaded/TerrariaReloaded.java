@@ -62,6 +62,13 @@ public class TerrariaReloaded
         }
     };
 
+    public static final ItemGroup RANGED = new ItemGroup("Ranged") {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(ModItems.HALLOWED_REPEATER_ITEM.get());
+        }
+    };
+
     public static final ItemGroup THROW = new ItemGroup("Throwable") {
         @Override
         public ItemStack createIcon() {
@@ -96,5 +103,7 @@ public class TerrariaReloaded
             return new ItemStack(ModItems.MAGIC_MIRROR.get());
         }
     };
+
+
 
 }
