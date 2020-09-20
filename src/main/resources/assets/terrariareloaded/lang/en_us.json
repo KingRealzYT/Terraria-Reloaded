@@ -4,13 +4,16 @@
   "item.terrariareloaded.copper_axe": "Copper Axe",
   "item.terrariareloaded.copper_pickaxe": "Copper Pickaxe",
   "item.terrariareloaded.magic_mirror": "Magic Mirror",
+  "item.terrariareloaded.ice_mirror": "Ice Mirror",
   "item.terrariareloaded.throwing_knife_item": "Throwing Knife",
   "item.terrariareloaded.lens": "Lens",
+  
+  "item.terrariareloaded.guide_voodoo_doll": "Guide Voodoo Doll",
 
-  "itemGroup.Swords": "TerrariaReloaded Swords",
-  "itemGroup.Throwable": "TerrariaReloaded Throwable",
-  "itemGroup.Axe": "TerrariaReloaded Axes",
-  "itemGroup.Pickaxe": "TerrariaReloaded Pickaxes",
-  "itemGroup.Boss": "TerrariaReloaded Boss Spawns",
-  "itemGroup.Miscellaneous": "TerrariaReloaded Miscellaneous"
+  "itemGroup.Swords": "Terraria Reloaded Swords",
+  "itemGroup.Throwable": "Terraria Reloaded Throwable",
+  "itemGroup.Axe": "Terraria Reloaded Axes",
+  "itemGroup.Pickaxe": "Terraria Reloaded Pickaxes",
+  "itemGroup.BossSpawns": "Terraria Reloaded Boss Spawns",
+  "itemGroup.Miscellaneous": "Terraria Reloaded Miscellaneous"
 }
