@@ -30,10 +30,9 @@ public class TerrariaReloaded {
     public static final String MOD_ID = "terrariareloaded";
 
     public TerrariaReloaded() {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::setup);
+        modEventBus.addListener(this::doClientStuff);
 
         SoundInit.SOUNDS.register(modEventBus);
         ModItems.init();
