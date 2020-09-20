@@ -3,10 +3,15 @@ package com.kingrealzyt.terrariareloaded;
 import com.kingrealzyt.terrariareloaded.init.ModEntityTypes;
 import com.kingrealzyt.terrariareloaded.init.ModItems;
 import com.kingrealzyt.terrariareloaded.init.SoundInit;
+import com.kingrealzyt.terrariareloaded.world.capability.PlayerCoinStorage;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.INBT;
+import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -17,9 +22,10 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.annotation.Nullable;
+
 @Mod("terrariareloaded")
-public class TerrariaReloaded
-{
+public class TerrariaReloaded {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "terrariareloaded";
 
@@ -36,19 +42,30 @@ public class TerrariaReloaded
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void setup(final FMLCommonSetupEvent event)
-    {
+    private void setup(final FMLCommonSetupEvent event) {
+
+        //Register the capability
+        CapabilityManager.INSTANCE.register(PlayerCoinStorage.class, new Capability.IStorage<PlayerCoinStorage>() {
+            @Nullable
+            @Override
+            public INBT writeNBT(Capability<PlayerCoinStorage> capability, PlayerCoinStorage instance, Direction side) {
+                return null;
+            }
+
+            @Override
+            public void readNBT(Capability<PlayerCoinStorage> capability, PlayerCoinStorage instance, Direction side, INBT nbt) {
+
+            }
+        }, PlayerCoinStorage::new);
 
     }
 
-    private void doClientStuff(final FMLClientSetupEvent event)
-    {
+    private void doClientStuff(final FMLClientSetupEvent event) {
 
     }
 
     @SubscribeEvent
-    public void onServerStarting(FMLServerStartingEvent event)
-    {
+    public void onServerStarting(FMLServerStartingEvent event) {
 
     }
 
@@ -63,7 +80,7 @@ public class TerrariaReloaded
 
         @Override
         public ItemStack createIcon() {
-            return  new ItemStack(ModItems.COPPER_SHORTSWORD.get());
+            return new ItemStack(ModItems.COPPER_SHORTSWORD.get());
         }
     };
 
@@ -108,7 +125,6 @@ public class TerrariaReloaded
             return new ItemStack(ModItems.MAGIC_MIRROR.get());
         }
     };
-
 
 
 }
