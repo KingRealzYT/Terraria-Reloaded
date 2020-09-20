@@ -5,6 +5,7 @@ import com.kingrealzyt.terrariareloaded.init.ModItems;
 import com.kingrealzyt.terrariareloaded.init.SoundInit;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -49,6 +50,10 @@ public class TerrariaReloaded
     public void onServerStarting(FMLServerStartingEvent event)
     {
 
+    }
+
+    public static ResourceLocation rlTexture(String path) {
+        return new ResourceLocation(MOD_ID, "textures/" + path);
     }
 
 

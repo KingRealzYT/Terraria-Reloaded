@@ -8,6 +8,7 @@ import com.kingrealzyt.terrariareloaded.items.MagicMirror;
 import com.kingrealzyt.terrariareloaded.items.tools.others.PickaxeAxeItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.ranged.repeaters.HallowedRepeaterItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.throwing.ThrowingKnifeItem;
+import com.kingrealzyt.terrariareloaded.items.weapons.ranged.yoyo.*;
 import com.kingrealzyt.terrariareloaded.util.enums.ModItemTier;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -47,5 +48,10 @@ public class ModItems {
 
     // Throwing weapons
     public static final RegistryObject<Item> THROWING_KNIFE_ITEM = ITEMS.register("throwing_knife_item", () -> new ThrowingKnifeItem(new Item.Properties().group(TerrariaReloaded.THROW)));
+    public static final RegistryObject<Item> AMAZON_YOYO = ITEMS.register("amazon_yoyo", AmazonYoyo::new);
+    public static final RegistryObject<Item> ARTERY_YOYO = ITEMS.register("artery_yoyo", ArteryYoyo::new);
+    public static final RegistryObject<Item> MALAISE_YOYO = ITEMS.register("malaise_yoyo", MalaiseYoyo::new);
+    public static final RegistryObject<Item> RALLY_YOYO = ITEMS.register("rally_yoyo", RallyYoyo::new);
+    public static final RegistryObject<Item> WOODEN_YOYO = ITEMS.register("wooden_yoyo", WoodenYoyo::new);
 
 }

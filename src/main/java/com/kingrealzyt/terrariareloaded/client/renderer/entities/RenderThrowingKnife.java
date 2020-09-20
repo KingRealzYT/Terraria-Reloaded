@@ -1,4 +1,4 @@
-package com.kingrealzyt.terrariareloaded.client.entities;
+package com.kingrealzyt.terrariareloaded.client.renderer.entities;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
