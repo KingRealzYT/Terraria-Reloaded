@@ -93,16 +93,22 @@ public class PlayerCoinStorage {
         int[] res = this.calculateRemove(coin, amount);
         switch (coin) {
             case BRONZE:
-                this.bronze = res[0];
-                this.silver = res[1];
+                if (res[0] != -1 && res[1] != -1) {
+                    this.bronze = res[0];
+                    this.silver = res[1];
+                }
                 break;
             case SILVER:
-                this.silver = res[0];
-                this.gold = res[1];
+                if (res[0] != -1 && res[1] != -1) {
+                    this.silver = res[0];
+                    this.gold = res[1];
+                }
                 break;
             case GOLD:
-                this.gold = res[0];
-                this.platinum = res[1];
+                if (res[0] != -1 && res[1] != -1) {
+                    this.gold = res[0];
+                    this.platinum = res[1];
+                }
                 break;
             case PLATINUM:
                 this.platinum -= amount;
@@ -123,7 +129,6 @@ public class PlayerCoinStorage {
     private int[] calculateRemove(Coin coin, int amount) {
         int[] res = new int[]{-1, -1};
         if (coin == Coin.PLATINUM) {
-            this.platinum -= amount;
             return res;
         }
         Coin higher = this.getNext(coin);
