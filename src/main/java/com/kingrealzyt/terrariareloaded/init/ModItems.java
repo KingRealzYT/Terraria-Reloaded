@@ -1,14 +1,15 @@
 package com.kingrealzyt.terrariareloaded.init;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
+import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoType;
 import com.kingrealzyt.terrariareloaded.items.GuideVoodoo;
 import com.kingrealzyt.terrariareloaded.items.ItemBand;
 import com.kingrealzyt.terrariareloaded.items.Lens;
 import com.kingrealzyt.terrariareloaded.items.MagicMirror;
 import com.kingrealzyt.terrariareloaded.items.tools.others.PickaxeAxeItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.ranged.repeaters.HallowedRepeaterItem;
+import com.kingrealzyt.terrariareloaded.items.weapons.ranged.yoyo.YoyoItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.throwing.ThrowingKnifeItem;
-import com.kingrealzyt.terrariareloaded.items.weapons.ranged.yoyo.*;
 import com.kingrealzyt.terrariareloaded.util.enums.ModItemTier;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -42,32 +43,35 @@ public class ModItems {
     public static final RegistryObject<PickaxeAxeItem> PICKAXE_AXE = ITEMS.register("pickaxe_axe", () -> new PickaxeAxeItem(ItemTier.DIAMOND, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.PICKAXE).setNoRepair()));
 
 
-
     // Block Items
 
 
     // Throwing weapons
     public static final RegistryObject<Item> THROWING_KNIFE_ITEM = ITEMS.register("throwing_knife_item", () -> new ThrowingKnifeItem(new Item.Properties().group(TerrariaReloaded.THROW)));
     //Yoyos
-    public static final RegistryObject<Item> AMAROK_YOYO = ITEMS.register("amarok_yoyo", AmarokYoyo::new);
-    public static final RegistryObject<Item> AMAZON_YOYO = ITEMS.register("amazon_yoyo", AmazonYoyo::new);
-    public static final RegistryObject<Item> ARTERY_YOYO = ITEMS.register("artery_yoyo", ArteryYoyo::new);
-    public static final RegistryObject<Item> CASCADE_YOYO = ITEMS.register("cascade_yoyo", CascadeYoyo::new);
-    public static final RegistryObject<Item> CHICK_YOYO = ITEMS.register("chick_yoyo", ChickYoyo::new);
-    public static final RegistryObject<Item> CODE_1_YOYO = ITEMS.register("code_1_yoyo", Code1Yoyo::new);
-    public static final RegistryObject<Item> CODE_2_YOYO = ITEMS.register("code_2_yoyo", Code2Yoyo::new);
-    public static final RegistryObject<Item> FORMAT_C_YOYO = ITEMS.register("format_c_yoyo", FormatCYoyo::new);
-    public static final RegistryObject<Item> GRADIENT_YOYO = ITEMS.register("gradient_yoyo", GradientYoyo::new);
-    public static final RegistryObject<Item> HEL_FIRE_YOYO = ITEMS.register("hel_fire_yoyo", HelFireYoyo::new);
-    public static final RegistryObject<Item> KRAKEN_YOYO = ITEMS.register("kraken_yoyo", KrakenYoyo::new);
-    public static final RegistryObject<Item> MALAISE_YOYO = ITEMS.register("malaise_yoyo", MalaiseYoyo::new);
-    public static final RegistryObject<Item> RALLY_YOYO = ITEMS.register("rally_yoyo", RallyYoyo::new);
-    public static final RegistryObject<Item> REDS_THROW_YOYO = ITEMS.register("red_throw_yoyo", RedsThrowYoyo::new);
-    public static final RegistryObject<Item> TERRARIAN_YOYO = ITEMS.register("terrarian_yoyo", TerrarianYoyo::new);
-    public static final RegistryObject<Item> THE_EYE_OF_CTHULU_YOYO = ITEMS.register("the_eye_of_cthulu_yoyo", TheEyeOfCthuluYoyo::new);
-    public static final RegistryObject<Item> VALKYRIE_YOYO = ITEMS.register("valkyrie_yoyo", ValkyrieYoyo::new);
-    public static final RegistryObject<Item> VALOR_YOYO = ITEMS.register("valor_yoyo", ValorYoyo::new);
-    public static final RegistryObject<Item> WOODEN_YOYO = ITEMS.register("wooden_yoyo", WoodenYoyo::new);
-    public static final RegistryObject<Item> YELETS_YOYO = ITEMS.register("yelets_yoyo", YeletsYoyo::new);
+    public static final RegistryObject<Item> AMAROK_YOYO = registerYoyo("amarok", YoyoType.AMAROK);
+    public static final RegistryObject<Item> AMAZON_YOYO = registerYoyo("amazon", YoyoType.AMAROK);
+    public static final RegistryObject<Item> ARTERY_YOYO = registerYoyo("artery", YoyoType.ARTERY);
+    public static final RegistryObject<Item> CASCADE_YOYO = registerYoyo("cascade", YoyoType.CASCADE);
+    public static final RegistryObject<Item> CHICK_YOYO = registerYoyo("chick", YoyoType.CHICK);
+    public static final RegistryObject<Item> CODE_1_YOYO = registerYoyo("code_1", YoyoType.CODE_1);
+    public static final RegistryObject<Item> CODE_2_YOYO = registerYoyo("code_2", YoyoType.CODE_2);
+    public static final RegistryObject<Item> FORMAT_C_YOYO = registerYoyo("format_c", YoyoType.FORMAT_C);
+    public static final RegistryObject<Item> GRADIENT_YOYO = registerYoyo("gradient", YoyoType.GRADIENT);
+    public static final RegistryObject<Item> HEL_FIRE_YOYO = registerYoyo("hel_fire", YoyoType.HEL_FIRE);
+    public static final RegistryObject<Item> KRAKEN_YOYO = registerYoyo("kraken", YoyoType.KRAKEN);
+    public static final RegistryObject<Item> MALAISE_YOYO = registerYoyo("malaise", YoyoType.MALAISE);
+    public static final RegistryObject<Item> RALLY_YOYO = registerYoyo("rally", YoyoType.RALLY);
+    public static final RegistryObject<Item> REDS_THROW_YOYO = registerYoyo("reds_throw", YoyoType.REDS_THROW);
+    public static final RegistryObject<Item> TERRARIAN_YOYO = registerYoyo("terrarian", YoyoType.TERRARIAN);
+    public static final RegistryObject<Item> THE_EYE_OF_CTHULU_YOYO = registerYoyo("the_eye_of_ctuhulu", YoyoType.THE_EYE_OF_CTHULU);
+    public static final RegistryObject<Item> VALKYRIE_YOYO = registerYoyo("valkyrie", YoyoType.VALKYRIE_YOYO);
+    public static final RegistryObject<Item> VALOR_YOYO = registerYoyo("valor", YoyoType.VALOR);
+    public static final RegistryObject<Item> WOODEN_YOYO = registerYoyo("wooden", YoyoType.WOODEN);
+    public static final RegistryObject<Item> YELETS_YOYO = registerYoyo("yelets", YoyoType.YELETS);
+
+    private static RegistryObject<Item> registerYoyo(String name, YoyoType type) {
+        return ITEMS.register(name + "_yoyo", () -> new YoyoItem(type));
+    }
 
 }

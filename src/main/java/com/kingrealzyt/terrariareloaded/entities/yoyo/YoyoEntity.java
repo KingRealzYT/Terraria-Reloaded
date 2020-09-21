@@ -3,10 +3,10 @@ package com.kingrealzyt.terrariareloaded.entities.yoyo;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Streams;
 import com.kingrealzyt.terrariareloaded.init.ModEntityTypes;
-import com.kingrealzyt.terrariareloaded.items.weapons.ranged.yoyo.AbstractYoyoItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.ranged.yoyo.IYoyo;
+import com.kingrealzyt.terrariareloaded.items.weapons.ranged.yoyo.YoyoItem;
 import com.kingrealzyt.terrariareloaded.util.MathUtl;
-import javafx.util.Pair;
+import com.kingrealzyt.terrariareloaded.util.Pair;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
@@ -242,10 +242,11 @@ public class YoyoEntity extends MobEntity implements IEntityAdditionalSpawnData 
 
         Streams.stream(BlockPos.getAllInBoxMutable(pos.add(-1, -1, -1), pos.add(1, 1, 1)))
                 .map(it -> new Pair<>(it.toImmutable(), world.getBlockState(it)))
-                .filter(it -> !it.getValue().isAir(world, it.getKey()))
-                .filter(it -> it.getValue().getShape(world, it.getKey())
-                        .toBoundingBoxList().stream().anyMatch(bb -> bb.offset(it.getKey()).intersects(entityBox)))
-                .forEach(it -> yoyo.blockInteraction(getYoyoStack(), thrower, world, it.getKey(), it.getValue(), it.getValue().getBlock(), this));
+                .filter(it -> !it.value.isAir(world, it.key))
+                .filter(it -> it.value.getShape(world, it.key)
+                        .toBoundingBoxList().stream().anyMatch(bb -> bb.offset(it.key).intersects(entityBox)))
+                .forEach(it -> yoyo.blockInteraction(getYoyoStack(), thrower, world, it.key, it.value, it.value.getBlock(), null));
+
     }
 
     public void forceRetract() {
@@ -261,13 +262,13 @@ public class YoyoEntity extends MobEntity implements IEntityAdditionalSpawnData 
         int currentSlot = hand == Hand.MAIN_HAND ? thrower.inventory.currentItem : -2;
         ItemStack otherHand = thrower.getHeldItem(hand == Hand.MAIN_HAND ? Hand.OFF_HAND : Hand.MAIN_HAND);
 
-        if (!CASTERS.containsKey(thrower.getUniqueID()) || !(yoyoStack.getItem() instanceof AbstractYoyoItem) || ticksExisted > 1 && (lastSlot != -1 && lastSlot != currentSlot || otherHand == yoyoStackLastTick)) {
+        if (!CASTERS.containsKey(thrower.getUniqueID()) || !(yoyoStack.getItem() instanceof YoyoItem) || ticksExisted > 1 && (lastSlot != -1 && lastSlot != currentSlot || otherHand == yoyoStackLastTick)) {
             this.remove();
             return null;
         }
 
         this.yoyoStackLastTick = yoyoStack;
-        if (yoyoStack.getMaxDamage() < yoyoStack.getDamage() && !(yoyoStack.getItem() instanceof AbstractYoyoItem)) {
+        if (yoyoStack.getMaxDamage() < yoyoStack.getDamage() && !(yoyoStack.getItem() instanceof YoyoItem)) {
             this.remove();
             return null;
         }
@@ -400,9 +401,9 @@ public class YoyoEntity extends MobEntity implements IEntityAdditionalSpawnData 
     }
 
     public void interactWithEntity(Entity entity) {
-        if(entity instanceof PlayerEntity) {
+        if (entity instanceof PlayerEntity) {
             PlayerEntity playerEntity = (PlayerEntity) entity;
-            if(playerEntity == thrower)
+            if (playerEntity == thrower)
                 return;
         }
         yoyo.entityInteraction(getYoyoStack(), thrower, getHand(), this, entity);
