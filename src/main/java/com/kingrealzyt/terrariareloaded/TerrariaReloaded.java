@@ -7,6 +7,7 @@ import com.kingrealzyt.terrariareloaded.world.capability.PlayerCoinStorage;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.INBT;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -72,6 +73,7 @@ public class TerrariaReloaded {
         return new ResourceLocation(MOD_ID, "textures/" + path);
     }
 
+    public static final DamageSource YOYO = new DamageSource(MOD_ID + ".yoyo");
 
     // Tabs
 

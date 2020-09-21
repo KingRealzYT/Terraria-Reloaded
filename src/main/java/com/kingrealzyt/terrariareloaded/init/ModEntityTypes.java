@@ -1,6 +1,7 @@
 package com.kingrealzyt.terrariareloaded.init;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
+import com.kingrealzyt.terrariareloaded.entities.projectiles.TerrarianYoyoProjectile;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.ThrowingKnifeEntity;
 import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoEntity;
 import net.minecraft.entity.EntityClassification;
@@ -26,5 +27,10 @@ public class ModEntityTypes {
                             <YoyoEntity>create(YoyoEntity::new, EntityClassification.MISC)
                             .size(0.3F, 0.3F)
                             .disableSerialization().disableSummoning().build(new ResourceLocation(TerrariaReloaded.MOD_ID + ":yoyo").toString()));
+
+    public static final RegistryObject<EntityType<TerrarianYoyoProjectile>> TERRARIAN_PROJECTILE_ENTITY = ENTITY_TYPES
+            .register("terrarian_projectile",
+                    () -> EntityType.Builder.<TerrarianYoyoProjectile>create(TerrarianYoyoProjectile::new, EntityClassification.MISC)
+            .size(0.3F, 0.3F).build(new ResourceLocation(TerrariaReloaded.MOD_ID + ":terrarian_projectile").toString()));
 
 }

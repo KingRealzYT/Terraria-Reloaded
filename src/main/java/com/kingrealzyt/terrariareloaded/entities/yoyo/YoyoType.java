@@ -27,7 +27,7 @@ public enum YoyoType {
     VALKYRIE_YOYO(70, 4.5F, 11.5, 1200, TerrariaReloaded.rlTexture("items/yoyo_valkyrie_yoyo.png")),
     KRAKEN(95, 4.3F, 10.5D, 1200, TerrariaReloaded.rlTexture("items/yoyo_kraken.png")),
     THE_EYE_OF_CTHULU(115, 3.5F, 11.5, 1200, TerrariaReloaded.rlTexture("items/yoyo_the_eye_of_cthulu.png")),
-    TERRARIAN(190, 6.5F, 22.5, 1200, TerrariaReloaded.rlTexture("items/yoyo_terrarian.png"));
+    TERRARIAN(1 /*TODO Change it later back to 190*/, 6.5F, 22.5, 1200, TerrariaReloaded.rlTexture("items/yoyo_terrarian.png"));
 
     public static final YoyoType[] VALUES = values();
 
@@ -50,7 +50,7 @@ public enum YoyoType {
     }
 
     public float getKnockback() {
-        return knockback;
+        return knockback / 10; //It have to be very low.
     }
 
     public int getDuration() {
@@ -63,5 +63,52 @@ public enum YoyoType {
 
     public ResourceLocation getTexture() {
         return texture;
+    }
+
+    public static YoyoType getByName(String name) {
+        switch (name) {
+            case "amarok_yoyo":
+                return AMAROK;
+            case "amazon_yoyo":
+                return AMAZON;
+            case "artery_yoyo":
+                return ARTERY;
+            case "cascade_yoyo":
+                return CASCADE;
+            case "chick_yoyo":
+                return CHICK;
+            case "code_1_yoyo":
+                return CODE_1;
+            case "code_2_yoyo":
+                return CODE_2;
+            case "format_c_yoyo":
+                return FORMAT_C;
+            case "gradient_yoyo":
+                return GRADIENT;
+            case "hel_fire_yoyo":
+                return HEL_FIRE;
+            case "kraken_yoyo":
+                return KRAKEN;
+            case "malaise_yoyo":
+                return MALAISE;
+            case "rally_yoyo":
+                return RALLY;
+            case "reds_throw_yoyo":
+                return REDS_THROW;
+            case "terrarian_yoyo":
+                return TERRARIAN;
+            case "the_eye_of_cthulu_yoyo":
+                return THE_EYE_OF_CTHULU;
+            case "valkyrie_yoyo":
+                return VALKYRIE_YOYO;
+            case "valor_yoyo":
+                return VALOR;
+            case "wooden_yoyo":
+                return WOODEN;
+            case "yelets":
+                return YELETS;
+            default:
+                throw new IllegalStateException("Yoyotype not found");
+        }
     }
 }

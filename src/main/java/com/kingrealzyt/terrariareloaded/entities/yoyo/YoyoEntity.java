@@ -5,7 +5,7 @@ import com.google.common.collect.Streams;
 import com.kingrealzyt.terrariareloaded.init.ModEntityTypes;
 import com.kingrealzyt.terrariareloaded.items.weapons.ranged.yoyo.IYoyo;
 import com.kingrealzyt.terrariareloaded.items.weapons.ranged.yoyo.YoyoItem;
-import com.kingrealzyt.terrariareloaded.util.MathUtl;
+import com.kingrealzyt.terrariareloaded.util.MathUtil;
 import com.kingrealzyt.terrariareloaded.util.Pair;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -82,6 +82,7 @@ public class YoyoEntity extends MobEntity implements IEntityAdditionalSpawnData 
 
     public YoyoEntity(EntityType<? extends MobEntity> type, World worldIn) {
         super(type, worldIn);
+        this.setNoGravity(true);
     }
 
     public YoyoEntity(World world, PlayerEntity playerEntity, Hand hand, YoyoType yoyoType) {
@@ -361,18 +362,18 @@ public class YoyoEntity extends MobEntity implements IEntityAdditionalSpawnData 
             double dz = motion.z / steps;
 
             for (AxisAlignedBB box : colliderBoxes) {
-                dx = MathUtl.calculateXOffset(box, yoyoBoundingBox, dx);
-                dy = MathUtl.calculateXOffset(box, yoyoBoundingBox, dy);
-                dz = MathUtl.calculateXOffset(box, yoyoBoundingBox, dz);
+                dx = MathUtil.calculateXOffset(box, yoyoBoundingBox, dx);
+                dy = MathUtil.calculateXOffset(box, yoyoBoundingBox, dy);
+                dz = MathUtil.calculateXOffset(box, yoyoBoundingBox, dz);
             }
 
             yoyoBoundingBox = yoyoBoundingBox.offset(dx, dy, dz);
 
             for (AxisAlignedBB box : colliderBoxes) {
                 if (box.intersects(yoyoBoundingBox)) {
-                    dx = MathUtl.calculateXOffset(box, yoyoBoundingBox, dx);
-                    dy = MathUtl.calculateYOffset(box, yoyoBoundingBox, dy);
-                    dz = MathUtl.calculateZOffset(box, yoyoBoundingBox, dz);
+                    dx = MathUtil.calculateXOffset(box, yoyoBoundingBox, dx);
+                    dy = MathUtil.calculateYOffset(box, yoyoBoundingBox, dy);
+                    dz = MathUtil.calculateZOffset(box, yoyoBoundingBox, dz);
 
                     yoyoBoundingBox = yoyoBoundingBox.offset(-dx, -dy, -dz);
                 }
@@ -398,6 +399,16 @@ public class YoyoEntity extends MobEntity implements IEntityAdditionalSpawnData 
         Vec3d pos = yoyoBoundingBox.getCenter();
         setPosition(pos.x, yoyoBoundingBox.minY, pos.z);
 
+    }
+
+    @Override
+    protected void collideWithEntity(Entity entityIn) {
+        if(entityIn instanceof PlayerEntity) {
+            PlayerEntity playerEntity = (PlayerEntity) entityIn;
+            if(playerEntity.getUniqueID().equals(thrower.getUniqueID()))
+                return;
+        }
+        entityIn.applyEntityCollision(this);
     }
 
     public void interactWithEntity(Entity entity) {

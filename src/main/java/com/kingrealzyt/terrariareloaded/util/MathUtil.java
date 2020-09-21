@@ -2,7 +2,7 @@ package com.kingrealzyt.terrariareloaded.util;
 
 import net.minecraft.util.math.AxisAlignedBB;
 
-public class MathUtl {
+public class MathUtil {
 
     public static double calculateXOffset(AxisAlignedBB one, AxisAlignedBB other, double offsetX) {
         double oX = offsetX;
