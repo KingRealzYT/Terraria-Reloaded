@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "i  ",
+    "i  ",
+    "   "
+  ],
+  "key":
+  {
+    "j":
+    {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "result":
+  {
+    "item": "terrariareloaded:chain",
+    "count": 1
+  }
+}

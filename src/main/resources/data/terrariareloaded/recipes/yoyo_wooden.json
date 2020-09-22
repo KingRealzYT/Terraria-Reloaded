@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "www",
+    "wsw",
+    "www"
+  ],
+  "key":
+  {
+    "w":
+    {
+      "tag": "minecraft:planks"
+    },
+    "s":
+    {
+      "item": "minecraft:string"
+    }
+
+  },
+  "result":
+  {
+    "item": "terrariareloaded:wooden_yoyo",
+    "count": 1
+  }
+}

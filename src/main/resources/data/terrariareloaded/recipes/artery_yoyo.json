@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "www",
+    "wsw",
+    "www"
+  ],
+  "key":
+  {
+    "w":
+    {
+      "item": "terrariareloaded:crimtane_ingot"
+    },
+    "s":
+    {
+      "item": "minecraft:string"
+    }
+
+  },
+  "result":
+  {
+    "item": "terrariareloaded:artery_yoyo",
+    "count": 1
+  }
+}

@@ -12,9 +12,9 @@ import net.minecraft.world.World;
 import java.util.function.Predicate;
 
 @SuppressWarnings("all")
-public class MythrilRepeaterItem extends ShootableItem {
+public class ChlorophyteRepeaterItem extends ShootableItem {
 
-    public MythrilRepeaterItem(Properties properties) {
+    public ChlorophyteRepeaterItem(Properties properties) {
         super(properties);
     }
 
@@ -41,7 +41,7 @@ public class MythrilRepeaterItem extends ShootableItem {
                     playerIn.findAmmo(itemstack).shrink(1);
                 }
                 ArrowEntity arrow = new ArrowEntity(worldIn, playerIn);
-                arrow.setDamage(36.0f);
+                arrow.setDamage(41.0f);
                 arrow.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 5.0F, 0.12F);
                 worldIn.addEntity(arrow);
             }

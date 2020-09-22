@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "jws",
+    "wvw",
+    "swj"
+  ],
+  "key":
+  {
+    "w":
+    {
+      "tag": "minecraft:planks"
+    },
+    "v":
+    {
+      "item": "minecraft:vine"
+    },
+    "s":
+    {
+      "item": "terrariareloaded:stinger"
+    },
+    "j":
+    {
+      "item": "terrariareloaded:jungle_spores"
+    }
+  },
+  "result":
+  {
+    "item": "terrariareloaded:amazon_yoyo",
+    "count": 1
+  }
+}
