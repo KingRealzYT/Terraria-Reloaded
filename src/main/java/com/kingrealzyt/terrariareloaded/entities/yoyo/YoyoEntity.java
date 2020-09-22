@@ -19,6 +19,7 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.network.datasync.IDataSerializer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.HandSide;
@@ -250,6 +251,11 @@ public class YoyoEntity extends MobEntity implements IEntityAdditionalSpawnData 
 
     }
 
+    @Override
+    protected void damageEntity(DamageSource damageSrc, float damageAmount) {
+        //We dont want to damage the yoyo entity
+    }
+
     public void forceRetract() {
         setRetracting(true);
         canCancelRetract = false;
@@ -403,9 +409,9 @@ public class YoyoEntity extends MobEntity implements IEntityAdditionalSpawnData 
 
     @Override
     protected void collideWithEntity(Entity entityIn) {
-        if(entityIn instanceof PlayerEntity) {
+        if (entityIn instanceof PlayerEntity) {
             PlayerEntity playerEntity = (PlayerEntity) entityIn;
-            if(playerEntity.getUniqueID().equals(thrower.getUniqueID()))
+            if (playerEntity.getUniqueID().equals(thrower.getUniqueID()))
                 return;
         }
         entityIn.applyEntityCollision(this);
@@ -500,6 +506,7 @@ public class YoyoEntity extends MobEntity implements IEntityAdditionalSpawnData 
         return objectMouseOver;
     }
 
+    //GETTER AND SETTER METHODS
     public void setYoyoType(YoyoType type) {
         this.dataManager.set(YOYO_TYPE, type);
     }

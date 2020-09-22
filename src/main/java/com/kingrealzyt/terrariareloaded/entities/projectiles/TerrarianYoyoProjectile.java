@@ -3,6 +3,7 @@ package com.kingrealzyt.terrariareloaded.entities.projectiles;
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoType;
 import com.kingrealzyt.terrariareloaded.init.ModEntityTypes;
+import com.kingrealzyt.terrariareloaded.init.ModItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -32,7 +33,7 @@ public class TerrarianYoyoProjectile extends ProjectileItemEntity {
 
     @Override
     protected Item getDefaultItem() {
-        return Items.APPLE;
+        return ModItems.TERRARIAN_YOYO_PROJECTILE.get();
     }
 
     @Override

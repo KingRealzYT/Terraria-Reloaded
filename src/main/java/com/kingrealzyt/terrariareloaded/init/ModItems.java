@@ -87,6 +87,7 @@ public class ModItems {
     public static final RegistryObject<Item> VALOR_YOYO = registerYoyo("valor", YoyoType.VALOR);
     public static final RegistryObject<Item> WOODEN_YOYO = registerYoyo("wooden", YoyoType.WOODEN);
     public static final RegistryObject<Item> YELETS_YOYO = registerYoyo("yelets", YoyoType.YELETS);
+    public static final RegistryObject<Item> TERRARIAN_YOYO_PROJECTILE = ITEMS.register("terrarian_yoyo_projectile", () -> new Item(new Item.Properties()));
 
     private static RegistryObject<Item> registerYoyo(String name, YoyoType type) {
         return ITEMS.register(name + "_yoyo", () -> new YoyoItem(type));

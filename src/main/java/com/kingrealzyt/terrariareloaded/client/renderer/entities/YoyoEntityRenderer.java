@@ -86,9 +86,8 @@ public class YoyoEntityRenderer extends EntityRenderer<YoyoEntity> {
         float f4 = MathHelper.fastInvSqrt(f * f + f2 * f2) * 0.025F / 2.0F;
         float f5 = f2 * f4;
         float f6 = f * f4;
-        //TODO Change light... i think the light is the problem
         int i = this.getBlockLight(entityLivingIn, partialTicks);
-        int j = entityLivingIn.isBurning() ? 15 : entityLivingIn.world.getLightFor(LightType.BLOCK, new BlockPos(entityLivingIn.getEyePosition(partialTicks)));
+        int j = leashHolder.isBurning() ? 15 : leashHolder.world.getLightFor(LightType.BLOCK, new BlockPos(leashHolder.getEyePosition(partialTicks)));
         int k = entityLivingIn.world.getLightFor(LightType.SKY, new BlockPos(entityLivingIn.getEyePosition(partialTicks)));
         int l = entityLivingIn.world.getLightFor(LightType.SKY, new BlockPos(leashHolder.getEyePosition(partialTicks)));
         MobRenderer.renderSide(ivertexbuilder, matrix4f, f, f1, f2, i, j, k, l, 0.025F, 0.025F, f5, f6);
