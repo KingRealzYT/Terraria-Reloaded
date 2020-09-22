@@ -26,7 +26,7 @@ public enum YoyoType {
     REDS_THROW(70, 4.5F, 11.5, 1200, TerrariaReloaded.rlTexture("items/yoyo_reds_throw.png")),
     VALKYRIE_YOYO(70, 4.5F, 11.5, 1200, TerrariaReloaded.rlTexture("items/yoyo_valkyrie_yoyo.png")),
     KRAKEN(95, 4.3F, 10.5D, 1200, TerrariaReloaded.rlTexture("items/yoyo_kraken.png")),
-    THE_EYE_OF_CTHULU(115, 3.5F, 11.5, 1200, TerrariaReloaded.rlTexture("items/yoyo_the_eye_of_cthulu.png")),
+    THE_EYE_OF_CTHULHU(115, 3.5F, 11.5, 1200, TerrariaReloaded.rlTexture("items/yoyo_the_eye_of_cthulu.png")),
     TERRARIAN(1 /*TODO Change it later back to 190*/, 6.5F, 22.5, 1200, TerrariaReloaded.rlTexture("items/yoyo_terrarian.png"));
 
     public static final YoyoType[] VALUES = values();
@@ -97,15 +97,15 @@ public enum YoyoType {
                 return REDS_THROW;
             case "terrarian_yoyo":
                 return TERRARIAN;
-            case "the_eye_of_cthulu_yoyo":
-                return THE_EYE_OF_CTHULU;
+            case "the_eye_of_cthulhu_yoyo":
+                return THE_EYE_OF_CTHULHU;
             case "valkyrie_yoyo":
                 return VALKYRIE_YOYO;
             case "valor_yoyo":
                 return VALOR;
             case "wooden_yoyo":
                 return WOODEN;
-            case "yelets":
+            case "yelets_yoyo":
                 return YELETS;
             default:
                 throw new IllegalStateException("Yoyotype not found");

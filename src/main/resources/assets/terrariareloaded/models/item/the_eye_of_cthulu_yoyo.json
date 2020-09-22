@@ -1,6 +1,0 @@
-{
-  "parent": "item/handheld",
-  "textures": {
-    "layer0": "terrariareloaded:items/yoyo_the_eye_of_cthulu"
-  }
-}
