@@ -16,7 +16,7 @@
   "item.terrariareloaded.picksaw": "Picksaw",
   "item.terrariareloaded.pickaxe_axe": "Pickaxe Axe",
 
-  "item.terrariareloaded.cobalt_ore": "Cobalt Ore",
+  "block.terrariareloaded.cobalt_ore": "Cobalt Ore",
 
   "item.terrariareloaded.hallowed_repeater": "Hallowed Repeater",
   "item.terrariareloaded.cobalt_repeater": "Cobalt Repeater",
@@ -55,6 +55,8 @@
   "item.terrariareloaded.slime_crown": "Slime Crown",
   "item.terrariareloaded.worm_food": "Worm Food",
 
+  "itemGroup.Blocks": "Terraria Reloaded Blocks",
+  "itemGroup.Ingots": "Terraria Reloaded Ingots",
   "itemGroup.Swords": "Terraria Reloaded Swords",
   "itemGroup.Ranged": "Terraria Reloaded Ranged",
   "itemGroup.Throwable": "Terraria Reloaded Throwable",

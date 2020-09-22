@@ -79,14 +79,14 @@ public class TerrariaReloaded {
 
     // Tabs
 
-    public static final ItemGroup BLOCKS = new ItemGroup("blocks") {
+    public static final ItemGroup BLOCKS = new ItemGroup("Blocks") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(ModItems.THROWING_KNIFE_ITEM.get());
+            return new ItemStack(ModBlocks.COBALT_ORE.get());
         }
     };
 
-    public static final ItemGroup INGOTS = new ItemGroup("ingots") {
+    public static final ItemGroup INGOTS = new ItemGroup("Ingots") {
         @Override
         public ItemStack createIcon() {
             return new ItemStack(ModItems.THROWING_KNIFE_ITEM.get());
