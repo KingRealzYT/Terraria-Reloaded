@@ -12,9 +12,9 @@ import net.minecraft.world.World;
 import java.util.function.Predicate;
 
 @SuppressWarnings("all")
-public class AdmantiteRepeaterItem extends ShootableItem {
+public class AdamantiteRepeaterItem extends ShootableItem {
 
-    public AdmantiteRepeaterItem(Properties properties) {
+    public AdamantiteRepeaterItem(Properties properties) {
         super(properties);
     }
 
@@ -26,6 +26,10 @@ public class AdmantiteRepeaterItem extends ShootableItem {
     @Override
     public void onUse(World worldIn, LivingEntity livingEntityIn, ItemStack stack, int count) {
         super.onUse(worldIn, livingEntityIn, stack, count);
+    }
+    @Override
+    public int getItemStackLimit(ItemStack stack) {
+        return 1;
     }
 
     @Override

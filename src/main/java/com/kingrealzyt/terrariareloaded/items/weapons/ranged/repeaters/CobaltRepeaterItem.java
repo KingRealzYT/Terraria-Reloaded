@@ -27,6 +27,10 @@ public class CobaltRepeaterItem extends ShootableItem {
     public void onUse(World worldIn, LivingEntity livingEntityIn, ItemStack stack, int count) {
         super.onUse(worldIn, livingEntityIn, stack, count);
     }
+    @Override
+    public int getItemStackLimit(ItemStack stack) {
+        return 1;
+    }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
