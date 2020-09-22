@@ -3,18 +3,18 @@ package com.kingrealzyt.terrariareloaded.items.weapons.ranged.repeaters;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ShootableItem;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-
 import java.util.function.Predicate;
 
 @SuppressWarnings("all")
-public class HallowedRepeaterItem extends ShootableItem {
+public class MythrilRepeaterItem extends ShootableItem {
 
-    public HallowedRepeaterItem(Properties properties) {
+    public MythrilRepeaterItem(Properties properties) {
         super(properties);
     }
 
@@ -37,7 +37,7 @@ public class HallowedRepeaterItem extends ShootableItem {
                     playerIn.findAmmo(itemstack).shrink(1);
                 }
                 ArrowEntity arrow = new ArrowEntity(worldIn, playerIn);
-                arrow.setDamage(53.0f);
+                arrow.setDamage(36.0f);
                 arrow.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 5.0F, 0.12F);
                 worldIn.addEntity(arrow);
             }

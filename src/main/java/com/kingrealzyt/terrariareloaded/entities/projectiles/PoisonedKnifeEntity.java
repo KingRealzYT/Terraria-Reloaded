@@ -1,5 +1,7 @@
 package com.kingrealzyt.terrariareloaded.entities.projectiles;
 
+import com.kingrealzyt.terrariareloaded.init.ModEntityTypes;
+import com.kingrealzyt.terrariareloaded.init.ModItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -8,6 +10,8 @@ import net.minecraft.entity.projectile.ProjectileItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.IPacket;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.util.math.RayTraceResult;
@@ -15,21 +19,19 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.kingrealzyt.terrariareloaded.init.ModEntityTypes;
-import com.kingrealzyt.terrariareloaded.init.ModItems;
 
-public class ThrowingKnifeEntity extends ProjectileItemEntity {
+public class PoisonedKnifeEntity extends ProjectileItemEntity {
     private static final Logger LOGGER   = LogManager.getLogger();
     private static final float  DAMAGE   = 5.0F;
     private static final float  DURATION = 30.0F/*in second*/;
 
     private int tick = 0;
 
-    public ThrowingKnifeEntity(EntityType<? extends ProjectileItemEntity> type, World worldIn) {
+    public PoisonedKnifeEntity(EntityType<? extends ProjectileItemEntity> type, World worldIn) {
         super(type, worldIn);
     }
 
-    public ThrowingKnifeEntity(World worldIn, LivingEntity livingEntityIn) {
+    public PoisonedKnifeEntity(World worldIn, LivingEntity livingEntityIn) {
         super(ModEntityTypes.THROWING_KNIFE_ENTITY.get(), livingEntityIn, worldIn);
     }
 
@@ -43,6 +45,7 @@ public class ThrowingKnifeEntity extends ProjectileItemEntity {
         if (result.getType() == RayTraceResult.Type.ENTITY) {
             Entity entity = ((EntityRayTraceResult) result).getEntity();
             if (entity instanceof LivingEntity) {
+                ((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.POISON, 5, 0));
                 entity.attackEntityFrom(DamageSource.causeThrownDamage(this, null), DAMAGE);
             }
         }

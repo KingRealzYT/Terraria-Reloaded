@@ -1,5 +1,7 @@
 package com.kingrealzyt.terrariareloaded.items.weapons.throwing;
 
+import com.kingrealzyt.terrariareloaded.entities.projectiles.PoisonedKnifeEntity;
+import com.kingrealzyt.terrariareloaded.entities.projectiles.ThrowingKnifeEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -7,11 +9,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
-import com.kingrealzyt.terrariareloaded.entities.projectiles.ThrowingKnifeEntity;
 
-public class ThrowingKnifeItem extends Item {
+public class PoisonedKnifeItem extends Item {
 
-    public ThrowingKnifeItem(Properties properties) {
+    public PoisonedKnifeItem(Properties properties) {
         super(properties);
     }
 
@@ -26,7 +27,7 @@ public class ThrowingKnifeItem extends Item {
             if (!playerIn.abilities.isCreativeMode) {
                 playerIn.getHeldItem(handIn).shrink(1);
             }
-            ThrowingKnifeEntity thrownKnife = new ThrowingKnifeEntity(worldIn, playerIn);
+            PoisonedKnifeEntity thrownKnife = new PoisonedKnifeEntity(worldIn, playerIn);
             thrownKnife.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw,  0.0F, 1.25F, 0.12F);
             worldIn.addEntity(thrownKnife);
         }
