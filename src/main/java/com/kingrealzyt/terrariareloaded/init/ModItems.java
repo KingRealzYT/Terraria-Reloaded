@@ -2,10 +2,7 @@ package com.kingrealzyt.terrariareloaded.init;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoType;
-import com.kingrealzyt.terrariareloaded.items.GuideVoodoo;
-import com.kingrealzyt.terrariareloaded.items.ItemBand;
-import com.kingrealzyt.terrariareloaded.items.Lens;
-import com.kingrealzyt.terrariareloaded.items.MagicMirror;
+import com.kingrealzyt.terrariareloaded.items.*;
 import com.kingrealzyt.terrariareloaded.items.tools.others.PickaxeAxeItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.ranged.repeaters.HallowedRepeaterItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.ranged.yoyo.YoyoItem;
@@ -29,6 +26,12 @@ public class ModItems {
     public static final RegistryObject<Item> MAGIC_MIRROR = ITEMS.register("magic_mirror", MagicMirror::new);
     public static final RegistryObject<Item> ICE_MIRROR = ITEMS.register("ice_mirror", MagicMirror::new);
     public static final RegistryObject<Item> GUIDE_VOODOO = ITEMS.register("guide_voodoo_doll", GuideVoodoo::new);
+    public static final RegistryObject<Item> SUSPICIOUS_EYE = ITEMS.register("suspicious_looking_eye", SuspiciousEye::new);
+    public static final RegistryObject<Item> BLOODY_SPINE = ITEMS.register("bloody_spine", BloodySpine::new);
+    public static final RegistryObject<Item> ABEEMINATION = ITEMS.register("abeemination", Abeemination::new);
+    public static final RegistryObject<Item> WORM_FOOD = ITEMS.register("worm_food", WormFood::new);
+    public static final RegistryObject<Item> SLIME_CROWN = ITEMS.register("slime_crown", SlimeCrown::new);
+
     public static final RegistryObject<Item> BAND_REGENERATION = ITEMS.register("band_of_regeneration", ItemBand::new);
     public static final RegistryObject<Item> LENS = ITEMS.register("lens", Lens::new);
 
