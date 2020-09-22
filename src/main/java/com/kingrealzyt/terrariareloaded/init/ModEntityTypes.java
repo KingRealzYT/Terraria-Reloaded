@@ -1,9 +1,12 @@
 package com.kingrealzyt.terrariareloaded.init;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
+import com.kingrealzyt.terrariareloaded.entities.boss.WOFEyeEntity;
+import com.kingrealzyt.terrariareloaded.entities.boss.WOFMouthEntity;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.TerrarianYoyoProjectile;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.ThrowingKnifeEntity;
 import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoEntity;
+import net.minecraft.advancements.criterion.EnchantedItemTrigger;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
@@ -13,7 +16,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModEntityTypes {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = new DeferredRegister<>(ForgeRegistries.ENTITIES, TerrariaReloaded.MOD_ID);
-
+    // PROJECTILE ENTITIES
     public static final RegistryObject<EntityType<ThrowingKnifeEntity>> THROWING_KNIFE_ENTITY = ENTITY_TYPES
             .register("throwing_knife",
                     () -> EntityType.Builder
@@ -32,5 +35,20 @@ public class ModEntityTypes {
             .register("terrarian_projectile",
                     () -> EntityType.Builder.<TerrarianYoyoProjectile>create(TerrarianYoyoProjectile::new, EntityClassification.MISC)
             .size(0.3F, 0.3F).build(new ResourceLocation(TerrariaReloaded.MOD_ID + ":terrarian_projectile").toString()));
+
+    //BOSS ENTITIES
+
+    public static final RegistryObject<EntityType<WOFEyeEntity>> WALL_OF_FLESH_EYE = ENTITY_TYPES.register("wall_of_flesh_eye",
+            () -> EntityType.Builder.<WOFEyeEntity>create(WOFEyeEntity::new, EntityClassification.MONSTER)
+                    .size(1.7f, 1.7f)
+                    .immuneToFire()
+                    .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "wall_of_flesh_eye").toString()));
+
+    public static final RegistryObject<EntityType<WOFMouthEntity>> WALL_OF_FLESH_MOUTH = ENTITY_TYPES.register("wall_of_flesh_mouth",
+            () -> EntityType.Builder.<WOFMouthEntity>create(WOFMouthEntity::new, EntityClassification.MONSTER)
+                    .size(1.7f, 1.7f)
+                    .immuneToFire()
+                    .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "wall_of_flesh_mouth").toString()));
+
 
 }
