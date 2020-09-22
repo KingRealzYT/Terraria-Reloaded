@@ -1,5 +1,6 @@
 package com.kingrealzyt.terrariareloaded;
 
+import com.kingrealzyt.terrariareloaded.init.ModBlocks;
 import com.kingrealzyt.terrariareloaded.init.ModEntityTypes;
 import com.kingrealzyt.terrariareloaded.init.ModItems;
 import com.kingrealzyt.terrariareloaded.init.SoundInit;
@@ -37,6 +38,7 @@ public class TerrariaReloaded {
 
         SoundInit.SOUNDS.register(modEventBus);
         ModItems.init();
+        ModBlocks.init();
         ModEntityTypes.ENTITY_TYPES.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
