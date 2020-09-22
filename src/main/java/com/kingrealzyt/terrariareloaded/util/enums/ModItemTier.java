@@ -13,15 +13,15 @@ public enum ModItemTier implements IItemTier {
 
     private final int harvestLevel;
     private final int maxUses;
-    private final float efficiencey;
+    private final float efficiency;
     private final float attackDamage;
     private final int enchantability;
     private final Supplier<Ingredient> repairMaterial;
 
-    ModItemTier(int harvestLevel, int maxUses, float efficiencey, float attackDamage, int enchantability, Supplier<Ingredient> repairMaterial) {
+    ModItemTier(int harvestLevel, int maxUses, float efficiency, float attackDamage, int enchantability, Supplier<Ingredient> repairMaterial) {
         this.harvestLevel = harvestLevel;
         this.maxUses = maxUses;
-        this.efficiencey = efficiencey;
+        this.efficiency = efficiency;
         this.attackDamage = attackDamage;
         this.enchantability = enchantability;
         this.repairMaterial = repairMaterial;
@@ -34,7 +34,7 @@ public enum ModItemTier implements IItemTier {
 
     @Override
     public float getEfficiency() {
-        return efficiencey;
+        return efficiency;
     }
 
     @Override

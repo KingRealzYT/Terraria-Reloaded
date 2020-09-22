@@ -28,6 +28,11 @@ public class ItemBand extends Item {
         tooltip.add(new StringTextComponent("Slowly regenerates life"));
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
+    @Override
+    public int getItemStackLimit(ItemStack stack) {
+        return 1;
+    }
+
 
     @Override
     public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
