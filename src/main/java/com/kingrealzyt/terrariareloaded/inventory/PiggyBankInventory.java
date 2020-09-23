@@ -14,7 +14,7 @@ public class PiggyBankInventory extends Inventory {
 
     @Override
     public int getInventoryStackLimit() {
-        return 100;
+        return 999;
     }
 
     public ListNBT write() {

@@ -13,8 +13,10 @@ public class MiscItemBase extends Item {
     @Override
     public int getItemStackLimit(ItemStack stack) {
         String path = stack.getItem().getRegistryName().getPath();
-        if (path.equals("copper_coin") || path.equals("silver_coin") || path.equals("gold_coin") || path.equals("platinum_coin"))
+        if (path.equals("copper_coin") || path.equals("silver_coin") || path.equals("gold_coin"))
             return 100;
+        if (path.equals("platinum_coin"))
+            return 999;
         return super.getItemStackLimit(stack);
     }
 
