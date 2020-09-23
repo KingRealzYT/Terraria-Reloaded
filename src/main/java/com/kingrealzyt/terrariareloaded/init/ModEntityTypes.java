@@ -4,6 +4,7 @@ import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFMouthEntity;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.DynamiteEntity;
+import com.kingrealzyt.terrariareloaded.entities.projectiles.GrenadeEntity;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.TerrarianYoyoProjectile;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.ThrowingKnifeEntity;
 import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoEntity;
@@ -31,6 +32,14 @@ public class ModEntityTypes {
                             .<DynamiteEntity>create(DynamiteEntity::new, EntityClassification.MISC)
                             .size(1.0f, 1.0f)
                             .build(new ResourceLocation(TerrariaReloaded.MOD_ID + ":dynamite").toString()));
+
+    public static final RegistryObject<EntityType<GrenadeEntity>> GRENADE_ENTITY = ENTITY_TYPES
+            .register("grenade",
+                    () -> EntityType.Builder
+                            .<GrenadeEntity>create(GrenadeEntity::new, EntityClassification.MISC)
+                            .size(0.7f, 0.7f)
+                            .build(new ResourceLocation(TerrariaReloaded.MOD_ID + ":grenade").toString()));
+
 
     public static final RegistryObject<EntityType<YoyoEntity>> YOYO_ENTITY = ENTITY_TYPES
             .register("yoyo",

@@ -7,6 +7,7 @@
   "item.terrariareloaded.ice_mirror": "Ice Mirror",
   "item.terrariareloaded.throwing_knife_item": "Throwing Knife",
   "item.terrariareloaded.dynamite_item": "Dynamite",
+  "item.terrariareloaded.grenade_item": "Grenade",
   "item.terrariareloaded.jungle_spores": "Jungle Spores",
   "item.terrariareloaded.chain": "Chain",
   "item.terrariareloaded.stinger": "Stinger",
@@ -24,6 +25,11 @@
   "item.terrariareloaded.spectre_ingot": "Spectre Ingot",
   "item.terrariareloaded.silver_ingot": "Silver Ingot",
   "item.terrariareloaded.copper_ingot": "Copper Ingot",
+
+  "item.terrariareloaded.copper_coin": "Copper Coin",
+  "item.terrariareloaded.silver_coin": "Silver Coin",
+  "item.terrariareloaded.gold_coin": "Gold Coin",
+  "item.terrariareloaded.platinum_coin": "Platinum Coin",
 
   "item.terrariareloaded.lens": "Lens",
   "item.terrariareloaded.black_lens": "Black Lens",

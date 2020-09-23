@@ -8,6 +8,7 @@ import com.kingrealzyt.terrariareloaded.items.tools.others.PickaxeAxeItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.ranged.repeaters.*;
 import com.kingrealzyt.terrariareloaded.items.weapons.ranged.yoyo.YoyoItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.throwing.DynamiteItem;
+import com.kingrealzyt.terrariareloaded.items.weapons.throwing.GrenadeItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.throwing.ThrowingKnifeItem;
 import com.kingrealzyt.terrariareloaded.util.enums.ModItemTier;
 import net.minecraft.item.*;
@@ -56,9 +57,10 @@ public class ModItems {
     public static final RegistryObject<Item> SILVER_INGOT  = ITEMS.register("silver_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> COPPER_INGOT = ITEMS.register("copper_ingot", MiscItemBase::new);
 
-
-
-
+    public static final RegistryObject<Item> COPPER_COIN = ITEMS.register("copper_coin", MiscItemBase::new);
+    public static final RegistryObject<Item> SILVER_COIN = ITEMS.register("silver_coin", MiscItemBase::new);
+    public static final RegistryObject<Item> GOLD_COIN = ITEMS.register("gold_coin", MiscItemBase::new);
+    public static final RegistryObject<Item> PLATINUM_COIN  = ITEMS.register("platinum_coin", MiscItemBase::new);
 
     // Tools
     public static final RegistryObject<SwordItem> COPPER_SHORTSWORD = ITEMS.register("copper_shortsword", () -> new SwordItem(ModItemTier.COPPER_SHORT, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.SWORDS).setNoRepair()));
@@ -98,6 +100,8 @@ public class ModItems {
     // Throwing weapons
     public static final RegistryObject<Item> THROWING_KNIFE_ITEM = ITEMS.register("throwing_knife_item", () -> new ThrowingKnifeItem(new Item.Properties().group(TerrariaReloaded.THROW)));
     public static final RegistryObject<Item> DYNAMITE_ITEM = ITEMS.register("dynamite_item", () -> new DynamiteItem(new Item.Properties().group(TerrariaReloaded.THROW)));
+    public static final RegistryObject<Item> GRENADE_ITEM = ITEMS.register("grenade_item", () -> new GrenadeItem(new Item.Properties().group(TerrariaReloaded.THROW)));
+
     //Yoyos
     public static final RegistryObject<Item> AMAROK_YOYO = registerYoyo("amarok", YoyoType.AMAROK);
 
