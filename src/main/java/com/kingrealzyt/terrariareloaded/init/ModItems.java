@@ -7,6 +7,7 @@ import com.kingrealzyt.terrariareloaded.items.*;
 import com.kingrealzyt.terrariareloaded.items.tools.others.PickaxeAxeItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.ranged.repeaters.*;
 import com.kingrealzyt.terrariareloaded.items.weapons.ranged.yoyo.YoyoItem;
+import com.kingrealzyt.terrariareloaded.items.weapons.throwing.DynamiteItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.throwing.ThrowingKnifeItem;
 import com.kingrealzyt.terrariareloaded.util.enums.ModItemTier;
 import net.minecraft.item.*;
@@ -67,8 +68,10 @@ public class ModItems {
 
     // Throwing weapons
     public static final RegistryObject<Item> THROWING_KNIFE_ITEM = ITEMS.register("throwing_knife_item", () -> new ThrowingKnifeItem(new Item.Properties().group(TerrariaReloaded.THROW)));
+    public static final RegistryObject<Item> DYNAMITE_ITEM = ITEMS.register("dynamite_item", () -> new DynamiteItem(new Item.Properties().group(TerrariaReloaded.THROW)));
     //Yoyos
     public static final RegistryObject<Item> AMAROK_YOYO = registerYoyo("amarok", YoyoType.AMAROK);
+
     public static final RegistryObject<Item> AMAZON_YOYO = registerYoyo("amazon", YoyoType.AMAROK);
     public static final RegistryObject<Item> ARTERY_YOYO = registerYoyo("artery", YoyoType.ARTERY);
     public static final RegistryObject<Item> CASCADE_YOYO = registerYoyo("cascade", YoyoType.CASCADE);
