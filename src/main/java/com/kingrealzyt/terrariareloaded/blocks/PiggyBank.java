@@ -2,10 +2,8 @@ package com.kingrealzyt.terrariareloaded.blocks;
 
 import com.kingrealzyt.terrariareloaded.container.PiggyBankContainer;
 import com.kingrealzyt.terrariareloaded.inventory.PiggyBankInventory;
-import com.kingrealzyt.terrariareloaded.world.capability.PlayerCoinCapabilityProvider;
 import com.kingrealzyt.terrariareloaded.world.capability.PlayerCoinInventory;
 import com.kingrealzyt.terrariareloaded.world.capability.PlayerCoinInventoryCapabilityProvider;
-import com.kingrealzyt.terrariareloaded.world.capability.PlayerCoinStorage;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
@@ -78,18 +76,10 @@ public class PiggyBank extends Block implements IWaterLoggable {
 
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        PlayerCoinStorage playerCoinStorage = PlayerCoinCapabilityProvider.getPlayerCapability(player).orElse(null);
         PlayerCoinInventory playerCoinInventory = PlayerCoinInventoryCapabilityProvider.getPlayerCapability(player).orElse(null);
-        if (playerCoinInventory.getPiggyBankInventory() == null)
-            playerCoinInventory.setPiggyBankInventory(new PiggyBankInventory());
         if (!worldIn.isRemote) {
             NetworkHooks.openGui((ServerPlayerEntity) player, new SimpleNamedContainerProvider((id, inventory, playerEntity) ->
-                    new PiggyBankContainer(id, inventory, playerCoinInventory.getPiggyBankInventory(), playerCoinStorage), new StringTextComponent("Piggy Bank")), (buffer) -> {
-                buffer.writeInt(playerCoinStorage.getAmount(PlayerCoinStorage.Coin.BRONZE));
-                buffer.writeInt(playerCoinStorage.getAmount(PlayerCoinStorage.Coin.SILVER));
-                buffer.writeInt(playerCoinStorage.getAmount(PlayerCoinStorage.Coin.GOLD));
-                buffer.writeInt(playerCoinStorage.getAmount(PlayerCoinStorage.Coin.PLATINUM));
-            });
+                    new PiggyBankContainer(id, inventory, playerCoinInventory.getPiggyBankInventory()), new StringTextComponent("Piggy Bank")));
         }
         return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
     }

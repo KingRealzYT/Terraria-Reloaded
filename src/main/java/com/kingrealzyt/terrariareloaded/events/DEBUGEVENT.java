@@ -1,8 +1,6 @@
 package com.kingrealzyt.terrariareloaded.events;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
-import com.kingrealzyt.terrariareloaded.world.capability.PlayerCoinCapabilityProvider;
-import com.kingrealzyt.terrariareloaded.world.capability.PlayerCoinStorage;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -17,11 +15,9 @@ public class DEBUGEVENT {
 
     @SubscribeEvent
     public static void onJoin(EntityJoinWorldEvent event) {
-        if(event.getEntity() instanceof PlayerEntity) {
+        if (event.getEntity() instanceof PlayerEntity) {
             PlayerEntity playerEntity = (PlayerEntity) event.getEntity();
-            PlayerCoinStorage coinStorage = PlayerCoinCapabilityProvider.getPlayerCapability(playerEntity).orElse(null);
-            coinStorage.setBronze(120);
-            coinStorage.setGold(2);
+
         }
     }
 

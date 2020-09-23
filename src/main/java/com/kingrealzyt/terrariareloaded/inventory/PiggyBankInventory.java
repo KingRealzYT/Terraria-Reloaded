@@ -1,74 +1,45 @@
 package com.kingrealzyt.terrariareloaded.inventory;
 
-import com.kingrealzyt.terrariareloaded.init.ModItems;
-import com.kingrealzyt.terrariareloaded.world.capability.PlayerCoinStorage;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EnderChestInventory;
-import net.minecraft.item.Item;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.EnderChestTileEntity;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.nbt.INBT;
+import net.minecraft.nbt.ListNBT;
 
-public class PiggyBankInventory extends EnderChestInventory {
+public class PiggyBankInventory extends Inventory {
 
     public PiggyBankInventory() {
+        super(27);
     }
 
-    public void fillInventoryCoins(PlayerCoinStorage coinStorage) {
-        int slot = 0;
-        this.applyCoins(slot, coinStorage, PlayerCoinStorage.Coin.BRONZE);
-        this.applyCoins(slot, coinStorage, PlayerCoinStorage.Coin.SILVER);
-        this.applyCoins(slot, coinStorage, PlayerCoinStorage.Coin.GOLD);
-        this.applyCoins(slot, coinStorage, PlayerCoinStorage.Coin.PLATINUM);
+    @Override
+    public int getInventoryStackLimit() {
+        return 100;
     }
 
-    private void applyCoins(int slot, PlayerCoinStorage storage, PlayerCoinStorage.Coin coin) {
-        int amount = storage.getAmount(coin);
-        Item coinItem;
-        switch (coin) {
-            case BRONZE:
-                coinItem = ModItems.COPPER_COIN.get();
-                break;
-            case SILVER:
-                coinItem = ModItems.SILVER_COIN.get();
-                break;
-            case GOLD:
-                coinItem = ModItems.GOLD_COIN.get();
-                break;
-            case PLATINUM:
-                coinItem = ModItems.PLATINUM_COIN.get();
-                break;
-            default:
-                throw new IllegalStateException("Coin type not found");
-        }
-
-        if (amount > 0) {
-            int i = amount % 100;
-            if (i == 0) {
-                for (int j = 0; j < amount / 100; j++) {
-                    this.setInventorySlotContents(slot++, new ItemStack(coinItem, 100));
-                }
-            } else {
-                if (amount < 100) {
-                    this.setInventorySlotContents(++slot, new ItemStack(coinItem, amount));
-                } else {
-                    int j = amount - i;
-                    amount -= i;
-                    for (int k = 0; k < amount / 100; k++) {
-                        this.setInventorySlotContents(slot++, new ItemStack(coinItem, 100));
-                    }
-                    this.setInventorySlotContents(++slot, new ItemStack(coinItem, j));
-                }
+    public ListNBT write() {
+        ListNBT list = new ListNBT();
+        for(int i = 0; i < this.getSizeInventory(); i++) {
+            ItemStack itemstack = this.getStackInSlot(i);
+            if(!itemstack.isEmpty()) {
+                CompoundNBT nbt = new CompoundNBT();
+                nbt.putInt("Slot", i);
+                nbt.put("Item", itemstack.write(new CompoundNBT()));
+                list.add(nbt);
             }
         }
+        return list;
     }
 
-    @Override
-    public boolean isUsableByPlayer(PlayerEntity player) {
-        return true;
+    public void read(ListNBT list) {
+        for (INBT inbt : list) {
+            if(!(inbt instanceof CompoundNBT))
+                throw new IllegalStateException("Can not read piggy bank inventory, list has a invalid object");
+            CompoundNBT nbt = (CompoundNBT) inbt;
+            int slot = nbt.getInt("Slot");
+            ItemStack itemstack = ItemStack.read(nbt.getCompound("Item"));
+            this.setInventorySlotContents(slot, itemstack);
+        }
     }
 
-    @Override
-    public void setChestTileEntity(EnderChestTileEntity chestTileEntity) {
-        //Not needed
-    }
 }

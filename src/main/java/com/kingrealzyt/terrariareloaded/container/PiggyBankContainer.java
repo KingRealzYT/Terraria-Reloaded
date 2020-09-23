@@ -4,7 +4,6 @@ import com.kingrealzyt.terrariareloaded.init.ModContainers;
 import com.kingrealzyt.terrariareloaded.inventory.PiggyBankInventory;
 import com.kingrealzyt.terrariareloaded.inventory.PiggyBankSlot;
 import com.kingrealzyt.terrariareloaded.world.capability.PlayerCoinInventoryCapabilityProvider;
-import com.kingrealzyt.terrariareloaded.world.capability.PlayerCoinStorage;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -20,10 +19,10 @@ public class PiggyBankContainer extends Container {
     private final PiggyBankInventory piggyBankInventory;
 
     public PiggyBankContainer(int id, PlayerInventory playerInventory, PacketBuffer data) {
-        this(id, playerInventory, PlayerCoinInventoryCapabilityProvider.getPlayerCapability(playerInventory.player).orElse(null).getPiggyBankInventory(), PlayerCoinStorage.read(data));
+        this(id, playerInventory, PlayerCoinInventoryCapabilityProvider.getPlayerCapability(playerInventory.player).orElse(null).getPiggyBankInventory());
     }
 
-    public PiggyBankContainer(int id, PlayerInventory playerInventory, PiggyBankInventory piggyBankInventory, PlayerCoinStorage storage) {
+    public PiggyBankContainer(int id, PlayerInventory playerInventory, PiggyBankInventory piggyBankInventory) {
         super(ModContainers.PIGGY_BANK.get(), id);
         int i = (this.numRows - 4) * 18;
         this.piggyBankInventory = piggyBankInventory;
@@ -43,9 +42,6 @@ public class PiggyBankContainer extends Container {
         for (int i1 = 0; i1 < 9; ++i1) {
             this.addSlot(new Slot(playerInventory, i1, 8 + i1 * 18, 161 + i));
         }
-
-        piggyBankInventory.fillInventoryCoins(storage);
-
     }
 
     public ItemStack transferStackInSlot(PlayerEntity playerIn, int index) {
