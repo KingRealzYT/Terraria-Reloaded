@@ -3,6 +3,7 @@ package com.kingrealzyt.terrariareloaded.init;
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFMouthEntity;
+import com.kingrealzyt.terrariareloaded.entities.npc.MerchantNPCEntity;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.DynamiteEntity;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.GrenadeEntity;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.TerrarianYoyoProjectile;
@@ -66,6 +67,15 @@ public class ModEntityTypes {
                     .size(1.7f, 1.7f)
                     .immuneToFire()
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "wall_of_flesh_mouth").toString()));
+
+
+    // NPC ENTITIES
+
+    public static final RegistryObject<EntityType<MerchantNPCEntity>> NPC_MERCHANT = ENTITY_TYPES.register("npc_merchant",
+            () -> EntityType.Builder.<MerchantNPCEntity>create(MerchantNPCEntity::new, EntityClassification.CREATURE)
+                    .size(0.6f, 1.6f)
+                    .immuneToFire()
+                    .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "npc_merchant").toString()));
 
 
 }
