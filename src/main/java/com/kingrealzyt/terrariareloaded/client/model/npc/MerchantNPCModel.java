@@ -1,4 +1,4 @@
-package com.kingrealzyt.terrariareloaded.client.model;
+package com.kingrealzyt.terrariareloaded.client.model.npc;
 
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.npc.MerchantNPCEntity;

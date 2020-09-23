@@ -78,4 +78,5 @@ public class ModEntityTypes {
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "npc_merchant").toString()));
 
 
+
 }
