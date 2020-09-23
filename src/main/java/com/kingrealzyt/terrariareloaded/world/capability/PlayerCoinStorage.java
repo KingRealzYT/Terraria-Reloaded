@@ -1,5 +1,6 @@
 package com.kingrealzyt.terrariareloaded.world.capability;
 
+import net.minecraft.network.PacketBuffer;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.util.LazyOptional;
@@ -13,6 +14,22 @@ public class PlayerCoinStorage {
     private int silver = 0;
     private int gold = 0;
     private int platinum = 0;
+
+    public void setBronze(int bronze) {
+        this.bronze = bronze;
+    }
+
+    public void setSilver(int silver) {
+        this.silver = silver;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
+
+    public void setPlatinum(int platinum) {
+        this.platinum = platinum;
+    }
 
     /**
      * @param coin the coin type
@@ -236,6 +253,15 @@ public class PlayerCoinStorage {
             return PLAYER_STORAGE_CAP;
         }
 
+    }
+
+    public static PlayerCoinStorage read(PacketBuffer data) {
+        PlayerCoinStorage rsp = new PlayerCoinStorage();
+        rsp.bronze = data.readInt();
+        rsp.silver = data.readInt();
+        rsp.gold = data.readInt();
+        rsp.platinum = data.readInt();
+        return rsp;
     }
 
     public enum Coin {

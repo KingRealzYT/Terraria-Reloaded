@@ -1,11 +1,14 @@
 package com.kingrealzyt.terrariareloaded.client;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
+import com.kingrealzyt.terrariareloaded.client.gui.PiggyBankScreen;
 import com.kingrealzyt.terrariareloaded.client.model.npc.MerchantNPCModel;
 import com.kingrealzyt.terrariareloaded.client.renderer.entities.*;
 import com.kingrealzyt.terrariareloaded.client.renderer.entities.npc.ShopNPCRenderer;
 import com.kingrealzyt.terrariareloaded.entities.npc.ShopNPCEntity;
+import com.kingrealzyt.terrariareloaded.init.ModContainers;
 import com.kingrealzyt.terrariareloaded.init.ModEntityTypes;
+import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.entity.EntityType;
 import net.minecraftforge.api.distmarker.Dist;
@@ -27,6 +30,8 @@ public class ClientEventBusSubscriber {
 
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.WALL_OF_FLESH_EYE.get(), WOFEyeRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.WALL_OF_FLESH_MOUTH.get(), WOFMouthRenderer::new);
+
+        ScreenManager.registerFactory(ModContainers.PIGGY_BANK.get(), PiggyBankScreen::new);
 
         registerNpcRenderer(ModEntityTypes.NPC_MERCHANT.get(), new MerchantNPCModel<>());
     }
