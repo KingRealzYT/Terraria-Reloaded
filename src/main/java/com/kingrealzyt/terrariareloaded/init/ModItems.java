@@ -43,12 +43,28 @@ public class ModItems {
     public static final RegistryObject<Item> BLACK_LENS = ITEMS.register("black_lens", MiscItemBase::new);
     public static final RegistryObject<Item> CRIMTANE_INGOT  = ITEMS.register("crimtane_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> DEMONITE_INGOT = ITEMS.register("demonite_ingot", MiscItemBase::new);
+    public static final RegistryObject<Item> COBALT_INGOT  = ITEMS.register("cobalt_ingot", MiscItemBase::new);
+    public static final RegistryObject<Item> PALLADIUM_INGOT = ITEMS.register("palladium_ingot", MiscItemBase::new);
+    public static final RegistryObject<Item> MYTHRIL_INGOT  = ITEMS.register("mythril_ingot", MiscItemBase::new);
+    public static final RegistryObject<Item> ORICHALCUM_INGOT = ITEMS.register("orichalcum_ingot", MiscItemBase::new);
+    public static final RegistryObject<Item> TITANIUM_INGOT  = ITEMS.register("titanium_ingot", MiscItemBase::new);
+    public static final RegistryObject<Item> ADAMANTITE_INGOT = ITEMS.register("adamantite_ingot", MiscItemBase::new);
+    public static final RegistryObject<Item> HELLSTONE_INGOT = ITEMS.register("hellstone_ingot", MiscItemBase::new);
+    public static final RegistryObject<Item> CHLOROPHYTE_INGOT = ITEMS.register("chlorophyte_ingot", MiscItemBase::new);
+    public static final RegistryObject<Item> SPECTRE_INGOT = ITEMS.register("spectre_ingot", MiscItemBase::new);
+    public static final RegistryObject<Item> METEORITE_INGOT = ITEMS.register("meteorite_ingot", MiscItemBase::new);
+    public static final RegistryObject<Item> SILVER_INGOT  = ITEMS.register("silver_ingot", MiscItemBase::new);
+    public static final RegistryObject<Item> COPPER_INGOT = ITEMS.register("copper_ingot", MiscItemBase::new);
+
+
+
+
 
     // Tools
     public static final RegistryObject<SwordItem> COPPER_SHORTSWORD = ITEMS.register("copper_shortsword", () -> new SwordItem(ModItemTier.COPPER_SHORT, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.SWORDS).setNoRepair()));
     public static final RegistryObject<SwordItem> COPPER_BROADSWORD = ITEMS.register("copper_broadsword", () -> new SwordItem(ModItemTier.COPPER_BROAD, 2, -2.4F, new Item.Properties().group(TerrariaReloaded.SWORDS).setNoRepair()));
-    public static final RegistryObject<AxeItem> COPPER_AXE = ITEMS.register("copper_axe", () -> new AxeItem(ModItemTier.COPPER_SHORT, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.AXE).setNoRepair()));
-    public static final RegistryObject<PickaxeItem> COPPER_PICKAXE = ITEMS.register("copper_pickaxe", () -> new PickaxeItem(ModItemTier.COPPER_SHORT, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.PICKAXE).setNoRepair()));
+    public static final RegistryObject<AxeItem> COPPER_AXE = ITEMS.register("copper_axe", () -> new AxeItem(ModItemTier.COPPER_SHORT, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.TOOL).setNoRepair()));
+    public static final RegistryObject<PickaxeItem> COPPER_PICKAXE = ITEMS.register("copper_pickaxe", () -> new PickaxeItem(ModItemTier.COPPER_SHORT, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.TOOL).setNoRepair()));
     public static final RegistryObject<HallowedRepeaterItem> HALLOWED_REPEATER_ITEM = ITEMS.register("hallowed_repeater", () -> new HallowedRepeaterItem(new Item.Properties().group(TerrariaReloaded.RANGED).setNoRepair()));
     public static final RegistryObject<AdamantiteRepeaterItem> ADAMANTITE_REPEATER_ITEM = ITEMS.register("adamantite_repeater", () -> new AdamantiteRepeaterItem(new Item.Properties().group(TerrariaReloaded.RANGED).setNoRepair()));
     public static final RegistryObject<CobaltRepeaterItem> COBALT_REPEATER_ITEM = ITEMS.register("cobalt_repeater", () -> new CobaltRepeaterItem(new Item.Properties().group(TerrariaReloaded.RANGED).setNoRepair()));
@@ -59,12 +75,25 @@ public class ModItems {
     public static final RegistryObject<ChlorophyteRepeaterItem> CHLOROPHYTE_SHOTBOW_ITEM = ITEMS.register("chlorophyte_shotbow", () -> new ChlorophyteRepeaterItem(new Item.Properties().group(TerrariaReloaded.RANGED).setNoRepair()));
 
 
-    public static final RegistryObject<PickaxeAxeItem> PICKSAW = ITEMS.register("picksaw", () -> new PickaxeAxeItem(ItemTier.DIAMOND, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.PICKAXE).setNoRepair()));
-    public static final RegistryObject<PickaxeAxeItem> PICKAXE_AXE = ITEMS.register("pickaxe_axe", () -> new PickaxeAxeItem(ItemTier.DIAMOND, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.PICKAXE).setNoRepair()));
+    public static final RegistryObject<PickaxeAxeItem> PICKSAW = ITEMS.register("picksaw", () -> new PickaxeAxeItem(ItemTier.DIAMOND, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.TOOL).setNoRepair()));
+    public static final RegistryObject<PickaxeAxeItem> PICKAXE_AXE = ITEMS.register("pickaxe_axe", () -> new PickaxeAxeItem(ItemTier.DIAMOND, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.TOOL).setNoRepair()));
 
 
     // Block Items
+    public static final RegistryObject<Item> METEORITE_ORE_ITEM = ITEMS.register("meteorite_ore", () -> new BlockItemBase(ModBlocks.METEORITE_ORE.get()));
+    public static final RegistryObject<Item> CRIMTANE_ORE_ITEM = ITEMS.register("crimtane_ore", () -> new BlockItemBase(ModBlocks.CRIMTANE_ORE.get()));
+    public static final RegistryObject<Item> DEMONITE_ORE_ITEM = ITEMS.register("demonite_ore", () -> new BlockItemBase(ModBlocks.DEMONITE_ORE.get()));
+    public static final RegistryObject<Item> HELLSTONE_ORE_ITEM = ITEMS.register("hellstone_ore", () -> new BlockItemBase(ModBlocks.HELLSTONE_ORE.get()));
     public static final RegistryObject<Item> COBALT_ORE_ITEM = ITEMS.register("cobalt_ore", () -> new BlockItemBase(ModBlocks.COBALT_ORE.get()));
+    public static final RegistryObject<Item> PALLADIUM_ORE_ITEM = ITEMS.register("palladium_ore", () -> new BlockItemBase(ModBlocks.PALLADIUM_ORE.get()));
+    public static final RegistryObject<Item> MYTHRIL_ORE_ITEM = ITEMS.register("mythril_ore", () -> new BlockItemBase(ModBlocks.MYTHRIL_ORE.get()));
+    public static final RegistryObject<Item> ORICHALCUM_ORE_ITEM = ITEMS.register("orichalcum_ore", () -> new BlockItemBase(ModBlocks.ORICHALCUM_ORE.get()));
+    public static final RegistryObject<Item> ADAMANTITE_ORE_ITEM = ITEMS.register("adamantite_ore", () -> new BlockItemBase(ModBlocks.ADAMANTITE_ORE.get()));
+    public static final RegistryObject<Item> TITANIUM_ORE_ITEM = ITEMS.register("titanium_ore", () -> new BlockItemBase(ModBlocks.TITANIUM_ORE.get()));
+    public static final RegistryObject<Item> CHLOROPHYTE_ORE_ITEM = ITEMS.register("chlorophyte_ore", () -> new BlockItemBase(ModBlocks.CHLOROPHYTE_ORE.get()));
+    public static final RegistryObject<Item> SILVER_ORE_ITEM = ITEMS.register("silver_ore", () -> new BlockItemBase(ModBlocks.SILVER_ORE.get()));
+    public static final RegistryObject<Item> COPPER_ORE_ITEM = ITEMS.register("copper_ore", () -> new BlockItemBase(ModBlocks.COPPER_ORE.get()));
+
 
     // Throwing weapons
     public static final RegistryObject<Item> THROWING_KNIFE_ITEM = ITEMS.register("throwing_knife_item", () -> new ThrowingKnifeItem(new Item.Properties().group(TerrariaReloaded.THROW)));

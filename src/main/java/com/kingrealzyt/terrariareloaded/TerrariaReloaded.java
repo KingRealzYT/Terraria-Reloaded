@@ -86,13 +86,6 @@ public class TerrariaReloaded {
         }
     };
 
-    public static final ItemGroup INGOTS = new ItemGroup("Ingots") {
-        @Override
-        public ItemStack createIcon() {
-            return new ItemStack(ModItems.THROWING_KNIFE_ITEM.get());
-        }
-    };
-
     public static final ItemGroup SWORDS = new ItemGroup("Swords") {
 
         @Override
@@ -115,17 +108,10 @@ public class TerrariaReloaded {
         }
     };
 
-    public static final ItemGroup AXE = new ItemGroup("Axe") {
+    public static final ItemGroup TOOL = new ItemGroup("Tools") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(ModItems.COPPER_AXE.get());
-        }
-    };
-
-    public static final ItemGroup PICKAXE = new ItemGroup("Pickaxe") {
-        @Override
-        public ItemStack createIcon() {
-            return new ItemStack(ModItems.COPPER_PICKAXE.get());
+            return new ItemStack(ModItems.PICKAXE_AXE.get());
         }
     };
 
@@ -139,7 +125,7 @@ public class TerrariaReloaded {
     public static final ItemGroup MISC = new ItemGroup("Miscellaneous") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(ModItems.MAGIC_MIRROR.get());
+            return new ItemStack(ModItems.CRIMTANE_INGOT.get());
         }
     };
 
