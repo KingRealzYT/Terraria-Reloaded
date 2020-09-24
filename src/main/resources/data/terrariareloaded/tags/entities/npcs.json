@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "terrariareloaded:npc_merchant",
+    "terrariareloaded:npc_guide",
+    "terrariareloaded:npc_dye_trader",
+    "terrariareloaded:npc_demolitionist"
+  ]
+
+}

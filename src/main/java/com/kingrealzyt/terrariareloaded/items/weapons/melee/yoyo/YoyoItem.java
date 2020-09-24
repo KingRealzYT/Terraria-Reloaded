@@ -26,7 +26,7 @@ public class YoyoItem extends Item implements IYoyo {
     private final YoyoType type;
 
     public YoyoItem(YoyoType type) {
-        super(new Item.Properties().group(TerrariaReloaded.RANGED).maxStackSize(1).setNoRepair());
+        super(new Item.Properties().group(TerrariaReloaded.WEAPONS).maxStackSize(1).setNoRepair());
         this.type = type;
     }
 

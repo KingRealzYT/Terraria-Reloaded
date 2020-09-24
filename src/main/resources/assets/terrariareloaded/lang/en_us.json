@@ -112,9 +112,9 @@
   "item.terrariareloaded.worm_food": "Worm Food",
 
   "itemGroup.Blocks": "Terraria Reloaded Blocks",
-  "itemGroup.Swords": "Terraria Reloaded Swords",
-  "itemGroup.Ranged": "Terraria Reloaded Ranged",
-  "itemGroup.Throwable": "Terraria Reloaded Throwable",
+  "itemGroup.Weapons": "Terraria Reloaded Weapons",
+  "itemGroup.Foods": "Terraria Reloaded Foods",
+  "itemGroup.Throwable": "Terraria Reloaded Throwables",
   "itemGroup.Tools": "Terraria Reloaded Tools",
   "itemGroup.BossSpawns": "Terraria Reloaded Boss Spawns",
   "itemGroup.Miscellaneous": "Terraria Reloaded Miscellaneous"

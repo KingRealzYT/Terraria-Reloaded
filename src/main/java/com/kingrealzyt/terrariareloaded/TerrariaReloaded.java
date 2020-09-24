@@ -70,18 +70,11 @@ public class TerrariaReloaded {
         }
     };
 
-    public static final ItemGroup SWORDS = new ItemGroup("Swords") {
 
+    public static final ItemGroup WEAPONS = new ItemGroup("Weapons") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(ModItems.COPPER_SHORTSWORD.get());
-        }
-    };
-
-    public static final ItemGroup RANGED = new ItemGroup("Ranged") {
-        @Override
-        public ItemStack createIcon() {
-            return new ItemStack(ModItems.HALLOWED_REPEATER_ITEM.get());
+            return new ItemStack(ModItems.CHLOROPHYTE_SHOTBOW_ITEM.get());
         }
     };
 
@@ -89,6 +82,13 @@ public class TerrariaReloaded {
         @Override
         public ItemStack createIcon() {
             return new ItemStack(ModItems.THROWING_KNIFE_ITEM.get());
+        }
+    };
+
+    public static final ItemGroup FOOD = new ItemGroup("Foods") {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(ModItems.BURGER.get());
         }
     };
 
