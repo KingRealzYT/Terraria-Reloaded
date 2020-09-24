@@ -3,6 +3,7 @@ package com.kingrealzyt.terrariareloaded.init;
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFMouthEntity;
+import com.kingrealzyt.terrariareloaded.entities.npc.GuideNPCEntity;
 import com.kingrealzyt.terrariareloaded.entities.npc.MerchantNPCEntity;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.DynamiteEntity;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.GrenadeEntity;
@@ -77,6 +78,11 @@ public class ModEntityTypes {
                     .immuneToFire()
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "npc_merchant").toString()));
 
+    public static final RegistryObject<EntityType<GuideNPCEntity>> NPC_GUIDE = ENTITY_TYPES.register("npc_guide",
+            () -> EntityType.Builder.<GuideNPCEntity>create(GuideNPCEntity::new, EntityClassification.CREATURE)
+                    .size(0.6f, 1.6f)
+                    .immuneToFire()
+                    .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "npc_guide").toString()));
 
 
 }

@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 public class ShopNPCRenderer<T extends ShopNPCEntity, M extends EntityModel<T>> extends MobRenderer<T, M> {
 
     public ShopNPCRenderer(EntityRendererManager renderManagerIn, M entityModelIn) {
-        super(renderManagerIn, entityModelIn, 1.6F);
+        super(renderManagerIn, entityModelIn, 0.6F);
     }
 
     @Override

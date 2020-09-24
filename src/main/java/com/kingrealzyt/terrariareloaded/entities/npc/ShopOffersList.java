@@ -11,6 +11,7 @@ import java.util.Arrays;
 public class ShopOffersList {
 
     public static final MerchantOffers MERCHANT = create(copper(10, Items.DIAMOND, 3), silver(2, Items.APPLE, 12));
+    public static final MerchantOffers GUIDE = create(copper(5, Items.ARROW, 1), silver(1, Items.TORCH, 16));
 
     /**
      * Use this method to create merchant offers
