@@ -43,6 +43,8 @@ public class ModItems {
     //Crafting items hehe
     public static final RegistryObject<Item> LENS = ITEMS.register("lens", MiscItemBase::new);
     public static final RegistryObject<Item> STINGER = ITEMS.register("stinger", MiscItemBase::new);
+    public static final RegistryObject<Item> GOLDFISH = ITEMS.register("goldfish", MiscItemBase::new);
+    public static final RegistryObject<Item> BUNNY = ITEMS.register("bunny", MiscItemBase::new);
     public static final RegistryObject<Item> CHAIN = ITEMS.register("chain", MiscItemBase::new);
     public static final RegistryObject<Item> JUNGLE_SPORES = ITEMS.register("jungle_spores", MiscItemBase::new);
     public static final RegistryObject<Item> BLACK_LENS = ITEMS.register("black_lens", MiscItemBase::new);
@@ -151,8 +153,6 @@ public class ModItems {
     public static final RegistryObject<Item> MARSHMALLOW = ITEMS.register("marshmallow", () -> new FoodItemBase(5, 1.0f));
     public static final RegistryObject<Item> COOKED_MARSHMALLOW = ITEMS.register("cooked_marshmallow", () -> new FoodItemBase(5, 1.0f));
     public static final RegistryObject<Item> SAKE = ITEMS.register("sake", () -> new FoodItemBase(5, 1.0f));
-
-
 
     private static RegistryObject<Item> registerYoyo(String name, YoyoType type) {
         return ITEMS.register(name + "_yoyo", () -> new YoyoItem(type));

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "terrariareloaded:copper_coin",
+    "terrariareloaded:silver_coin",
+    "terrariareloaded:gold_coin",
+    "terrariareloaded:platinum_coin"
+  ]
+
+}

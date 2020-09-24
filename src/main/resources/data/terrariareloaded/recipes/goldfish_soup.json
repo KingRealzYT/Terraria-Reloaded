@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "terrariareloaded:goldfish"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "tag": "terrariareloaded:mushrooms"
+    }
+  ],
+  "result":
+  {
+    "item": "terrariareloaded:goldfish_soup",
+    "count": 1
+  }
+}

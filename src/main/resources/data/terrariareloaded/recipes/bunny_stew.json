@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "terrariareloaded:bunny"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result":
+  {
+    "item": "terrariareloaded:bunny_stew",
+    "count": 1
+  }
+}
