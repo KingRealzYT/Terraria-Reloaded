@@ -1,7 +1,7 @@
 package com.kingrealzyt.terrariareloaded.client.renderer.entities;
 
 import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoEntity;
-import com.kingrealzyt.terrariareloaded.items.weapons.ranged.yoyo.IYoyo;
+import com.kingrealzyt.terrariareloaded.items.weapons.melee.yoyo.IYoyo;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.Minecraft;

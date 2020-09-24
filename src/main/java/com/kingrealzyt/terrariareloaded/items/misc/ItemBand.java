@@ -1,4 +1,4 @@
-package com.kingrealzyt.terrariareloaded.items;
+package com.kingrealzyt.terrariareloaded.items.misc;
 
 import net.minecraft.advancements.criterion.MobEffectsPredicate;
 import net.minecraft.client.util.ITooltipFlag;

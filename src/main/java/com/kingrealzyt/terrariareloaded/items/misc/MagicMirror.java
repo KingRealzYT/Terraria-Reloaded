@@ -1,4 +1,4 @@
-package com.kingrealzyt.terrariareloaded.items;
+package com.kingrealzyt.terrariareloaded.items.misc;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.init.ModItems;

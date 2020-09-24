@@ -1,4 +1,4 @@
-package com.kingrealzyt.terrariareloaded.items.weapons.ranged.yoyo;
+package com.kingrealzyt.terrariareloaded.items.weapons.melee.yoyo;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.TerrarianYoyoProjectile;

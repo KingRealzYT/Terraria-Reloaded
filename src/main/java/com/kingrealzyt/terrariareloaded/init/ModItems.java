@@ -4,9 +4,10 @@ import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.blocks.BlockItemBase;
 import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoType;
 import com.kingrealzyt.terrariareloaded.items.*;
+import com.kingrealzyt.terrariareloaded.items.misc.*;
 import com.kingrealzyt.terrariareloaded.items.tools.others.PickaxeAxeItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.ranged.repeaters.*;
-import com.kingrealzyt.terrariareloaded.items.weapons.ranged.yoyo.YoyoItem;
+import com.kingrealzyt.terrariareloaded.items.weapons.melee.yoyo.YoyoItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.throwing.BombItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.throwing.DynamiteItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.throwing.GrenadeItem;
@@ -18,6 +19,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
+@SuppressWarnings("typo")
 public class ModItems {
 
     public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, TerrariaReloaded.MOD_ID);
@@ -26,12 +28,7 @@ public class ModItems {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
-    // Food Items
-    public static final RegistryObject<Item> BURGER = ITEMS.register("burger", MiscItemBase::new);
-
-
     // Items
-
 
     public static final RegistryObject<Item> MAGIC_MIRROR = ITEMS.register("magic_mirror", MagicMirror::new);
     public static final RegistryObject<Item> ICE_MIRROR = ITEMS.register("ice_mirror", MagicMirror::new);
@@ -134,6 +131,29 @@ public class ModItems {
     public static final RegistryObject<Item> WOODEN_YOYO = registerYoyo("wooden", YoyoType.WOODEN);
     public static final RegistryObject<Item> YELETS_YOYO = registerYoyo("yelets", YoyoType.YELETS);
     public static final RegistryObject<Item> TERRARIAN_YOYO_PROJECTILE = ITEMS.register("terrarian_yoyo_projectile", () -> new Item(new Item.Properties()));
+
+    //Foods
+    public static final RegistryObject<Item> GOLDFISH_SOUP = ITEMS.register("goldfish_soup", () -> new FoodItemBase(5, 1.0f));
+    public static final RegistryObject<Item> BUNNY_STEW = ITEMS.register("bunny_stew", () -> new FoodItemBase(5, 1.0f));
+    public static final RegistryObject<Item> FRUIT_JUICE = ITEMS.register("fruit_juice", () -> new FoodItemBase(3, 1.0f));
+    public static final RegistryObject<Item> PRISMATIC_PUNCH = ITEMS.register("prismatic_punch", () -> new FoodItemBase(6, 1.2f));
+    public static final RegistryObject<Item> SEAFOOD_DINNER = ITEMS.register("seafood_dinner", () -> new FoodItemBase(8, 3.0f));
+    public static final RegistryObject<Item> SMOOTHIE_OF_DARKNESS = ITEMS.register("smoothie_of_darkness", () -> new FoodItemBase(5, 1.0f));
+    public static final RegistryObject<Item> SASHIMI = ITEMS.register("sashimi", () -> new FoodItemBase(5, 1.0f));
+    public static final RegistryObject<Item> ALE = ITEMS.register("ale", () -> new FoodItemBase(5, 1.0f));
+    public static final RegistryObject<Item> APPLE_PIE = ITEMS.register("apple_pie", () -> new FoodItemBase(5, 1.0f));
+    public static final RegistryObject<Item> BBQ_RIBS = ITEMS.register("bbq_ribs", () -> new FoodItemBase(5, 1.0f));
+    public static final RegistryObject<Item> BURGER = ITEMS.register("burger", () -> new FoodItemBase(8, 1.0f));
+    public static final RegistryObject<Item> CHICKEN_NUGGET = ITEMS.register("chicken_nugget", () -> new FoodItemBase(5, 1.0f));
+    public static final RegistryObject<Item> CREAM_SODA = ITEMS.register("cream_soda", () -> new FoodItemBase(5, 1.0f));
+    public static final RegistryObject<Item> FRIED_EGG = ITEMS.register("fried_egg", () -> new FoodItemBase(5, 1.0f));
+    public static final RegistryObject<Item> PAD_THAI = ITEMS.register("pad_thai", () -> new FoodItemBase(5, 1.0f));
+    public static final RegistryObject<Item> PIZZA = ITEMS.register("pizza", () -> new FoodItemBase(5, 1.0f));
+    public static final RegistryObject<Item> MARSHMALLOW = ITEMS.register("marshmallow", () -> new FoodItemBase(5, 1.0f));
+    public static final RegistryObject<Item> COOKED_MARSHMALLOW = ITEMS.register("cooked_marshmallow", () -> new FoodItemBase(5, 1.0f));
+    public static final RegistryObject<Item> SAKE = ITEMS.register("sake", () -> new FoodItemBase(5, 1.0f));
+
+
 
     private static RegistryObject<Item> registerYoyo(String name, YoyoType type) {
         return ITEMS.register(name + "_yoyo", () -> new YoyoItem(type));

@@ -2,7 +2,7 @@ package com.kingrealzyt.terrariareloaded.events;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoEntity;
-import com.kingrealzyt.terrariareloaded.items.weapons.ranged.yoyo.YoyoItem;
+import com.kingrealzyt.terrariareloaded.items.weapons.melee.yoyo.YoyoItem;
 import net.minecraft.entity.LivingEntity;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;

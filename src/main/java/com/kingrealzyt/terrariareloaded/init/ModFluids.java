@@ -1,33 +1,5 @@
 package com.kingrealzyt.terrariareloaded.init;
 
-import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
-import com.kingrealzyt.terrariareloaded.blocks.BlockItemBase;
-import com.kingrealzyt.terrariareloaded.blocks.PiggyBank;
-import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoType;
-import com.kingrealzyt.terrariareloaded.items.*;
-import com.kingrealzyt.terrariareloaded.items.tools.others.PickaxeAxeItem;
-import com.kingrealzyt.terrariareloaded.items.weapons.ranged.repeaters.*;
-import com.kingrealzyt.terrariareloaded.items.weapons.ranged.yoyo.YoyoItem;
-import com.kingrealzyt.terrariareloaded.items.weapons.throwing.DynamiteItem;
-import com.kingrealzyt.terrariareloaded.items.weapons.throwing.GrenadeItem;
-import com.kingrealzyt.terrariareloaded.items.weapons.throwing.ThrowingKnifeItem;
-import com.kingrealzyt.terrariareloaded.util.enums.ModItemTier;
-import net.minecraft.block.Block;
-import net.minecraft.block.FlowingFluidBlock;
-import net.minecraft.block.material.Material;
-import net.minecraft.fluid.FlowingFluid;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.item.*;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvents;
-import net.minecraftforge.fluids.FluidAttributes;
-import net.minecraftforge.fluids.ForgeFlowingFluid;
-import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.IForgeRegistryEntry;
-
 public class ModFluids {/*
     //This is where i do the fluids
     // For some reason Terraria has like a million enemies and a billion items and a trillion blocks but only THREE FLUIDS

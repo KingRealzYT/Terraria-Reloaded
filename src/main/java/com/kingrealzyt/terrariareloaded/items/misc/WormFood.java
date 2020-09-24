@@ -1,4 +1,4 @@
-package com.kingrealzyt.terrariareloaded.items;
+package com.kingrealzyt.terrariareloaded.items.misc;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import net.minecraft.client.util.ITooltipFlag;
@@ -10,15 +10,15 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class SlimeCrown extends Item {
+public class WormFood extends Item {
 
-    public SlimeCrown() {
+    public WormFood() {
         super(new Properties().group(TerrariaReloaded.BOSS));
     }
 
     @Override
     public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(new StringTextComponent("Summons King Slime"));
+        tooltip.add(new StringTextComponent("Summons the Eater of Worlds"));
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
     @Override
