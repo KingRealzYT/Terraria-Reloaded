@@ -31,6 +31,7 @@ public class TerrariaReloaded {
 
         SoundInit.SOUNDS.register(modEventBus);
         ModItems.init();
+        //ModFluids.init();
         ModBlocks.init();
         ModContainers.CONTAINERS.register(modEventBus);
         ModEntityTypes.ENTITY_TYPES.register(modEventBus);

@@ -8,6 +8,7 @@
   "item.terrariareloaded.throwing_knife_item": "Throwing Knife",
   "item.terrariareloaded.dynamite_item": "Dynamite",
   "item.terrariareloaded.grenade_item": "Grenade",
+  "item.terrariareloaded.bomb_item": "Bomb",
   "item.terrariareloaded.jungle_spores": "Jungle Spores",
   "item.terrariareloaded.chain": "Chain",
   "item.terrariareloaded.stinger": "Stinger",
@@ -36,6 +37,8 @@
   "item.terrariareloaded.picksaw": "Picksaw",
   "item.terrariareloaded.pickaxe_axe": "Pickaxe Axe",
 
+  "block.terrariareloaded.honey": "Honey",
+  "block.terrariareloaded.hive_block": "Hive Block",
   "block.terrariareloaded.piggy_bank": "Piggy Bank",
   "block.terrariareloaded.silver_ore": "Silver Ore",
   "block.terrariareloaded.copper_ore": "Copper Ore",

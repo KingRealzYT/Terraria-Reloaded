@@ -8,7 +8,11 @@ public enum ShopType {
 
     //If you create a new shop npc type, add the type here
     MERCHANT("Merchant", ShopOffersList.MERCHANT, textureRL("npc_merchant")),
-    GUIDE("Guide", ShopOffersList.GUIDE, textureRL("npc_guide"));
+    GUIDE("Guide", ShopOffersList.GUIDE, textureRL("npc_guide")),
+    DYE_TRADER("Dye Trader", ShopOffersList.DYE_TRADER, textureRL("npc_dye_trader")),
+    DEMOLITIONIST("Demolitionist", ShopOffersList.DEMOLITIONIST, textureRL("npc_demolitionist"))
+    ;
+
 
     private String npcName;
     private MerchantOffers offers;

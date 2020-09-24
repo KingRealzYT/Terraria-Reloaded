@@ -3,12 +3,11 @@ package com.kingrealzyt.terrariareloaded.init;
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFMouthEntity;
+import com.kingrealzyt.terrariareloaded.entities.npc.DemolitionistNPCEntity;
+import com.kingrealzyt.terrariareloaded.entities.npc.DyeTraderNPCEntity;
 import com.kingrealzyt.terrariareloaded.entities.npc.GuideNPCEntity;
 import com.kingrealzyt.terrariareloaded.entities.npc.MerchantNPCEntity;
-import com.kingrealzyt.terrariareloaded.entities.projectiles.DynamiteEntity;
-import com.kingrealzyt.terrariareloaded.entities.projectiles.GrenadeEntity;
-import com.kingrealzyt.terrariareloaded.entities.projectiles.TerrarianYoyoProjectile;
-import com.kingrealzyt.terrariareloaded.entities.projectiles.ThrowingKnifeEntity;
+import com.kingrealzyt.terrariareloaded.entities.projectiles.*;
 import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoEntity;
 import net.minecraft.advancements.criterion.EnchantedItemTrigger;
 import net.minecraft.entity.EntityClassification;
@@ -34,6 +33,14 @@ public class ModEntityTypes {
                             .<DynamiteEntity>create(DynamiteEntity::new, EntityClassification.MISC)
                             .size(1.0f, 1.0f)
                             .build(new ResourceLocation(TerrariaReloaded.MOD_ID + ":dynamite").toString()));
+
+    public static final RegistryObject<EntityType<BombEntity>> BOMB_ENTITY = ENTITY_TYPES
+            .register("bomb",
+                    () -> EntityType.Builder
+                            .<BombEntity>create(BombEntity::new, EntityClassification.MISC)
+                            .size(1.0f, 1.0f)
+                            .build(new ResourceLocation(TerrariaReloaded.MOD_ID + ":bomb").toString()));
+
 
     public static final RegistryObject<EntityType<GrenadeEntity>> GRENADE_ENTITY = ENTITY_TYPES
             .register("grenade",
@@ -84,5 +91,16 @@ public class ModEntityTypes {
                     .immuneToFire()
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "npc_guide").toString()));
 
+    public static final RegistryObject<EntityType<DyeTraderNPCEntity>> NPC_DYE_TRADER = ENTITY_TYPES.register("npc_dye_trader",
+            () -> EntityType.Builder.<DyeTraderNPCEntity>create(DyeTraderNPCEntity::new, EntityClassification.CREATURE)
+                    .size(0.6f, 1.6f)
+                    .immuneToFire()
+                    .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "npc_dye_trader").toString()));
+
+    public static final RegistryObject<EntityType<DemolitionistNPCEntity>> NPC_DEMOLITIONIST = ENTITY_TYPES.register("npc_demolitionist",
+            () -> EntityType.Builder.<DemolitionistNPCEntity>create(DemolitionistNPCEntity::new, EntityClassification.CREATURE)
+                    .size(0.6f, 1.6f)
+                    .immuneToFire()
+                    .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "npc_demolitionist").toString()));
 
 }

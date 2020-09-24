@@ -2,6 +2,8 @@ package com.kingrealzyt.terrariareloaded.client;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.client.gui.PiggyBankScreen;
+import com.kingrealzyt.terrariareloaded.client.model.npc.DemolitionistNPCModel;
+import com.kingrealzyt.terrariareloaded.client.model.npc.DyeTraderNPCModel;
 import com.kingrealzyt.terrariareloaded.client.model.npc.GuideNPCModel;
 import com.kingrealzyt.terrariareloaded.client.model.npc.MerchantNPCModel;
 import com.kingrealzyt.terrariareloaded.client.renderer.entities.*;
@@ -25,6 +27,7 @@ public class ClientEventBusSubscriber {
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.THROWING_KNIFE_ENTITY.get(), RenderThrowingKnife::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.DYNAMITE_ENTITY.get(), RenderDynamite::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.GRENADE_ENTITY.get(), RenderGrenade::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.BOMB_ENTITY.get(), RenderBomb::new);
 
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.TERRARIAN_PROJECTILE_ENTITY.get(), TerrarianYoyoProjectileRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.YOYO_ENTITY.get(), YoyoEntityRenderer::new);
@@ -36,6 +39,8 @@ public class ClientEventBusSubscriber {
 
         registerNpcRenderer(ModEntityTypes.NPC_MERCHANT.get(), new MerchantNPCModel<>());
         registerNpcRenderer(ModEntityTypes.NPC_GUIDE.get(), new GuideNPCModel<>());
+        registerNpcRenderer(ModEntityTypes.NPC_DYE_TRADER.get(), new DyeTraderNPCModel<>());
+        registerNpcRenderer(ModEntityTypes.NPC_DEMOLITIONIST.get(), new DemolitionistNPCModel<>());
 
     }
 

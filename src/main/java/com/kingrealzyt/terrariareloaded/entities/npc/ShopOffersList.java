@@ -10,8 +10,42 @@ import java.util.Arrays;
  */
 public class ShopOffersList {
 
-    public static final MerchantOffers MERCHANT = create(copper(10, Items.DIAMOND, 3), silver(2, Items.APPLE, 12));
-    public static final MerchantOffers GUIDE = create(copper(5, Items.ARROW, 1), silver(1, Items.TORCH, 16));
+    public static final MerchantOffers MERCHANT = create(
+            gold(2, ModItems.PIGGY_BANK_ITEM.get(), 1),
+            silver(5, ModItems.SILVER_INGOT.get(), 4)
+    );
+
+    public static final MerchantOffers GUIDE = create(
+            copper(5, Items.ARROW, 1),
+            silver(1, Items.TORCH, 16)
+    );
+
+    public static final MerchantOffers DYE_TRADER = create(
+            silver(1, Items.BLACK_DYE, 2),
+            silver(1, Items.WHITE_DYE, 2),
+            silver(1, Items.RED_DYE, 2),
+            silver(1, Items.ORANGE_DYE, 1),
+            silver(1, Items.YELLOW_DYE, 2),
+            silver(1, Items.GREEN_DYE, 2),
+            silver(1, Items.BLUE_DYE, 1),
+            silver(1, Items.PURPLE_DYE, 1),
+            silver(1, Items.PINK_DYE, 2),
+            silver(1, Items.BROWN_DYE, 2)
+    );
+
+    public static final MerchantOffers DEMOLITIONIST = create(
+            copper(20, Items.GUNPOWDER, 2),
+            copper(80, Items.FLINT_AND_STEEL, 1),
+            silver(4, ModItems.GRENADE_ITEM.get(), 8),
+            silver(1, ModItems.BOMB_ITEM.get(), 1),
+            silver(2, Items.TNT, 1),
+            silver(4, ModItems.DYNAMITE_ITEM.get(), 1)
+    );
+
+
+
+
+
 
     /**
      * Use this method to create merchant offers
