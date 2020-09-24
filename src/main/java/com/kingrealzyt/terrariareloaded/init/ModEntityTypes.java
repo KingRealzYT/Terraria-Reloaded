@@ -79,7 +79,7 @@ public class ModEntityTypes {
 
     public static final RegistryObject<EntityType<EOCEntity>> EOC = ENTITY_TYPES.register("eye_of_cthulhu",
             () -> EntityType.Builder.<EOCEntity>create(EOCEntity::new, EntityClassification.MONSTER)
-                    .size(1.7f, 1.7f)
+                    .size(2.0f, 2.0f)
                     .immuneToFire()
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "eye_of_cthulhu").toString()));
 

@@ -13,7 +13,7 @@ public class EOCRenderer extends MobRenderer<EOCEntity, EOCModel<EOCEntity>> {
 
     protected static final ResourceLocation TEXTURE = new ResourceLocation(TerrariaReloaded.MOD_ID, "textures/entity/eye_of_cthulhu.png");
     public EOCRenderer(EntityRendererManager renderManagerIn) {
-        super(renderManagerIn, new EOCModel<>(), 1.6f);
+        super(renderManagerIn, new EOCModel<>(), 1.1f);
 
     }
 
