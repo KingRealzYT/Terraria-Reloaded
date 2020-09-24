@@ -3,7 +3,9 @@ package com.kingrealzyt.terrariareloaded.container;
 import com.kingrealzyt.terrariareloaded.init.ModContainers;
 import com.kingrealzyt.terrariareloaded.inventory.PiggyBankInventory;
 import com.kingrealzyt.terrariareloaded.inventory.PiggyBankSlot;
-import com.kingrealzyt.terrariareloaded.world.capability.PlayerCoinInventoryCapabilityProvider;
+import com.kingrealzyt.terrariareloaded.world.capability.CapabilityAccessor;
+import com.kingrealzyt.terrariareloaded.world.capability.player.IPlayerCoinCapability;
+import com.kingrealzyt.terrariareloaded.world.capability.player.PlayerCoinCapabilityImpl;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -19,7 +21,7 @@ public class PiggyBankContainer extends Container {
     private final PiggyBankInventory piggyBankInventory;
 
     public PiggyBankContainer(int id, PlayerInventory playerInventory, PacketBuffer data) {
-        this(id, playerInventory, PlayerCoinInventoryCapabilityProvider.getPlayerCapability(playerInventory.player).orElse(null).getPiggyBankInventory());
+        this(id, playerInventory, CapabilityAccessor.getPlayerCoinCapability(playerInventory.player).getPiggyBankInventory());
     }
 
     public PiggyBankContainer(int id, PlayerInventory playerInventory, PiggyBankInventory piggyBankInventory) {

@@ -1,9 +1,9 @@
 package com.kingrealzyt.terrariareloaded.blocks;
 
 import com.kingrealzyt.terrariareloaded.container.PiggyBankContainer;
-import com.kingrealzyt.terrariareloaded.inventory.PiggyBankInventory;
-import com.kingrealzyt.terrariareloaded.world.capability.PlayerCoinInventory;
-import com.kingrealzyt.terrariareloaded.world.capability.PlayerCoinInventoryCapabilityProvider;
+import com.kingrealzyt.terrariareloaded.world.capability.CapabilityAccessor;
+import com.kingrealzyt.terrariareloaded.world.capability.player.IPlayerCoinCapability;
+import com.kingrealzyt.terrariareloaded.world.capability.player.PlayerCoinCapabilityImpl;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
@@ -76,10 +76,10 @@ public class PiggyBank extends Block implements IWaterLoggable {
 
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        PlayerCoinInventory playerCoinInventory = PlayerCoinInventoryCapabilityProvider.getPlayerCapability(player).orElse(null);
         if (!worldIn.isRemote) {
             NetworkHooks.openGui((ServerPlayerEntity) player, new SimpleNamedContainerProvider((id, inventory, playerEntity) ->
-                    new PiggyBankContainer(id, inventory, playerCoinInventory.getPiggyBankInventory()), new StringTextComponent("Piggy Bank")));
+                    new PiggyBankContainer(id, inventory, CapabilityAccessor.getPlayerCoinCapability(playerEntity).getPiggyBankInventory()), new StringTextComponent("Piggy Bank")));
+            return ActionResultType.SUCCESS;
         }
         return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
     }

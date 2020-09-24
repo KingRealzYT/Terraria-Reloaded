@@ -16,7 +16,7 @@ public class ShopOffersList {
     );
 
     public static final MerchantOffers GUIDE = create(
-            copper(5, Items.ARROW, 1),
+            copper(100, Items.ARROW, 1),
             silver(1, Items.TORCH, 16)
     );
 

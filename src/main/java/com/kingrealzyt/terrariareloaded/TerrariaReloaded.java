@@ -1,8 +1,9 @@
 package com.kingrealzyt.terrariareloaded;
 
 import com.kingrealzyt.terrariareloaded.init.*;
-import com.kingrealzyt.terrariareloaded.world.capability.PlayerCoinInventory;
-import com.kingrealzyt.terrariareloaded.world.capability.PlayerCoinInventoryStorage;
+import com.kingrealzyt.terrariareloaded.world.capability.player.IPlayerCoinCapability;
+import com.kingrealzyt.terrariareloaded.world.capability.player.PlayerCoinCapabilityFactory;
+import com.kingrealzyt.terrariareloaded.world.capability.player.PlayerCoinCapabilityStorage;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -42,8 +43,7 @@ public class TerrariaReloaded {
     private void setup(final FMLCommonSetupEvent event) {
 
         //Register the capability
-        CapabilityManager.INSTANCE.register(PlayerCoinInventory.class, new PlayerCoinInventoryStorage(), PlayerCoinInventory::new);
-
+        CapabilityManager.INSTANCE.register(IPlayerCoinCapability.class, new PlayerCoinCapabilityStorage(), new PlayerCoinCapabilityFactory());
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {

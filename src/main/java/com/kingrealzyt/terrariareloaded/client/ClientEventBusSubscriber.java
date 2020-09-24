@@ -2,6 +2,7 @@ package com.kingrealzyt.terrariareloaded.client;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.client.gui.PiggyBankScreen;
+import com.kingrealzyt.terrariareloaded.client.gui.ShopNPCScreen;
 import com.kingrealzyt.terrariareloaded.client.model.npc.DemolitionistNPCModel;
 import com.kingrealzyt.terrariareloaded.client.model.npc.DyeTraderNPCModel;
 import com.kingrealzyt.terrariareloaded.client.model.npc.GuideNPCModel;
@@ -36,6 +37,7 @@ public class ClientEventBusSubscriber {
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.WALL_OF_FLESH_MOUTH.get(), WOFMouthRenderer::new);
 
         ScreenManager.registerFactory(ModContainers.PIGGY_BANK.get(), PiggyBankScreen::new);
+        ScreenManager.registerFactory(ModContainers.SHOP_NPC.get(), ShopNPCScreen::new);
 
         registerNpcRenderer(ModEntityTypes.NPC_MERCHANT.get(), new MerchantNPCModel<>());
         registerNpcRenderer(ModEntityTypes.NPC_GUIDE.get(), new GuideNPCModel<>());

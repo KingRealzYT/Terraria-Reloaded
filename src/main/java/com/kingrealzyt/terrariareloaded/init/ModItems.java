@@ -1,23 +1,30 @@
 package com.kingrealzyt.terrariareloaded.init;
 
+import com.google.common.collect.Lists;
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.blocks.BlockItemBase;
 import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoType;
-import com.kingrealzyt.terrariareloaded.items.*;
+import com.kingrealzyt.terrariareloaded.items.FoodItemBase;
+import com.kingrealzyt.terrariareloaded.items.MiscItemBase;
 import com.kingrealzyt.terrariareloaded.items.misc.*;
 import com.kingrealzyt.terrariareloaded.items.tools.others.PickaxeAxeItem;
-import com.kingrealzyt.terrariareloaded.items.weapons.ranged.repeaters.*;
 import com.kingrealzyt.terrariareloaded.items.weapons.melee.yoyo.YoyoItem;
+import com.kingrealzyt.terrariareloaded.items.weapons.ranged.repeaters.*;
 import com.kingrealzyt.terrariareloaded.items.weapons.throwing.BombItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.throwing.DynamiteItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.throwing.GrenadeItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.throwing.ThrowingKnifeItem;
 import com.kingrealzyt.terrariareloaded.util.enums.ModItemTier;
 import net.minecraft.item.*;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.List;
 
 @SuppressWarnings("typo")
 public class ModItems {
@@ -48,25 +55,25 @@ public class ModItems {
     public static final RegistryObject<Item> CHAIN = ITEMS.register("chain", MiscItemBase::new);
     public static final RegistryObject<Item> JUNGLE_SPORES = ITEMS.register("jungle_spores", MiscItemBase::new);
     public static final RegistryObject<Item> BLACK_LENS = ITEMS.register("black_lens", MiscItemBase::new);
-    public static final RegistryObject<Item> CRIMTANE_INGOT  = ITEMS.register("crimtane_ingot", MiscItemBase::new);
+    public static final RegistryObject<Item> CRIMTANE_INGOT = ITEMS.register("crimtane_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> DEMONITE_INGOT = ITEMS.register("demonite_ingot", MiscItemBase::new);
-    public static final RegistryObject<Item> COBALT_INGOT  = ITEMS.register("cobalt_ingot", MiscItemBase::new);
+    public static final RegistryObject<Item> COBALT_INGOT = ITEMS.register("cobalt_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> PALLADIUM_INGOT = ITEMS.register("palladium_ingot", MiscItemBase::new);
-    public static final RegistryObject<Item> MYTHRIL_INGOT  = ITEMS.register("mythril_ingot", MiscItemBase::new);
+    public static final RegistryObject<Item> MYTHRIL_INGOT = ITEMS.register("mythril_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> ORICHALCUM_INGOT = ITEMS.register("orichalcum_ingot", MiscItemBase::new);
-    public static final RegistryObject<Item> TITANIUM_INGOT  = ITEMS.register("titanium_ingot", MiscItemBase::new);
+    public static final RegistryObject<Item> TITANIUM_INGOT = ITEMS.register("titanium_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> ADAMANTITE_INGOT = ITEMS.register("adamantite_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> HELLSTONE_INGOT = ITEMS.register("hellstone_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> CHLOROPHYTE_INGOT = ITEMS.register("chlorophyte_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> SPECTRE_INGOT = ITEMS.register("spectre_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> METEORITE_INGOT = ITEMS.register("meteorite_ingot", MiscItemBase::new);
-    public static final RegistryObject<Item> SILVER_INGOT  = ITEMS.register("silver_ingot", MiscItemBase::new);
+    public static final RegistryObject<Item> SILVER_INGOT = ITEMS.register("silver_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> COPPER_INGOT = ITEMS.register("copper_ingot", MiscItemBase::new);
 
     public static final RegistryObject<Item> COPPER_COIN = ITEMS.register("copper_coin", MiscItemBase::new);
     public static final RegistryObject<Item> SILVER_COIN = ITEMS.register("silver_coin", MiscItemBase::new);
     public static final RegistryObject<Item> GOLD_COIN = ITEMS.register("gold_coin", MiscItemBase::new);
-    public static final RegistryObject<Item> PLATINUM_COIN  = ITEMS.register("platinum_coin", MiscItemBase::new);
+    public static final RegistryObject<Item> PLATINUM_COIN = ITEMS.register("platinum_coin", MiscItemBase::new);
 
     // Tools
     public static final RegistryObject<SwordItem> COPPER_SHORTSWORD = ITEMS.register("copper_shortsword", () -> new SwordItem(ModItemTier.COPPER_SHORT, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
@@ -134,25 +141,56 @@ public class ModItems {
     public static final RegistryObject<Item> TERRARIAN_YOYO_PROJECTILE = ITEMS.register("terrarian_yoyo_projectile", () -> new Item(new Item.Properties()));
 
     //Foods
-    public static final RegistryObject<Item> GOLDFISH_SOUP = ITEMS.register("goldfish_soup", () -> new FoodItemBase(5, 1.0f));
-    public static final RegistryObject<Item> BUNNY_STEW = ITEMS.register("bunny_stew", () -> new FoodItemBase(5, 1.0f));
-    public static final RegistryObject<Item> FRUIT_JUICE = ITEMS.register("fruit_juice", () -> new FoodItemBase(3, 1.0f));
-    public static final RegistryObject<Item> PRISMATIC_PUNCH = ITEMS.register("prismatic_punch", () -> new FoodItemBase(6, 1.2f));
-    public static final RegistryObject<Item> SEAFOOD_DINNER = ITEMS.register("seafood_dinner", () -> new FoodItemBase(8, 3.0f));
-    public static final RegistryObject<Item> SMOOTHIE_OF_DARKNESS = ITEMS.register("smoothie_of_darkness", () -> new FoodItemBase(5, 1.0f));
-    public static final RegistryObject<Item> SASHIMI = ITEMS.register("sashimi", () -> new FoodItemBase(5, 1.0f));
-    public static final RegistryObject<Item> ALE = ITEMS.register("ale", () -> new FoodItemBase(5, 1.0f));
-    public static final RegistryObject<Item> APPLE_PIE = ITEMS.register("apple_pie", () -> new FoodItemBase(5, 1.0f));
-    public static final RegistryObject<Item> BBQ_RIBS = ITEMS.register("bbq_ribs", () -> new FoodItemBase(5, 1.0f));
-    public static final RegistryObject<Item> BURGER = ITEMS.register("burger", () -> new FoodItemBase(8, 1.0f));
-    public static final RegistryObject<Item> CHICKEN_NUGGET = ITEMS.register("chicken_nugget", () -> new FoodItemBase(5, 1.0f));
-    public static final RegistryObject<Item> CREAM_SODA = ITEMS.register("cream_soda", () -> new FoodItemBase(5, 1.0f));
-    public static final RegistryObject<Item> FRIED_EGG = ITEMS.register("fried_egg", () -> new FoodItemBase(5, 1.0f));
-    public static final RegistryObject<Item> PAD_THAI = ITEMS.register("pad_thai", () -> new FoodItemBase(5, 1.0f));
-    public static final RegistryObject<Item> PIZZA = ITEMS.register("pizza", () -> new FoodItemBase(5, 1.0f));
-    public static final RegistryObject<Item> MARSHMALLOW = ITEMS.register("marshmallow", () -> new FoodItemBase(5, 1.0f));
-    public static final RegistryObject<Item> COOKED_MARSHMALLOW = ITEMS.register("cooked_marshmallow", () -> new FoodItemBase(5, 1.0f));
-    public static final RegistryObject<Item> SAKE = ITEMS.register("sake", () -> new FoodItemBase(5, 1.0f));
+    public static final RegistryObject<Item> GOLDFISH_SOUP = registerBaseFoodItem("goldfish_soup", 5, 1.0F, "Goldfish Soup. Mmmmmm");
+    public static final RegistryObject<Item> BUNNY_STEW = registerBaseFoodItem("bunny_stew", 5, 1.0F, "Bunny Stew Mmmmm", "Second Description");
+    public static final RegistryObject<Item> FRUIT_JUICE = registerBaseFoodItem("fruit_juice", 3, 1.0F, "A fruit juice");
+    public static final RegistryObject<Item> PRISMATIC_PUNCH = registerBaseFoodItem("prismatic_punch", 6, 1.2F, "Prismatic Punch");
+    public static final RegistryObject<Item> SEAFOOD_DINNER = registerBaseFoodItem("seafood_dinner", 8, 3.0F, "Seafood Dinner");
+    public static final RegistryObject<Item> SMOOTHIE_OF_DARKNESS = registerBaseFoodItem("smoothie_of_darkness", 5, 1.0F, "A smoothie of darkness", "Soo dark...");
+    public static final RegistryObject<Item> SASHIMI = registerBaseFoodItem("sashimi", 5, 1.0F, "Sashimi");
+    public static final RegistryObject<Item> ALE = registerBaseFoodItem("ale", 5, 1.0F, "Ale");
+    public static final RegistryObject<Item> APPLE_PIE = registerBaseFoodItem("apple_pie", 5, 1.0F, "Apple Pie.");
+    public static final RegistryObject<Item> BBQ_RIBS = registerBaseFoodItem("bbq_ribs", 5, 1.0F, "BBQ Ribs");
+    public static final RegistryObject<Item> BURGER = registerBaseFoodItem("burger", 8, 1.0F, "Burger");
+    public static final RegistryObject<Item> CHICKEN_NUGGET = registerBaseFoodItem("chicken_nugget", 5, 1.0F, "Chicken Nugget");
+    public static final RegistryObject<Item> CREAM_SODA = registerBaseFoodItem("cream_soda", 5, 1.0F, "Cream Soda");
+    public static final RegistryObject<Item> FRIED_EGG = registerBaseFoodItem("fried_egg", 5, 1.0F, "Fried egg");
+    public static final RegistryObject<Item> PAD_THAI = registerBaseFoodItem("pad_thai", 5, 1.0F, "Pad thai");
+    public static final RegistryObject<Item> PIZZA = registerBaseFoodItem("pizza", 5, 1.0F, "It's pizza time", "PIZZA");
+    public static final RegistryObject<Item> MARSHMALLOW = registerBaseFoodItem("marshmallow", 5, 1.0F, "Marshmallow");
+    public static final RegistryObject<Item> COOKED_MARSHMALLOW = registerBaseFoodItem("cooked_marshmallow", 5, 1.0F, "Cooked Marshmallow");
+    public static final RegistryObject<Item> SAKE = registerBaseFoodItem("sake", 5, 1.0F, "Sake");
+
+    /**
+     * Use this for default description
+     * The color will be gray you can change the color, or you can use the other method for different colors
+     *
+     * @param name        the registry name of the item
+     * @param hunger      the hunger value
+     * @param saturation  the saturation value
+     * @param description the description
+     * @return the registered item object
+     */
+    private static RegistryObject<Item> registerBaseFoodItem(String name, int hunger, float saturation, String... description) {
+        List<ITextComponent> list = Lists.newArrayList();
+        for (String desc : description)
+            list.add(new StringTextComponent(desc).applyTextStyle(TextFormatting.GRAY));
+        return ITEMS.register(name, () -> new FoodItemBase(hunger, saturation, () -> list));
+    }
+
+    /**
+     * Use this if you want to use custom colors for the description, ore more colors in one description
+     *
+     * @param name        the registry name of the item
+     * @param hunger      the hunger value
+     * @param saturation  the saturation value
+     * @param description the description list as {@link ITextComponent} use {@link StringTextComponent} and the method {@link StringTextComponent#applyTextStyle(TextFormatting)} for custom colors.
+     *                    The {@link TextFormatting} parameter is the color, so you can use TextFormatting.GRAY or something like this
+     * @return the registered item object
+     */
+    private static RegistryObject<Item> registerBaseFoodItem(String name, int hunger, float saturation, List<ITextComponent> description) {
+        return ITEMS.register(name, () -> new FoodItemBase(hunger, saturation, () -> description));
+    }
 
     private static RegistryObject<Item> registerYoyo(String name, YoyoType type) {
         return ITEMS.register(name + "_yoyo", () -> new YoyoItem(type));
