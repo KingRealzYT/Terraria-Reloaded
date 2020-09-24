@@ -26,7 +26,13 @@ public class ModItems {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
+    // Food Items
+    public static final RegistryObject<Item> BURGER = ITEMS.register("burger", MiscItemBase::new);
+
+
     // Items
+
+
     public static final RegistryObject<Item> MAGIC_MIRROR = ITEMS.register("magic_mirror", MagicMirror::new);
     public static final RegistryObject<Item> ICE_MIRROR = ITEMS.register("ice_mirror", MagicMirror::new);
     public static final RegistryObject<Item> GUIDE_VOODOO = ITEMS.register("guide_voodoo_doll", GuideVoodoo::new);
