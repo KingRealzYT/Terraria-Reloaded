@@ -2,6 +2,7 @@ package com.kingrealzyt.terrariareloaded.client;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.client.gui.PiggyBankScreen;
+import com.kingrealzyt.terrariareloaded.client.model.npc.GuideNPCModel;
 import com.kingrealzyt.terrariareloaded.client.model.npc.MerchantNPCModel;
 import com.kingrealzyt.terrariareloaded.client.renderer.entities.*;
 import com.kingrealzyt.terrariareloaded.client.renderer.entities.npc.ShopNPCRenderer;
@@ -34,6 +35,8 @@ public class ClientEventBusSubscriber {
         ScreenManager.registerFactory(ModContainers.PIGGY_BANK.get(), PiggyBankScreen::new);
 
         registerNpcRenderer(ModEntityTypes.NPC_MERCHANT.get(), new MerchantNPCModel<>());
+        registerNpcRenderer(ModEntityTypes.NPC_GUIDE.get(), new GuideNPCModel<>());
+
     }
 
     private static <T extends ShopNPCEntity, M extends EntityModel<T>> void registerNpcRenderer(EntityType<T> entity, M model) {

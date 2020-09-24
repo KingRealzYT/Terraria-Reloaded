@@ -21,7 +21,12 @@ public class ModOreGen {
     @SubscribeEvent
     public static void generateOres(FMLLoadCompleteEvent event) {
         for (Biome biome : ForgeRegistries.BIOMES) {
-            genOre(biome, 15, 8, 5, 50, OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.COBALT_ORE.get().getDefaultState(), 8);
+            genOre(biome, 9, 19, 30, 41, OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.SILVER_ORE.get().getDefaultState(), 9);
+            genOre(biome, 13, 19, 5, 80, OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.COPPER_ORE.get().getDefaultState(), 11);
+            if (biome.getCategory() == Biome.Category.JUNGLE) {
+                genOre(biome, 6, 5, 25, 41, OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.CHLOROPHYTE_ORE.get().getDefaultState(), 4);
+
+            }
         }
     }
 

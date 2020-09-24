@@ -7,7 +7,8 @@ import net.minecraft.util.ResourceLocation;
 public enum ShopType {
 
     //If you create a new shop npc type, add the type here
-    MERCHANT("Merchant", ShopOffersList.MERCHANT, textureRL("npc_merchant"));
+    MERCHANT("Merchant", ShopOffersList.MERCHANT, textureRL("npc_merchant")),
+    GUIDE("Guide", ShopOffersList.GUIDE, textureRL("npc_guide"));
 
     private String npcName;
     private MerchantOffers offers;
