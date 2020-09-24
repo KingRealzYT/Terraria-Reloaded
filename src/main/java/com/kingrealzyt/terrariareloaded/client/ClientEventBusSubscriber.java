@@ -36,6 +36,8 @@ public class ClientEventBusSubscriber {
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.WALL_OF_FLESH_EYE.get(), WOFEyeRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.WALL_OF_FLESH_MOUTH.get(), WOFMouthRenderer::new);
 
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.EOC.get(), EOCRenderer::new);
+
         ScreenManager.registerFactory(ModContainers.PIGGY_BANK.get(), PiggyBankScreen::new);
         ScreenManager.registerFactory(ModContainers.SHOP_NPC.get(), ShopNPCScreen::new);
 

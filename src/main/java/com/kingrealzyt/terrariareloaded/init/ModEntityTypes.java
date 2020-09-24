@@ -1,6 +1,7 @@
 package com.kingrealzyt.terrariareloaded.init;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
+import com.kingrealzyt.terrariareloaded.entities.boss.EOCEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFMouthEntity;
 import com.kingrealzyt.terrariareloaded.entities.npc.DemolitionistNPCEntity;
@@ -75,6 +76,12 @@ public class ModEntityTypes {
                     .size(1.7f, 1.7f)
                     .immuneToFire()
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "wall_of_flesh_mouth").toString()));
+
+    public static final RegistryObject<EntityType<EOCEntity>> EOC = ENTITY_TYPES.register("eye_of_cthulhu",
+            () -> EntityType.Builder.<EOCEntity>create(EOCEntity::new, EntityClassification.MONSTER)
+                    .size(1.7f, 1.7f)
+                    .immuneToFire()
+                    .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "eye_of_cthulhu").toString()));
 
 
     // NPC ENTITIES
