@@ -24,6 +24,8 @@ public class DynamiteEntity extends ProjectileItemEntity {
     private static final float  DAMAGE   = 5.0F;
     private static final float  DURATION = 30.0F/*in second*/;
 
+    private static int Fuse = 160;
+
     private int tick = 0;
 
     public DynamiteEntity(EntityType<? extends ProjectileItemEntity> type, World worldIn) {
@@ -41,12 +43,6 @@ public class DynamiteEntity extends ProjectileItemEntity {
 
     @Override
     protected void onImpact(RayTraceResult result) {
-        if (!this.world.isRemote) {
-            //spawnItem();
-            this.world.createExplosion(this, this.getPosX(), this.getPosY(), this.getPosZ(), 4.0F, Explosion.Mode.BREAK);
-            this.world.setEntityState(this, (byte)3);
-            this.remove();
-        }
     }
 
     @Override
@@ -64,6 +60,15 @@ public class DynamiteEntity extends ProjectileItemEntity {
             spawnItem();
             this.world.setEntityState(this, (byte)3);
             this.remove();
+        }
+        --this.Fuse;
+        if (this.Fuse <= 0) {
+            if (!this.world.isRemote) {
+                this.world.createExplosion(this, this.getPosX(), this.getPosY(), this.getPosZ(), 4.0F, Explosion.Mode.BREAK);
+                this.Fuse = 160;
+                this.world.setEntityState(this, (byte)3);
+                this.remove();
+            }
         }
     }
 
