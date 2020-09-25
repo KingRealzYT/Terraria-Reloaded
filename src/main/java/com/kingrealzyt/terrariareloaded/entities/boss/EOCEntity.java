@@ -25,16 +25,18 @@ public class EOCEntity extends FlyingEntity implements IMob {
         this.moveController = new EOCEntity.MoveHelperController(this);
     }
 
-    private final ServerBossInfo bossInfo = (ServerBossInfo) (new ServerBossInfo(this.getDisplayName(), BossInfo.Color.RED, BossInfo.Overlay.NOTCHED_12)).setDarkenSky(true);
+    private final ServerBossInfo bossInfo = (ServerBossInfo) (new ServerBossInfo(this.getDisplayName(), BossInfo.Color.RED, BossInfo.Overlay.PROGRESS)).setDarkenSky(true);
 
     @Override
     protected void registerGoals() {
         super.registerGoals();
         //this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.0D, false));
         //this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setCallsForHelp());
-        this.goalSelector.addGoal(5, new EOCEntity.RandomFlyGoal(this));
-        this.goalSelector.addGoal(7, new EOCEntity.LookAroundGoal(this));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
+        this.goalSelector.addGoal(1, new EOCEntity.RandomFlyGoal(this));
+        this.goalSelector.addGoal(2, new EOCEntity.LookAroundGoal(this));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, 10, true, false, (p_213812_1_) -> {
+            return Math.abs(p_213812_1_.getPosY() - this.getPosY()) <= 4.0D;
+        }));
     }
 
     @Override
@@ -128,6 +130,12 @@ public class EOCEntity extends FlyingEntity implements IMob {
     public void removeTrackingPlayer(ServerPlayerEntity player) {
         super.removeTrackingPlayer(player);
         this.bossInfo.removePlayer(player);
+    }
+
+    @Override
+    public void livingTick() {
+        this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
+        super.livingTick();
     }
 
     public boolean isNonBoss() {
