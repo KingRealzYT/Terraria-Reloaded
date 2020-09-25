@@ -78,6 +78,13 @@ public class TerrariaReloaded {
         }
     };
 
+    public static final ItemGroup EQUIPMENT = new ItemGroup("Equipment") {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(ModItems.BAND_REGENERATION.get());
+        }
+    };
+
     public static final ItemGroup THROW = new ItemGroup("Throwable") {
         @Override
         public ItemStack createIcon() {

@@ -1,5 +1,6 @@
 package com.kingrealzyt.terrariareloaded.items.misc;
 
+import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import net.minecraft.advancements.criterion.MobEffectsPredicate;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -20,7 +21,7 @@ import java.util.List;
 public class ItemBand extends Item {
 
     public ItemBand() {
-        super(new Properties().group(ItemGroup.MISC));
+        super(new Properties().group(TerrariaReloaded.EQUIPMENT));
     }
 
     @Override

@@ -60,6 +60,7 @@
   "item.terrariareloaded.bunny": "Bunny",
   "item.terrariareloaded.goldfish": "Goldfish",
 
+  "item.terrariareloaded.band_of_regeneration": "Band of Regeneration",
   "item.terrariareloaded.lens": "Lens",
   "item.terrariareloaded.black_lens": "Black Lens",
   "item.terrariareloaded.picksaw": "Picksaw",
@@ -121,6 +122,7 @@
 
   "itemGroup.Blocks": "Terraria Reloaded Blocks",
   "itemGroup.Weapons": "Terraria Reloaded Weapons",
+  "itemGroup.Equipment": "Terraria Reloaded Equipment",
   "itemGroup.Foods": "Terraria Reloaded Foods",
   "itemGroup.Throwable": "Terraria Reloaded Throwables",
   "itemGroup.Tools": "Terraria Reloaded Tools",
