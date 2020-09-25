@@ -6,6 +6,7 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
+import net.minecraft.util.math.MathHelper;
 
 public class EOCModel<T extends EOCEntity> extends EntityModel<T> {
     private final ModelRenderer total;
@@ -235,6 +236,41 @@ public class EOCModel<T extends EOCEntity> extends EntityModel<T> {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
+
+    }
+
+    @Override
+    public void setLivingAnimations(T entityIn, float limbSwing, float limbSwingAmount, float partialTick) {
+        this.arm1a.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm1b.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm1c.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm1a2.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm1b2.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm1c2.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm2a.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm2b.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm2c.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm3a.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm3b.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm3c.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm4a.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm4b.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm4c.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm5a.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm5b.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm5c.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm6a.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm5b2.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm5c2.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm7a.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm5b3.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
+        this.arm5c3.rotateAngleX = MathHelper.cos(limbSwing * 0.52F) * 1F * limbSwingAmount * 0.2F;
+        //this.leg2.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount * 0.5F;
+        //this.leg3.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount * 0.5F;
+
+        //this.leg1.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount * 0.5F;
+        //this.leg4.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount * 0.5F;
+
     }
 
 

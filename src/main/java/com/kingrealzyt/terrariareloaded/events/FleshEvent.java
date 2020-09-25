@@ -1,9 +1,11 @@
 package com.kingrealzyt.terrariareloaded.events;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
+import com.kingrealzyt.terrariareloaded.entities.boss.EOCEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.passive.SheepEntity;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextComponent;
@@ -26,7 +28,13 @@ public class FleshEvent {
     {
         World world = event.getEntity().getEntityWorld();
         if(event.getEntity() instanceof SheepEntity)
+        {
             if(world.dimension instanceof NetherDimension)
                 TerrariaReloaded.LOGGER.info("The wall of fettuccine has been summoned!");
+        }else if(event.getEntity() instanceof EOCEntity) //todo make this wall of flesh
+        {
+            //todo Starts hard mode
+
+        }
     }
 }
