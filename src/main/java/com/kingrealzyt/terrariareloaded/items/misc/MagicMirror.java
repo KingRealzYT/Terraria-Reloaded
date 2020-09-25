@@ -48,8 +48,7 @@ public class MagicMirror extends Item {
         if(cords == null)
             cords = worldIn.getSpawnPoint();
         if(worldIn.dimension instanceof NetherDimension || worldIn.dimension instanceof EndDimension){}
-        else
-        {
+        else {
             playerIn.setPositionAndUpdate(cords.getX(), cords.getY(), cords.getZ());
         }
         playerIn.getCooldownTracker().setCooldown(this, 200);
