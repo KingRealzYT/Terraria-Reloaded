@@ -2,6 +2,7 @@ package com.kingrealzyt.terrariareloaded.util.enums;
 
 import com.kingrealzyt.terrariareloaded.init.ModItems;
 import net.minecraft.item.IItemTier;
+import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 
 import java.util.function.Supplier;
@@ -9,7 +10,9 @@ import java.util.function.Supplier;
 public enum ModItemTier implements IItemTier {
 
     COPPER_SHORT(2, 0, 4.0F, 3.0F, 5, () -> { return Ingredient.fromItems(ModItems.COPPER_SHORTSWORD.get()); }),
-    COPPER_BROAD(2, 0, 4.0F, 3.0F, 5, () -> { return Ingredient.fromItems(ModItems.COPPER_BROADSWORD.get()); });
+    COPPER_BROAD(2, 0, 4.0F, 3.0F, 5, () -> { return Ingredient.fromItems(ModItems.COPPER_BROADSWORD.get()); }),
+    PICKAXEAXE(3, 0, 8.0F, 3.0F, 10, () -> { return Ingredient.fromItems(ModItems.PICKAXE_AXE.get()); }),
+    PICKSAW(3, 0, 8.0F, 3.0F, 10, () -> { return Ingredient.fromItems(ModItems.PICKSAW.get()); });
 
     private final int harvestLevel;
     private final int maxUses;
