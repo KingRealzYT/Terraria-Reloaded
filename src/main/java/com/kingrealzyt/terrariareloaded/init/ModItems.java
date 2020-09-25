@@ -26,7 +26,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
 
-@SuppressWarnings("typo")
+@SuppressWarnings("all")
 public class ModItems {
 
     public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, TerrariaReloaded.MOD_ID);
