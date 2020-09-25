@@ -1,5 +1,9 @@
 {
-  "entity.terrariareloaded.eye_of_cthulhu" : "Eye Of Cthulhu",
+  "entity.terrariareloaded.eye_of_cthulhu": "Eye of Cthulhu",
+  "entity.terrariareloaded.wall_of_flesh_eye": "Wall of Flesh",
+  "entity.terrariareloaded.wall_of_flesh_mouth": "Wall of Flesh",
+  "entity.terrariareloaded.demon_eye": "Demon Eye",
+
   "item.terrariareloaded.copper_shortsword": "Copper Shortsword",
   "item.terrariareloaded.copper_broadsword": "Copper Broadsword",
   "item.terrariareloaded.copper_axe": "Copper Axe",
@@ -56,6 +60,7 @@
   "item.terrariareloaded.bunny": "Bunny",
   "item.terrariareloaded.goldfish": "Goldfish",
 
+  "item.terrariareloaded.band_of_regeneration": "Band of Regeneration",
   "item.terrariareloaded.lens": "Lens",
   "item.terrariareloaded.black_lens": "Black Lens",
   "item.terrariareloaded.picksaw": "Picksaw",
@@ -117,6 +122,7 @@
 
   "itemGroup.Blocks": "Terraria Reloaded Blocks",
   "itemGroup.Weapons": "Terraria Reloaded Weapons",
+  "itemGroup.Equipment": "Terraria Reloaded Equipment",
   "itemGroup.Foods": "Terraria Reloaded Foods",
   "itemGroup.Throwable": "Terraria Reloaded Throwables",
   "itemGroup.Tools": "Terraria Reloaded Tools",

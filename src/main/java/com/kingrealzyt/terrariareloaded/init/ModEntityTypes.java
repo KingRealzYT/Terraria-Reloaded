@@ -1,6 +1,8 @@
 package com.kingrealzyt.terrariareloaded.init;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
+import com.kingrealzyt.terrariareloaded.client.renderer.entities.DemonEyeRenderer;
+import com.kingrealzyt.terrariareloaded.entities.boss.DemonEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.EOCEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFMouthEntity;
@@ -83,6 +85,10 @@ public class ModEntityTypes {
                     .immuneToFire()
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "eye_of_cthulhu").toString()));
 
+    public static final RegistryObject<EntityType<DemonEyeEntity>> DEMON_EYE = ENTITY_TYPES.register("demon_eye",
+            () -> EntityType.Builder.<DemonEyeEntity>create(DemonEyeEntity::new, EntityClassification.MONSTER)
+                    .size(0.5f, 0.4f)
+                    .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "demon_eye").toString()));
 
     // NPC ENTITIES
 
