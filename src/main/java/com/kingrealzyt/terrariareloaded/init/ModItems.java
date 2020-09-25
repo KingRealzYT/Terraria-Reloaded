@@ -141,25 +141,25 @@ public class ModItems {
     public static final RegistryObject<Item> TERRARIAN_YOYO_PROJECTILE = ITEMS.register("terrarian_yoyo_projectile", () -> new Item(new Item.Properties()));
 
     //Foods
-    public static final RegistryObject<Item> GOLDFISH_SOUP = registerBaseFoodItem("goldfish_soup", 5, 1.0F, "Goldfish Soup. Mmmmmm");
-    public static final RegistryObject<Item> BUNNY_STEW = registerBaseFoodItem("bunny_stew", 5, 1.0F, "Bunny Stew Mmmmm", "Second Description");
-    public static final RegistryObject<Item> FRUIT_JUICE = registerBaseFoodItem("fruit_juice", 3, 1.0F, "A fruit juice");
-    public static final RegistryObject<Item> PRISMATIC_PUNCH = registerBaseFoodItem("prismatic_punch", 6, 1.2F, "Prismatic Punch");
-    public static final RegistryObject<Item> SEAFOOD_DINNER = registerBaseFoodItem("seafood_dinner", 8, 3.0F, "Seafood Dinner");
-    public static final RegistryObject<Item> SMOOTHIE_OF_DARKNESS = registerBaseFoodItem("smoothie_of_darkness", 5, 1.0F, "A smoothie of darkness", "Soo dark...");
-    public static final RegistryObject<Item> SASHIMI = registerBaseFoodItem("sashimi", 5, 1.0F, "Sashimi");
-    public static final RegistryObject<Item> ALE = registerBaseFoodItem("ale", 5, 1.0F, "Ale");
-    public static final RegistryObject<Item> APPLE_PIE = registerBaseFoodItem("apple_pie", 5, 1.0F, "Apple Pie.");
-    public static final RegistryObject<Item> BBQ_RIBS = registerBaseFoodItem("bbq_ribs", 5, 1.0F, "BBQ Ribs");
-    public static final RegistryObject<Item> BURGER = registerBaseFoodItem("burger", 8, 1.0F, "Burger");
-    public static final RegistryObject<Item> CHICKEN_NUGGET = registerBaseFoodItem("chicken_nugget", 5, 1.0F, "Chicken Nugget");
-    public static final RegistryObject<Item> CREAM_SODA = registerBaseFoodItem("cream_soda", 5, 1.0F, "Cream Soda");
-    public static final RegistryObject<Item> FRIED_EGG = registerBaseFoodItem("fried_egg", 5, 1.0F, "Fried egg");
-    public static final RegistryObject<Item> PAD_THAI = registerBaseFoodItem("pad_thai", 5, 1.0F, "Pad thai");
-    public static final RegistryObject<Item> PIZZA = registerBaseFoodItem("pizza", 5, 1.0F, "It's pizza time", "PIZZA");
-    public static final RegistryObject<Item> MARSHMALLOW = registerBaseFoodItem("marshmallow", 5, 1.0F, "Marshmallow");
-    public static final RegistryObject<Item> COOKED_MARSHMALLOW = registerBaseFoodItem("cooked_marshmallow", 5, 1.0F, "Cooked Marshmallow");
-    public static final RegistryObject<Item> SAKE = registerBaseFoodItem("sake", 5, 1.0F, "Sake");
+    public static final RegistryObject<Item> GOLDFISH_SOUP = registerBaseFoodItem("goldfish_soup", 5, 1.0F, "'Simple, yet refreshing.'");
+    public static final RegistryObject<Item> BUNNY_STEW = registerBaseFoodItem("bunny_stew", 5, 1.0F, "'This one's luck has run out.'");
+    public static final RegistryObject<Item> FRUIT_JUICE = registerBaseFoodItem("fruit_juice", 3, 1.0F, "'With 5% real fruit juice!'");
+    public static final RegistryObject<Item> PRISMATIC_PUNCH = registerBaseFoodItem("prismatic_punch", 6, 1.2F, "'Feel the rainbow, taste the crystal!'");
+    public static final RegistryObject<Item> SEAFOOD_DINNER = registerBaseFoodItem("seafood_dinner", 8, 3.0F, "'I sea food, I eat it.'");
+    public static final RegistryObject<Item> SMOOTHIE_OF_DARKNESS = registerBaseFoodItem("smoothie_of_darkness", 5, 1.0F, "'Come to the dark side, we have smoothies'");
+    public static final RegistryObject<Item> SASHIMI = registerBaseFoodItem("sashimi", 5, 1.0F, "'It's raw! It's exotic!'");
+    public static final RegistryObject<Item> ALE = registerBaseFoodItem("ale", 5, 1.0F, "'Down the hatch!'");
+    public static final RegistryObject<Item> APPLE_PIE = registerBaseFoodItem("apple_pie", 5, 1.0F, "'Nothing is as Terrarian as apple pie.'");
+    public static final RegistryObject<Item> BBQ_RIBS = registerBaseFoodItem("bbq_ribs", 5, 1.0F, "'Grilled to perfection!'");
+    public static final RegistryObject<Item> BURGER = registerBaseFoodItem("burger", 8, 1.0F, "'...but wait! It was 99 cents.'");
+    public static final RegistryObject<Item> CHICKEN_NUGGET = registerBaseFoodItem("chicken_nugget", 5, 1.0F, "'Caution: may contain harpy.'");
+    public static final RegistryObject<Item> CREAM_SODA = registerBaseFoodItem("cream_soda", 5, 1.0F, "'It's so fizzy!'");
+    public static final RegistryObject<Item> FRIED_EGG = registerBaseFoodItem("fried_egg", 5, 1.0F, "Sunny side up!'");
+    public static final RegistryObject<Item> PAD_THAI = registerBaseFoodItem("pad_thai", 5, 1.0F, "'Spicy level 5!'");
+    public static final RegistryObject<Item> PIZZA = registerBaseFoodItem("pizza", 5, 1.0F, "I'm not paying for those.'");
+    public static final RegistryObject<Item> MARSHMALLOW = registerBaseFoodItem("marshmallow", 5, 1.0F, "'How many can you fit in your mouth?'");
+    public static final RegistryObject<Item> COOKED_MARSHMALLOW = registerBaseFoodItem("cooked_marshmallow", 5, 1.0F, "'How can I have some more of nothing?'");
+    public static final RegistryObject<Item> SAKE = registerBaseFoodItem("sake", 5, 1.0F, "'Drink too much of this, and you become karate master.'");
 
     /**
      * Use this for default description
