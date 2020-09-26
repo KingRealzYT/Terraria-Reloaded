@@ -16,9 +16,8 @@ public class ModBlocks {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
-    // Blocks
-    public static final RegistryObject<Block> PIGGY_BANK = BLOCKS.register("piggy_bank", PiggyBank::new);
-    public static final RegistryObject<Block> HIVE_BLOCK = BLOCKS.register("hive_block", HiveBlock::new);
+    // Ore Blocks
+
     public static final RegistryObject<Block> SILVER_ORE = BLOCKS.register("silver_ore", SilverOre::new);
     public static final RegistryObject<Block> COPPER_ORE = BLOCKS.register("copper_ore", CopperOre::new);
     public static final RegistryObject<Block> METEORITE_ORE = BLOCKS.register("meteorite_ore", MeteoriteOre::new);
@@ -32,7 +31,29 @@ public class ModBlocks {
     public static final RegistryObject<Block> ADAMANTITE_ORE = BLOCKS.register("adamantite_ore", TitaniumOre::new);
     public static final RegistryObject<Block> TITANIUM_ORE = BLOCKS.register("titanium_ore", TitaniumOre::new);
     public static final RegistryObject<Block> CHLOROPHYTE_ORE = BLOCKS.register("chlorophyte_ore", ChlorophyteOre::new);
-/* Note: Some blocks above use the same block class as they're identical other than their texture and drops, e.g Demonite + Crimtane,
+/* Note: Some ore blocks above use the same block class as they're identical other than their texture and drops, e.g Demonite + Crimtane,
  Cobalt + Palladium, etc. Up to yall if you wanna keep using that*/
+
+    // Special Blocks
+
+    public static final RegistryObject<Block> PIGGY_BANK = BLOCKS.register("piggy_bank", PiggyBank::new);
+    public static final RegistryObject<Block> HIVE_BLOCK = BLOCKS.register("hive_block", HiveBlock::new);
+
+    // Other Blocks
+    public static final RegistryObject<Block> EBONSTONE = BLOCKS.register("ebonstone", ModStoneBlock::new);
+    public static final RegistryObject<Block> CRIMSTONE = BLOCKS.register("crimstone", ModStoneBlock::new);
+    public static final RegistryObject<Block> PEARLSTONE = BLOCKS.register("pearlstone", ModStoneBlock::new);
+    public static final RegistryObject<Block> BLUE_GRANITE = BLOCKS.register("blue_granite", ModStoneBlock::new);
+    public static final RegistryObject<Block> MARBLE = BLOCKS.register("marble", ModStoneBlock::new);
+
+    public static final RegistryObject<Block> EBONSTONE_BRICKS = BLOCKS.register("ebonstone_bricks", ModStoneBlock::new);
+    public static final RegistryObject<Block> CRIMSTONE_BRICKS = BLOCKS.register("crimstone_bricks", ModStoneBlock::new);
+    public static final RegistryObject<Block> PEARLSTONE_BRICKS = BLOCKS.register("pearlstone_bricks", ModStoneBlock::new);
+    public static final RegistryObject<Block> SMOOTH_BLUE_GRANITE = BLOCKS.register("smooth_blue_granite", ModStoneBlock::new);
+    public static final RegistryObject<Block> SMOOTH_MARBLE = BLOCKS.register("smooth_marble", ModStoneBlock::new);
+
+    public static final RegistryObject<Block> EBONSAND = BLOCKS.register("ebonsand", () -> new ModSandBlock(0x523f5a));
+    public static final RegistryObject<Block> CRIMSAND = BLOCKS.register("crimsand", () -> new ModSandBlock(0xc34343));
+    public static final RegistryObject<Block> PEARLSAND = BLOCKS.register("pearlsand", () -> new ModSandBlock(0xb5acbe));
 
 }

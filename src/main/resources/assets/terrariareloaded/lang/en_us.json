@@ -69,6 +69,23 @@
   "block.terrariareloaded.honey": "Honey",
   "block.terrariareloaded.hive_block": "Hive Block",
   "block.terrariareloaded.piggy_bank": "Piggy Bank",
+
+  "block.terrariareloaded.ebonstone": "Ebonstone",
+  "block.terrariareloaded.crimstone": "Crimstone",
+  "block.terrariareloaded.pearlstone": "Pearlstone",
+  "block.terrariareloaded.blue_granite": "Blue Granite",
+  "block.terrariareloaded.marble": "Marble",
+
+  "block.terrariareloaded.ebonstone_bricks": "Ebonstone Bricks",
+  "block.terrariareloaded.crimstone_bricks": "Crimstone Bricks",
+  "block.terrariareloaded.pearlstone_bricks": "Pearlstone Bricks",
+  "block.terrariareloaded.smooth_blue_granite": "Smooth Blue Granite",
+  "block.terrariareloaded.smooth_marble": "Smooth Marble",
+  "block.terrariareloaded.ebonsand": "Ebonsand",
+  "block.terrariareloaded.crimsand": "Crimsand",
+  "block.terrariareloaded.pearlsand": "Pearlsand",
+
+
   "block.terrariareloaded.silver_ore": "Silver Ore",
   "block.terrariareloaded.copper_ore": "Copper Ore",
   "block.terrariareloaded.meteorite_ore": "Meteorite Ore",

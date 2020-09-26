@@ -93,7 +93,10 @@ public class ModItems {
     public static final RegistryObject<PickaxeAxeItem> PICKAXE_AXE = ITEMS.register("pickaxe_axe", () -> new PickaxeAxeItem(ModItemTier.PICKAXEAXE, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.TOOL).setNoRepair()));
 
 
-    // Block Items  
+    // Block Items
+    public static final RegistryObject<Item> HIVE_BLOCK_ITEM = ITEMS.register("hive_block", () -> new BlockItemBase(ModBlocks.HIVE_BLOCK.get()));
+    public static final RegistryObject<Item> PIGGY_BANK_ITEM = ITEMS.register("piggy_bank", () -> new BlockItemBase(ModBlocks.PIGGY_BANK.get()));
+
     public static final RegistryObject<Item> METEORITE_ORE_ITEM = ITEMS.register("meteorite_ore", () -> new BlockItemBase(ModBlocks.METEORITE_ORE.get()));
     public static final RegistryObject<Item> CRIMTANE_ORE_ITEM = ITEMS.register("crimtane_ore", () -> new BlockItemBase(ModBlocks.CRIMTANE_ORE.get()));
     public static final RegistryObject<Item> DEMONITE_ORE_ITEM = ITEMS.register("demonite_ore", () -> new BlockItemBase(ModBlocks.DEMONITE_ORE.get()));
@@ -107,8 +110,20 @@ public class ModItems {
     public static final RegistryObject<Item> CHLOROPHYTE_ORE_ITEM = ITEMS.register("chlorophyte_ore", () -> new BlockItemBase(ModBlocks.CHLOROPHYTE_ORE.get()));
     public static final RegistryObject<Item> SILVER_ORE_ITEM = ITEMS.register("silver_ore", () -> new BlockItemBase(ModBlocks.SILVER_ORE.get()));
     public static final RegistryObject<Item> COPPER_ORE_ITEM = ITEMS.register("copper_ore", () -> new BlockItemBase(ModBlocks.COPPER_ORE.get()));
-    public static final RegistryObject<Item> HIVE_BLOCK_ITEM = ITEMS.register("hive_block", () -> new BlockItemBase(ModBlocks.HIVE_BLOCK.get()));
-    public static final RegistryObject<Item> PIGGY_BANK_ITEM = ITEMS.register("piggy_bank", () -> new BlockItemBase(ModBlocks.PIGGY_BANK.get()));
+
+    public static final RegistryObject<Item> EBONSTONE_ITEM = ITEMS.register("ebonstone", () -> new BlockItemBase(ModBlocks.EBONSTONE.get()));
+    public static final RegistryObject<Item> CRIMSTONE_ITEM = ITEMS.register("crimstone", () -> new BlockItemBase(ModBlocks.CRIMSTONE.get()));
+    public static final RegistryObject<Item> PEARLSTONE_ITEM = ITEMS.register("pearlstone", () -> new BlockItemBase(ModBlocks.PEARLSTONE.get()));
+    public static final RegistryObject<Item> BLUE_GRANITE_ITEM = ITEMS.register("blue_granite", () -> new BlockItemBase(ModBlocks.BLUE_GRANITE.get()));
+    public static final RegistryObject<Item> MARBLE_ITEM = ITEMS.register("marble", () -> new BlockItemBase(ModBlocks.MARBLE.get()));
+    public static final RegistryObject<Item> EBONSAND_ITEM = ITEMS.register("ebonsand", () -> new BlockItemBase(ModBlocks.EBONSAND.get()));
+    public static final RegistryObject<Item> CRIMSAND_ITEM = ITEMS.register("crimsand", () -> new BlockItemBase(ModBlocks.CRIMSAND.get()));
+    public static final RegistryObject<Item> PEARLSAND_ITEM = ITEMS.register("pearlsand", () -> new BlockItemBase(ModBlocks.PEARLSAND.get()));
+    public static final RegistryObject<Item> EBONSTONE_BRICKS_ITEM = ITEMS.register("ebonstone_bricks", () -> new BlockItemBase(ModBlocks.EBONSTONE_BRICKS.get()));
+    public static final RegistryObject<Item> CRIMSTONE_BRICKS_ITEM = ITEMS.register("crimstone_bricks", () -> new BlockItemBase(ModBlocks.CRIMSTONE_BRICKS.get()));
+    public static final RegistryObject<Item> PEARLSTONE_BRICKS_ITEM = ITEMS.register("pearlstone_bricks", () -> new BlockItemBase(ModBlocks.PEARLSTONE_BRICKS.get()));
+    public static final RegistryObject<Item> SMOOTH_BLUE_GRANITE_ITEM = ITEMS.register("smooth_blue_granite", () -> new BlockItemBase(ModBlocks.SMOOTH_BLUE_GRANITE.get()));
+    public static final RegistryObject<Item> SMOOTH_MARBLE_ITEM = ITEMS.register("smooth_marble", () -> new BlockItemBase(ModBlocks.SMOOTH_MARBLE.get()));
 
     // Throwing weapons
     public static final RegistryObject<Item> THROWING_KNIFE_ITEM = ITEMS.register("throwing_knife_item", () -> new ThrowingKnifeItem(new Item.Properties().group(TerrariaReloaded.THROW)));
