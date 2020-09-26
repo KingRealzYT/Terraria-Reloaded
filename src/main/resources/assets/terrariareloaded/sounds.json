@@ -2,7 +2,7 @@
   "item_magicmirror_use": {
       "category": "item",
       "subtitle": "item_magicmirror_use",
-      "sounds": [{"name": "terrariareloaded:item/item_magicmirror_use",
+      "sounds": [{"name": "terrariareloaded:item/magic_mirror_use",
       "stream": true}]
   }
 }
