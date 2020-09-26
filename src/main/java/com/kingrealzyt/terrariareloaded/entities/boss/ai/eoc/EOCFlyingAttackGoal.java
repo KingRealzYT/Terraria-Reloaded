@@ -2,15 +2,18 @@ package com.kingrealzyt.terrariareloaded.entities.boss.ai.eoc;
 
 import com.kingrealzyt.terrariareloaded.entities.boss.EOCEntity;
 import net.minecraft.entity.EntityPredicate;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.goal.TargetGoal;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.pathfinding.Path;
 import net.minecraft.util.math.AxisAlignedBB;
 
 import java.util.EnumSet;
 
 public class EOCFlyingAttackGoal extends TargetGoal {
 
-    public static final double TARGET_DISTANCE = 200;
+    public static final double TARGET_DISTANCE = 256;
 
     private PlayerEntity nearestTarget;
     private final EntityPredicate targetSelector;
@@ -36,9 +39,32 @@ public class EOCFlyingAttackGoal extends TargetGoal {
     }
 
     @Override
+    public void tick() {
+        PlayerEntity playerEntity = (PlayerEntity) this.goalOwner.getAttackTarget();
+        assert playerEntity != null;
+        double distance = this.goalOwner.getDistanceSq(playerEntity.getPosX(), playerEntity.getPosY(), playerEntity.getPosZ());
+        Path path = this.goalOwner.getNavigator().getPathToEntity(playerEntity, 0);
+        this.goalOwner.getNavigator().setPath(path, this.goalOwner.getAttribute(SharedMonsterAttributes.FLYING_SPEED).getBaseValue());
+        this.checkAndPerformAttack(playerEntity, distance);
+    }
+
+    @Override
     public void startExecuting() {
         this.goalOwner.setAttackTarget(this.nearestTarget);
         ((EOCEntity) this.goalOwner).setFlyingAttack(true);
         super.startExecuting();
+    }
+
+    private void checkAndPerformAttack(LivingEntity enemy, double distToEnemySqr) {
+        double attackReachSqr = this.getAttackReachSqr(enemy);
+        if (distToEnemySqr <= attackReachSqr) {
+            this.goalOwner.attackEntityAsMob(enemy);
+            System.out.println("ATTACK");
+        }
+
+    }
+
+    private double getAttackReachSqr(LivingEntity attackTarget) {
+        return (this.goalOwner.getWidth() * 2.0F * this.goalOwner.getWidth() * 2.0F + attackTarget.getWidth());
     }
 }

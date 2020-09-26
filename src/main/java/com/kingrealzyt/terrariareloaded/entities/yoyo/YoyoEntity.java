@@ -123,6 +123,11 @@ public class YoyoEntity extends MobEntity implements IEntityAdditionalSpawnData 
     }
 
     @Override
+    public boolean onLivingFall(float distance, float damageMultiplier) {
+        return false;
+    }
+
+    @Override
     public IPacket<?> createSpawnPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }

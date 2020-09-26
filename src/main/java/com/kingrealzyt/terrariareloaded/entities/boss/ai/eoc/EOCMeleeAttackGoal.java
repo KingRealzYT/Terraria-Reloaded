@@ -153,7 +153,7 @@ public class EOCMeleeAttackGoal extends Goal {
         double d0 = this.getAttackReachSqr(enemy);
         if (distToEnemySqr <= d0 && this.attackTick <= 0) {
             this.attackTick = 20;
-            this.attacker.swingArm(Hand.MAIN_HAND);
+            System.out.println("ATTACK");
             this.attacker.attackEntityAsMob(enemy);
         }
 
