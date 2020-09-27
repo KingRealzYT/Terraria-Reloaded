@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "terrariareloaded:orichalcum_ore"
+  },
+  "result": "terrariareloaded:orichalcum_ingot",
+  "experience": 1.0,
+  "cookingtime": 200
+}

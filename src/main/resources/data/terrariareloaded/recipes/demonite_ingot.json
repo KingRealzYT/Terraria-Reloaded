@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "terrariareloaded:demonite_ore"
+  },
+  "result": "terrariareloaded:demonite_ingot",
+  "experience": 1.0,
+  "cookingtime": 200
+}

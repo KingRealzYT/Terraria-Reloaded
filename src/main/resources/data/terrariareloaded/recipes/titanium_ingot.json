@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "terrariareloaded:titanium_ore"
+  },
+  "result": "terrariareloaded:titanium_ingot",
+  "experience": 1.0,
+  "cookingtime": 200
+}

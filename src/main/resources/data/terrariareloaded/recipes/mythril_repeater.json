@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " aa",
+    "aac",
+    " aa"
+  ],
+  "key":
+  {
+    "a":
+    {
+      "item": "terrariareloaded:mythril_ingot"
+    },
+    "c":
+    {
+      "item": "minecraft:crossbow"
+    }
+  },
+  "result":
+  {
+    "item": "terrariareloaded:mythril_repeater",
+    "count": 1
+  }
+}

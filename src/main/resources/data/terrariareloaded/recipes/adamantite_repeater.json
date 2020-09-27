@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " aa",
+    "aac",
+    " aa"
+  ],
+  "key":
+  {
+    "a":
+    {
+      "item": "terrariareloaded:adamantite_ingot"
+    },
+    "c":
+    {
+      "item": "minecraft:crossbow"
+    }
+  },
+  "result":
+  {
+    "item": "terrariareloaded:adamantite_repeater",
+    "count": 1
+  }
+}

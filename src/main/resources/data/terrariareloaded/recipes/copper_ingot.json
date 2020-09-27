@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "terrariareloaded:copper_ore"
+  },
+  "result": "terrariareloaded:copper_ingot",
+  "experience": 1.0,
+  "cookingtime": 200
+}

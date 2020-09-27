@@ -3,10 +3,7 @@ package com.kingrealzyt.terrariareloaded.client;
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.client.gui.PiggyBankScreen;
 import com.kingrealzyt.terrariareloaded.client.gui.ShopNPCScreen;
-import com.kingrealzyt.terrariareloaded.client.model.npc.DemolitionistNPCModel;
-import com.kingrealzyt.terrariareloaded.client.model.npc.DyeTraderNPCModel;
-import com.kingrealzyt.terrariareloaded.client.model.npc.GuideNPCModel;
-import com.kingrealzyt.terrariareloaded.client.model.npc.MerchantNPCModel;
+import com.kingrealzyt.terrariareloaded.client.model.npc.*;
 import com.kingrealzyt.terrariareloaded.client.renderer.entities.*;
 import com.kingrealzyt.terrariareloaded.client.renderer.entities.npc.ShopNPCRenderer;
 import com.kingrealzyt.terrariareloaded.entities.npc.ShopNPCEntity;
@@ -49,6 +46,7 @@ public class ClientEventBusSubscriber {
         registerNpcRenderer(ModEntityTypes.NPC_GUIDE.get(), new GuideNPCModel<>());
         registerNpcRenderer(ModEntityTypes.NPC_DYE_TRADER.get(), new DyeTraderNPCModel<>());
         registerNpcRenderer(ModEntityTypes.NPC_DEMOLITIONIST.get(), new DemolitionistNPCModel<>());
+        registerNpcRenderer(ModEntityTypes.NPC_DRYAD.get(), new DryadNPCModel<>());
 
     }
 

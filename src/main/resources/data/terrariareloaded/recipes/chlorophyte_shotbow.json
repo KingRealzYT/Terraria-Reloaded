@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " ac",
+    "aac",
+    " aa"
+  ],
+  "key":
+  {
+    "a":
+    {
+      "item": "terrariareloaded:chlorophyte_ingot"
+    },
+    "c":
+    {
+      "item": "minecraft:crossbow"
+    }
+  },
+  "result":
+  {
+    "item": "terrariareloaded:chlorophyte_shotbow",
+    "count": 1
+  }
+}

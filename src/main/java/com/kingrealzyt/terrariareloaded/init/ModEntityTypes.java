@@ -6,10 +6,7 @@ import com.kingrealzyt.terrariareloaded.entities.boss.DemonEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.EOCEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFMouthEntity;
-import com.kingrealzyt.terrariareloaded.entities.npc.DemolitionistNPCEntity;
-import com.kingrealzyt.terrariareloaded.entities.npc.DyeTraderNPCEntity;
-import com.kingrealzyt.terrariareloaded.entities.npc.GuideNPCEntity;
-import com.kingrealzyt.terrariareloaded.entities.npc.MerchantNPCEntity;
+import com.kingrealzyt.terrariareloaded.entities.npc.*;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.*;
 import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoEntity;
 import net.minecraft.advancements.criterion.EnchantedItemTrigger;
@@ -115,5 +112,11 @@ public class ModEntityTypes {
                     .size(0.6f, 1.6f)
                     .immuneToFire()
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "npc_demolitionist").toString()));
+
+    public static final RegistryObject<EntityType<DryadNPCEntity>> NPC_DRYAD = ENTITY_TYPES.register("npc_dryad",
+            () -> EntityType.Builder.<DryadNPCEntity>create(DryadNPCEntity::new, EntityClassification.CREATURE)
+                    .size(0.6f, 1.6f)
+                    .immuneToFire()
+                    .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "npc_dryad").toString()));
 
 }

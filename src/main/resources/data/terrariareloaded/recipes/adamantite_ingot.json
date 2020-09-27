@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "terrariareloaded:adamantite_ore"
+  },
+  "result": "terrariareloaded:adamantite_ingot",
+  "experience": 1.0,
+  "cookingtime": 200
+}

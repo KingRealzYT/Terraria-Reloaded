@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " aa",
+    "aac",
+    " aa"
+  ],
+  "key":
+  {
+    "a":
+    {
+      "item": "terrariareloaded:titanium_ingot"
+    },
+    "c":
+    {
+      "item": "minecraft:crossbow"
+    }
+  },
+  "result":
+  {
+    "item": "terrariareloaded:titanium_repeater",
+    "count": 1
+  }
+}

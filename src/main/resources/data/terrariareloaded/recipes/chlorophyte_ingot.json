@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "terrariareloaded:chlorophyte_ore"
+  },
+  "result": "terrariareloaded:chlorophyte_ingot",
+  "experience": 1.0,
+  "cookingtime": 200
+}

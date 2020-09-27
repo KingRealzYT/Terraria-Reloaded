@@ -11,13 +11,21 @@ import java.util.Arrays;
 public class ShopOffersList {
 
     public static final MerchantOffers MERCHANT = create(
-            gold(2, ModItems.PIGGY_BANK_ITEM.get(), 1),
-            silver(5, ModItems.SILVER_INGOT.get(), 4)
+            silver(1, Items.ARROW, 20),
+            silver(2, Items.TORCH, 4),
+            silver(3, ModItems.MARSHMALLOW.get(), 1),
+            silver(3, Items.FURNACE, 1),
+            silver(4, ModItems.COPPER_AXE.get(), 1),
+            silver(5, ModItems.COPPER_PICKAXE.get(), 1),
+            silver(20, ModItems.SILVER_INGOT.get(), 4),
+            silver(50, Items.ANVIL, 1),
+            gold(2, ModItems.PIGGY_BANK_ITEM.get(), 1)
+
     );
 
     public static final MerchantOffers GUIDE = create(
-            copper(100, Items.ARROW, 1),
-            silver(1, Items.TORCH, 16)
+            silver(1, Items.ARROW, 20),
+            silver(1, Items.TORCH, 2)
     );
 
     public static final MerchantOffers DYE_TRADER = create(
@@ -34,17 +42,25 @@ public class ShopOffersList {
     );
 
     public static final MerchantOffers DEMOLITIONIST = create(
-            copper(20, Items.GUNPOWDER, 2),
-            copper(80, Items.FLINT_AND_STEEL, 1),
-            silver(4, ModItems.GRENADE_ITEM.get(), 8),
-            silver(1, ModItems.BOMB_ITEM.get(), 1),
-            silver(2, Items.TNT, 1),
-            silver(4, ModItems.DYNAMITE_ITEM.get(), 1)
+            copper(60, Items.FLINT_AND_STEEL, 1),
+            silver(1, Items.GUNPOWDER, 1),
+            silver(3, ModItems.BOMB_ITEM.get(), 1),
+            silver(6, ModItems.GRENADE_ITEM.get(), 10),
+            silver(6, Items.TNT, 1),
+            silver(20, ModItems.DYNAMITE_ITEM.get(), 1)
     );
 
+    public static final MerchantOffers DRYAD = create(
+            copper(40, Items.GRASS_BLOCK, 2),
+            silver(2, Items.MELON_SEEDS, 1),
+            silver(2, Items.PUMPKIN_SEEDS, 1),
+            silver(2, Items.MYCELIUM, 2),
+            silver(1, Items.FLOWER_POT, 3),
+            silver(20, Items.FLOWER_POT, 3),
+            silver(1, ModItems.CORRUPT_GRASS_BLOCK_ITEM.get(), 1),
+            silver(1, ModItems.CRIMSON_GRASS_BLOCK_ITEM.get(), 1)
 
-
-
+    );
 
 
     /**

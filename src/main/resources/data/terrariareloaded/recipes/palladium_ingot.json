@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "terrariareloaded:palladium_ore"
+  },
+  "result": "terrariareloaded:palladium_ingot",
+  "experience": 1.0,
+  "cookingtime": 200
+}

@@ -10,7 +10,8 @@ public enum ShopType {
     MERCHANT("Merchant", ShopOffersList.MERCHANT, textureRL("npc_merchant")),
     GUIDE("Guide", ShopOffersList.GUIDE, textureRL("npc_guide")),
     DYE_TRADER("Dye Trader", ShopOffersList.DYE_TRADER, textureRL("npc_dye_trader")),
-    DEMOLITIONIST("Demolitionist", ShopOffersList.DEMOLITIONIST, textureRL("npc_demolitionist"))
+    DEMOLITIONIST("Demolitionist", ShopOffersList.DEMOLITIONIST, textureRL("npc_demolitionist")),
+    DRYAD("Dryad", ShopOffersList.DRYAD, textureRL("npc_dryad")),
     ;
 
 

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " aa",
+    "aac",
+    " aa"
+  ],
+  "key":
+  {
+    "a":
+    {
+      "item": "terrariareloaded:cobalt_ingot"
+    },
+    "c":
+    {
+      "item": "minecraft:crossbow"
+    }
+  },
+  "result":
+  {
+    "item": "terrariareloaded:cobalt_repeater",
+    "count": 1
+  }
+}

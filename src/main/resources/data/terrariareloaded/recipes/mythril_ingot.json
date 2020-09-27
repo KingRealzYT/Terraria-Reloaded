@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "terrariareloaded:mythril_ore"
+  },
+  "result": "terrariareloaded:mythril_ingot",
+  "experience": 1.0,
+  "cookingtime": 200
+}
