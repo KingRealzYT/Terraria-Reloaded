@@ -13,6 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -93,11 +94,12 @@ public class YoyoItem extends Item implements IYoyo {
             LivingEntity livingEntity = (LivingEntity) targetEntity;
             if (livingEntity.getUniqueID().equals(playerEntity.getUniqueID()))
                 return;
-            livingEntity.attackEntityFrom(TerrariaReloaded.YOYO, type.getDamage());
-            livingEntity.knockBack(livingEntity, type.getKnockback(), playerEntity.getPosX() - livingEntity.getPosX(), playerEntity.getPosZ() - livingEntity.getPosZ());
             if (type == YoyoType.TERRARIAN) {
+                livingEntity.attackEntityFrom(TerrariaReloaded.YOYO, type.getDamage());
                 spawnTerrarianProjectile(livingEntity);
-            }
+            } else
+                livingEntity.attackEntityFrom(DamageSource.GENERIC, type.getDamage());
+            livingEntity.knockBack(livingEntity, type.getKnockback(), playerEntity.getPosX() - livingEntity.getPosX(), playerEntity.getPosZ() - livingEntity.getPosZ());
         }
     }
 

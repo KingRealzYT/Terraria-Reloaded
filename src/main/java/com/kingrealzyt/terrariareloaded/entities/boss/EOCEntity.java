@@ -2,19 +2,16 @@ package com.kingrealzyt.terrariareloaded.entities.boss;
 
 import com.kingrealzyt.terrariareloaded.entities.boss.ai.eoc.EOCFlyingAttackGoal;
 import com.kingrealzyt.terrariareloaded.entities.boss.ai.eoc.EOCLookAroundGoal;
-import com.kingrealzyt.terrariareloaded.entities.boss.ai.eoc.EOCMovementHelperController;
 import com.kingrealzyt.terrariareloaded.entities.boss.ai.eoc.EOCRandomFlyGoal;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.FlyingEntity;
-import net.minecraft.entity.MoverType;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.monster.GhastEntity;
 import net.minecraft.entity.monster.IMob;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.World;
@@ -28,7 +25,7 @@ public class EOCEntity extends FlyingEntity implements IMob {
     private static final double ALTITUDE_FLYING_THRESHOLD = 2;
     private static final double MAX_HEALTH = 400.0D;
     private static final double MOVEMENT_SPEED_FLYING = 0.7D;
-    private static final double FOLLOW_RANGE = 100.0D;
+    private static final double FOLLOW_RANGE = 256.0D;
     private static final double KNOCKBACK_RESISTANCE = 0.9F;
     private static final double ATTACK_DAMAGE = 0.5; //TODO change it later
     //If more players fighting against the eoc, then is this the chance, when the eoc switching the attacker
@@ -42,7 +39,7 @@ public class EOCEntity extends FlyingEntity implements IMob {
 
     public EOCEntity(EntityType<? extends EOCEntity> type, World worldIn) {
         super(type, worldIn);
-        this.moveController = new EOCMovementHelperController(this);
+        //this.moveController = new EOCMovementHelperController(this);
     }
 
 
@@ -58,18 +55,12 @@ public class EOCEntity extends FlyingEntity implements IMob {
         //this.goalSelector.addGoal(1, new EOCMeleeAttackGoal(this, MOVEMENT_SPEED_FLYING, false));
         this.goalSelector.addGoal(5, new EOCRandomFlyGoal(this));
         this.goalSelector.addGoal(7, new EOCLookAroundGoal(this));
-        //this.targetSelector.addGoal(1, new EOCSearchAttackerGoal(this, FOLLOW_RANGE, FOLLOW_RANGE, FOLLOW_RANGE, 0));
         this.targetSelector.addGoal(1, new EOCFlyingAttackGoal(this));
-        //this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, 10, true, false, null));
     }
 
     @Override
     protected void registerAttributes() {
         super.registerAttributes();
-        /*
-        his.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10.0D);
-      this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(100.0D);
-         */
         this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(MOVEMENT_SPEED_FLYING);
         this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(MAX_HEALTH);
         this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(FOLLOW_RANGE);
@@ -106,15 +97,13 @@ public class EOCEntity extends FlyingEntity implements IMob {
     }
 
     @Override
+    public void tick() {
+        super.tick();
+    }
+
+    @Override
     public void livingTick() {
         this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
-
-        if(this.isCurrentlyFlyingAttack() && this.getAttackTarget() != null) {
-            PlayerEntity playerEntity = (PlayerEntity) this.getAttackTarget();
-            Vec3d eocPos = this.getPositionVec();
-            Vec3d dir = this.getLookVec().subtract(playerEntity.getPositionVec()).normalize();
-            this.move(MoverType.SELF, dir);
-        }
 
         super.livingTick();
     }
