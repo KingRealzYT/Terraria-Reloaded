@@ -8,11 +8,14 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.CapabilityManager;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
@@ -21,6 +24,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mod("terrariareloaded")
+@Mod.EventBusSubscriber(modid = TerrariaReloaded.MOD_ID, bus = Bus.MOD)
 public class TerrariaReloaded {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "terrariareloaded";
@@ -36,7 +40,7 @@ public class TerrariaReloaded {
         ModBlocks.init();
         ModContainers.CONTAINERS.register(modEventBus);
         ModEntityTypes.ENTITY_TYPES.register(modEventBus);
-
+        ModBiomes.BIOMES.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
@@ -48,6 +52,12 @@ public class TerrariaReloaded {
 
     private void doClientStuff(final FMLClientSetupEvent event) {
 
+    }
+
+    @SubscribeEvent
+    public static void OnRegisterBiomes(final RegistryEvent.Register<Biome> event)
+    {
+        ModBiomes.registerBiomes();
     }
 
     @SubscribeEvent
