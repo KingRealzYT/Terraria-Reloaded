@@ -129,6 +129,10 @@ public class ModItems {
     public static final RegistryObject<Item> SMOOTH_BLUE_GRANITE_ITEM = ITEMS.register("smooth_blue_granite", () -> new BlockItemBase(ModBlocks.SMOOTH_BLUE_GRANITE.get()));
     public static final RegistryObject<Item> SMOOTH_MARBLE_ITEM = ITEMS.register("smooth_marble", () -> new BlockItemBase(ModBlocks.SMOOTH_MARBLE.get()));
 
+    public static final RegistryObject<Item> CORRUPT_GRASS_BLOCK_ITEM = ITEMS.register("corrupt_grass_block", () -> new BlockItemBase(ModBlocks.CORRUPT_GRASS_BLOCK.get()));
+    public static final RegistryObject<Item> CRIMSON_GRASS_BLOCK_ITEM = ITEMS.register("crimson_grass_block", () -> new BlockItemBase(ModBlocks.CRIMSON_GRASS_BLOCK.get()));
+
+
     // Throwing weapons
     public static final RegistryObject<Item> THROWING_KNIFE_ITEM = ITEMS.register("throwing_knife_item", () -> new ThrowingKnifeItem(new Item.Properties().group(TerrariaReloaded.THROW)));
     public static final RegistryObject<Item> DYNAMITE_ITEM = ITEMS.register("dynamite_item", () -> new DynamiteItem(new Item.Properties().group(TerrariaReloaded.THROW)));
