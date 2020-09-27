@@ -10,9 +10,12 @@ import com.kingrealzyt.terrariareloaded.client.model.npc.MerchantNPCModel;
 import com.kingrealzyt.terrariareloaded.client.renderer.entities.*;
 import com.kingrealzyt.terrariareloaded.client.renderer.entities.npc.ShopNPCRenderer;
 import com.kingrealzyt.terrariareloaded.entities.npc.ShopNPCEntity;
+import com.kingrealzyt.terrariareloaded.init.ModBlocks;
 import com.kingrealzyt.terrariareloaded.init.ModContainers;
 import com.kingrealzyt.terrariareloaded.init.ModEntityTypes;
 import net.minecraft.client.gui.ScreenManager;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.entity.EntityType;
 import net.minecraftforge.api.distmarker.Dist;
@@ -49,9 +52,12 @@ public class ClientEventBusSubscriber {
 
     }
 
+
     private static <T extends ShopNPCEntity, M extends EntityModel<T>> void registerNpcRenderer(EntityType<T> entity, M model) {
         RenderingRegistry.registerEntityRenderingHandler(entity, (manager) -> new ShopNPCRenderer<>(manager, model));
     }
 
-
+    @SubscribeEvent
+    public static void clientSetup(FMLClientSetupEvent event) {
+        RenderTypeLookup.setRenderLayer(ModBlocks.LIFE_FRUIT_BUSH.get(), RenderType.getCutout()); }
 }

@@ -32,6 +32,8 @@
   "item.terrariareloaded.silver_ingot": "Silver Ingot",
   "item.terrariareloaded.copper_ingot": "Copper Ingot",
 
+  "item.terrariareloaded.life_fruit": "Life Fruit",
+
   "item.terrariareloaded.copper_coin": "Copper Coin",
   "item.terrariareloaded.silver_coin": "Silver Coin",
   "item.terrariareloaded.gold_coin": "Gold Coin",
@@ -75,6 +77,8 @@
   "block.terrariareloaded.pearlstone": "Pearlstone",
   "block.terrariareloaded.blue_granite": "Blue Granite",
   "block.terrariareloaded.marble": "Marble",
+  "block.terrariareloaded.life_fruit_bush": "Life Fruit Bush",
+
 
   "block.terrariareloaded.ebonstone_bricks": "Ebonstone Bricks",
   "block.terrariareloaded.crimstone_bricks": "Crimstone Bricks",

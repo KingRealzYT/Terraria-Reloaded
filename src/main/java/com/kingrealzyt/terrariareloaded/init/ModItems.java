@@ -5,6 +5,7 @@ import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.blocks.BlockItemBase;
 import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoType;
 import com.kingrealzyt.terrariareloaded.items.FoodItemBase;
+import com.kingrealzyt.terrariareloaded.items.LifeFruitItem;
 import com.kingrealzyt.terrariareloaded.items.MiscItemBase;
 import com.kingrealzyt.terrariareloaded.items.misc.*;
 import com.kingrealzyt.terrariareloaded.items.tools.others.PickaxeAxeItem;
@@ -45,9 +46,10 @@ public class ModItems {
     public static final RegistryObject<Item> ABEEMINATION = ITEMS.register("abeemination", Abeemination::new);
     public static final RegistryObject<Item> WORM_FOOD = ITEMS.register("worm_food", WormFood::new);
     public static final RegistryObject<Item> SLIME_CROWN = ITEMS.register("slime_crown", SlimeCrown::new);
+    public static final RegistryObject<Item> LIFE_FRUIT = ITEMS.register("life_fruit", LifeFruitItem::new);
 
     public static final RegistryObject<Item> BAND_REGENERATION = ITEMS.register("band_of_regeneration", ItemBand::new);
-    //Crafting items hehe
+    //Crafting Items
     public static final RegistryObject<Item> LENS = ITEMS.register("lens", MiscItemBase::new);
     public static final RegistryObject<Item> STINGER = ITEMS.register("stinger", MiscItemBase::new);
     public static final RegistryObject<Item> GOLDFISH = ITEMS.register("goldfish", MiscItemBase::new);
@@ -96,6 +98,8 @@ public class ModItems {
     // Block Items
     public static final RegistryObject<Item> HIVE_BLOCK_ITEM = ITEMS.register("hive_block", () -> new BlockItemBase(ModBlocks.HIVE_BLOCK.get()));
     public static final RegistryObject<Item> PIGGY_BANK_ITEM = ITEMS.register("piggy_bank", () -> new BlockItemBase(ModBlocks.PIGGY_BANK.get()));
+
+    public static final RegistryObject<Item> LIFE_FRUIT_BUSH_BLOCK = ITEMS.register("life_fruit_bush", () -> new BlockItemBase(ModBlocks.LIFE_FRUIT_BUSH.get()));
 
     public static final RegistryObject<Item> METEORITE_ORE_ITEM = ITEMS.register("meteorite_ore", () -> new BlockItemBase(ModBlocks.METEORITE_ORE.get()));
     public static final RegistryObject<Item> CRIMTANE_ORE_ITEM = ITEMS.register("crimtane_ore", () -> new BlockItemBase(ModBlocks.CRIMTANE_ORE.get()));
