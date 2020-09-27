@@ -128,9 +128,15 @@ public class ModItems {
     public static final RegistryObject<Item> PEARLSTONE_BRICKS_ITEM = ITEMS.register("pearlstone_bricks", () -> new BlockItemBase(ModBlocks.PEARLSTONE_BRICKS.get()));
     public static final RegistryObject<Item> SMOOTH_BLUE_GRANITE_ITEM = ITEMS.register("smooth_blue_granite", () -> new BlockItemBase(ModBlocks.SMOOTH_BLUE_GRANITE.get()));
     public static final RegistryObject<Item> SMOOTH_MARBLE_ITEM = ITEMS.register("smooth_marble", () -> new BlockItemBase(ModBlocks.SMOOTH_MARBLE.get()));
+    public static final RegistryObject<Item> MUD_ITEM = ITEMS.register("mud", () -> new BlockItemBase(ModBlocks.MUD.get()));
+    public static final RegistryObject<Item> SILT_ITEM = ITEMS.register("silt", () -> new BlockItemBase(ModBlocks.SILT.get()));
+    public static final RegistryObject<Item> SLUSH_ITEM = ITEMS.register("slush", () -> new BlockItemBase(ModBlocks.SLUSH.get()));
+    public static final RegistryObject<Item> ASH_ITEM = ITEMS.register("ash", () -> new BlockItemBase(ModBlocks.ASH.get()));
+    public static final RegistryObject<Item> BLOCK_OF_FLESH_ITEM = ITEMS.register("block_of_flesh", () -> new BlockItemBase(ModBlocks.BLOCK_OF_FLESH.get()));
 
     public static final RegistryObject<Item> CORRUPT_GRASS_BLOCK_ITEM = ITEMS.register("corrupt_grass_block", () -> new BlockItemBase(ModBlocks.CORRUPT_GRASS_BLOCK.get()));
     public static final RegistryObject<Item> CRIMSON_GRASS_BLOCK_ITEM = ITEMS.register("crimson_grass_block", () -> new BlockItemBase(ModBlocks.CRIMSON_GRASS_BLOCK.get()));
+    public static final RegistryObject<Item> JUNGLE_GRASS_BLOCK_ITEM = ITEMS.register("jungle_grass_block", () -> new BlockItemBase(ModBlocks.JUNGLE_GRASS_BLOCK.get()));
 
 
     // Throwing weapons

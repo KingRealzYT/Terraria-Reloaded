@@ -60,7 +60,14 @@ public class ModBlocks {
     public static final RegistryObject<Block> CRIMSAND = BLOCKS.register("crimsand", () -> new ModSandBlock(0xc34343));
     public static final RegistryObject<Block> PEARLSAND = BLOCKS.register("pearlsand", () -> new ModSandBlock(0xb5acbe));
 
+    public static final RegistryObject<Block> MUD = BLOCKS.register("mud", ModDirtBlock::new);
+    public static final RegistryObject<Block> ASH = BLOCKS.register("ash", ModDirtBlock::new);
+    public static final RegistryObject<Block> SLUSH = BLOCKS.register("slush", () -> new ModSandBlock(0x99b2b9));
+    public static final RegistryObject<Block> SILT = BLOCKS.register("silt", () -> new ModSandBlock(0x595353));
+
     public static final RegistryObject<Block> CRIMSON_GRASS_BLOCK = BLOCKS.register("crimson_grass_block", ModGrassBlock::new);
     public static final RegistryObject<Block> CORRUPT_GRASS_BLOCK = BLOCKS.register("corrupt_grass_block", ModGrassBlock::new);
+    public static final RegistryObject<Block> JUNGLE_GRASS_BLOCK = BLOCKS.register("jungle_grass_block", ModGrassBlock::new);
+    public static final RegistryObject<Block> BLOCK_OF_FLESH = BLOCKS.register("block_of_flesh", ModFleshBlock::new);
 
 }

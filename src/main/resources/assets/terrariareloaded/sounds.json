@@ -4,5 +4,31 @@
       "subtitle": "item_magicmirror_use",
       "sounds": [{"name": "terrariareloaded:item/magic_mirror_use",
       "stream": true}]
+  },
+
+  "item_gun_shoot": {
+    "category": "item",
+    "subtitle": "item_gun_shoot",
+    "sounds": [{"name": "terrariareloaded:item/item_gun_shoot",
+      "stream": true}]
+  },
+  "item_repeater_shoot": {
+    "category": "item",
+    "subtitle": "item_repeater_shoot",
+    "sounds": [{"name": "terrariareloaded:item/item_repeater_shoot",
+      "stream": true}]
+  },
+
+  "entity_boss_roar": {
+    "category": "entity",
+    "subtitle": "entity_boss_roar",
+    "sounds": [{"name": "terrariareloaded:entity/entity_boss_roar",
+      "stream": true}]
+  },
+  "entity_death": {
+    "category": "entity",
+    "subtitle": "entity_death",
+    "sounds": [{"name": "terrariareloaded:entity/entity_death",
+      "stream": true}]
   }
 }

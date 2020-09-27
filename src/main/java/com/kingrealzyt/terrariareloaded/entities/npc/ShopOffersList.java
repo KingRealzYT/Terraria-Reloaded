@@ -56,9 +56,14 @@ public class ShopOffersList {
             silver(2, Items.PUMPKIN_SEEDS, 1),
             silver(2, Items.MYCELIUM, 2),
             silver(1, Items.FLOWER_POT, 3),
-            silver(20, Items.FLOWER_POT, 3),
+            silver(20, Items.SUNFLOWER, 3),
             silver(1, ModItems.CORRUPT_GRASS_BLOCK_ITEM.get(), 1),
             silver(1, ModItems.CRIMSON_GRASS_BLOCK_ITEM.get(), 1)
+
+    );
+
+    public static final MerchantOffers ARMS_DEALER = create(
+            copper(40, Items.GRASS_BLOCK, 2)
 
     );
 
