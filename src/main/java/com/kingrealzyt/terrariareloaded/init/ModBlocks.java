@@ -20,6 +20,7 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> SILVER_ORE = BLOCKS.register("silver_ore", SilverOre::new);
     public static final RegistryObject<Block> COPPER_ORE = BLOCKS.register("copper_ore", CopperOre::new);
+    public static final RegistryObject<Block> PLATINUM_ORE = BLOCKS.register("platinum_ore", PlatinumOre::new);
     public static final RegistryObject<Block> METEORITE_ORE = BLOCKS.register("meteorite_ore", MeteoriteOre::new);
     public static final RegistryObject<Block> DEMONITE_ORE = BLOCKS.register("demonite_ore", DemoniteOre::new);
     public static final RegistryObject<Block> CRIMTANE_ORE = BLOCKS.register("crimtane_ore", DemoniteOre::new);
