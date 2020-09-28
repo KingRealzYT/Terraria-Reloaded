@@ -186,9 +186,9 @@ public class ModItems {
     public static final RegistryObject<Item> FRIED_EGG = registerBaseFoodItem("fried_egg", 5, 1.0F, "Sunny side up!'");
     public static final RegistryObject<Item> PAD_THAI = registerBaseFoodItem("pad_thai", 5, 1.0F, "'Spicy level 5!'");
     public static final RegistryObject<Item> PIZZA = registerBaseFoodItem("pizza", 5, 1.0F, "I'm not paying for those.'");
-    public static final RegistryObject<Item> MARSHMALLOW = registerBaseFoodItem("marshmallow", 5, 1.0F, "'How many can you fit in your mouth?'");
-    public static final RegistryObject<Item> COOKED_MARSHMALLOW = registerBaseFoodItem("cooked_marshmallow", 5, 1.0F, "'How can I have some more of nothing?'");
-    public static final RegistryObject<Item> SAKE = registerBaseFoodItem("sake", 5, 1.0F, "'Drink too much of this, and you become karate master.'");
+    public static final RegistryObject<Item> MARSHMALLOW = registerBaseFoodItem("marshmallow", 2, 1.0F, "'How many can you fit in your mouth?'");
+    public static final RegistryObject<Item> COOKED_MARSHMALLOW = registerBaseFoodItem("cooked_marshmallow", 2, 1.0F, "'How can I have some more of nothing?'");
+    public static final RegistryObject<Item> SAKE = registerBaseFoodItem("sake", 4, 1.0F, "'Drink too much of this, and you become karate master.'");
 
     /**
      * Use this for default description
