@@ -15,6 +15,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.monster.SlimeEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -38,6 +39,7 @@ public class ClientEventBusSubscriber {
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.DEMON_EYE.get(), DemonEyeRenderer::new);
 
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.EOC.get(), EOCRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.BLUE_SLIME.get(), ModSlimeRenderer::new);
 
         ScreenManager.registerFactory(ModContainers.PIGGY_BANK.get(), PiggyBankScreen::new);
         ScreenManager.registerFactory(ModContainers.SHOP_NPC.get(), ShopNPCScreen::new);
