@@ -61,12 +61,18 @@ public class ShopOffersList {
             silver(1, ModItems.CRIMSON_GRASS_BLOCK_ITEM.get(), 1)
 
     );
+    //ADDFORNPC
 
     public static final MerchantOffers ARMS_DEALER = create(
-            copper(40, Items.GRASS_BLOCK, 2)
+            silver(1, Items.GUNPOWDER, 1),
+            silver(4, Items.SPECTRAL_ARROW, 1)
 
     );
 
+    public static final MerchantOffers TINKERER = create(
+            silver(50, Items.ANVIL, 1),
+            silver(16, Items.IRON_INGOT, 4)
+    );
 
     /**
      * Use this method to create merchant offers

@@ -95,22 +95,23 @@ public class ModEntityTypes {
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "blue_slime").toString()));
 
     // NPC ENTITIES
+    //ADDFORNPC
 
     public static final RegistryObject<EntityType<MerchantNPCEntity>> NPC_MERCHANT = ENTITY_TYPES.register("npc_merchant",
             () -> EntityType.Builder.<MerchantNPCEntity>create(MerchantNPCEntity::new, EntityClassification.CREATURE)
-                    .size(0.6f, 1.6f)
+                    .size(0.6f, 1.75f)
                     .immuneToFire()
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "npc_merchant").toString()));
 
     public static final RegistryObject<EntityType<GuideNPCEntity>> NPC_GUIDE = ENTITY_TYPES.register("npc_guide",
             () -> EntityType.Builder.<GuideNPCEntity>create(GuideNPCEntity::new, EntityClassification.CREATURE)
-                    .size(0.6f, 1.6f)
+                    .size(0.6f, 1.75f)
                     .immuneToFire()
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "npc_guide").toString()));
 
     public static final RegistryObject<EntityType<DyeTraderNPCEntity>> NPC_DYE_TRADER = ENTITY_TYPES.register("npc_dye_trader",
             () -> EntityType.Builder.<DyeTraderNPCEntity>create(DyeTraderNPCEntity::new, EntityClassification.CREATURE)
-                    .size(0.6f, 1.6f)
+                    .size(0.6f, 1.75f)
                     .immuneToFire()
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "npc_dye_trader").toString()));
 
@@ -122,8 +123,20 @@ public class ModEntityTypes {
 
     public static final RegistryObject<EntityType<DryadNPCEntity>> NPC_DRYAD = ENTITY_TYPES.register("npc_dryad",
             () -> EntityType.Builder.<DryadNPCEntity>create(DryadNPCEntity::new, EntityClassification.CREATURE)
-                    .size(0.6f, 1.6f)
+                    .size(0.6f, 1.75f)
                     .immuneToFire()
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "npc_dryad").toString()));
+
+    public static final RegistryObject<EntityType<ArmsDealerNPCEntity>> NPC_ARMS_DEALER = ENTITY_TYPES.register("npc_arms_dealer",
+            () -> EntityType.Builder.<ArmsDealerNPCEntity>create(ArmsDealerNPCEntity::new, EntityClassification.CREATURE)
+                    .size(0.6f, 1.75f)
+                    .immuneToFire()
+                    .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "npc_arms_dealer").toString()));
+
+    public static final RegistryObject<EntityType<TinkererNPCEntity>> NPC_TINKERER = ENTITY_TYPES.register("npc_tinkerer",
+            () -> EntityType.Builder.<TinkererNPCEntity>create(TinkererNPCEntity::new, EntityClassification.CREATURE)
+                    .size(0.6f, 1.75f)
+                    .immuneToFire()
+                    .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "npc_tinkerer").toString()));
 
 }

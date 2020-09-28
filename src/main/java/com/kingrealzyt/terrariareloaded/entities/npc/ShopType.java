@@ -5,13 +5,15 @@ import net.minecraft.item.MerchantOffers;
 import net.minecraft.util.ResourceLocation;
 
 public enum ShopType {
-
+    //ADDFORNPC
     //If you create a new shop npc type, add the type here
     MERCHANT("Merchant", ShopOffersList.MERCHANT, textureRL("npc_merchant")),
     GUIDE("Guide", ShopOffersList.GUIDE, textureRL("npc_guide")),
     DYE_TRADER("Dye Trader", ShopOffersList.DYE_TRADER, textureRL("npc_dye_trader")),
     DEMOLITIONIST("Demolitionist", ShopOffersList.DEMOLITIONIST, textureRL("npc_demolitionist")),
     DRYAD("Dryad", ShopOffersList.DRYAD, textureRL("npc_dryad")),
+    ARMS_DEALER("Arms Dealer", ShopOffersList.ARMS_DEALER, textureRL("npc_arms_dealer")),
+    TINKERER("Goblin Tinkerer", ShopOffersList.TINKERER, textureRL("npc_tinkerer")),
     ;
 
 

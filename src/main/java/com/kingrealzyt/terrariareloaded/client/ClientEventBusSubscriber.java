@@ -6,6 +6,7 @@ import com.kingrealzyt.terrariareloaded.client.gui.ShopNPCScreen;
 import com.kingrealzyt.terrariareloaded.client.model.npc.*;
 import com.kingrealzyt.terrariareloaded.client.renderer.entities.*;
 import com.kingrealzyt.terrariareloaded.client.renderer.entities.npc.ShopNPCRenderer;
+import com.kingrealzyt.terrariareloaded.entities.npc.ArmsDealerNPCEntity;
 import com.kingrealzyt.terrariareloaded.entities.npc.ShopNPCEntity;
 import com.kingrealzyt.terrariareloaded.init.ModBlocks;
 import com.kingrealzyt.terrariareloaded.init.ModContainers;
@@ -43,13 +44,14 @@ public class ClientEventBusSubscriber {
 
         ScreenManager.registerFactory(ModContainers.PIGGY_BANK.get(), PiggyBankScreen::new);
         ScreenManager.registerFactory(ModContainers.SHOP_NPC.get(), ShopNPCScreen::new);
-
+//ADDFORNPC
         registerNpcRenderer(ModEntityTypes.NPC_MERCHANT.get(), new MerchantNPCModel<>());
         registerNpcRenderer(ModEntityTypes.NPC_GUIDE.get(), new GuideNPCModel<>());
         registerNpcRenderer(ModEntityTypes.NPC_DYE_TRADER.get(), new DyeTraderNPCModel<>());
         registerNpcRenderer(ModEntityTypes.NPC_DEMOLITIONIST.get(), new DemolitionistNPCModel<>());
         registerNpcRenderer(ModEntityTypes.NPC_DRYAD.get(), new DryadNPCModel<>());
-
+        registerNpcRenderer(ModEntityTypes.NPC_ARMS_DEALER.get(), new ArmsTraderNPCModel<>());
+        registerNpcRenderer(ModEntityTypes.NPC_TINKERER.get(), new TinkererNPCModel<>());
     }
 
 
