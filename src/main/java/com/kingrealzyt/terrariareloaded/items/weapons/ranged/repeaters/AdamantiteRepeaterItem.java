@@ -1,5 +1,6 @@
 package com.kingrealzyt.terrariareloaded.items.weapons.ranged.repeaters;
 
+import com.kingrealzyt.terrariareloaded.init.SoundInit;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
@@ -7,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShootableItem;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
 import java.util.function.Predicate;
@@ -40,6 +42,7 @@ public class AdamantiteRepeaterItem extends ShootableItem {
                 if (!playerIn.abilities.isCreativeMode) {
                     playerIn.findAmmo(itemstack).shrink(1);
                 }
+                worldIn.playSound(playerIn, playerIn.getPosition(), SoundInit.REPEATERSHOOT.get(), SoundCategory.BLOCKS, 1, 1);
                 ArrowEntity arrow = new ArrowEntity(worldIn, playerIn);
                 arrow.setDamage(40.0f);
                 arrow.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 5.0F, 0.12F);

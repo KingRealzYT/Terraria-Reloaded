@@ -15,13 +15,13 @@ import net.minecraftforge.common.ToolType;
 
 import java.util.List;
 
-public class SilverOre extends OreBlock implements ILootTableData {
+public class PlatinumOre extends OreBlock implements ILootTableData {
 
-    public SilverOre() {
+    public PlatinumOre() {
         super(Properties.create(Material.IRON)
-            .hardnessAndResistance(3.0F, 2.0F)
+            .hardnessAndResistance(4.0F, 5.0F)
             .sound(SoundType.METAL)
-            .harvestLevel(2)
+            .harvestLevel(1)
             .harvestTool(ToolType.PICKAXE));
     }
 
@@ -32,7 +32,7 @@ public class SilverOre extends OreBlock implements ILootTableData {
 
     @Override
     public List<ILootCondition.IBuilder> lootConditions() {
-        return Lists.newArrayList();
+        return Lists.newArrayList(SurvivesExplosion.builder());
     }
 
     @Override

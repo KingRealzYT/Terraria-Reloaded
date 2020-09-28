@@ -31,6 +31,7 @@
   "item.terrariareloaded.spectre_ingot": "Spectre Ingot",
   "item.terrariareloaded.silver_ingot": "Silver Ingot",
   "item.terrariareloaded.copper_ingot": "Copper Ingot",
+  "item.terrariareloaded.platinum_ingot": "Platinum Ingot",
 
   "item.terrariareloaded.life_fruit": "Life Fruit",
 
@@ -92,6 +93,7 @@
 
   "block.terrariareloaded.silver_ore": "Silver Ore",
   "block.terrariareloaded.copper_ore": "Copper Ore",
+  "block.terrariareloaded.platinum_ore": "Platinum Ore",
   "block.terrariareloaded.meteorite_ore": "Meteorite Ore",
   "block.terrariareloaded.hellstone_ore": "Hellstone Ore",
   "block.terrariareloaded.demonite_ore": "Demonite Ore",
@@ -104,8 +106,14 @@
   "block.terrariareloaded.adamantite_ore": "Adamantite Ore",
   "block.terrariareloaded.chlorophyte_ore": "Chlorophyte Ore",
 
+  "block.terrariareloaded.mud": "Mud",
+  "block.terrariareloaded.ash": "Ash",
+  "block.terrariareloaded.silt": "Silt",
+  "block.terrariareloaded.slush": "Slush",
+  "block.terrariareloaded.block_of_flesh": "Block of Flesh",
   "block.terrariareloaded.crimson_grass_block": "Crimson Grass Block",
   "block.terrariareloaded.corrupt_grass_block": "Corrupt Grass Block",
+  "block.terrariareloaded.jungle_grass_block": "Jungle Grass Block",
 
   "item.terrariareloaded.hallowed_repeater": "Hallowed Repeater",
   "item.terrariareloaded.cobalt_repeater": "Cobalt Repeater",

@@ -6,12 +6,14 @@ import com.kingrealzyt.terrariareloaded.entities.boss.DemonEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.EOCEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFMouthEntity;
+import com.kingrealzyt.terrariareloaded.entities.enemy.ModSlimeEntity;
 import com.kingrealzyt.terrariareloaded.entities.npc.*;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.*;
 import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoEntity;
 import net.minecraft.advancements.criterion.EnchantedItemTrigger;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.monster.SlimeEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -86,6 +88,11 @@ public class ModEntityTypes {
             () -> EntityType.Builder.<DemonEyeEntity>create(DemonEyeEntity::new, EntityClassification.MONSTER)
                     .size(0.5f, 0.4f)
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "demon_eye").toString()));
+
+    public static final RegistryObject<EntityType<ModSlimeEntity>> BLUE_SLIME = ENTITY_TYPES.register("blue_slime",
+            () -> EntityType.Builder.<ModSlimeEntity>create(ModSlimeEntity::new, EntityClassification.MONSTER)
+                    .size(2.0f, 2.0f)
+                    .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "blue_slime").toString()));
 
     // NPC ENTITIES
 
