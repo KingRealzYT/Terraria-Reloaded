@@ -94,7 +94,7 @@ public class LootTableDataGenerator extends LootTableProvider {
             pools.add(pool);
         }
         LootTable.Builder table = LootTable.builder();
-        pools.forEach(table::addLootPool);
+        pools.forEach(table::addLootPool);//
         return table;
     }
 
