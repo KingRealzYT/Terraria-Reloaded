@@ -9,9 +9,15 @@ import java.util.function.Supplier;
 
 public enum ModItemTier implements IItemTier {
 
-    COPPER_SHORT(2, 0, 4.0F, 3.0F, 5, () -> { return Ingredient.fromItems(ModItems.COPPER_SHORTSWORD.get()); }),
-    COPPER_BROAD(2, 0, 4.0F, 3.0F, 5, () -> { return Ingredient.fromItems(ModItems.COPPER_BROADSWORD.get()); }),
-    PICKAXEAXE(3, 0, 8.0F, 3.0F, 10, () -> { return Ingredient.fromItems(ModItems.PICKAXE_AXE.get()); }),
+    COPPER(2, 0, 4.0F, 3.0F, 5, () -> { return Ingredient.fromItems(ModItems.COPPER_INGOT.get()); }),
+    SILVER(2, 0, 4.0F, 3.0F, 5, () -> { return Ingredient.fromItems(ModItems.SILVER_INGOT.get()); }),
+    PLATINUM(2, 0, 4.0F, 3.0F, 5, () -> { return Ingredient.fromItems(ModItems.PLATINUM_INGOT.get()); }),
+    DEMONITE(2, 0, 4.0F, 3.0F, 5, () -> { return Ingredient.fromItems(ModItems.DEMONITE_INGOT.get()); }),
+    CRIMTANE(2, 0, 4.0F, 3.0F, 5, () -> { return Ingredient.fromItems(ModItems.CRIMTANE_INGOT.get()); }),
+    HELLSTONE(2, 0, 4.0F, 3.0F, 5, () -> { return Ingredient.fromItems(ModItems.SILVER_INGOT.get()); }),
+    METEOR(2, 0, 4.0F, 3.0F, 5, () -> { return Ingredient.fromItems(ModItems.SILVER_INGOT.get()); }),
+    COBALT(2, 0, 4.0F, 3.0F, 5, () -> { return Ingredient.fromItems(ModItems.COBALT_INGOT.get()); }),
+    HALLOWED(3, 0, 8.0F, 3.0F, 10, () -> { return Ingredient.fromItems(ModItems.PICKAXE_AXE.get()); }),
     PICKSAW(3, 0, 8.0F, 3.0F, 10, () -> { return Ingredient.fromItems(ModItems.PICKSAW.get()); });
 
     private final int harvestLevel;
