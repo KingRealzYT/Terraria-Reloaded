@@ -31,6 +31,7 @@
   "item.terrariareloaded.spectre_ingot": "Spectre Ingot",
   "item.terrariareloaded.silver_ingot": "Silver Ingot",
   "item.terrariareloaded.copper_ingot": "Copper Ingot",
+  "item.terrariareloaded.platinum_ingot": "Platinum Ingot",
 
   "item.terrariareloaded.life_fruit": "Life Fruit",
 
@@ -92,6 +93,7 @@
 
   "block.terrariareloaded.silver_ore": "Silver Ore",
   "block.terrariareloaded.copper_ore": "Copper Ore",
+  "block.terrariareloaded.platinum_ore": "Platinum Ore",
   "block.terrariareloaded.meteorite_ore": "Meteorite Ore",
   "block.terrariareloaded.hellstone_ore": "Hellstone Ore",
   "block.terrariareloaded.demonite_ore": "Demonite Ore",

@@ -19,7 +19,7 @@ public class CopperOre extends OreBlock implements ILootTableData {
 
     public CopperOre() {
         super(Properties.create(Material.IRON)
-            .hardnessAndResistance(6.0F, 20.0F)
+            .hardnessAndResistance(3.0F, 2.0F)
             .sound(SoundType.METAL)
             .harvestLevel(1)
             .harvestTool(ToolType.PICKAXE));
@@ -32,7 +32,7 @@ public class CopperOre extends OreBlock implements ILootTableData {
 
     @Override
     public List<ILootCondition.IBuilder> lootConditions() {
-        return Lists.newArrayList(SurvivesExplosion.builder());
+        return Lists.newArrayList();
     }
 
     @Override
