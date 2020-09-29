@@ -8,7 +8,11 @@ issueTrackerURL="http://my.issue.tracker/" #optional
 
 modId="terrariareloaded" #mandatory
 
-version="Alpha 1.0.0" #mandatory
+version="Alpha 1.0.0 (DevBuild - 10081792920)" #mandatory
+
+# How To Number This DevBuild - 100 <- This Is Mod Version + Time + Date
+# Remove DevBuild Field For A Release
+# Leave It For NOT Stable Alphas And Betas
 
 displayName="Terraria Reloaded" #mandatory
 
