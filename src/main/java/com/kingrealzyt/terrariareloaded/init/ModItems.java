@@ -145,7 +145,7 @@ public class ModItems {
     public static final RegistryObject<SwordItem> BLADE_OF_GRASS = ITEMS.register("blade_of_grass", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
     public static final RegistryObject<SwordItem> FIERY_GREATSWORD = ITEMS.register("fiery_greatsword", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
     public static final RegistryObject<SwordItem> NIGHTS_EDGE = ITEMS.register("nights_edge", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
-    public static final RegistryObject<SwordItem> LUMINITE_SWORD = ITEMS.register("luminite_sword", () -> new SwordItem(ModItemTier.LUMINITE, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
+    //public static final RegistryObject<SwordItem> LUMINITE_SWORD = ITEMS.register("luminite_sword", () -> new SwordItem(ModItemTier.LUMINITE, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
 
     // Block Items
     public static final RegistryObject<Item> HIVE_BLOCK_ITEM = ITEMS.register("hive_block", () -> new BlockItemBase(ModBlocks.HIVE_BLOCK.get()));
