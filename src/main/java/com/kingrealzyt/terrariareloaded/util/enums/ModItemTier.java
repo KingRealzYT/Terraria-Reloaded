@@ -18,9 +18,7 @@ public enum ModItemTier implements IItemTier {
     METEOR(2, 0, 4.0F, 3.0F, 5, () -> { return Ingredient.fromItems(ModItems.SILVER_INGOT.get()); }),
     COBALT(2, 0, 4.0F, 3.0F, 5, () -> { return Ingredient.fromItems(ModItems.COBALT_INGOT.get()); }),
     HALLOWED(3, 0, 8.0F, 3.0F, 10, () -> { return Ingredient.fromItems(ModItems.PICKAXE_AXE.get()); }),
-    PICKSAW(3, 0, 8.0F, 3.0F, 10, () -> { return Ingredient.fromItems(ModItems.PICKSAW.get()); }),
-    LUMINITE(3, 0, 9.0F, 6.0F, 13, () -> { return Ingredient.fromItems(ModItems.LUMINITE_SWORD.get()); });
-
+    PICKSAW(3, 0, 8.0F, 3.0F, 10, () -> { return Ingredient.fromItems(ModItems.PICKSAW.get()); });
     private final int harvestLevel;
     private final int maxUses;
     private final float efficiency;

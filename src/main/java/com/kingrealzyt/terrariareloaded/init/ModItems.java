@@ -5,6 +5,7 @@ import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.blocks.BlockItemBase;
 import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoType;
 import com.kingrealzyt.terrariareloaded.items.FoodItemBase;
+import com.kingrealzyt.terrariareloaded.items.LifeCrystalItem;
 import com.kingrealzyt.terrariareloaded.items.LifeFruitItem;
 import com.kingrealzyt.terrariareloaded.items.MiscItemBase;
 import com.kingrealzyt.terrariareloaded.items.misc.*;
@@ -73,6 +74,7 @@ public class ModItems {
     public static final RegistryObject<Item> COPPER_INGOT = ITEMS.register("copper_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> PLATINUM_INGOT = ITEMS.register("platinum_ingot", MiscItemBase::new);
 
+    public static final RegistryObject<Item> LIFE_CRYSTAL = ITEMS.register("life_crystal", LifeCrystalItem::new);
 
     public static final RegistryObject<Item> COPPER_COIN = ITEMS.register("copper_coin", MiscItemBase::new);
     public static final RegistryObject<Item> SILVER_COIN = ITEMS.register("silver_coin", MiscItemBase::new);
@@ -150,6 +152,7 @@ public class ModItems {
     // Block Items
     public static final RegistryObject<Item> HIVE_BLOCK_ITEM = ITEMS.register("hive_block", () -> new BlockItemBase(ModBlocks.HIVE_BLOCK.get()));
     public static final RegistryObject<Item> PIGGY_BANK_ITEM = ITEMS.register("piggy_bank", () -> new BlockItemBase(ModBlocks.PIGGY_BANK.get()));
+    public static final RegistryObject<Item> CRYSTAL_HEART_ITEM = ITEMS.register("crystal_heart", () -> new BlockItemBase(ModBlocks.CRYSTAL_HEART.get()));
 
     public static final RegistryObject<Item> LIFE_FRUIT_BUSH_BLOCK = ITEMS.register("life_fruit_bush", () -> new BlockItemBase(ModBlocks.LIFE_FRUIT_BUSH.get()));
 

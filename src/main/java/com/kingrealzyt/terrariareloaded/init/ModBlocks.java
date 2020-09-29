@@ -38,6 +38,7 @@ public class ModBlocks {
     // Special Blocks
 
     public static final RegistryObject<Block> PIGGY_BANK = BLOCKS.register("piggy_bank", PiggyBank::new);
+    public static final RegistryObject<Block> CRYSTAL_HEART = BLOCKS.register("crystal_heart", CrystalHeart::new);
 
     //Bush Blocks
     public static final RegistryObject<Block> LIFE_FRUIT_BUSH = BLOCKS.register("life_fruit_bush", ModGlowBushBlock::new);
