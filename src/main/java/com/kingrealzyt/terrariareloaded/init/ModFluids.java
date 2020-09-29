@@ -6,7 +6,7 @@ public class ModFluids {/*
     //and two of them are water and lava so i just need to add honey lmao
 
     // IMPORTANT: Currently this fluid doesnt work correctly so I disabled it. It doesn't act like water (can't swim) and it doesnt
-    // have transparent textures for some reason, plus the textures are fucky wucky anyway. Might fix eventually, can't right now
+    // have transparent textures for some reason, plus the textures are bleep bleep anyway. Might fix eventually, can't right now
     //- goldrat1
 
     public static void init() {
