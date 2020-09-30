@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "aa ",
+    "aa ",
+    "   "
+  ],
+  "key":
+  {
+    "a":
+    {
+      "item": "terrariareloaded:blue_granite"
+    }
+  },
+  "result":
+  {
+    "item": "terrariareloaded:smooth_blue_granite",
+    "count": 4
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "cc ",
+    "cs ",
+    " s "
+  ],
+  "key":
+  {
+    "a":
+    {
+      "item": "minecraft:stick"
+    },
+    "c":
+    {
+      "item": "terrariareloaded:silver_ingot"
+    }
+  },
+  "result":
+  {
+    "item": "terrariareloaded:silver_axe",
+    "count": 1
+  }
+}

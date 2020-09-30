@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " c ",
+    " c ",
+    "csc"
+  ],
+  "key":
+  {
+    "a":
+    {
+      "item": "minecraft:stick"
+    },
+    "c":
+    {
+      "item": "terrariareloaded:crimtane_ingot"
+    }
+  },
+  "result":
+  {
+    "item": "terrariareloaded:blood_butcherer",
+    "count": 1
+  }
+}

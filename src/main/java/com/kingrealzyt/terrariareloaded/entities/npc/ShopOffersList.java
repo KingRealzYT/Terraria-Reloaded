@@ -71,6 +71,7 @@ public class ShopOffersList {
 
     public static final MerchantOffers TINKERER = create(
             silver(50, Items.ANVIL, 1),
+            silver(10, ModItems.RULER.get(), 1),
             silver(16, Items.IRON_INGOT, 4)
     );
 

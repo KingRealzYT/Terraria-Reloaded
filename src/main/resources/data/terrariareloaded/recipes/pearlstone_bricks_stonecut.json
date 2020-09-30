@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "terrariareloaded:pearlstone"
+  },
+  "result": "terrariareloaded:pearlstone_bricks",
+  "count": 1
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "aa ",
+    "aa ",
+    "   "
+  ],
+  "key":
+  {
+    "a":
+    {
+      "item": "terrariareloaded:pearlstone"
+    }
+  },
+  "result":
+  {
+    "item": "terrariareloaded:pearlstone_bricks",
+    "count": 4
+  }
+}
