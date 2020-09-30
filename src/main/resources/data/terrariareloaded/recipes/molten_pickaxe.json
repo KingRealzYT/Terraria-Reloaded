@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "ccc",
+    " s ",
+    " s "
+  ],
+  "key":
+  {
+    "a":
+    {
+      "item": "minecraft:stick"
+    },
+    "c":
+    {
+      "item": "terrariareloaded:hellstone_ingot"
+    }
+  },
+  "result":
+  {
+    "item": "terrariareloaded:nightmare_pickaxe.json",
+    "count": 1
+  }
+}
