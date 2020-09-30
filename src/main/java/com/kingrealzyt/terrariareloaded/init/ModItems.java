@@ -74,6 +74,14 @@ public class ModItems {
     public static final RegistryObject<Item> COPPER_INGOT = ITEMS.register("copper_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> PLATINUM_INGOT = ITEMS.register("platinum_ingot", MiscItemBase::new);
 
+    public static final RegistryObject<Item> AMETHYST = ITEMS.register("amethyst", MiscItemBase::new);
+    public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", MiscItemBase::new);
+    public static final RegistryObject<Item> SAPPHIRE = ITEMS.register("sapphire", MiscItemBase::new);
+    public static final RegistryObject<Item> AMBER = ITEMS.register("amber", MiscItemBase::new);
+    public static final RegistryObject<Item> TOPAZ = ITEMS.register("topaz", MiscItemBase::new);
+    public static final RegistryObject<Item> SHIMMERING_EMERALD = ITEMS.register("shimmering_emerald", MiscItemBase::new);
+    public static final RegistryObject<Item> SHIMMERING_DIAMOND = ITEMS.register("shimmering_diamond", MiscItemBase::new);
+
     public static final RegistryObject<Item> LIFE_CRYSTAL = ITEMS.register("life_crystal", LifeCrystalItem::new);
 
     public static final RegistryObject<Item> COPPER_COIN = ITEMS.register("copper_coin", MiscItemBase::new);
@@ -174,6 +182,14 @@ public class ModItems {
     public static final RegistryObject<Item> SILVER_ORE_ITEM = ITEMS.register("silver_ore", () -> new BlockItemBase(ModBlocks.SILVER_ORE.get()));
     public static final RegistryObject<Item> COPPER_ORE_ITEM = ITEMS.register("copper_ore", () -> new BlockItemBase(ModBlocks.COPPER_ORE.get()));
     public static final RegistryObject<Item> PLATINUM_ORE_ITEM = ITEMS.register("platinum_ore", () -> new BlockItemBase(ModBlocks.PLATINUM_ORE.get()));
+
+    public static final RegistryObject<Item> SHIMMERING_DIAMOND_ORE_ITEM = ITEMS.register("shimmering_diamond_ore", () -> new BlockItemBase(ModBlocks.SHIMMERING_DIAMOND_ORE.get()));
+    public static final RegistryObject<Item> SHIMMERING_EMERALD_ORE_ITEM = ITEMS.register("shimmering_emerald_ore", () -> new BlockItemBase(ModBlocks.SHIMMERING_EMERALD_ORE.get()));
+    public static final RegistryObject<Item> RUBY_ORE_ITEM = ITEMS.register("ruby_ore", () -> new BlockItemBase(ModBlocks.RUBY_ORE.get()));
+    public static final RegistryObject<Item> AMETHYST_ORE_ITEM = ITEMS.register("amethyst_ore", () -> new BlockItemBase(ModBlocks.AMETHYST_ORE.get()));
+    public static final RegistryObject<Item> TOPAZ_ORE_ITEM = ITEMS.register("topaz_ore", () -> new BlockItemBase(ModBlocks.TOPAZ_ORE.get()));
+    public static final RegistryObject<Item> SAPPHIRE_ORE_ITEM = ITEMS.register("sapphire_ore", () -> new BlockItemBase(ModBlocks.SAPPHIRE_ORE.get()));
+    public static final RegistryObject<Item> AMBER_ORE_ITEM = ITEMS.register("amber_ore", () -> new BlockItemBase(ModBlocks.AMBER_ORE.get()));
 
     public static final RegistryObject<Item> EBONSTONE_ITEM = ITEMS.register("ebonstone", () -> new BlockItemBase(ModBlocks.EBONSTONE.get()));
     public static final RegistryObject<Item> CRIMSTONE_ITEM = ITEMS.register("crimstone", () -> new BlockItemBase(ModBlocks.CRIMSTONE.get()));

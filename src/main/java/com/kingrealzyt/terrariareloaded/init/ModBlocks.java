@@ -18,6 +18,14 @@ public class ModBlocks {
 
     // Ore Blocks
 
+    public static final RegistryObject<Block> SHIMMERING_DIAMOND_ORE = BLOCKS.register("shimmering_diamond_ore", GemOre::new);
+    public static final RegistryObject<Block> SHIMMERING_EMERALD_ORE = BLOCKS.register("shimmering_emerald_ore", GemOre::new);
+    public static final RegistryObject<Block> RUBY_ORE = BLOCKS.register("ruby_ore", GemOre::new);
+    public static final RegistryObject<Block> AMETHYST_ORE = BLOCKS.register("amethyst_ore", GemOre::new);
+    public static final RegistryObject<Block> TOPAZ_ORE = BLOCKS.register("topaz_ore", GemOre::new);
+    public static final RegistryObject<Block> SAPPHIRE_ORE = BLOCKS.register("sapphire_ore", GemOre::new);
+    public static final RegistryObject<Block> AMBER_ORE = BLOCKS.register("amber_ore", GemOre::new);
+
     public static final RegistryObject<Block> SILVER_ORE = BLOCKS.register("silver_ore", SilverOre::new);
     public static final RegistryObject<Block> COPPER_ORE = BLOCKS.register("copper_ore", CopperOre::new);
     public static final RegistryObject<Block> PLATINUM_ORE = BLOCKS.register("platinum_ore", PlatinumOre::new);

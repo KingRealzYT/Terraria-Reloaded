@@ -33,6 +33,15 @@
   "item.terrariareloaded.copper_ingot": "Copper Ingot",
   "item.terrariareloaded.platinum_ingot": "Platinum Ingot",
 
+  "item.terrariareloaded.shimmering_diamond": "Shimmering Diamond",
+  "item.terrariareloaded.shimmering_emerald": "Shimmering Emerald",
+  "item.terrariareloaded.ruby": "Ruby",
+  "item.terrariareloaded.amber": "Amber",
+  "item.terrariareloaded.amethyst": "Amethyst",
+  "item.terrariareloaded.topaz": "Topaz",
+  "item.terrariareloaded.sapphire": "Sapphire",
+
+
   "item.terrariareloaded.life_fruit": "Life Fruit",
   "item.terrariareloaded.life_crystal": "Life Crystal",
 
@@ -69,6 +78,14 @@
   "item.terrariareloaded.black_lens": "Black Lens",
   "item.terrariareloaded.picksaw": "Picksaw",
   "item.terrariareloaded.pickaxe_axe": "Pickaxe Axe",
+
+  "block.terrariareloaded.shimmering_diamond_ore": "Shimmering Diamond",
+  "block.terrariareloaded.shimmering_emerald_ore": "Shimmering Emerald",
+  "block.terrariareloaded.ruby_ore": "Ruby",
+  "block.terrariareloaded.amber_ore": "Amber",
+  "block.terrariareloaded.amethyst_ore": "Amethyst",
+  "block.terrariareloaded.topaz_ore": "Topaz",
+  "block.terrariareloaded.sapphire_ore": "Sapphire",
 
   "block.terrariareloaded.honey": "Honey",
   "block.terrariareloaded.hive_block": "Hive Block",
