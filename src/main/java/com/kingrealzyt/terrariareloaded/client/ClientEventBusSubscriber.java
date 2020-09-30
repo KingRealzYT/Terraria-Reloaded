@@ -28,6 +28,8 @@ public class ClientEventBusSubscriber {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.THROWING_KNIFE_ENTITY.get(), RenderThrowingKnife::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.POISONED_KNIFE_ENTITY.get(), RenderPoisonedKnife::new);
+
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.DYNAMITE_ENTITY.get(), RenderDynamite::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.GRENADE_ENTITY.get(), RenderGrenade::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.BOMB_ENTITY.get(), RenderBomb::new);
@@ -61,5 +63,8 @@ public class ClientEventBusSubscriber {
 
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
-        RenderTypeLookup.setRenderLayer(ModBlocks.LIFE_FRUIT_BUSH.get(), RenderType.getCutout()); }
+        RenderTypeLookup.setRenderLayer(ModBlocks.LIFE_FRUIT_BUSH.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.JUNGLE_SPORES_BUSH.get(), RenderType.getCutout());
+
+    }
 }

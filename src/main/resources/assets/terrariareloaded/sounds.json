@@ -30,5 +30,11 @@
     "subtitle": "entity_death",
     "sounds": [{"name": "terrariareloaded:entity/entity_death",
       "stream": true}]
+  },
+  "item_throw": {
+    "category": "item",
+    "subtitle": "item_throw",
+    "sounds": [{"name": "terrariareloaded:item/item_throw",
+      "stream": true}]
   }
 }

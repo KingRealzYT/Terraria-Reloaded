@@ -1,4 +1,4 @@
-package com.kingrealzyt.terrariareloaded.init;
+package com.kingrealzyt.terrariareloaded.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

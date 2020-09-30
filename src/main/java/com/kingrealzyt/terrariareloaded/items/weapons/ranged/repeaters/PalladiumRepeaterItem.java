@@ -1,5 +1,6 @@
 package com.kingrealzyt.terrariareloaded.items.weapons.ranged.repeaters;
 
+import com.kingrealzyt.terrariareloaded.init.SoundInit;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
@@ -7,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShootableItem;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
 import java.util.function.Predicate;
@@ -35,6 +37,9 @@ public class PalladiumRepeaterItem extends ShootableItem {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         ItemStack itemstack = playerIn.getHeldItem(handIn);
+        if (!playerIn.findAmmo(itemstack).isEmpty() || playerIn.abilities.isCreativeMode) {
+            worldIn.playSound(playerIn, playerIn.getPosition(), SoundInit.REPEATERSHOOT.get(), SoundCategory.BLOCKS, 1, 1);
+        }
         if(!worldIn.isRemote) {
             if (!playerIn.findAmmo(itemstack).isEmpty() || playerIn.abilities.isCreativeMode) {
                 if (!playerIn.abilities.isCreativeMode) {

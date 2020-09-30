@@ -11,6 +11,7 @@
   "item.terrariareloaded.magic_mirror": "Magic Mirror",
   "item.terrariareloaded.ice_mirror": "Ice Mirror",
   "item.terrariareloaded.throwing_knife_item": "Throwing Knife",
+  "item.terrariareloaded.poisoned_knife_item": "Poisoned Knife",
   "item.terrariareloaded.dynamite_item": "Dynamite",
   "item.terrariareloaded.grenade_item": "Grenade",
   "item.terrariareloaded.bomb_item": "Bomb",
@@ -20,6 +21,8 @@
   "item.terrariareloaded.stinger": "Stinger",
   "item.terrariareloaded.silk": "Silk",
   "item.terrariareloaded.ectoplasm": "Ectoplasm",
+  "item.terrariareloaded.shadow_scale": "Shadow Scale",
+  "item.terrariareloaded.tissue_sample": "Tissue Sample",
 
   "item.terrariareloaded.crimtane_ingot": "Crimtane Ingot",
   "item.terrariareloaded.demonite_ingot": "Demonite Ingot",
@@ -104,7 +107,7 @@
   "block.terrariareloaded.blue_granite": "Blue Granite",
   "block.terrariareloaded.marble": "Marble",
   "block.terrariareloaded.life_fruit_bush": "Life Fruit Bush",
-
+  "block.terrariareloaded.jungle_spores_bush": "Jungle Spores",
 
   "block.terrariareloaded.ebonstone_bricks": "Ebonstone Bricks",
   "block.terrariareloaded.crimstone_bricks": "Crimstone Bricks",

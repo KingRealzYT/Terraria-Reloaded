@@ -12,10 +12,7 @@ import com.kingrealzyt.terrariareloaded.items.misc.*;
 import com.kingrealzyt.terrariareloaded.items.tools.others.PickaxeAxeItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.melee.yoyo.YoyoItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.ranged.repeaters.*;
-import com.kingrealzyt.terrariareloaded.items.weapons.throwing.BombItem;
-import com.kingrealzyt.terrariareloaded.items.weapons.throwing.DynamiteItem;
-import com.kingrealzyt.terrariareloaded.items.weapons.throwing.GrenadeItem;
-import com.kingrealzyt.terrariareloaded.items.weapons.throwing.ThrowingKnifeItem;
+import com.kingrealzyt.terrariareloaded.items.weapons.throwing.*;
 import com.kingrealzyt.terrariareloaded.util.enums.ModItemTier;
 import net.minecraft.item.*;
 import net.minecraft.util.text.ITextComponent;
@@ -60,7 +57,8 @@ public class ModItems {
     public static final RegistryObject<Item> BLACK_LENS = ITEMS.register("black_lens", MiscItemBase::new);
     public static final RegistryObject<Item> SILK = ITEMS.register("silk", MiscItemBase::new);
     public static final RegistryObject<Item> ECTOPLASM = ITEMS.register("ectoplasm", MiscItemBase::new);
-
+    public static final RegistryObject<Item> SHADOW_SCALE = ITEMS.register("shadow_scale", MiscItemBase::new);
+    public static final RegistryObject<Item> TISSUE_SAMPLE = ITEMS.register("tissue_sample", MiscItemBase::new);
 
     public static final RegistryObject<Item> CRIMTANE_INGOT = ITEMS.register("crimtane_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> DEMONITE_INGOT = ITEMS.register("demonite_ingot", MiscItemBase::new);
@@ -172,6 +170,7 @@ public class ModItems {
     public static final RegistryObject<Item> SWORD_SHRINE_ITEM = ITEMS.register("sword_shrine", () -> new BlockItemBase(ModBlocks.SWORD_SHRINE.get()));
 
     public static final RegistryObject<Item> LIFE_FRUIT_BUSH_BLOCK = ITEMS.register("life_fruit_bush", () -> new BlockItemBase(ModBlocks.LIFE_FRUIT_BUSH.get()));
+    public static final RegistryObject<Item> JUNGLE_SPORES_BUSH_BLOCK = ITEMS.register("jungle_spores_bush", () -> new BlockItemBase(ModBlocks.JUNGLE_SPORES_BUSH.get()));
 
     public static final RegistryObject<Item> METEORITE_ORE_ITEM = ITEMS.register("meteorite_ore", () -> new BlockItemBase(ModBlocks.METEORITE_ORE.get()));
     public static final RegistryObject<Item> CRIMTANE_ORE_ITEM = ITEMS.register("crimtane_ore", () -> new BlockItemBase(ModBlocks.CRIMTANE_ORE.get()));
@@ -222,6 +221,8 @@ public class ModItems {
 
     // Throwing weapons
     public static final RegistryObject<Item> THROWING_KNIFE_ITEM = ITEMS.register("throwing_knife_item", () -> new ThrowingKnifeItem(new Item.Properties().group(TerrariaReloaded.THROW)));
+    public static final RegistryObject<Item> POISONED_THROWING_KNIFE_ITEM = ITEMS.register("poisoned_knife_item", () -> new PoisonedKnifeItem(new Item.Properties().group(TerrariaReloaded.THROW)));
+
     public static final RegistryObject<Item> DYNAMITE_ITEM = ITEMS.register("dynamite_item", () -> new DynamiteItem(new Item.Properties().group(TerrariaReloaded.THROW)));
     public static final RegistryObject<Item> BOMB_ITEM = ITEMS.register("bomb_item", () -> new BombItem(new Item.Properties().group(TerrariaReloaded.THROW)));
     public static final RegistryObject<Item> GRENADE_ITEM = ITEMS.register("grenade_item", () -> new GrenadeItem(new Item.Properties().group(TerrariaReloaded.THROW)));

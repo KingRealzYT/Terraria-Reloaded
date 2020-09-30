@@ -132,6 +132,7 @@ public class CrystalHeart extends Block implements IWaterLoggable {
         .sound(SoundType.STONE)
         .harvestLevel(1)
         .harvestTool(ToolType.PICKAXE)
+        .lightValue(11)
         );
     }
 

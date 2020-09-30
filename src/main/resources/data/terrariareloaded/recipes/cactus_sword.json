@@ -8,13 +8,13 @@
   ],
   "key":
   {
-    "a":
+    "s":
     {
       "item": "minecraft:stick"
     },
     "c":
     {
-      "item": "terrariareloaded:cactus_sword"
+      "item": "minecraft:cactus"
     }
   },
   "result":
