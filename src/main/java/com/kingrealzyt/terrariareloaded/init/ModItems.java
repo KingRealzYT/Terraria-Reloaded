@@ -106,6 +106,9 @@ public class ModItems {
     public static final RegistryObject<PickaxeAxeItem> PICKSAW = ITEMS.register("picksaw", () -> new PickaxeAxeItem(ModItemTier.PICKSAW, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.TOOL).setNoRepair()));
     public static final RegistryObject<PickaxeAxeItem> PICKAXE_AXE = ITEMS.register("pickaxe_axe", () -> new PickaxeAxeItem(ModItemTier.HALLOWED, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.TOOL).setNoRepair()));
 
+    public static final RegistryObject<AxeItem> SILVER_AXE = ITEMS.register("silver_axe", () -> new AxeItem(ModItemTier.SILVER, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.TOOL).setNoRepair()));
+    public static final RegistryObject<AxeItem> PLATINUM_AXE = ITEMS.register("platinum_axe", () -> new AxeItem(ModItemTier.PLATINUM, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.TOOL).setNoRepair()));
+
     //swords
     public static final RegistryObject<SwordItem> IRON_SHORTSWORD = ITEMS.register("iron_shortsword", () -> new SwordItem(ItemTier.IRON, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
     public static final RegistryObject<SwordItem> CACTUS_SWORD = ITEMS.register("cactus_sword", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
