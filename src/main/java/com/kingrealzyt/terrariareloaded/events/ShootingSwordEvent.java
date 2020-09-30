@@ -1,8 +1,11 @@
 package com.kingrealzyt.terrariareloaded.events;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
+import com.kingrealzyt.terrariareloaded.entities.projectiles.ThrowingKnifeEntity;
 import com.kingrealzyt.terrariareloaded.init.ModItems;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.world.World;
@@ -18,9 +21,19 @@ public class ShootingSwordEvent {
     public static void LeftClickEvent(PlayerInteractEvent.LeftClickEmpty event) {
         PlayerEntity playerIn = event.getPlayer();
         ItemStack itemStackIn = playerIn.getHeldItemMainhand();
+        Item itemIn = itemStackIn.getItem();
         World worldIn = event.getWorld();
-
-
+        if(itemIn == ModItems.ENCHANTED_SWORD.get()) {
+            ArrowEntity arrow = new ArrowEntity(worldIn, playerIn);
+            arrow.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.25F, 0.0F);
+            worldIn.addEntity(arrow);
+        }
+        else if(itemIn == ModItems.ICE_BLADE.get()){
+            ThrowingKnifeEntity throwingKnife = new ThrowingKnifeEntity(worldIn, playerIn);
+            throwingKnife.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.25F, 0.0F);
+            worldIn.addEntity(throwingKnife);
+        }
+        
     }
 }
 

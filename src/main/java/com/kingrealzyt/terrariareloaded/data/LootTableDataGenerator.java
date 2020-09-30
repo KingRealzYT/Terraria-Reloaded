@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.init.ModBlocks;
+import io.netty.util.internal.SuppressJava6Requirement;
 import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DirectoryCache;
@@ -22,6 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@SuppressWarnings("all")
 public class LootTableDataGenerator extends LootTableProvider {
 
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
@@ -97,6 +99,5 @@ public class LootTableDataGenerator extends LootTableProvider {
         pools.forEach(table::addLootPool);//
         return table;
     }
-
 
 }
