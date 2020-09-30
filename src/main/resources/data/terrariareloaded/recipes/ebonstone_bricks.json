@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "aa ",
+    "aa ",
+    "   "
+  ],
+  "key":
+  {
+    "a":
+    {
+      "item": "terrariareloaded:ebonstone"
+    }
+  },
+  "result":
+  {
+    "item": "terrariareloaded:ebonstone_bricks",
+    "count": 4
+  }
+}

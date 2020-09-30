@@ -14,9 +14,13 @@
   "item.terrariareloaded.dynamite_item": "Dynamite",
   "item.terrariareloaded.grenade_item": "Grenade",
   "item.terrariareloaded.bomb_item": "Bomb",
+
   "item.terrariareloaded.jungle_spores": "Jungle Spores",
   "item.terrariareloaded.chain": "Chain",
   "item.terrariareloaded.stinger": "Stinger",
+  "item.terrariareloaded.silk": "Silk",
+  "item.terrariareloaded.ectoplasm": "Ectoplasm",
+
   "item.terrariareloaded.crimtane_ingot": "Crimtane Ingot",
   "item.terrariareloaded.demonite_ingot": "Demonite Ingot",
   "item.terrariareloaded.meteorite_ingot": "Meteorite Ingot",
@@ -32,8 +36,19 @@
   "item.terrariareloaded.silver_ingot": "Silver Ingot",
   "item.terrariareloaded.copper_ingot": "Copper Ingot",
   "item.terrariareloaded.platinum_ingot": "Platinum Ingot",
+  "item.terrariareloaded.hallowed_ingot": "Hallowed Ingot",
+
+  "item.terrariareloaded.shimmering_diamond": "Shimmering Diamond",
+  "item.terrariareloaded.shimmering_emerald": "Shimmering Emerald",
+  "item.terrariareloaded.ruby": "Ruby",
+  "item.terrariareloaded.amber": "Amber",
+  "item.terrariareloaded.amethyst": "Amethyst",
+  "item.terrariareloaded.topaz": "Topaz",
+  "item.terrariareloaded.sapphire": "Sapphire",
+
 
   "item.terrariareloaded.life_fruit": "Life Fruit",
+  "item.terrariareloaded.life_crystal": "Life Crystal",
 
   "item.terrariareloaded.copper_coin": "Copper Coin",
   "item.terrariareloaded.silver_coin": "Silver Coin",
@@ -69,9 +84,19 @@
   "item.terrariareloaded.picksaw": "Picksaw",
   "item.terrariareloaded.pickaxe_axe": "Pickaxe Axe",
 
+  "block.terrariareloaded.shimmering_diamond_ore": "Shimmering Diamond",
+  "block.terrariareloaded.shimmering_emerald_ore": "Shimmering Emerald",
+  "block.terrariareloaded.ruby_ore": "Ruby",
+  "block.terrariareloaded.amber_ore": "Amber",
+  "block.terrariareloaded.amethyst_ore": "Amethyst",
+  "block.terrariareloaded.topaz_ore": "Topaz",
+  "block.terrariareloaded.sapphire_ore": "Sapphire",
+
   "block.terrariareloaded.honey": "Honey",
   "block.terrariareloaded.hive_block": "Hive Block",
   "block.terrariareloaded.piggy_bank": "Piggy Bank",
+  "block.terrariareloaded.crystal_heart": "Crystal Heart",
+  "block.terrariareloaded.sword_shrine": "Sword Shrine",
 
   "block.terrariareloaded.ebonstone": "Ebonstone",
   "block.terrariareloaded.crimstone": "Crimstone",
@@ -192,7 +217,8 @@
   "item.terrariareloaded.platinum_pickaxe": "Platinum Pickaxe",
   "item.terrariareloaded.reaver_shark": "Reaver Shark",
   "item.terrariareloaded.deathbringer_pickaxe": "Deathbringer Pickaxe",
-
+  "item.terrariareloaded.silver_axe": "Silver Axe",
+  "item.terrariareloaded.platinum_axe": "Platinum Axe",
 
 
   "item.terrariareloaded.guide_voodoo_doll": "Guide Voodoo Doll",

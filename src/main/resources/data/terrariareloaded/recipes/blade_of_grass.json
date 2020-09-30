@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " s ",
+    "jsj",
+    "jsj"
+  ],
+  "key":
+  {
+    "j":
+    {
+      "item": "terrariareloaded:jungle_spores"
+    },
+    "s":
+    {
+      "item": "terrariareloaded:stinger"
+    }
+  },
+  "result":
+  {
+    "item": "terrariareloaded:blade_of_grass",
+    "count": 1
+  }
+}

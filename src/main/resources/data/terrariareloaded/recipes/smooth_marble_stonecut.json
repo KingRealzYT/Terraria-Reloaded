@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "terrariareloaded:marble"
+  },
+  "result": "terrariareloaded:smooth_marble",
+  "count": 1
+}

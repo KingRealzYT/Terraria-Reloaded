@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " g ",
+    " g ",
+    " m "
+  ],
+  "key":
+  {
+    "g":
+    {
+      "item": "terrariareloaded:amber"
+    },
+    "m":
+    {
+      "item": "terrariareloaded:meteorite_ingot"
+    }
+  },
+  "result":
+  {
+    "item": "terrariareloaded:orange_phaseblade",
+    "count": 1
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "terrariareloaded:block/crystal_heart" },
+    "facing=south": { "model": "terrariareloaded:block/crystal_heart", "y":  180},
+    "facing=west": { "model": "terrariareloaded:block/crystal_heart", "y":  270},
+    "facing=east": { "model": "terrariareloaded:block/crystal_heart", "y":  90}
+  }
+}

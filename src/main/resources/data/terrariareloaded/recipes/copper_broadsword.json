@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " c ",
+    " c ",
+    " s "
+  ],
+  "key":
+  {
+    "a":
+    {
+      "item": "minecraft:stick"
+    },
+    "c":
+    {
+      "item": "terrariareloaded:copper_ingot"
+    }
+  },
+  "result":
+  {
+    "item": "terrariareloaded:copper_broadsword",
+    "count": 1
+  }
+}

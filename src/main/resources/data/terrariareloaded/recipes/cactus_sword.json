@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "ccc",
+    " c ",
+    " s "
+  ],
+  "key":
+  {
+    "a":
+    {
+      "item": "minecraft:stick"
+    },
+    "c":
+    {
+      "item": "terrariareloaded:cactus_sword"
+    }
+  },
+  "result":
+  {
+    "item": "terrariareloaded:cactus_sword",
+    "count": 1
+  }
+}

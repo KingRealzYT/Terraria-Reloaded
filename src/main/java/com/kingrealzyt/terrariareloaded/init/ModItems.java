@@ -5,6 +5,7 @@ import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.blocks.BlockItemBase;
 import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoType;
 import com.kingrealzyt.terrariareloaded.items.FoodItemBase;
+import com.kingrealzyt.terrariareloaded.items.LifeCrystalItem;
 import com.kingrealzyt.terrariareloaded.items.LifeFruitItem;
 import com.kingrealzyt.terrariareloaded.items.MiscItemBase;
 import com.kingrealzyt.terrariareloaded.items.misc.*;
@@ -57,6 +58,10 @@ public class ModItems {
     public static final RegistryObject<Item> CHAIN = ITEMS.register("chain", MiscItemBase::new);
     public static final RegistryObject<Item> JUNGLE_SPORES = ITEMS.register("jungle_spores", MiscItemBase::new);
     public static final RegistryObject<Item> BLACK_LENS = ITEMS.register("black_lens", MiscItemBase::new);
+    public static final RegistryObject<Item> SILK = ITEMS.register("silk", MiscItemBase::new);
+    public static final RegistryObject<Item> ECTOPLASM = ITEMS.register("ectoplasm", MiscItemBase::new);
+
+
     public static final RegistryObject<Item> CRIMTANE_INGOT = ITEMS.register("crimtane_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> DEMONITE_INGOT = ITEMS.register("demonite_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> COBALT_INGOT = ITEMS.register("cobalt_ingot", MiscItemBase::new);
@@ -72,7 +77,17 @@ public class ModItems {
     public static final RegistryObject<Item> SILVER_INGOT = ITEMS.register("silver_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> COPPER_INGOT = ITEMS.register("copper_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> PLATINUM_INGOT = ITEMS.register("platinum_ingot", MiscItemBase::new);
+    public static final RegistryObject<Item> HALLOWED_INGOT = ITEMS.register("hallowed_ingot", MiscItemBase::new);
 
+    public static final RegistryObject<Item> AMETHYST = ITEMS.register("amethyst", MiscItemBase::new);
+    public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", MiscItemBase::new);
+    public static final RegistryObject<Item> SAPPHIRE = ITEMS.register("sapphire", MiscItemBase::new);
+    public static final RegistryObject<Item> AMBER = ITEMS.register("amber", MiscItemBase::new);
+    public static final RegistryObject<Item> TOPAZ = ITEMS.register("topaz", MiscItemBase::new);
+    public static final RegistryObject<Item> SHIMMERING_EMERALD = ITEMS.register("shimmering_emerald", MiscItemBase::new);
+    public static final RegistryObject<Item> SHIMMERING_DIAMOND = ITEMS.register("shimmering_diamond", MiscItemBase::new);
+
+    public static final RegistryObject<Item> LIFE_CRYSTAL = ITEMS.register("life_crystal", LifeCrystalItem::new);
 
     public static final RegistryObject<Item> COPPER_COIN = ITEMS.register("copper_coin", MiscItemBase::new);
     public static final RegistryObject<Item> SILVER_COIN = ITEMS.register("silver_coin", MiscItemBase::new);
@@ -103,6 +118,9 @@ public class ModItems {
 
     public static final RegistryObject<PickaxeAxeItem> PICKSAW = ITEMS.register("picksaw", () -> new PickaxeAxeItem(ModItemTier.PICKSAW, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.TOOL).setNoRepair()));
     public static final RegistryObject<PickaxeAxeItem> PICKAXE_AXE = ITEMS.register("pickaxe_axe", () -> new PickaxeAxeItem(ModItemTier.HALLOWED, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.TOOL).setNoRepair()));
+
+    public static final RegistryObject<AxeItem> SILVER_AXE = ITEMS.register("silver_axe", () -> new AxeItem(ModItemTier.SILVER, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.TOOL).setNoRepair()));
+    public static final RegistryObject<AxeItem> PLATINUM_AXE = ITEMS.register("platinum_axe", () -> new AxeItem(ModItemTier.PLATINUM, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.TOOL).setNoRepair()));
 
     //swords
     public static final RegistryObject<SwordItem> IRON_SHORTSWORD = ITEMS.register("iron_shortsword", () -> new SwordItem(ItemTier.IRON, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
@@ -150,6 +168,8 @@ public class ModItems {
     // Block Items
     public static final RegistryObject<Item> HIVE_BLOCK_ITEM = ITEMS.register("hive_block", () -> new BlockItemBase(ModBlocks.HIVE_BLOCK.get()));
     public static final RegistryObject<Item> PIGGY_BANK_ITEM = ITEMS.register("piggy_bank", () -> new BlockItemBase(ModBlocks.PIGGY_BANK.get()));
+    public static final RegistryObject<Item> CRYSTAL_HEART_ITEM = ITEMS.register("crystal_heart", () -> new BlockItemBase(ModBlocks.CRYSTAL_HEART.get()));
+    public static final RegistryObject<Item> SWORD_SHRINE_ITEM = ITEMS.register("sword_shrine", () -> new BlockItemBase(ModBlocks.SWORD_SHRINE.get()));
 
     public static final RegistryObject<Item> LIFE_FRUIT_BUSH_BLOCK = ITEMS.register("life_fruit_bush", () -> new BlockItemBase(ModBlocks.LIFE_FRUIT_BUSH.get()));
 
@@ -167,6 +187,14 @@ public class ModItems {
     public static final RegistryObject<Item> SILVER_ORE_ITEM = ITEMS.register("silver_ore", () -> new BlockItemBase(ModBlocks.SILVER_ORE.get()));
     public static final RegistryObject<Item> COPPER_ORE_ITEM = ITEMS.register("copper_ore", () -> new BlockItemBase(ModBlocks.COPPER_ORE.get()));
     public static final RegistryObject<Item> PLATINUM_ORE_ITEM = ITEMS.register("platinum_ore", () -> new BlockItemBase(ModBlocks.PLATINUM_ORE.get()));
+
+    public static final RegistryObject<Item> SHIMMERING_DIAMOND_ORE_ITEM = ITEMS.register("shimmering_diamond_ore", () -> new BlockItemBase(ModBlocks.SHIMMERING_DIAMOND_ORE.get()));
+    public static final RegistryObject<Item> SHIMMERING_EMERALD_ORE_ITEM = ITEMS.register("shimmering_emerald_ore", () -> new BlockItemBase(ModBlocks.SHIMMERING_EMERALD_ORE.get()));
+    public static final RegistryObject<Item> RUBY_ORE_ITEM = ITEMS.register("ruby_ore", () -> new BlockItemBase(ModBlocks.RUBY_ORE.get()));
+    public static final RegistryObject<Item> AMETHYST_ORE_ITEM = ITEMS.register("amethyst_ore", () -> new BlockItemBase(ModBlocks.AMETHYST_ORE.get()));
+    public static final RegistryObject<Item> TOPAZ_ORE_ITEM = ITEMS.register("topaz_ore", () -> new BlockItemBase(ModBlocks.TOPAZ_ORE.get()));
+    public static final RegistryObject<Item> SAPPHIRE_ORE_ITEM = ITEMS.register("sapphire_ore", () -> new BlockItemBase(ModBlocks.SAPPHIRE_ORE.get()));
+    public static final RegistryObject<Item> AMBER_ORE_ITEM = ITEMS.register("amber_ore", () -> new BlockItemBase(ModBlocks.AMBER_ORE.get()));
 
     public static final RegistryObject<Item> EBONSTONE_ITEM = ITEMS.register("ebonstone", () -> new BlockItemBase(ModBlocks.EBONSTONE.get()));
     public static final RegistryObject<Item> CRIMSTONE_ITEM = ITEMS.register("crimstone", () -> new BlockItemBase(ModBlocks.CRIMSTONE.get()));
