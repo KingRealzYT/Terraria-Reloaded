@@ -30,7 +30,7 @@ description='''
 This mod is called Terraria Reloaded. It adds in stuff from the game Terraria into Minecraft!
 '''
 
-[[dependencies.terrairareloaded]] #optional
+[[dependencies.terrariareloaded]] #optional
 
     modId="forge" #mandatory
 
@@ -42,7 +42,7 @@ This mod is called Terraria Reloaded. It adds in stuff from the game Terraria in
 
     side="BOTH"
 
-[[dependencies.terrairareloaded]]
+[[dependencies.terrariareloaded]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.15.2]"
