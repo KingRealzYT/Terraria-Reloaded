@@ -58,6 +58,10 @@ public class ModItems {
     public static final RegistryObject<Item> CHAIN = ITEMS.register("chain", MiscItemBase::new);
     public static final RegistryObject<Item> JUNGLE_SPORES = ITEMS.register("jungle_spores", MiscItemBase::new);
     public static final RegistryObject<Item> BLACK_LENS = ITEMS.register("black_lens", MiscItemBase::new);
+    public static final RegistryObject<Item> SILK = ITEMS.register("silk", MiscItemBase::new);
+    public static final RegistryObject<Item> ECTOPLASM = ITEMS.register("ectoplasm", MiscItemBase::new);
+
+
     public static final RegistryObject<Item> CRIMTANE_INGOT = ITEMS.register("crimtane_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> DEMONITE_INGOT = ITEMS.register("demonite_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> COBALT_INGOT = ITEMS.register("cobalt_ingot", MiscItemBase::new);
@@ -73,6 +77,7 @@ public class ModItems {
     public static final RegistryObject<Item> SILVER_INGOT = ITEMS.register("silver_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> COPPER_INGOT = ITEMS.register("copper_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> PLATINUM_INGOT = ITEMS.register("platinum_ingot", MiscItemBase::new);
+    public static final RegistryObject<Item> HALLOWED_INGOT = ITEMS.register("hallowed_ingot", MiscItemBase::new);
 
     public static final RegistryObject<Item> AMETHYST = ITEMS.register("amethyst", MiscItemBase::new);
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", MiscItemBase::new);

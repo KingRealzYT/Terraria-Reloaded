@@ -14,9 +14,13 @@
   "item.terrariareloaded.dynamite_item": "Dynamite",
   "item.terrariareloaded.grenade_item": "Grenade",
   "item.terrariareloaded.bomb_item": "Bomb",
+
   "item.terrariareloaded.jungle_spores": "Jungle Spores",
   "item.terrariareloaded.chain": "Chain",
   "item.terrariareloaded.stinger": "Stinger",
+  "item.terrariareloaded.silk": "Silk",
+  "item.terrariareloaded.ectoplasm": "Ectoplasm",
+
   "item.terrariareloaded.crimtane_ingot": "Crimtane Ingot",
   "item.terrariareloaded.demonite_ingot": "Demonite Ingot",
   "item.terrariareloaded.meteorite_ingot": "Meteorite Ingot",
@@ -32,6 +36,7 @@
   "item.terrariareloaded.silver_ingot": "Silver Ingot",
   "item.terrariareloaded.copper_ingot": "Copper Ingot",
   "item.terrariareloaded.platinum_ingot": "Platinum Ingot",
+  "item.terrariareloaded.hallowed_ingot": "Hallowed Ingot",
 
   "item.terrariareloaded.shimmering_diamond": "Shimmering Diamond",
   "item.terrariareloaded.shimmering_emerald": "Shimmering Emerald",
