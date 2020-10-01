@@ -8,18 +8,19 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
 import net.minecraftforge.common.IPlantable;
+
 import java.util.Random;
 
-public class ShadewoodTree extends Tree {
+public class EbonwoodTree extends Tree {
 
-    public static final TreeFeatureConfig SHADEWOOD_TREE_CONFIG = (new TreeFeatureConfig.Builder(
-            new SimpleBlockStateProvider(ModBlocks.SHADEWOOD_LOG.get().getDefaultState()),
-            new SimpleBlockStateProvider(ModBlocks.SHADEWOOD_LEAVES.get().getDefaultState()),
+    public static final TreeFeatureConfig EBONWOOD_TREE_CONFIG = (new TreeFeatureConfig.Builder(
+            new SimpleBlockStateProvider(ModBlocks.EBONWOOD_LOG.get().getDefaultState()),
+            new SimpleBlockStateProvider(ModBlocks.EBONWOOD_LEAVES.get().getDefaultState()),
             new BlobFoliagePlacer(2, 0))).baseHeight(9).heightRandA(4).foliageHeight(3).ignoreVines()
-            .setSapling((IPlantable) ModBlocks.SHADEWOOD_SAPLING.get()).build();
+            .setSapling((IPlantable) ModBlocks.EBONWOOD_SAPLING.get()).build();
 
     @Override
     protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean b) {
-        return Feature.NORMAL_TREE.withConfiguration(SHADEWOOD_TREE_CONFIG);
+        return Feature.NORMAL_TREE.withConfiguration(EBONWOOD_TREE_CONFIG);
     }
 }

@@ -217,6 +217,7 @@ public class ModItems {
     public static final RegistryObject<Item> CORRUPT_GRASS_BLOCK_ITEM = ITEMS.register("corrupt_grass_block", () -> new BlockItemBase(ModBlocks.CORRUPT_GRASS_BLOCK.get()));
     public static final RegistryObject<Item> CRIMSON_GRASS_BLOCK_ITEM = ITEMS.register("crimson_grass_block", () -> new BlockItemBase(ModBlocks.CRIMSON_GRASS_BLOCK.get()));
     public static final RegistryObject<Item> JUNGLE_GRASS_BLOCK_ITEM = ITEMS.register("jungle_grass_block", () -> new BlockItemBase(ModBlocks.JUNGLE_GRASS_BLOCK.get()));
+    public static final RegistryObject<Item> MUSHROOM_GRASS_BLOCK_ITEM = ITEMS.register("mushroom_grass_block", () -> new BlockItemBase(ModBlocks.MUSHROOM_GRASS_BLOCK.get()));
 
     public static final RegistryObject<Item> EBONWOOD_LOG_ITEM = ITEMS.register("ebonwood_log", () -> new BlockItemBase(ModBlocks.EBONWOOD_LOG.get()));
     public static final RegistryObject<Item> SHADEWOOD_LOG_ITEM = ITEMS.register("shadewood_log", () -> new BlockItemBase(ModBlocks.SHADEWOOD_LOG.get()));

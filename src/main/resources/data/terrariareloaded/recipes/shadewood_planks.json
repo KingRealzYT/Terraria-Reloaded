@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "terrariareloaded:shadewood_log"
+    }
+  ],
+  "result":
+  {
+    "item": "terrariareloaded:shadewood_planks",
+    "count": 4
+  }
+}

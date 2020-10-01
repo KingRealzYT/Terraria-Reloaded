@@ -2,6 +2,7 @@ package com.kingrealzyt.terrariareloaded.init;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.blocks.*;
+import com.kingrealzyt.terrariareloaded.world.feature.EbonwoodTree;
 import com.kingrealzyt.terrariareloaded.world.feature.ShadewoodTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -63,7 +64,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> EBONWOOD_LOG = BLOCKS.register("ebonwood_log", ModLogBlock::new);
     public static final RegistryObject<Block> SHADEWOOD_LOG = BLOCKS.register("shadewood_log", ModLogBlock::new);
 
-    public static final RegistryObject<Block> EBONWOOD_SAPLING = BLOCKS.register("ebonwood_sapling", EbonwoodSapling::new);
+    public static final RegistryObject<Block> EBONWOOD_SAPLING = BLOCKS.register("ebonwood_sapling",
+            () -> new EbonwoodSapling(() -> new EbonwoodTree(), Block.Properties.from(Blocks.OAK_SAPLING)));
     public static final RegistryObject<Block> SHADEWOOD_SAPLING = BLOCKS.register("shadewood_sapling",
             () -> new ShadewoodSapling(() -> new ShadewoodTree(), Block.Properties.from(Blocks.OAK_SAPLING)));
 
@@ -91,6 +93,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> SLUSH = BLOCKS.register("slush", () -> new ModSandBlock(0x99b2b9));
     public static final RegistryObject<Block> SILT = BLOCKS.register("silt", () -> new ModSandBlock(0x595353));
 
+    public static final RegistryObject<Block> MUSHROOM_GRASS_BLOCK = BLOCKS.register("mushroom_grass_block", MushroomGrassBlock::new);
     public static final RegistryObject<Block> CRIMSON_GRASS_BLOCK = BLOCKS.register("crimson_grass_block", ModGrassBlock::new);
     public static final RegistryObject<Block> CORRUPT_GRASS_BLOCK = BLOCKS.register("corrupt_grass_block", ModGrassBlock::new);
     public static final RegistryObject<Block> JUNGLE_GRASS_BLOCK = BLOCKS.register("jungle_grass_block", ModGrassBlock::new);

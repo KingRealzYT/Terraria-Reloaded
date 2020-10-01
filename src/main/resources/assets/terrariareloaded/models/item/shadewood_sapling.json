@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "terrariareloaded:blocks/ebonwood_sapling"
+    "layer0": "terrariareloaded:blocks/shadewood_sapling"
   }
 }
