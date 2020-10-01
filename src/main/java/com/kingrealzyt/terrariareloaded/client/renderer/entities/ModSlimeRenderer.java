@@ -41,7 +41,7 @@ public class ModSlimeRenderer extends MobRenderer<ModSlimeEntity, SlimeModel<Mod
         matrixStackIn.scale(f3 * f1, 1.0F / f3 * f1, f3 * f1);
     }
 
-    @Override
+
     public ResourceLocation getEntityTexture(ModSlimeEntity entity) {
         return TEXTURE;
     }
