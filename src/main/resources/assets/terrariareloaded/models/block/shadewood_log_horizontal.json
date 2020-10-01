@@ -1,0 +1,7 @@
+{
+  "parent": "terrariareloaded:block/cube_column_horizontal",
+  "textures": {
+    "end": "terrariareloaded:blocks/shadewood_log_top",
+    "side": "terrariareloaded:blocks/shadewood_log"
+  }
+}

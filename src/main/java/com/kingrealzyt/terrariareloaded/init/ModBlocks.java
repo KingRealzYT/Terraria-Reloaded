@@ -56,6 +56,16 @@ public class ModBlocks {
     // Other Blocks
     public static final RegistryObject<Block> HIVE_BLOCK = BLOCKS.register("hive_block", HiveBlock::new);
 
+    public static final RegistryObject<Block> EBONWOOD_PLANKS = BLOCKS.register("ebonwood_planks", ModPlanksBlock::new);
+    public static final RegistryObject<Block> SHADEWOOD_PLANKS = BLOCKS.register("shadewood_planks", ModPlanksBlock::new);
+    public static final RegistryObject<Block> EBONWOOD_LOG = BLOCKS.register("ebonwood_log", ModLogBlock::new);
+    public static final RegistryObject<Block> SHADEWOOD_LOG = BLOCKS.register("shadewood_log", ModLogBlock::new);
+
+    public static final RegistryObject<Block> EBONWOOD_SAPLING = BLOCKS.register("ebonwood_sapling", EbonwoodSapling::new);
+    public static final RegistryObject<Block> SHADEWOOD_SAPLING = BLOCKS.register("shadewood_sapling", ShadewoodSapling::new);
+    public static final RegistryObject<Block> EBONWOOD_LEAVES = BLOCKS.register("ebonwood_leaves", ModLeavesBlock::new);
+    public static final RegistryObject<Block> SHADEWOOD_LEAVES = BLOCKS.register("shadewood_leaves", ModLeavesBlock::new);
+
     public static final RegistryObject<Block> EBONSTONE = BLOCKS.register("ebonstone", ModStoneBlock::new);
     public static final RegistryObject<Block> CRIMSTONE = BLOCKS.register("crimstone", ModStoneBlock::new);
     public static final RegistryObject<Block> PEARLSTONE = BLOCKS.register("pearlstone", ModStoneBlock::new);

@@ -218,6 +218,14 @@ public class ModItems {
     public static final RegistryObject<Item> CRIMSON_GRASS_BLOCK_ITEM = ITEMS.register("crimson_grass_block", () -> new BlockItemBase(ModBlocks.CRIMSON_GRASS_BLOCK.get()));
     public static final RegistryObject<Item> JUNGLE_GRASS_BLOCK_ITEM = ITEMS.register("jungle_grass_block", () -> new BlockItemBase(ModBlocks.JUNGLE_GRASS_BLOCK.get()));
 
+    public static final RegistryObject<Item> EBONWOOD_LOG_ITEM = ITEMS.register("ebonwood_log", () -> new BlockItemBase(ModBlocks.EBONWOOD_LOG.get()));
+    public static final RegistryObject<Item> SHADEWOOD_LOG_ITEM = ITEMS.register("shadewood_log", () -> new BlockItemBase(ModBlocks.SHADEWOOD_LOG.get()));
+    public static final RegistryObject<Item> EBONWOOD_PLANKS_ITEM = ITEMS.register("ebonwood_planks", () -> new BlockItemBase(ModBlocks.EBONWOOD_PLANKS.get()));
+    public static final RegistryObject<Item> SHADEWOOD_PLANKS_ITEM = ITEMS.register("shadewood_planks", () -> new BlockItemBase(ModBlocks.SHADEWOOD_PLANKS.get()));
+    public static final RegistryObject<Item> EBONWOOD_LEAVES_ITEM = ITEMS.register("ebonwood_leaves", () -> new BlockItemBase(ModBlocks.EBONWOOD_LEAVES.get()));
+    public static final RegistryObject<Item> SHADEWOOD_LEAVES_ITEM = ITEMS.register("shadewood_leaves", () -> new BlockItemBase(ModBlocks.SHADEWOOD_LEAVES.get()));
+    public static final RegistryObject<Item> EBONWOOD_SAPLING_ITEM = ITEMS.register("ebonwood_sapling", () -> new BlockItemBase(ModBlocks.EBONWOOD_SAPLING.get()));
+    public static final RegistryObject<Item> SHADEWOOD_SAPLING_ITEM = ITEMS.register("shadewood_sapling", () -> new BlockItemBase(ModBlocks.SHADEWOOD_SAPLING.get()));
 
     // Throwing weapons
     public static final RegistryObject<Item> THROWING_KNIFE_ITEM = ITEMS.register("throwing_knife_item", () -> new ThrowingKnifeItem(new Item.Properties().group(TerrariaReloaded.THROW)));
