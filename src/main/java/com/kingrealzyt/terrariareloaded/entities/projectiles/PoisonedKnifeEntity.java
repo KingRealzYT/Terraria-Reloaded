@@ -45,7 +45,7 @@ public class PoisonedKnifeEntity extends ProjectileItemEntity {
         if (result.getType() == RayTraceResult.Type.ENTITY) {
             Entity entity = ((EntityRayTraceResult) result).getEntity();
             if (entity instanceof LivingEntity) {
-                ((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.POISON, 5, 0));
+                ((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.POISON, 500, 0));
                 entity.attackEntityFrom(DamageSource.causeThrownDamage(this, null), DAMAGE);
             }
         }

@@ -2,7 +2,9 @@ package com.kingrealzyt.terrariareloaded.init;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.blocks.*;
+import com.kingrealzyt.terrariareloaded.world.feature.ShadewoodTree;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -62,7 +64,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> SHADEWOOD_LOG = BLOCKS.register("shadewood_log", ModLogBlock::new);
 
     public static final RegistryObject<Block> EBONWOOD_SAPLING = BLOCKS.register("ebonwood_sapling", EbonwoodSapling::new);
-    public static final RegistryObject<Block> SHADEWOOD_SAPLING = BLOCKS.register("shadewood_sapling", ShadewoodSapling::new);
+    public static final RegistryObject<Block> SHADEWOOD_SAPLING = BLOCKS.register("shadewood_sapling",
+            () -> new ShadewoodSapling(() -> new ShadewoodTree(), Block.Properties.from(Blocks.OAK_SAPLING)));
+
     public static final RegistryObject<Block> EBONWOOD_LEAVES = BLOCKS.register("ebonwood_leaves", ModLeavesBlock::new);
     public static final RegistryObject<Block> SHADEWOOD_LEAVES = BLOCKS.register("shadewood_leaves", ModLeavesBlock::new);
 
