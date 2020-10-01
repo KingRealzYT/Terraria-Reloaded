@@ -51,6 +51,7 @@ public class ModBlocks {
 
     //Bush Blocks
     public static final RegistryObject<Block> LIFE_FRUIT_BUSH = BLOCKS.register("life_fruit_bush", ModGlowBushBlock::new);
+    public static final RegistryObject<Block> JUNGLE_SPORES_BUSH = BLOCKS.register("jungle_spores_bush", ModGlowBushBlock::new);
 
     // Other Blocks
     public static final RegistryObject<Block> HIVE_BLOCK = BLOCKS.register("hive_block", HiveBlock::new);

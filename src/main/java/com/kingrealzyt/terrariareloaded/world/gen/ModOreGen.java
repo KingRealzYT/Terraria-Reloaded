@@ -21,8 +21,20 @@ public class ModOreGen {
     @SubscribeEvent
     public static void generateOres(FMLLoadCompleteEvent event) {
         for (Biome biome : ForgeRegistries.BIOMES) {
-            genOre(biome, 9, 19, 30, 41, OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.SILVER_ORE.get().getDefaultState(), 9);
-            genOre(biome, 13, 19, 5, 80, OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.COPPER_ORE.get().getDefaultState(), 11);
+            genOre(biome, 6, 19, 30, 41, OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.SILVER_ORE.get().getDefaultState(), 5);
+            genOre(biome, 9, 19, 5, 80, OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.COPPER_ORE.get().getDefaultState(), 7);
+            genOre(biome, 3, 3, 20, 40, OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.PLATINUM_ORE.get().getDefaultState(), 5);
+
+            genOre(biome, 3, 3, 5, 40, OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.SHIMMERING_DIAMOND_ORE.get().getDefaultState(), 3);
+            genOre(biome, 3, 3, 5, 40, OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.SHIMMERING_EMERALD_ORE.get().getDefaultState(), 3);
+
+            genOre(biome, 5, 10, 10, 80, OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.AMETHYST_ORE.get().getDefaultState(), 6);
+            genOre(biome, 4, 10, 10, 80, OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.RUBY_ORE.get().getDefaultState(), 5);
+            genOre(biome, 4, 10, 10, 80, OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.SAPPHIRE_ORE.get().getDefaultState(), 5);
+            genOre(biome, 4, 10, 10, 80, OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.TOPAZ_ORE.get().getDefaultState(), 5);
+
+            genOre(biome, 3, 15, 10, 70, OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.AMBER_ORE.get().getDefaultState(), 10);
+
             if (biome.getCategory() == Biome.Category.JUNGLE) {
                 genOre(biome, 6, 5, 25, 41, OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.CHLOROPHYTE_ORE.get().getDefaultState(), 4);
 

@@ -1,10 +1,14 @@
 package com.kingrealzyt.terrariareloaded.items.misc;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
+import com.kingrealzyt.terrariareloaded.entities.boss.EOCEntity;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.DynamiteEntity;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.ThrowingKnifeEntity;
+import com.kingrealzyt.terrariareloaded.init.ModEntityTypes;
+import com.kingrealzyt.terrariareloaded.init.SoundInit;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.boss.WitherEntity;
 import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.passive.PigEntity;
@@ -13,6 +17,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
@@ -32,14 +37,15 @@ public class SuspiciousEye extends Item {
     }
     @Override
     public int getItemStackLimit(ItemStack stack) {
-        return 1;
+        return 16;
     }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         if(worldIn.isRemote) {
-            worldIn.addEntity(new ThrowingKnifeEntity(worldIn, playerIn));
+            worldIn.addEntity(new WitherEntity(EntityType.WITHER, worldIn));
             playerIn.getHeldItem(handIn).shrink(1);
+            playerIn.playSound(SoundInit.ENTITYBOSSROAR.get(), 1, 1);
         }
         return super.onItemRightClick(worldIn, playerIn, handIn);
     }

@@ -29,6 +29,14 @@ public class ModEntityTypes {
                             .size(1.0f, 1.0f)
                             .build(new ResourceLocation(TerrariaReloaded.MOD_ID + ":throwing_knife").toString()));
 
+    public static final RegistryObject<EntityType<PoisonedKnifeEntity>> POISONED_KNIFE_ENTITY = ENTITY_TYPES
+            .register("poisoned_knife",
+                    () -> EntityType.Builder
+                            .<PoisonedKnifeEntity>create(PoisonedKnifeEntity::new, EntityClassification.MISC)
+                            .size(1.0f, 1.0f)
+                            .build(new ResourceLocation(TerrariaReloaded.MOD_ID + ":poisoned_knife").toString()));
+
+
     public static final RegistryObject<EntityType<DynamiteEntity>> DYNAMITE_ENTITY = ENTITY_TYPES
             .register("dynamite",
                     () -> EntityType.Builder

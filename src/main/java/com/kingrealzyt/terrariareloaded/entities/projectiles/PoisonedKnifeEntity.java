@@ -32,12 +32,12 @@ public class PoisonedKnifeEntity extends ProjectileItemEntity {
     }
 
     public PoisonedKnifeEntity(World worldIn, LivingEntity livingEntityIn) {
-        super(ModEntityTypes.THROWING_KNIFE_ENTITY.get(), livingEntityIn, worldIn);
+        super(ModEntityTypes.POISONED_KNIFE_ENTITY.get(), livingEntityIn, worldIn);
     }
 
     @Override
     protected Item getDefaultItem() {
-        return ModItems.THROWING_KNIFE_ITEM.get();
+        return ModItems.POISONED_THROWING_KNIFE_ITEM.get();
     }
 
     @Override
@@ -86,7 +86,7 @@ public class PoisonedKnifeEntity extends ProjectileItemEntity {
     private void spawnItem(){
         ItemEntity item = new ItemEntity(this.world,
                 this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(),
-                new ItemStack(ModItems.THROWING_KNIFE_ITEM.get()));
+                new ItemStack(ModItems.POISONED_THROWING_KNIFE_ITEM.get()));
         this.world.addEntity(item);
     }
 

@@ -37,12 +37,14 @@ public class AdamantiteRepeaterItem extends ShootableItem {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         ItemStack itemstack = playerIn.getHeldItem(handIn);
+        if (!playerIn.findAmmo(itemstack).isEmpty() || playerIn.abilities.isCreativeMode) {
+            worldIn.playSound(playerIn, playerIn.getPosition(), SoundInit.REPEATERSHOOT.get(), SoundCategory.BLOCKS, 1, 1);
+        }
         if(!worldIn.isRemote) {
             if (!playerIn.findAmmo(itemstack).isEmpty() || playerIn.abilities.isCreativeMode) {
                 if (!playerIn.abilities.isCreativeMode) {
                     playerIn.findAmmo(itemstack).shrink(1);
                 }
-                worldIn.playSound(playerIn, playerIn.getPosition(), SoundInit.REPEATERSHOOT.get(), SoundCategory.BLOCKS, 1, 1);
                 ArrowEntity arrow = new ArrowEntity(worldIn, playerIn);
                 arrow.setDamage(40.0f);
                 arrow.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 5.0F, 0.12F);
