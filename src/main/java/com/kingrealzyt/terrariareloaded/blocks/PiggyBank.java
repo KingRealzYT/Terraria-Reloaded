@@ -47,22 +47,16 @@ public class PiggyBank extends Block implements IWaterLoggable {
         return (FluidState) (state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state));
     }
 
-    private static final VoxelShape SHAPE_N = Stream.of(
-            Block.makeCuboidShape(10.25, 5.5, 3, 11.25, 6.5, 4),
-            Block.makeCuboidShape(5, 1.5, 3.5, 11, 7.5, 13.5),
-            Block.makeCuboidShape(6, 2.5, 2, 10, 5.5, 4),
-            Block.makeCuboidShape(5.5, 0, 4.5, 7.5, 2, 6.5),
-            Block.makeCuboidShape(8.25, 0, 4.5, 10.25, 2, 6.5),
-            Block.makeCuboidShape(8.25, 0, 10.5, 10.25, 2, 12.5),
-            Block.makeCuboidShape(5.5, 0, 10.5, 7.5, 2, 12.5),
-            Block.makeCuboidShape(7.5, 4, 13.5, 8.5, 6, 14.5),
-            Block.makeCuboidShape(4.75, 5.5, 3, 5.75, 6.5, 4)
+    private static final VoxelShape SHAPE_N = Stream.of(Block.makeCuboidShape(5, 0, 3, 11, 7, 13)
     ).reduce((v1, v2) -> {
         return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
     }).get();
-    public static final VoxelShape SHAPE_E = SHAPE_N;
+    public static final VoxelShape SHAPE_E = Stream.of(Block.makeCuboidShape(3, 0, 5, 13, 7, 11)
+    ).reduce((v1, v2) -> {
+        return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
+    }).get();;
     public static final VoxelShape SHAPE_S = SHAPE_N;
-    public static final VoxelShape SHAPE_W = SHAPE_N;
+    public static final VoxelShape SHAPE_W = SHAPE_E;
 
 
     public PiggyBank() {

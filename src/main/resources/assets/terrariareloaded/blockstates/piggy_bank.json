@@ -1,8 +1,8 @@
 {
   "variants": {
     "facing=north": { "model": "terrariareloaded:block/piggy_bank" },
-    "facing=south": { "model": "terrariareloaded:block/piggy_bank" },
-    "facing=west": { "model": "terrariareloaded:block/piggy_bank" },
-    "facing=east": { "model": "terrariareloaded:block/piggy_bank" }
+    "facing=south": { "model": "terrariareloaded:block/piggy_bank", "y":  180},
+    "facing=west": { "model": "terrariareloaded:block/piggy_bank", "y":  270},
+    "facing=east": { "model": "terrariareloaded:block/piggy_bank", "y":  90}
   }
 }
