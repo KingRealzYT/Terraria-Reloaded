@@ -36,5 +36,12 @@
     "subtitle": "item_throw",
     "sounds": [{"name": "terrariareloaded:item/item_throw",
       "stream": true}]
+  },
+
+  "boss_1": {
+    "category": "music",
+    "subtitle": "boss_1",
+    "sounds": [{"name": "terrariareloaded:music/boss_1",
+      "stream": true}]
   }
 }
