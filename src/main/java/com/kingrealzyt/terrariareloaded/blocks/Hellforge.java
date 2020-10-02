@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
 import java.util.Random;
 import java.util.stream.Stream;
 
+@SuppressWarnings("all")
 public class Hellforge extends Block implements IWaterLoggable {
 
     private static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
@@ -153,7 +154,7 @@ public class Hellforge extends Block implements IWaterLoggable {
     }
 
     @Override
-    public boolean hasTileEntity() {
+    public boolean hasTileEntity(BlockState state) {
         return true;
     }
 
@@ -180,7 +181,6 @@ public class Hellforge extends Block implements IWaterLoggable {
         }
 
     }
-
 
     @Override
     public boolean hasComparatorInputOverride(BlockState state) {

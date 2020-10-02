@@ -17,6 +17,7 @@ public class SoundInit {
     public static final RegistryObject<SoundEvent> REPEATERSHOOT = SOUNDS.register("item_repeater_shoot", () -> new SoundEvent(new ResourceLocation(TerrariaReloaded.MOD_ID, "item_repeater_shoot")));
     public static final RegistryObject<SoundEvent> ENTITYDEATH = SOUNDS.register("entity_death", () -> new SoundEvent(new ResourceLocation(TerrariaReloaded.MOD_ID, "entity_death")));
     public static final RegistryObject<SoundEvent> ENTITYBOSSROAR = SOUNDS.register("entity_boss_roar", () -> new SoundEvent(new ResourceLocation(TerrariaReloaded.MOD_ID, "entity_boss_roar")));
+    public static final RegistryObject<SoundEvent> BOSS1 = SOUNDS.register("boss1", () -> new SoundEvent(new ResourceLocation(TerrariaReloaded.MOD_ID, "boss1")));
 
 
 }

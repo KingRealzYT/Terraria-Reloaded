@@ -7,9 +7,12 @@ import com.kingrealzyt.terrariareloaded.entities.projectiles.ThrowingKnifeEntity
 import com.kingrealzyt.terrariareloaded.init.ModEntityTypes;
 import com.kingrealzyt.terrariareloaded.init.SoundInit;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.boss.WitherEntity;
 import net.minecraft.entity.monster.CreeperEntity;
+import net.minecraft.entity.monster.DrownedEntity;
 import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -42,11 +45,14 @@ public class SuspiciousEye extends Item {
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
+        EOCEntity eoc = new EOCEntity(ModEntityTypes.EOC.get(), worldIn);
         if(worldIn.isRemote) {
-            worldIn.addEntity(new WitherEntity(EntityType.WITHER, worldIn));
+            eoc.setPositionAndRotation(playerIn.getPosX(), playerIn.getPosY() + 10.0, playerIn.getPosZ(), playerIn.rotationYaw, playerIn.rotationPitch);
+            worldIn.addEntity(eoc);
+            EntityType.WITHER.spawn(worldIn, playerIn.getHeldItem(handIn), playerIn, playerIn.getPosition(), SpawnReason.TRIGGERED, true, true);
             playerIn.getHeldItem(handIn).shrink(1);
             playerIn.playSound(SoundInit.ENTITYBOSSROAR.get(), 1, 1);
         }
-        return super.onItemRightClick(worldIn, playerIn, handIn);
+        return ActionResult.resultConsume(playerIn.getHeldItem(handIn));
     }
 }

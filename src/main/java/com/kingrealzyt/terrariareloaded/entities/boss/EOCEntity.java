@@ -3,20 +3,25 @@ package com.kingrealzyt.terrariareloaded.entities.boss;
 import com.kingrealzyt.terrariareloaded.entities.boss.ai.eoc.EOCFlyingAttackGoal;
 import com.kingrealzyt.terrariareloaded.entities.boss.ai.eoc.EOCLookAroundGoal;
 import com.kingrealzyt.terrariareloaded.entities.boss.ai.eoc.EOCRandomFlyGoal;
+import com.kingrealzyt.terrariareloaded.init.SoundInit;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.FlyingEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.boss.WitherEntity;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerBossInfo;
 
+@SuppressWarnings("all")
 public class EOCEntity extends FlyingEntity implements IMob {
 
     private static final DataParameter<Boolean> DATA_ATTACKING = EntityDataManager.createKey(EOCEntity.class, DataSerializers.BOOLEAN);
@@ -112,5 +117,8 @@ public class EOCEntity extends FlyingEntity implements IMob {
         return false;
     }
 
+    protected SoundEvent getAmbientSound() {
+        return SoundInit.BOSS1.get();
+    }
 }
 
