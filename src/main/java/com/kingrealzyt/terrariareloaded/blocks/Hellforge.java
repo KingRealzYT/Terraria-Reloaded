@@ -53,21 +53,21 @@ public class Hellforge extends Block implements IWaterLoggable {
             Block.makeCuboidShape(0.5, 1, 0.5, 13.5, 5, 15.5),
             Block.makeCuboidShape(6.5, 5, 0, 15.5, 8, 3)
     ).reduce((v1, v2) -> {return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
-    }).get();;
+    }).get();
     public static final VoxelShape SHAPE_S = Stream.of(
             Block.makeCuboidShape(0.5, 4, 0.5, 15.5, 15, 6.5),
             Block.makeCuboidShape(0, 0, 0, 16, 1, 15),
             Block.makeCuboidShape(0.5, 1, 0.5, 15.5, 5, 13.5),
             Block.makeCuboidShape(13, 5, 6.5, 16, 8, 15.5)
     ).reduce((v1, v2) -> {return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
-        }).get();;
+        }).get();
     public static final VoxelShape SHAPE_W = Stream.of(
             Block.makeCuboidShape(9.5, 4, 0.5, 15.5, 15, 15.5),
             Block.makeCuboidShape(1, 0, 0, 16, 1, 16),
             Block.makeCuboidShape(2.5, 1, 0.5, 15.5, 5, 15.5),
             Block.makeCuboidShape(0.5, 5, 13, 9.5, 8, 16)
     ).reduce((v1, v2) -> {return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
-        }).get();;
+        }).get();
 
 
     public Hellforge(Properties properties) {
@@ -173,8 +173,10 @@ public class Hellforge extends Block implements IWaterLoggable {
         super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
         System.out.println("ok you placed it");
         if(stack.hasDisplayName()) {
+            System.out.println("has display name");
             TileEntity tile = worldIn.getTileEntity(pos);
             if(tile instanceof HellforgeTileEntity) {
+                System.out.println("is hellforge tile entity    ");
                 ((HellforgeTileEntity) tile).setCustomName(stack.getDisplayName());
             }
 
