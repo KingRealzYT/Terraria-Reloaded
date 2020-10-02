@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "ccc",
+    "cic",
+    "ccc"
+  ],
+  "key":
+  {
+    "i":
+    {
+      "item": "terrariareloaded:copper_ingot"
+    },
+    "c":
+    {
+      "item": "minecraft:stone_bricks"
+    }
+  },
+  "result":
+  {
+    "item": "terrariareloaded:copper_bricks",
+    "count": 8
+  }
+}
