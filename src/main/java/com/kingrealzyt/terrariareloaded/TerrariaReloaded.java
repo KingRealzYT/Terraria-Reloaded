@@ -71,7 +71,7 @@ public class TerrariaReloaded {
 
     public static final DamageSource YOYO = new DamageSource(MOD_ID + ".yoyo");
 
-    // Tabs
+    // Item Groups
 
     public static final ItemGroup BLOCKS = new ItemGroup("Blocks") {
         @Override
