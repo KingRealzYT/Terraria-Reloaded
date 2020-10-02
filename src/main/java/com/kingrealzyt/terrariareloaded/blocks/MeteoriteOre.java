@@ -6,8 +6,11 @@ import com.kingrealzyt.terrariareloaded.data.LootTableDataHelper;
 import net.minecraft.block.OreBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.conditions.ILootCondition;
 import net.minecraft.world.storage.loot.conditions.SurvivesExplosion;
 import net.minecraft.world.storage.loot.functions.ILootFunction;
@@ -39,4 +42,12 @@ public class MeteoriteOre extends OreBlock implements ILootTableData {
     public List<ILootFunction.IBuilder> lootFunctions() {
         return Lists.newArrayList(LootTableDataHelper.APPLY_BONUS, LootTableDataHelper.EXPLOSION_DECAY);
     }
+
+    @Override
+    public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
+        super.onEntityWalk(worldIn, pos, entityIn);
+        entityIn.setFire(1);
+    }
+
+
 }
