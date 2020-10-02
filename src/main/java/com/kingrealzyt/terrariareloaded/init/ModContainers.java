@@ -1,6 +1,7 @@
 package com.kingrealzyt.terrariareloaded.init;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
+import com.kingrealzyt.terrariareloaded.container.HellforgeContainer;
 import com.kingrealzyt.terrariareloaded.container.PiggyBankContainer;
 import com.kingrealzyt.terrariareloaded.container.ShopNPCContainer;
 import net.minecraft.inventory.container.ContainerType;
@@ -18,5 +19,8 @@ public class ModContainers {
 
     public static final RegistryObject<ContainerType<ShopNPCContainer>> SHOP_NPC = CONTAINERS.register("shop_npc",
             () -> IForgeContainerType.create(ShopNPCContainer::new));
+
+    public static final RegistryObject<ContainerType<HellforgeContainer>> HELLFORGE = CONTAINERS
+            .register("hellforge", () -> IForgeContainerType.create(HellforgeContainer::new));
 
 }

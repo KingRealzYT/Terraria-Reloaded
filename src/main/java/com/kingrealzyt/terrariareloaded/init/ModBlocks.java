@@ -47,7 +47,8 @@ public class ModBlocks {
  Cobalt + Palladium, etc. Up to yall if you wanna keep using that*/
 
     // Crafting Stations
-    public static final RegistryObject<Block> HELLFORGE = BLOCKS.register("hellforge", Hellforge::new);
+    public static final RegistryObject<Block> HELLFORGE = BLOCKS.register("hellforge",
+            () -> new Hellforge(Block.Properties.from(Blocks.FURNACE)));
 
     // Special Blocks
     public static final RegistryObject<Block> PIGGY_BANK = BLOCKS.register("piggy_bank", PiggyBank::new);

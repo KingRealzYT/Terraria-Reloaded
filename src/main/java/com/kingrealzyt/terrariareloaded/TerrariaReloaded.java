@@ -40,6 +40,8 @@ public class TerrariaReloaded {
         ModBlocks.init();
         ModContainers.CONTAINERS.register(modEventBus);
         ModEntityTypes.ENTITY_TYPES.register(modEventBus);
+        ModTileEntityTypes.TILEENTITY_TYPES.register(modEventBus);
+        RecipeSerializerInit.RECIPE_SERIALIZERS.register(modEventBus);
         ModBiomes.BIOMES.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
     }

@@ -100,8 +100,7 @@ public class PiggyBank extends Block implements IWaterLoggable {
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         FluidState fluidstate = (FluidState) context.getWorld().getFluidState(context.getPos());
         return this.getDefaultState()
-                .with(FACING, context.getPlacementHorizontalFacing().getOpposite())
-                .with(WATERLOGGED, Boolean.valueOf(fluidstate.getFluid() == Fluids.WATER));
+                .with(FACING, context.getPlacementHorizontalFacing().getOpposite());
     }
 
     @Override

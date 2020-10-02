@@ -1,0 +1,10 @@
+{
+  "type": "terrariareloaded:hellforge",
+  "input": {
+    "item": "terrariareloaded:cobalt_ore"
+  },
+  "output": {
+    "item": "terrariareloaded:cobalt_ingot",
+    "count": 1
+  }
+}

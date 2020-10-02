@@ -1,6 +1,7 @@
 package com.kingrealzyt.terrariareloaded.client;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
+import com.kingrealzyt.terrariareloaded.client.gui.HellforgeScreen;
 import com.kingrealzyt.terrariareloaded.client.gui.PiggyBankScreen;
 import com.kingrealzyt.terrariareloaded.client.gui.ShopNPCScreen;
 import com.kingrealzyt.terrariareloaded.client.model.npc.*;
@@ -46,6 +47,8 @@ public class ClientEventBusSubscriber {
 
         ScreenManager.registerFactory(ModContainers.PIGGY_BANK.get(), PiggyBankScreen::new);
         ScreenManager.registerFactory(ModContainers.SHOP_NPC.get(), ShopNPCScreen::new);
+        ScreenManager.registerFactory(ModContainers.HELLFORGE.get(), HellforgeScreen::new);
+
 //ADDFORNPC
         registerNpcRenderer(ModEntityTypes.NPC_MERCHANT.get(), new MerchantNPCModel<>());
         registerNpcRenderer(ModEntityTypes.NPC_GUIDE.get(), new GuideNPCModel<>());
