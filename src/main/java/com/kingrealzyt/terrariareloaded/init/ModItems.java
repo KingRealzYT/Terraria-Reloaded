@@ -35,6 +35,9 @@ public class ModItems {
     }
 
     // Items
+    public static final RegistryObject<BucketItem> HONEY_BUCKET = ITEMS.register("honey_bucket",
+            () -> new BucketItem(() -> ModFluids.HONEY_FLUID.get(),
+                    new Item.Properties().group(TerrariaReloaded.MISC).maxStackSize(1)));
 
     public static final RegistryObject<Item> MAGIC_MIRROR = ITEMS.register("magic_mirror", MagicMirror::new);
     public static final RegistryObject<Item> ICE_MIRROR = ITEMS.register("ice_mirror", MagicMirror::new);
