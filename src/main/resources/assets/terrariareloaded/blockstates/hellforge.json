@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "terrariareloaded:block/hellforge" },
+    "facing=south": { "model": "terrariareloaded:block/hellforge", "y":  180},
+    "facing=west": { "model": "terrariareloaded:block/hellforge", "y":  270},
+    "facing=east": { "model": "terrariareloaded:block/hellforge", "y":  90}
+  }
+}
