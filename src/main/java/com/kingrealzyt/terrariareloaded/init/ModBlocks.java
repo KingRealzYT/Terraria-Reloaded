@@ -46,8 +46,10 @@ public class ModBlocks {
 /* Note: Some ore blocks above use the same block class as they're identical other than their texture and drops, e.g Demonite + Crimtane,
  Cobalt + Palladium, etc. Up to yall if you wanna keep using that*/
 
-    // Special Blocks
+    // Crafting Stations
+    public static final RegistryObject<Block> HELLFORGE = BLOCKS.register("hellforge", Hellforge::new);
 
+    // Special Blocks
     public static final RegistryObject<Block> PIGGY_BANK = BLOCKS.register("piggy_bank", PiggyBank::new);
     public static final RegistryObject<Block> CRYSTAL_HEART = BLOCKS.register("crystal_heart", CrystalHeart::new);
     public static final RegistryObject<Block> SWORD_SHRINE = BLOCKS.register("sword_shrine", SwordShrine::new);
@@ -78,6 +80,15 @@ public class ModBlocks {
     public static final RegistryObject<Block> BLUE_GRANITE = BLOCKS.register("blue_granite", ModStoneBlock::new);
     public static final RegistryObject<Block> MARBLE = BLOCKS.register("marble", ModStoneBlock::new);
 
+
+    public static final RegistryObject<Block> MUDSTONE_BRICKS = BLOCKS.register("mudstone_bricks", ModStoneBlock::new);
+    public static final RegistryObject<Block> COPPER_BRICKS = BLOCKS.register("copper_bricks", ModStoneBlock::new);
+    public static final RegistryObject<Block> SILVER_BRICKS = BLOCKS.register("silver_bricks", ModStoneBlock::new);
+    public static final RegistryObject<Block> GOLD_BRICKS = BLOCKS.register("gold_bricks", ModStoneBlock::new);
+    public static final RegistryObject<Block> PLATINUM_BRICKS = BLOCKS.register("platinum_bricks", ModStoneBlock::new);
+    public static final RegistryObject<Block> OBSIDIAN_BRICKS = BLOCKS.register("obsidian_bricks", ModStoneBlock::new);
+    public static final RegistryObject<Block> METEORITE_BRICKS = BLOCKS.register("meteorite_bricks", ModGlowStoneBlock::new);
+    public static final RegistryObject<Block> HELLSTONE_BRICKS = BLOCKS.register("hellstone_bricks", ModGlowStoneBlock::new);
     public static final RegistryObject<Block> EBONSTONE_BRICKS = BLOCKS.register("ebonstone_bricks", ModStoneBlock::new);
     public static final RegistryObject<Block> CRIMSTONE_BRICKS = BLOCKS.register("crimstone_bricks", ModStoneBlock::new);
     public static final RegistryObject<Block> PEARLSTONE_BRICKS = BLOCKS.register("pearlstone_bricks", ModStoneBlock::new);

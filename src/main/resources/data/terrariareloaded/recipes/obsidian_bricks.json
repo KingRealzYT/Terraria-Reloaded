@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "ccc",
+    "cic",
+    "ccc"
+  ],
+  "key":
+  {
+    "i":
+    {
+      "item": "minecraft:obsidian"
+    },
+    "c":
+    {
+      "item": "minecraft:stone_bricks"
+    }
+  },
+  "result":
+  {
+    "item": "terrariareloaded:obsidian_bricks",
+    "count": 8
+  }
+}

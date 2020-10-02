@@ -164,6 +164,9 @@ public class ModItems {
     //public static final RegistryObject<SwordItem> LUMINITE_SWORD = ITEMS.register("luminite_sword", () -> new SwordItem(ModItemTier.LUMINITE, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
 
     // Block Items
+
+    public static final RegistryObject<Item> HELLFORGE_ITEM = ITEMS.register("hellforge", () -> new BlockItemBase(ModBlocks.HELLFORGE.get()));
+
     public static final RegistryObject<Item> HIVE_BLOCK_ITEM = ITEMS.register("hive_block", () -> new BlockItemBase(ModBlocks.HIVE_BLOCK.get()));
     public static final RegistryObject<Item> PIGGY_BANK_ITEM = ITEMS.register("piggy_bank", () -> new BlockItemBase(ModBlocks.PIGGY_BANK.get()));
     public static final RegistryObject<Item> CRYSTAL_HEART_ITEM = ITEMS.register("crystal_heart", () -> new BlockItemBase(ModBlocks.CRYSTAL_HEART.get()));
@@ -204,6 +207,15 @@ public class ModItems {
     public static final RegistryObject<Item> CRIMSAND_ITEM = ITEMS.register("crimsand", () -> new BlockItemBase(ModBlocks.CRIMSAND.get()));
     public static final RegistryObject<Item> PEARLSAND_ITEM = ITEMS.register("pearlsand", () -> new BlockItemBase(ModBlocks.PEARLSAND.get()));
     public static final RegistryObject<Item> EBONSTONE_BRICKS_ITEM = ITEMS.register("ebonstone_bricks", () -> new BlockItemBase(ModBlocks.EBONSTONE_BRICKS.get()));
+
+    public static final RegistryObject<Item> METEORITE_BRICKS_ITEM = ITEMS.register("meteorite_bricks", () -> new BlockItemBase(ModBlocks.METEORITE_BRICKS.get()));
+    public static final RegistryObject<Item> OBSIDIAN_BRICKS_ITEM = ITEMS.register("obsidian_bricks", () -> new BlockItemBase(ModBlocks.OBSIDIAN_BRICKS.get()));
+    public static final RegistryObject<Item> PLATINUM_BRICKS_ITEM = ITEMS.register("platinum_bricks", () -> new BlockItemBase(ModBlocks.PLATINUM_BRICKS.get()));
+    public static final RegistryObject<Item> SILVER_BRICKS_ITEM = ITEMS.register("silver_bricks", () -> new BlockItemBase(ModBlocks.SILVER_BRICKS.get()));
+    public static final RegistryObject<Item> GOLD_BRICKS_ITEM = ITEMS.register("gold_bricks", () -> new BlockItemBase(ModBlocks.GOLD_BRICKS.get()));
+    public static final RegistryObject<Item> COPPER_BRICKS_ITEM = ITEMS.register("copper_bricks", () -> new BlockItemBase(ModBlocks.COPPER_BRICKS.get()));
+    public static final RegistryObject<Item> MUDSTONE_BRICKS_ITEM = ITEMS.register("mudstone_bricks", () -> new BlockItemBase(ModBlocks.MUDSTONE_BRICKS.get()));
+    public static final RegistryObject<Item> HELLSTONE_BRICKS_ITEM = ITEMS.register("hellstone_bricks", () -> new BlockItemBase(ModBlocks.HELLSTONE_BRICKS.get()));
     public static final RegistryObject<Item> CRIMSTONE_BRICKS_ITEM = ITEMS.register("crimstone_bricks", () -> new BlockItemBase(ModBlocks.CRIMSTONE_BRICKS.get()));
     public static final RegistryObject<Item> PEARLSTONE_BRICKS_ITEM = ITEMS.register("pearlstone_bricks", () -> new BlockItemBase(ModBlocks.PEARLSTONE_BRICKS.get()));
     public static final RegistryObject<Item> SMOOTH_BLUE_GRANITE_ITEM = ITEMS.register("smooth_blue_granite", () -> new BlockItemBase(ModBlocks.SMOOTH_BLUE_GRANITE.get()));

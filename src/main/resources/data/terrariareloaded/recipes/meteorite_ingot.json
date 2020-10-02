@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "terrariareloaded:meteorite_ore"
+  },
+  "result": "terrariareloaded:meteorite_ingot",
+  "experience": 1.0,
+  "cookingtime": 200
+}

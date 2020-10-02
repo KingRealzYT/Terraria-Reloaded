@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "ccc",
+    "cic",
+    "ccc"
+  ],
+  "key":
+  {
+    "i":
+    {
+      "item": "terrariareloaded:hellstone_ingot"
+    },
+    "c":
+    {
+      "item": "minecraft:stone_bricks"
+    }
+  },
+  "result":
+  {
+    "item": "terrariareloaded:hellstone_bricks",
+    "count": 8
+  }
+}

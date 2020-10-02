@@ -95,6 +95,8 @@
   "block.terrariareloaded.topaz_ore": "Topaz",
   "block.terrariareloaded.sapphire_ore": "Sapphire",
 
+  "block.terrariareloaded.hellforge": "Hellforge",
+
   "block.terrariareloaded.honey": "Honey",
   "block.terrariareloaded.hive_block": "Hive Block",
   "block.terrariareloaded.piggy_bank": "Piggy Bank",
@@ -118,6 +120,14 @@
   "block.terrariareloaded.ebonwood_leaves": "Ebonwood Leaves",
   "block.terrariareloaded.shadewood_leaves": "Shadewood Leaves",
 
+  "block.terrariareloaded.gold_bricks": "Gold Bricks",
+  "block.terrariareloaded.silver_bricks": "Silver Bricks",
+  "block.terrariareloaded.platinum_bricks": "Platinum Bricks",
+  "block.terrariareloaded.meteorite_bricks": "Meteorite Bricks",
+  "block.terrariareloaded.obsidian_bricks": "Obsidian Bricks",
+  "block.terrariareloaded.copper_bricks": "Copper Bricks",
+  "block.terrariareloaded.mudstone_bricks": "Mudstone Bricks",
+  "block.terrariareloaded.hellstone_bricks": "Hellstone Bricks",
   "block.terrariareloaded.ebonstone_bricks": "Ebonstone Bricks",
   "block.terrariareloaded.crimstone_bricks": "Crimstone Bricks",
   "block.terrariareloaded.pearlstone_bricks": "Pearlstone Bricks",
