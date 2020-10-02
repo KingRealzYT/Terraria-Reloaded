@@ -1,44 +1,50 @@
 package com.kingrealzyt.terrariareloaded.init;
 
-public class ModFluids {/*
-    //This is where i do the fluids
-    // For some reason Terraria has like a million enemies and a billion items and a trillion blocks but only THREE FLUIDS
-    //and two of them are water and lava so i just need to add honey lmao
+import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
+import net.minecraft.block.Block;
+import net.minecraft.block.FlowingFluidBlock;
+import net.minecraft.block.material.Material;
+import net.minecraft.fluid.FlowingFluid;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.item.Rarity;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvents;
+import net.minecraftforge.fluids.FluidAttributes;
+import net.minecraftforge.fluids.ForgeFlowingFluid;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
-    // IMPORTANT: Currently this fluid doesnt work correctly so I disabled it. It doesn't act like water (can't swim) and it doesnt
-    // have transparent textures for some reason, plus the textures are bleep bleep anyway. Might fix eventually, can't right now
-    //- goldrat1
+@SuppressWarnings("all")
+public class ModFluids {
 
     public static void init() {
         FLUIDS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
     public static final ResourceLocation HONEY_STILL_RL = new ResourceLocation(TerrariaReloaded.MOD_ID, "blocks/honey_still");
-    public static final ResourceLocation HONEY_FLOWING_RL = new ResourceLocation(TerrariaReloaded.MOD_ID, "blocks/honey_flow");
-    public static final ResourceLocation HONEY_OVERLAY_RL = new ResourceLocation(TerrariaReloaded.MOD_ID, "blocks/honey_overlay");
+    public static final ResourceLocation HONEY_FLOWING_RL = new ResourceLocation(TerrariaReloaded.MOD_ID,
+            "blocks/honey_flowing");
+    public static final ResourceLocation HONEY_OVERLAY_RL = new ResourceLocation(TerrariaReloaded.MOD_ID,
+            "blocks/honey_overlay");
 
-    public static final DeferredRegister<Fluid> FLUIDS = new DeferredRegister<>(ForgeRegistries.FLUIDS, TerrariaReloaded.MOD_ID);
+    public static final DeferredRegister<Fluid> FLUIDS = new DeferredRegister<Fluid>(ForgeRegistries.FLUIDS,
+            TerrariaReloaded.MOD_ID);
 
-    public static final RegistryObject<FlowingFluid> HONEY_FLUID = FLUIDS.register("honey_fluid", () -> new ForgeFlowingFluid.Source(ModFluids.HONEY_PROPERTIES));
-    public static final RegistryObject<FlowingFluid> HONEY_FLOWING = FLUIDS.register("honey_flow", () -> new ForgeFlowingFluid.Flowing(ModFluids.HONEY_PROPERTIES));
-    public static final RegistryObject<FlowingFluidBlock> HONEY_FLUID_BLOCK = ModBlocks.BLOCKS.register("honey", () -> new FlowingFluidBlock(() -> ModFluids.HONEY_FLUID.get(),
-            Block.Properties.create(Material.WATER)
-    .doesNotBlockMovement()
-    .speedFactor(0.8f)
-    .hardnessAndResistance(100f)
-    .noDrops()
-    .jumpFactor(1.5f)));
+    public static final RegistryObject<FlowingFluid> HONEY_FLUID = FLUIDS.register("honey_fluid",
+            () -> new ForgeFlowingFluid.Source(ModFluids.HONEY_PROPERTIES));
 
+    public static final RegistryObject<FlowingFluid> HONEY_FLOWING = FLUIDS.register("honey_flowing",
+            () -> new ForgeFlowingFluid.Flowing(ModFluids.HONEY_PROPERTIES));
 
-    public static final ForgeFlowingFluid.Properties HONEY_PROPERTIES = new ForgeFlowingFluid.Properties(() -> HONEY_FLUID.get(), () -> HONEY_FLOWING.get(),
-            FluidAttributes.builder(HONEY_STILL_RL, HONEY_STILL_RL)
-            .color(0xf79909)
-            .density(10)
-            .luminosity(10)
-            .rarity(Rarity.UNCOMMON)
-            .sound(SoundEvents.BLOCK_HONEY_BLOCK_SLIDE)
-            .overlay(HONEY_OVERLAY_RL)
-            .viscosity(3)
-    ).block(() -> ModFluids.HONEY_FLUID_BLOCK.get());
-    */
+    public static final ForgeFlowingFluid.Properties HONEY_PROPERTIES = new ForgeFlowingFluid.Properties(
+            () -> HONEY_FLUID.get(), () -> HONEY_FLOWING.get(),
+            FluidAttributes.builder(HONEY_STILL_RL, HONEY_FLOWING_RL).density(10).luminosity(12).rarity(Rarity.RARE)
+                    .sound(SoundEvents.ITEM_BUCKET_EMPTY_LAVA).overlay(HONEY_OVERLAY_RL))
+            .block(() -> ModFluids.HONEY_BLOCK.get()).bucket(() -> ModItems.HONEY_BUCKET.get());
+
+    public static final RegistryObject<FlowingFluidBlock> HONEY_BLOCK = ModBlocks.BLOCKS.register("honey",
+            () -> new FlowingFluidBlock(() -> ModFluids.HONEY_FLUID.get(), Block.Properties.create(Material.WATER)
+                    .doesNotBlockMovement().hardnessAndResistance(100.0f).noDrops()));
 }
