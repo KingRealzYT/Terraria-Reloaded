@@ -1,8 +1,7 @@
 package com.kingrealzyt.terrariareloaded.init;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
-import com.kingrealzyt.terrariareloaded.client.renderer.entities.DemonEyeRenderer;
-import com.kingrealzyt.terrariareloaded.entities.boss.DemonEyeEntity;
+import com.kingrealzyt.terrariareloaded.entities.enemy.DemonEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.EOCEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFMouthEntity;
@@ -10,10 +9,8 @@ import com.kingrealzyt.terrariareloaded.entities.enemy.ModSlimeEntity;
 import com.kingrealzyt.terrariareloaded.entities.npc.*;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.*;
 import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoEntity;
-import net.minecraft.advancements.criterion.EnchantedItemTrigger;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.monster.SlimeEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -88,8 +85,7 @@ public class ModEntityTypes {
 
     public static final RegistryObject<EntityType<EOCEntity>> EOC = ENTITY_TYPES.register("eye_of_cthulhu",
             () -> EntityType.Builder.<EOCEntity>create(EOCEntity::new, EntityClassification.MONSTER)
-                    .size(2.0f, 2.0f)
-                    .immuneToFire()
+                    .size(3.5f, 3.5f)
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "eye_of_cthulhu").toString()));
 
     public static final RegistryObject<EntityType<DemonEyeEntity>> DEMON_EYE = ENTITY_TYPES.register("demon_eye",

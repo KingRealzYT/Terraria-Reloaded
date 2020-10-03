@@ -1,16 +1,13 @@
 package com.kingrealzyt.terrariareloaded.client.renderer.entities;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
-import com.kingrealzyt.terrariareloaded.client.model.DemonEyeModel;
 import com.kingrealzyt.terrariareloaded.client.model.SlimeModel;
 import com.kingrealzyt.terrariareloaded.client.renderer.entities.layers.ModSlimeGelLayer;
-import com.kingrealzyt.terrariareloaded.entities.boss.DemonEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.enemy.ModSlimeEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.client.renderer.entity.layers.SlimeGelLayer;
 import net.minecraft.entity.monster.SlimeEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;

@@ -1,4 +1,4 @@
-package com.kingrealzyt.terrariareloaded.entities.boss;
+package com.kingrealzyt.terrariareloaded.entities.enemy;
 
 import net.minecraft.entity.EntityPredicate;
 import net.minecraft.entity.EntityType;
@@ -32,7 +32,7 @@ public class DemonEyeEntity extends MonsterEntity {
     protected void registerAttributes() {
         super.registerAttributes();
         this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
-        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.5D);
+        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.8D);
         this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2.0D);
         this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.3D);
     }
