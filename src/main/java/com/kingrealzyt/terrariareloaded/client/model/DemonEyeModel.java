@@ -1,7 +1,6 @@
 package com.kingrealzyt.terrariareloaded.client.model;
 
-import com.kingrealzyt.terrariareloaded.entities.boss.DemonEyeEntity;
-import com.kingrealzyt.terrariareloaded.entities.boss.WOFEyeEntity;
+import com.kingrealzyt.terrariareloaded.entities.enemy.DemonEyeEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;

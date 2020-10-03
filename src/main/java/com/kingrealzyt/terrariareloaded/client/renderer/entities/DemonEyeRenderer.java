@@ -2,9 +2,7 @@ package com.kingrealzyt.terrariareloaded.client.renderer.entities;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.client.model.DemonEyeModel;
-import com.kingrealzyt.terrariareloaded.client.model.EOCModel;
-import com.kingrealzyt.terrariareloaded.entities.boss.DemonEyeEntity;
-import com.kingrealzyt.terrariareloaded.entities.boss.EOCEntity;
+import com.kingrealzyt.terrariareloaded.entities.enemy.DemonEyeEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;

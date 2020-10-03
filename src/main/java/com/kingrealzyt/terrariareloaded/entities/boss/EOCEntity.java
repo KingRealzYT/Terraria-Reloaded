@@ -66,8 +66,8 @@ public class EOCEntity extends MonsterEntity {
         this.goalSelector.addGoal(0, new SwimGoal(this));
         this.goalSelector.addGoal(4, new EOCEntity.ChargeAttackGoal());
         this.goalSelector.addGoal(8, new EOCEntity.MoveRandomGoal());
-        this.goalSelector.addGoal(9, new LookAtGoal(this, PlayerEntity.class, 3.0F, 1.0F));
-        this.goalSelector.addGoal(10, new LookAtGoal(this, MobEntity.class, 8.0F));
+        this.goalSelector.addGoal(9, new LookAtGoal(this, PlayerEntity.class, 40.0F, 1.0F));
+        this.goalSelector.addGoal(10, new LookAtGoal(this, MobEntity.class, 40.0F));
         this.targetSelector.addGoal(1, (new HurtByTargetGoal(this, AbstractRaiderEntity.class)).setCallsForHelp());
         this.targetSelector.addGoal(2, new EOCEntity.CopyOwnerTargetGoal(this));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
@@ -77,6 +77,11 @@ public class EOCEntity extends MonsterEntity {
         super.registerAttributes();
         this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(400.0D);
         this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
+        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(1.0D);
+        this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(100.0D);
+        this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(5.0D);
+        this.getAttribute(SharedMonsterAttributes.ATTACK_KNOCKBACK).setBaseValue(6.0D);
+        this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(10.0D);
     }
 
     protected void registerData() {
@@ -217,7 +222,7 @@ public class EOCEntity extends MonsterEntity {
             Vec3d vec3d = livingentity.getEyePosition(1.0F);
             EOCEntity.this.moveController.setMoveTo(vec3d.x, vec3d.y, vec3d.z, 1.0D);
             EOCEntity.this.setCharging(true);
-            EOCEntity.this.playSound(SoundEvents.ENTITY_VEX_CHARGE, 1.0F, 1.0F);
+            EOCEntity.this.playSound(SoundInit.ENTITYBOSSROAR.get(), 2.0F, 1.0F);
         }
 
         /**
@@ -298,6 +303,10 @@ public class EOCEntity extends MonsterEntity {
 
             }
         }
+    }
+    @Override
+    public boolean isNonBoss() {
+        return false;
     }
 
     class MoveRandomGoal extends Goal {
