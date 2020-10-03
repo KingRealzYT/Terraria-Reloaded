@@ -1,6 +1,6 @@
 {
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "terrariareloaded:blocks/honey"
-  }
+    "textures": {
+        "particle": "terrariareloaded:blocks/honey_still"
+    }
 }
+

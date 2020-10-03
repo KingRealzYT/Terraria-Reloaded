@@ -49,6 +49,7 @@ public class ModBlocks {
     // Crafting Stations
     public static final RegistryObject<Block> HELLFORGE = BLOCKS.register("hellforge",
             () -> new Hellforge(Block.Properties.from(Blocks.FURNACE)));
+    public static final RegistryObject<Block> DEMON_ALTAR = BLOCKS.register("demon_altar", DemonAltar::new);
 
     // Special Blocks
     public static final RegistryObject<Block> PIGGY_BANK = BLOCKS.register("piggy_bank", PiggyBank::new);

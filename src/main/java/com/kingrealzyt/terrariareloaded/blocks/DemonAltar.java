@@ -1,41 +1,31 @@
 package com.kingrealzyt.terrariareloaded.blocks;
 
-import com.kingrealzyt.terrariareloaded.container.PiggyBankContainer;
-import com.kingrealzyt.terrariareloaded.world.capability.CapabilityAccessor;
-import com.kingrealzyt.terrariareloaded.world.capability.player.IPlayerCoinCapability;
-import com.kingrealzyt.terrariareloaded.world.capability.player.PlayerCoinCapabilityImpl;
+import com.kingrealzyt.terrariareloaded.init.SoundInit;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.inventory.container.SimpleNamedContainerProvider;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.IBooleanFunction;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
-import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
-import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 import java.util.stream.Stream;
 
-public class PiggyBank extends Block implements IWaterLoggable {
+public class DemonAltar extends Block implements IWaterLoggable {
 
     private static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 
@@ -47,23 +37,21 @@ public class PiggyBank extends Block implements IWaterLoggable {
         return (FluidState) (state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state));
     }
 
-    private static final VoxelShape SHAPE_N = Stream.of(Block.makeCuboidShape(5, 0, 3, 11, 7, 13)
-    ).reduce((v1, v2) -> {
-        return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
-    }).get();
-    public static final VoxelShape SHAPE_E = Stream.of(Block.makeCuboidShape(3, 0, 5, 13, 7, 11)
-    ).reduce((v1, v2) -> {
-        return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
-    }).get();;
+    private static final VoxelShape SHAPE_N = Stream.of(
+            Block.makeCuboidShape(1, 0, 1, 15, 7, 15)
+    ).reduce((v1, v2) -> {return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);}).get();
+
+    public static final VoxelShape SHAPE_E = SHAPE_N;
     public static final VoxelShape SHAPE_S = SHAPE_N;
-    public static final VoxelShape SHAPE_W = SHAPE_E;
+    public static final VoxelShape SHAPE_W = SHAPE_N;
 
 
-    public PiggyBank() {
-        super(Properties.create(Material.ANVIL)
-                .hardnessAndResistance(1.5f, 1.0f)
-                .sound(SoundType.ANVIL)
-                .harvestLevel(0)
+    public DemonAltar() {
+        super(Properties.create(Material.CORAL)
+                .hardnessAndResistance(99.0f, 99.0f)
+                .sound(SoundType.CORAL)
+                .harvestLevel(4)
+                .lightValue(12)
                 .harvestTool(ToolType.PICKAXE)
         );
     }
@@ -71,9 +59,7 @@ public class PiggyBank extends Block implements IWaterLoggable {
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         if (!worldIn.isRemote) {
-            NetworkHooks.openGui((ServerPlayerEntity) player, new SimpleNamedContainerProvider((id, inventory, playerEntity) ->
-                    new PiggyBankContainer(id, inventory, CapabilityAccessor.getPlayerCoinCapability(playerEntity).getPiggyBankInventory()), new StringTextComponent("Piggy Bank")));
-            return ActionResultType.SUCCESS;
+            worldIn.playSound(player, player.getPosition(), SoundInit.MAGICMIRRORUSE.get(), SoundCategory.BLOCKS, 1, 1);
         }
         return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
     }
@@ -122,7 +108,7 @@ public class PiggyBank extends Block implements IWaterLoggable {
 
     @Override
     public float getAmbientOcclusionLightValue(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return 0.6f;
+        return 0.8f;
     }
 }
 

@@ -174,6 +174,7 @@ public class ModItems {
     public static final RegistryObject<Item> PIGGY_BANK_ITEM = ITEMS.register("piggy_bank", () -> new BlockItemBase(ModBlocks.PIGGY_BANK.get()));
     public static final RegistryObject<Item> CRYSTAL_HEART_ITEM = ITEMS.register("crystal_heart", () -> new BlockItemBase(ModBlocks.CRYSTAL_HEART.get()));
     public static final RegistryObject<Item> SWORD_SHRINE_ITEM = ITEMS.register("sword_shrine", () -> new BlockItemBase(ModBlocks.SWORD_SHRINE.get()));
+    public static final RegistryObject<Item> DEMON_ALTAR_ITEM = ITEMS.register("demon_altar", () -> new BlockItemBase(ModBlocks.DEMON_ALTAR.get()));
 
     public static final RegistryObject<Item> LIFE_FRUIT_BUSH_BLOCK = ITEMS.register("life_fruit_bush", () -> new BlockItemBase(ModBlocks.LIFE_FRUIT_BUSH.get()));
     public static final RegistryObject<Item> JUNGLE_SPORES_BUSH_BLOCK = ITEMS.register("jungle_spores_bush", () -> new BlockItemBase(ModBlocks.JUNGLE_SPORES_BUSH.get()));

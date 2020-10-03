@@ -79,13 +79,10 @@ public class Hellforge extends Block implements IWaterLoggable {
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
                                              Hand handIn, BlockRayTraceResult hit) {
-        System.out.println("you go");
         if (worldIn != null && !worldIn.isRemote) {
-            System.out.print("to hell");
             TileEntity tile = worldIn.getTileEntity(pos);
             if (tile instanceof HellforgeTileEntity) {
                 NetworkHooks.openGui((ServerPlayerEntity) player, (INamedContainerProvider) tile, pos);
-                System.out.print("before you die");
             }
         }
         return ActionResultType.SUCCESS;
@@ -171,12 +168,9 @@ public class Hellforge extends Block implements IWaterLoggable {
     @Override
     public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
         super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
-        System.out.println("ok you placed it");
         if(stack.hasDisplayName()) {
-            System.out.println("has display name");
             TileEntity tile = worldIn.getTileEntity(pos);
             if(tile instanceof HellforgeTileEntity) {
-                System.out.println("is hellforge tile entity    ");
                 ((HellforgeTileEntity) tile).setCustomName(stack.getDisplayName());
             }
 
@@ -201,7 +195,7 @@ public class Hellforge extends Block implements IWaterLoggable {
         double d1 = (double) pos.getY();
         double d2 = (double) pos.getZ() + 0.5D;
         if (rand.nextDouble() < 0.1D) {
-            worldIn.playSound(d0, d1, d2, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F,
+            worldIn.playSound(d0, d1, d2, SoundEvents.BLOCK_LAVA_AMBIENT, SoundCategory.BLOCKS, 1.0F, 1.0F,
                     false);
         }
 
@@ -212,7 +206,8 @@ public class Hellforge extends Block implements IWaterLoggable {
         double d6 = rand.nextDouble() * 6.0D / 16.0D;
         double d7 = direction$axis == Direction.Axis.Z ? (double) direction.getZOffset() * 0.52D : d4;
         worldIn.addParticle(ParticleTypes.SMOKE, d0 + d5, d1 + d6, d2 + d7, 0.0D, 0.0D, 0.0D);
-        worldIn.addParticle(ParticleTypes.FLAME, d0 + d5, d1 + d6, d2 + d7, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleTypes.LAVA, d0 + d5, d1 + d6, d2 + d7, 0.0D, 0.0D, 0.0D);
+        worldIn.playSound(d0, d1, d2, SoundEvents.BLOCK_LAVA_POP, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
 
     }
 
