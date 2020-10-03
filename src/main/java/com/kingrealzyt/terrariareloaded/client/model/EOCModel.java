@@ -45,7 +45,7 @@ public class EOCModel<T extends EOCEntity> extends EntityModel<T> {
         textureHeight = 364;
 
         total = new ModelRenderer(this);
-        total.setRotationPoint(0.0F, 24.0F, 0.0F);
+        total.setRotationPoint(0.0F, 18.0F, 0.0F);
 
 
         head = new ModelRenderer(this);
@@ -219,6 +219,7 @@ public class EOCModel<T extends EOCEntity> extends EntityModel<T> {
         setRotationAngle(arm5c3, 0.0F, 0.1309F, 0.0873F);
         arm5c3.setTextureOffset(247, 135).addBox(-1.9963F, -2.0F, -0.6382F, 3.0F, 3.0F, 15.0F, 0.0F, false);
     }
+
 
     @Override
     public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
