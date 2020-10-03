@@ -22,7 +22,9 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
+import net.minecraft.world.BossInfo;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerBossInfo;
 
 import javax.annotation.Nullable;
 import java.util.EnumSet;
@@ -35,6 +37,19 @@ public class EOCEntity extends MonsterEntity {
     private BlockPos boundOrigin;
     private boolean limitedLifespan;
     private int limitedLifeTicks;
+
+    private static final double ALTITUDE_FLYING_THRESHOLD = 2;
+    private static final double MAX_HEALTH = 400.0D;
+    private static final double MOVEMENT_SPEED_FLYING = 0.7D;
+    private static final double FOLLOW_RANGE = 256.0D;
+    private static final double KNOCKBACK_RESISTANCE = 0.9F;
+    private static final double ATTACK_DAMAGE = 0.5; //TODO change it later
+    //If more players fighting against the eoc, then is this the chance, when the eoc switching the attacker
+    private static final double ATTACKER_SWITCHING_CHANCE = 0.3D;
+    private static final double MIN_ATTACK_RANGE = 0;
+    private static final double MAX_ATTACK_RANGE = 4096.0 * 2.0;
+
+    private final ServerBossInfo bossInfo = (ServerBossInfo) (new ServerBossInfo(this.getDisplayName(), BossInfo.Color.RED, BossInfo.Overlay.PROGRESS)).setDarkenSky(true);
 
     public EOCEntity(EntityType<? extends EOCEntity> p_i50190_1_, World p_i50190_2_) {
         super(p_i50190_1_, p_i50190_2_);
@@ -75,8 +90,15 @@ public class EOCEntity extends MonsterEntity {
 
     protected void registerAttributes() {
         super.registerAttributes();
-        this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(400.0D);
-        this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
+        //this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(400.0D);
+        //this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
+        this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(10.0D);
+        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(MOVEMENT_SPEED_FLYING);
+        this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(MAX_HEALTH);
+        this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(FOLLOW_RANGE);
+        this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(KNOCKBACK_RESISTANCE);
+        this.getAttributes().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(ATTACK_DAMAGE);
+        this.getAttributes().registerAttribute(SharedMonsterAttributes.FLYING_SPEED).setBaseValue(MOVEMENT_SPEED_FLYING);
     }
 
     protected void registerData() {
@@ -160,7 +182,11 @@ public class EOCEntity extends MonsterEntity {
         this.limitedLifeTicks = limitedLifeTicksIn;
     }
 
-
+    @Override
+    public void livingTick() {
+        this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
+        super.livingTick();
+    }
 
 
     /**
@@ -172,17 +198,12 @@ public class EOCEntity extends MonsterEntity {
 
     @Nullable
     public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
-        this.setEquipmentBasedOnDifficulty(difficultyIn);
-        this.setEnchantmentBasedOnDifficulty(difficultyIn);
         return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
     }
 
-    /**
-     * Gives armor or weapon for entity based on given DifficultyInstance
-     */
-    protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
-        this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(Items.IRON_SWORD));
-        this.setDropChance(EquipmentSlotType.MAINHAND, 0.0F);
+    @Override
+    public boolean isNonBoss() {
+        return false;
     }
 
     class ChargeAttackGoal extends Goal {
@@ -215,9 +236,9 @@ public class EOCEntity extends MonsterEntity {
         public void startExecuting() {
             LivingEntity livingentity = EOCEntity.this.getAttackTarget();
             Vec3d vec3d = livingentity.getEyePosition(1.0F);
-            EOCEntity.this.moveController.setMoveTo(vec3d.x, vec3d.y, vec3d.z, 1.0D);
+            EOCEntity.this.moveController.setMoveTo(vec3d.x, vec3d.y, vec3d.z, 2.0D);
             EOCEntity.this.setCharging(true);
-            EOCEntity.this.playSound(SoundEvents.ENTITY_VEX_CHARGE, 1.0F, 1.0F);
+            EOCEntity.this.playSound(SoundInit.ENTITYBOSSROAR.get(), 1.0F, 1.0F);
         }
 
         /**
