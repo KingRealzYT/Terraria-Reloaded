@@ -51,7 +51,7 @@ public class EOCFlyingAttackGoal extends TargetGoal {
     @Override
     public void startExecuting() {
         this.goalOwner.setAttackTarget(this.nearestTarget);
-        ((EOCEntity) this.goalOwner).setFlyingAttack(true);
+        //((EOCEntity) this.goalOwner).setFlyingAttack(true);
         super.startExecuting();
     }
 

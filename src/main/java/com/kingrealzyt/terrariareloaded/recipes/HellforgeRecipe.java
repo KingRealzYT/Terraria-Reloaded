@@ -9,8 +9,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 
+@SuppressWarnings("all")
 public class HellforgeRecipe implements IHellforgeRecipe {
-
     private final ResourceLocation id;
     private final Ingredient input;
     private final ItemStack output;
@@ -24,11 +24,7 @@ public class HellforgeRecipe implements IHellforgeRecipe {
     }
     @Override
     public boolean matches(RecipeWrapper inv, World worldIn) {
-        if(this.input.test(inv.getStackInSlot(0))) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.input.test(inv.getStackInSlot(0));
     }
 
     @Override
