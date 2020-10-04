@@ -1,29 +1,22 @@
 package com.kingrealzyt.terrariareloaded.entities.boss;
 
-import com.kingrealzyt.terrariareloaded.init.ModEntityTypes;
 import com.kingrealzyt.terrariareloaded.init.SoundInit;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.controller.MovementController;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.AbstractRaiderEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.BossInfo;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.BossInfo;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerBossInfo;
 
@@ -31,8 +24,8 @@ import javax.annotation.Nullable;
 import java.util.EnumSet;
 
 @SuppressWarnings("all")
-public class EOCEntity extends MonsterEntity {
-    protected static final DataParameter<Byte> EOC_FLAGS = EntityDataManager.createKey(EOCEntity.class, DataSerializers.BYTE);
+public class EOC2Entity extends MonsterEntity {
+    protected static final DataParameter<Byte> EOC_FLAGS = EntityDataManager.createKey(EOC2Entity.class, DataSerializers.BYTE);
     private MobEntity owner;
     @Nullable
     private BlockPos boundOrigin;
@@ -52,15 +45,10 @@ public class EOCEntity extends MonsterEntity {
 
     private final ServerBossInfo bossInfo = (ServerBossInfo) (new ServerBossInfo(this.getDisplayName(), BossInfo.Color.RED, BossInfo.Overlay.PROGRESS)).setDarkenSky(true);
 
-    public EOCEntity(EntityType<? extends EOCEntity> p_i50190_1_, World p_i50190_2_) {
+    public EOC2Entity(EntityType<? extends EOC2Entity> p_i50190_1_, World p_i50190_2_) {
         super(p_i50190_1_, p_i50190_2_);
-        this.moveController = new EOCEntity.MoveHelperController(this);
+        this.moveController = new EOC2Entity.MoveHelperController(this);
         this.experienceValue = 3;
-    }
-
-    public EOCEntity(World worldIn, double x, double y, double z) {
-        this(ModEntityTypes.EOC.get(), worldIn);
-        this.setPosition(x, y, z);
     }
 
     public void move(MoverType typeIn, Vec3d pos) {
@@ -85,8 +73,8 @@ public class EOCEntity extends MonsterEntity {
     protected void registerGoals() {
         super.registerGoals();
         this.goalSelector.addGoal(0, new SwimGoal(this));
-        this.goalSelector.addGoal(4, new EOCEntity.ChargeAttackGoal());
-        this.goalSelector.addGoal(8, new EOCEntity.MoveRandomGoal());
+        this.goalSelector.addGoal(4, new EOC2Entity.ChargeAttackGoal());
+        this.goalSelector.addGoal(8, new EOC2Entity.MoveRandomGoal());
         this.goalSelector.addGoal(9, new LookAtGoal(this, PlayerEntity.class, 3.0F, 1.0F));
         this.goalSelector.addGoal(10, new LookAtGoal(this, MobEntity.class, 8.0F));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
@@ -209,7 +197,7 @@ public class EOCEntity extends MonsterEntity {
 
     class ChargeAttackGoal extends Goal {
         public ChargeAttackGoal() {
-            this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
+            this.setMutexFlags(EnumSet.of(Flag.MOVE));
         }
 
         /**
@@ -217,8 +205,8 @@ public class EOCEntity extends MonsterEntity {
          * method as well.
          */
         public boolean shouldExecute() {
-            if (EOCEntity.this.getAttackTarget() != null && !EOCEntity.this.getMoveHelper().isUpdating() && EOCEntity.this.rand.nextInt(7) == 0) {
-                return EOCEntity.this.getDistanceSq(EOCEntity.this.getAttackTarget()) > 4.0D;
+            if (EOC2Entity.this.getAttackTarget() != null && !EOC2Entity.this.getMoveHelper().isUpdating() && EOC2Entity.this.rand.nextInt(7) == 0) {
+                return EOC2Entity.this.getDistanceSq(EOC2Entity.this.getAttackTarget()) > 4.0D;
             } else {
                 return false;
             }
@@ -228,40 +216,40 @@ public class EOCEntity extends MonsterEntity {
          * Returns whether an in-progress EntityAIBase should continue executing
          */
         public boolean shouldContinueExecuting() {
-            return EOCEntity.this.getMoveHelper().isUpdating() && EOCEntity.this.isCharging() && EOCEntity.this.getAttackTarget() != null && EOCEntity.this.getAttackTarget().isAlive();
+            return EOC2Entity.this.getMoveHelper().isUpdating() && EOC2Entity.this.isCharging() && EOC2Entity.this.getAttackTarget() != null && EOC2Entity.this.getAttackTarget().isAlive();
         }
 
         /**
          * Execute a one shot task or start executing a continuous task
          */
         public void startExecuting() {
-            LivingEntity livingentity = EOCEntity.this.getAttackTarget();
+            LivingEntity livingentity = EOC2Entity.this.getAttackTarget();
             Vec3d vec3d = livingentity.getEyePosition(1.0F);
-            EOCEntity.this.moveController.setMoveTo(vec3d.x, vec3d.y, vec3d.z, 2.0D);
-            EOCEntity.this.setCharging(true);
-            EOCEntity.this.playSound(SoundInit.ENTITYBOSSROAR.get(), 1.0F, 1.0F);
+            EOC2Entity.this.moveController.setMoveTo(vec3d.x, vec3d.y, vec3d.z, 2.0D);
+            EOC2Entity.this.setCharging(true);
+            EOC2Entity.this.playSound(SoundInit.ENTITYBOSSROAR.get(), 1.0F, 1.0F);
         }
 
         /**
          * Reset the task's internal state. Called when this task is interrupted by another one
          */
         public void resetTask() {
-            EOCEntity.this.setCharging(false);
+            EOC2Entity.this.setCharging(false);
         }
 
         /**
          * Keep ticking a continuous task that has already been started
          */
         public void tick() {
-            LivingEntity livingentity = EOCEntity.this.getAttackTarget();
-            if (EOCEntity.this.getBoundingBox().intersects(livingentity.getBoundingBox())) {
-                EOCEntity.this.attackEntityAsMob(livingentity);
-                EOCEntity.this.setCharging(false);
+            LivingEntity livingentity = EOC2Entity.this.getAttackTarget();
+            if (EOC2Entity.this.getBoundingBox().intersects(livingentity.getBoundingBox())) {
+                EOC2Entity.this.attackEntityAsMob(livingentity);
+                EOC2Entity.this.setCharging(false);
             } else {
-                double d0 = EOCEntity.this.getDistanceSq(livingentity);
+                double d0 = EOC2Entity.this.getDistanceSq(livingentity);
                 if (d0 < 9.0D) {
                     Vec3d vec3d = livingentity.getEyePosition(1.0F);
-                    EOCEntity.this.moveController.setMoveTo(vec3d.x, vec3d.y, vec3d.z, 2.0D);
+                    EOC2Entity.this.moveController.setMoveTo(vec3d.x, vec3d.y, vec3d.z, 2.0D);
                 }
             }
 
@@ -280,41 +268,41 @@ public class EOCEntity extends MonsterEntity {
          * method as well.
          */
         public boolean shouldExecute() {
-            return EOCEntity.this.owner != null && EOCEntity.this.owner.getAttackTarget() != null && this.isSuitableTarget(EOCEntity.this.owner.getAttackTarget(), this.field_220803_b);
+            return EOC2Entity.this.owner != null && EOC2Entity.this.owner.getAttackTarget() != null && this.isSuitableTarget(EOC2Entity.this.owner.getAttackTarget(), this.field_220803_b);
         }
 
         /**
          * Execute a one shot task or start executing a continuous task
          */
         public void startExecuting() {
-            EOCEntity.this.setAttackTarget(EOCEntity.this.owner.getAttackTarget());
+            EOC2Entity.this.setAttackTarget(EOC2Entity.this.owner.getAttackTarget());
             super.startExecuting();
         }
     }
 
     class MoveHelperController extends MovementController {
-        public MoveHelperController(EOCEntity vex) {
+        public MoveHelperController(EOC2Entity vex) {
             super(vex);
         }
 
         public void tick() {
-            if (this.action == MovementController.Action.MOVE_TO) {
-                Vec3d vec3d = new Vec3d(this.posX - EOCEntity.this.getPosX(), this.posY - EOCEntity.this.getPosY(), this.posZ - EOCEntity.this.getPosZ());
+            if (this.action == Action.MOVE_TO) {
+                Vec3d vec3d = new Vec3d(this.posX - EOC2Entity.this.getPosX(), this.posY - EOC2Entity.this.getPosY(), this.posZ - EOC2Entity.this.getPosZ());
                 double d0 = vec3d.length();
-                if (d0 < EOCEntity.this.getBoundingBox().getAverageEdgeLength()) {
-                    this.action = MovementController.Action.WAIT;
-                    EOCEntity.this.setMotion(EOCEntity.this.getMotion().scale(0.5D));
+                if (d0 < EOC2Entity.this.getBoundingBox().getAverageEdgeLength()) {
+                    this.action = Action.WAIT;
+                    EOC2Entity.this.setMotion(EOC2Entity.this.getMotion().scale(0.5D));
                 } else {
-                    EOCEntity.this.setMotion(EOCEntity.this.getMotion().add(vec3d.scale(this.speed * 0.05D / d0)));
-                    if (EOCEntity.this.getAttackTarget() == null) {
-                        Vec3d vec3d1 = EOCEntity.this.getMotion();
-                        EOCEntity.this.rotationYaw = -((float)MathHelper.atan2(vec3d1.x, vec3d1.z)) * (180F / (float)Math.PI);
-                        EOCEntity.this.renderYawOffset = EOCEntity.this.rotationYaw;
+                    EOC2Entity.this.setMotion(EOC2Entity.this.getMotion().add(vec3d.scale(this.speed * 0.05D / d0)));
+                    if (EOC2Entity.this.getAttackTarget() == null) {
+                        Vec3d vec3d1 = EOC2Entity.this.getMotion();
+                        EOC2Entity.this.rotationYaw = -((float)MathHelper.atan2(vec3d1.x, vec3d1.z)) * (180F / (float)Math.PI);
+                        EOC2Entity.this.renderYawOffset = EOC2Entity.this.rotationYaw;
                     } else {
-                        double d2 = EOCEntity.this.getAttackTarget().getPosX() - EOCEntity.this.getPosX();
-                        double d1 = EOCEntity.this.getAttackTarget().getPosZ() - EOCEntity.this.getPosZ();
-                        EOCEntity.this.rotationYaw = -((float)MathHelper.atan2(d2, d1)) * (180F / (float)Math.PI);
-                        EOCEntity.this.renderYawOffset = EOCEntity.this.rotationYaw;
+                        double d2 = EOC2Entity.this.getAttackTarget().getPosX() - EOC2Entity.this.getPosX();
+                        double d1 = EOC2Entity.this.getAttackTarget().getPosZ() - EOC2Entity.this.getPosZ();
+                        EOC2Entity.this.rotationYaw = -((float)MathHelper.atan2(d2, d1)) * (180F / (float)Math.PI);
+                        EOC2Entity.this.renderYawOffset = EOC2Entity.this.rotationYaw;
                     }
                 }
 
@@ -324,7 +312,7 @@ public class EOCEntity extends MonsterEntity {
 
     class MoveRandomGoal extends Goal {
         public MoveRandomGoal() {
-            this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
+            this.setMutexFlags(EnumSet.of(Flag.MOVE));
         }
 
         /**
@@ -332,7 +320,7 @@ public class EOCEntity extends MonsterEntity {
          * method as well.
          */
         public boolean shouldExecute() {
-            return !EOCEntity.this.getMoveHelper().isUpdating() && EOCEntity.this.rand.nextInt(7) == 0;
+            return !EOC2Entity.this.getMoveHelper().isUpdating() && EOC2Entity.this.rand.nextInt(7) == 0;
         }
 
         /**
@@ -347,17 +335,17 @@ public class EOCEntity extends MonsterEntity {
          * Keep ticking a continuous task that hasd already been started
          */
         public void tick() {
-            BlockPos blockpos = EOCEntity.this.getBoundOrigin();
+            BlockPos blockpos = EOC2Entity.this.getBoundOrigin();
             if (blockpos == null) {
-                blockpos = new BlockPos(EOCEntity.this);
+                blockpos = new BlockPos(EOC2Entity.this);
             }
 //
             for(int i = 0; i < 3; ++i) {
-                BlockPos blockpos1 = blockpos.add(EOCEntity.this.rand.nextInt(15) - 7, EOCEntity.this.rand.nextInt(11) - 5, EOCEntity.this.rand.nextInt(15) - 7);
-                if (EOCEntity.this.world.isAirBlock(blockpos1)) {
-                    EOCEntity.this.moveController.setMoveTo((double)blockpos1.getX() + 0.5D, (double)blockpos1.getY() + 0.5D, (double)blockpos1.getZ() + 0.5D, 0.25D);
-                    if (EOCEntity.this.getAttackTarget() == null) {
-                        EOCEntity.this.getLookController().setLookPosition((double)blockpos1.getX() + 0.5D, (double)blockpos1.getY() + 0.5D, (double)blockpos1.getZ() + 0.5D, 180.0F, 20.0F);
+                BlockPos blockpos1 = blockpos.add(EOC2Entity.this.rand.nextInt(15) - 7, EOC2Entity.this.rand.nextInt(11) - 5, EOC2Entity.this.rand.nextInt(15) - 7);
+                if (EOC2Entity.this.world.isAirBlock(blockpos1)) {
+                    EOC2Entity.this.moveController.setMoveTo((double)blockpos1.getX() + 0.5D, (double)blockpos1.getY() + 0.5D, (double)blockpos1.getZ() + 0.5D, 0.25D);
+                    if (EOC2Entity.this.getAttackTarget() == null) {
+                        EOC2Entity.this.getLookController().setLookPosition((double)blockpos1.getX() + 0.5D, (double)blockpos1.getY() + 0.5D, (double)blockpos1.getZ() + 0.5D, 180.0F, 20.0F);
                     }
                     break;
                 }
