@@ -1,5 +1,6 @@
 package com.kingrealzyt.terrariareloaded.client.model;
 
+import com.kingrealzyt.terrariareloaded.entities.boss.EOC2Entity;
 import com.kingrealzyt.terrariareloaded.entities.boss.EOCEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
@@ -7,7 +8,7 @@ import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
 
-public class EOC2Model<T extends EOCEntity> extends EntityModel<T> {
+public class EOC2Model<T extends EOC2Entity> extends EntityModel<T> {
 
     private final ModelRenderer total;
     private final ModelRenderer head;

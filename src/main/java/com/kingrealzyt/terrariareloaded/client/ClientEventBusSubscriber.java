@@ -12,6 +12,7 @@ import com.kingrealzyt.terrariareloaded.entities.npc.ShopNPCEntity;
 import com.kingrealzyt.terrariareloaded.init.ModBlocks;
 import com.kingrealzyt.terrariareloaded.init.ModContainers;
 import com.kingrealzyt.terrariareloaded.init.ModEntityTypes;
+import com.kingrealzyt.terrariareloaded.init.ModFluids;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -72,6 +73,9 @@ public class ClientEventBusSubscriber {
         RenderTypeLookup.setRenderLayer(ModBlocks.SHADEWOOD_SAPLING.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(ModBlocks.EBONWOOD_LEAVES.get(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(ModBlocks.SHADEWOOD_LEAVES.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(ModFluids.HONEY_FLUID.get(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(ModFluids.HONEY_FLOWING.get(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(ModFluids.HONEY_BLOCK.get(), RenderType.getTranslucent());
 
     }
 }

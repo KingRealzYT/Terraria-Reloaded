@@ -25,7 +25,7 @@ public class ModFluids {
 
     public static final ResourceLocation HONEY_STILL_RL = new ResourceLocation(TerrariaReloaded.MOD_ID, "blocks/honey_still");
     public static final ResourceLocation HONEY_FLOWING_RL = new ResourceLocation(TerrariaReloaded.MOD_ID,
-            "blocks/honey_flowing");
+            "blocks/honey_flow");
     public static final ResourceLocation HONEY_OVERLAY_RL = new ResourceLocation(TerrariaReloaded.MOD_ID,
             "blocks/honey_overlay");
 
