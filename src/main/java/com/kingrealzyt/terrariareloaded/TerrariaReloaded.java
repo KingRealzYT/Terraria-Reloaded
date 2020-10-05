@@ -4,6 +4,8 @@ import com.kingrealzyt.terrariareloaded.init.*;
 import com.kingrealzyt.terrariareloaded.world.capability.player.IPlayerCoinCapability;
 import com.kingrealzyt.terrariareloaded.world.capability.player.PlayerCoinCapabilityFactory;
 import com.kingrealzyt.terrariareloaded.world.capability.player.PlayerCoinCapabilityStorage;
+import com.kingrealzyt.terrariareloaded.world.gen.ModStructureGen;
+import net.minecraft.block.ComposterBlock;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -14,6 +16,7 @@ import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -40,6 +43,7 @@ public class TerrariaReloaded {
         ModBlocks.init();
         ModContainers.CONTAINERS.register(modEventBus);
         ModEntityTypes.ENTITY_TYPES.register(modEventBus);
+        ModFeatures.FEATURES.register(modEventBus);
         ModTileEntityTypes.TILEENTITY_TYPES.register(modEventBus);
         RecipeSerializerInit.RECIPE_SERIALIZERS.register(modEventBus);
         ModBiomes.BIOMES.register(modEventBus);
@@ -48,11 +52,13 @@ public class TerrariaReloaded {
 
     private void setup(final FMLCommonSetupEvent event) {
 
+        DeferredWorkQueue.runLater(ModStructureGen::generateStructures);
         //Register the capability
         CapabilityManager.INSTANCE.register(IPlayerCoinCapability.class, new PlayerCoinCapabilityStorage(), new PlayerCoinCapabilityFactory());
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
+
 
     }
 
