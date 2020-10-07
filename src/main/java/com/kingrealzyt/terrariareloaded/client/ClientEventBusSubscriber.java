@@ -67,6 +67,14 @@ public class ClientEventBusSubscriber {
 
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
+        RenderTypeLookup.setRenderLayer(ModBlocks.DEATHWEED_CROP.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.SHIVERTHORN_CROP.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.WATERLEAF_CROP.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.FIREBLOSSOM_CROP.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.MOONGLOW_CROP.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.DAYBLOOM_CROP.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.BLINKROOT_CROP.get(), RenderType.getCutout());
+
         RenderTypeLookup.setRenderLayer(ModBlocks.LIFE_FRUIT_BUSH.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(ModBlocks.JUNGLE_SPORES_BUSH.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(ModBlocks.EBONWOOD_SAPLING.get(), RenderType.getCutout());

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/tinted_cross",
+  "textures": {
+    "cross": "terrariareloaded:blocks/deathweed_stage1"
+  }
+}

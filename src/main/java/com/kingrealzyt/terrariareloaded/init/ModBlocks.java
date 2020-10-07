@@ -46,6 +46,15 @@ public class ModBlocks {
 /* Note: Some ore blocks above use the same block class as they're identical other than their texture and drops, e.g Demonite + Crimtane,
  Cobalt + Palladium, etc. Up to yall if you wanna keep using that*/
 
+    // Crops
+    public static final RegistryObject<Block> DEATHWEED_CROP = BLOCKS.register("deathweed_crop", () -> new DeathweedCrop(Block.Properties.from(Blocks.WHEAT)));
+    public static final RegistryObject<Block> SHIVERTHORN_CROP = BLOCKS.register("shiverthorn_crop", () -> new MoonglowCrop(Block.Properties.from(Blocks.WHEAT)));
+    public static final RegistryObject<Block> FIREBLOSSOM_CROP = BLOCKS.register("fireblossom_crop", () -> new FireblossomCrop(Block.Properties.from(Blocks.WHEAT)));
+    public static final RegistryObject<Block> BLINKROOT_CROP = BLOCKS.register("blinkroot_crop", () -> new BlinkrootCrop(Block.Properties.from(Blocks.WHEAT)));
+    public static final RegistryObject<Block> MOONGLOW_CROP = BLOCKS.register("moonglow_crop", () -> new MoonglowCrop(Block.Properties.from(Blocks.WHEAT)));
+    public static final RegistryObject<Block> WATERLEAF_CROP = BLOCKS.register("waterleaf_crop", () -> new WaterleafCrop(Block.Properties.from(Blocks.WHEAT)));
+    public static final RegistryObject<Block> DAYBLOOM_CROP = BLOCKS.register("daybloom_crop", () -> new DaybloomCrop(Block.Properties.from(Blocks.WHEAT)));
+
     // Crafting Stations
     public static final RegistryObject<Block> HELLFORGE = BLOCKS.register("hellforge",
             () -> new Hellforge(Block.Properties.from(Blocks.FURNACE)));

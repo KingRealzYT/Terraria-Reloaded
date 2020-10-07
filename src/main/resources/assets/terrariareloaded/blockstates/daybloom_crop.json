@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "terrariareloaded:block/daybloom_stage0"
+    },
+    "age=1": {
+      "model": "terrariareloaded:block/daybloom_stage0"
+    },
+    "age=2": {
+      "model": "terrariareloaded:block/daybloom_stage0"
+    },
+    "age=3": {
+      "model": "terrariareloaded:block/daybloom_stage1"
+    },
+    "age=4": {
+      "model": "terrariareloaded:block/daybloom_stage1"
+    },
+    "age=5": {
+      "model": "terrariareloaded:block/daybloom_stage1"
+    },
+    "age=6": {
+      "model": "terrariareloaded:block/daybloom_stage1"
+    },
+    "age=7": {
+      "model": "terrariareloaded:block/daybloom_stage2"
+    }
+  }
+}

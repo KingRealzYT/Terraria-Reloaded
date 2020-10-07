@@ -50,6 +50,24 @@ public class ModItems {
     public static final RegistryObject<Item> LIFE_FRUIT = ITEMS.register("life_fruit", LifeFruitItem::new);
 
     public static final RegistryObject<Item> BAND_REGENERATION = ITEMS.register("band_of_regeneration", ItemBand::new);
+
+    public static final RegistryObject<Item> BLINKROOT = ITEMS.register("blinkroot", MiscItemBase::new);
+    public static final RegistryObject<Item> WATERLEAF = ITEMS.register("waterleaf", MiscItemBase::new);
+    public static final RegistryObject<Item> SHIVERTHORN = ITEMS.register("shiverthorn", MiscItemBase::new);
+    public static final RegistryObject<Item> MOONGLOW = ITEMS.register("moonglow", MiscItemBase::new);
+    public static final RegistryObject<Item> DAYBLOOM = ITEMS.register("daybloom", MiscItemBase::new);
+    public static final RegistryObject<Item> FIREBLOSSOM = ITEMS.register("fireblossom", MiscItemBase::new);
+    public static final RegistryObject<Item> DEATHWEED = ITEMS.register("deathweed", MiscItemBase::new);
+
+    public static final RegistryObject<Item> DEATHWEED_SEEDS = ITEMS.register("deathweed_seeds", () -> new BlockItem(ModBlocks.DEATHWEED_CROP.get(), new Item.Properties().group(TerrariaReloaded.MISC)));
+    public static final RegistryObject<Item> SHIVERTHORN_SEEDS = ITEMS.register("shiverthorn_seeds", () -> new BlockItem(ModBlocks.SHIVERTHORN_CROP.get(), new Item.Properties().group(TerrariaReloaded.MISC)));
+    public static final RegistryObject<Item> FIREBLOSSOM_SEEDS = ITEMS.register("fireblossom_seeds", () -> new BlockItem(ModBlocks.FIREBLOSSOM_CROP.get(), new Item.Properties().group(TerrariaReloaded.MISC)));
+    public static final RegistryObject<Item> MOONGLOW_SEEDS = ITEMS.register("moonglow_seeds", () -> new BlockItem(ModBlocks.MOONGLOW_CROP.get(), new Item.Properties().group(TerrariaReloaded.MISC)));
+    public static final RegistryObject<Item> WATERLEAF_SEEDS = ITEMS.register("waterleaf_seeds", () -> new BlockItem(ModBlocks.WATERLEAF_CROP.get(), new Item.Properties().group(TerrariaReloaded.MISC)));
+    public static final RegistryObject<Item> BLINKROOT_SEEDS = ITEMS.register("blinkroot_seeds", () -> new BlockItem(ModBlocks.BLINKROOT_CROP.get(), new Item.Properties().group(TerrariaReloaded.MISC)));
+    public static final RegistryObject<Item> DAYBLOOM_SEEDS = ITEMS.register("daybloom_seeds", () -> new BlockItem(ModBlocks.DAYBLOOM_CROP.get(), new Item.Properties().group(TerrariaReloaded.MISC)));
+
+
     //Crafting Items
     public static final RegistryObject<Item> LENS = ITEMS.register("lens", MiscItemBase::new);
     public static final RegistryObject<Item> STINGER = ITEMS.register("stinger", MiscItemBase::new);
@@ -62,6 +80,11 @@ public class ModItems {
     public static final RegistryObject<Item> ECTOPLASM = ITEMS.register("ectoplasm", MiscItemBase::new);
     public static final RegistryObject<Item> SHADOW_SCALE = ITEMS.register("shadow_scale", MiscItemBase::new);
     public static final RegistryObject<Item> TISSUE_SAMPLE = ITEMS.register("tissue_sample", MiscItemBase::new);
+    public static final RegistryObject<Item> HARPY_FEATHER = ITEMS.register("harpy_feather", MiscItemBase::new);
+    public static final RegistryObject<Item> SHARK_FIN = ITEMS.register("shark_fin", MiscItemBase::new);
+    public static final RegistryObject<Item> ANTLION_MANDIBLE = ITEMS.register("antlion_mandible", MiscItemBase::new);
+    public static final RegistryObject<Item> CORAL_PIECE = ITEMS.register("coral_piece", MiscItemBase::new);
+    public static final RegistryObject<Item> FALLEN_STAR = ITEMS.register("fallen_star", MiscItemBase::new);
 
     public static final RegistryObject<Item> CRIMTANE_INGOT = ITEMS.register("crimtane_ingot", MiscItemBase::new);
     public static final RegistryObject<Item> DEMONITE_INGOT = ITEMS.register("demonite_ingot", MiscItemBase::new);
