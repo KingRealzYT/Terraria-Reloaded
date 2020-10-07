@@ -55,6 +55,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> WATERLEAF_CROP = BLOCKS.register("waterleaf_crop", () -> new WaterleafCrop(Block.Properties.from(Blocks.WHEAT)));
     public static final RegistryObject<Block> DAYBLOOM_CROP = BLOCKS.register("daybloom_crop", () -> new DaybloomCrop(Block.Properties.from(Blocks.WHEAT)));
 
+    public static final RegistryObject<Block> GLOWING_MUSHROOM = BLOCKS.register("glowing_mushroom", GlowingMushroom::new);
+
+
     // Crafting Stations
     public static final RegistryObject<Block> HELLFORGE = BLOCKS.register("hellforge",
             () -> new Hellforge(Block.Properties.from(Blocks.FURNACE)));

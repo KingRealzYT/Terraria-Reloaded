@@ -267,6 +267,8 @@ public class ModItems {
     public static final RegistryObject<Item> EBONWOOD_SAPLING_ITEM = ITEMS.register("ebonwood_sapling", () -> new BlockItemBase(ModBlocks.EBONWOOD_SAPLING.get()));
     public static final RegistryObject<Item> SHADEWOOD_SAPLING_ITEM = ITEMS.register("shadewood_sapling", () -> new BlockItemBase(ModBlocks.SHADEWOOD_SAPLING.get()));
 
+    public static final RegistryObject<Item> GLOWING_MUSHROOM_ITEM = ITEMS.register("glowing_mushroom", () -> new BlockItemBase(ModBlocks.GLOWING_MUSHROOM.get()));
+
     // Throwing weapons
     public static final RegistryObject<Item> THROWING_KNIFE_ITEM = ITEMS.register("throwing_knife_item", () -> new ThrowingKnifeItem(new Item.Properties().group(TerrariaReloaded.THROW)));
     public static final RegistryObject<Item> POISONED_THROWING_KNIFE_ITEM = ITEMS.register("poisoned_knife_item", () -> new PoisonedKnifeItem(new Item.Properties().group(TerrariaReloaded.THROW)));
