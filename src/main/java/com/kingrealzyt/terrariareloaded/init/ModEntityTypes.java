@@ -7,6 +7,7 @@ import com.kingrealzyt.terrariareloaded.entities.boss.WOFEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFMouthEntity;
 import com.kingrealzyt.terrariareloaded.entities.enemy.ModSlimeEntity;
 import com.kingrealzyt.terrariareloaded.entities.npc.*;
+import com.kingrealzyt.terrariareloaded.entities.passive.GoldenRatEntity;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.*;
 import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoEntity;
 import net.minecraft.entity.EntityClassification;
@@ -88,6 +89,14 @@ public class ModEntityTypes {
                     .size(3.5f, 3.5f)
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "eye_of_cthulhu").toString()));
 
+    //PASSIVE ENTITIES
+    public static final RegistryObject<EntityType<GoldenRatEntity>> GOLDEN_RAT = ENTITY_TYPES.register("golden_rat",
+            () -> EntityType.Builder.<GoldenRatEntity>create(GoldenRatEntity::new, EntityClassification.CREATURE)
+                    .size(0.5f, 0.4f)
+                    .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "golden_rat").toString()));
+
+
+    //HOSTILE ENTITIES
     public static final RegistryObject<EntityType<DemonEyeEntity>> DEMON_EYE = ENTITY_TYPES.register("demon_eye",
             () -> EntityType.Builder.<DemonEyeEntity>create(DemonEyeEntity::new, EntityClassification.MONSTER)
                     .size(0.5f, 0.4f)

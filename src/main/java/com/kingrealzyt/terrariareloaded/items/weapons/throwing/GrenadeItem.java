@@ -2,11 +2,18 @@ package com.kingrealzyt.terrariareloaded.items.weapons.throwing;
 
 import com.kingrealzyt.terrariareloaded.entities.projectiles.DynamiteEntity;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.GrenadeEntity;
+import net.minecraft.block.DispenserBlock;
+import net.minecraft.dispenser.IBlockSource;
+import net.minecraft.dispenser.IDispenseItemBehavior;
+import net.minecraft.dispenser.IPosition;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
@@ -33,6 +40,5 @@ public class GrenadeItem extends Item {
         }
         return ActionResult.resultConsume(playerIn.getHeldItem(handIn));
     }
-
 
 }
