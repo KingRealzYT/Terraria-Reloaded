@@ -42,6 +42,7 @@ public class ClientEventBusSubscriber {
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.DEMON_EYE.get(), DemonEyeRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.EOC.get(), EOCRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.BLUE_SLIME.get(), ModSlimeRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.CRAB.get(), CrabRenderer::new);
 
 
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.GOLDEN_RAT.get(), GoldenRatRenderer::new);
