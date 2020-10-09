@@ -1,11 +1,10 @@
 package com.kingrealzyt.terrariareloaded.tileentities;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
-import com.kingrealzyt.terrariareloaded.blocks.Hellforge;
 import com.kingrealzyt.terrariareloaded.container.HellforgeContainer;
 import com.kingrealzyt.terrariareloaded.init.ModTileEntityTypes;
 import com.kingrealzyt.terrariareloaded.init.RecipeSerializerInit;
-import com.kingrealzyt.terrariareloaded.recipes.HellForgeRecipe;
+import com.kingrealzyt.terrariareloaded.recipes.HellforgeRecipe;
 import com.kingrealzyt.terrariareloaded.util.HellforgeItemHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.world.ClientWorld;
@@ -41,7 +40,6 @@ import net.minecraftforge.items.wrapper.RecipeWrapper;
 import javax.annotation.Nullable;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -149,14 +147,14 @@ public class HellforgeTileEntity extends TileEntity implements ITickableTileEnti
     }
 
     @Nullable
-    private HellForgeRecipe getRecipe(ItemStack stack) {
+    private HellforgeRecipe getRecipe(ItemStack stack) {
         if (stack == null) {
             return null;
         }
 
         Set<IRecipe<?>> recipes = findRecipesByType(RecipeSerializerInit.HELLFORGE_TYPE, this.world);
         for (IRecipe<?> iRecipe : recipes) {
-            HellForgeRecipe recipe = (HellForgeRecipe) iRecipe;
+            HellforgeRecipe recipe = (HellforgeRecipe) iRecipe;
             if (recipe.matches(new RecipeWrapper(this.inventory), this.world)) {
                 return recipe;
             }

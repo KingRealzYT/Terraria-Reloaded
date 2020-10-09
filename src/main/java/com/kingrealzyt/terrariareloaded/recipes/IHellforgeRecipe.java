@@ -12,7 +12,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 
-public interface IHellForgeRecipe extends IRecipe<RecipeWrapper> {
+public interface IHellforgeRecipe extends IRecipe<RecipeWrapper> {
 
 	ResourceLocation RECIPE_TYPE_ID = new ResourceLocation(TerrariaReloaded.MOD_ID, "hellforge");
 	

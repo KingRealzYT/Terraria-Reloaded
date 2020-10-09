@@ -3,9 +3,9 @@ package com.kingrealzyt.terrariareloaded.init;
 
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
-import com.kingrealzyt.terrariareloaded.recipes.HellForgeRecipe;
-import com.kingrealzyt.terrariareloaded.recipes.HellForgeRecipeSerializer;
-import com.kingrealzyt.terrariareloaded.recipes.IHellForgeRecipe;
+import com.kingrealzyt.terrariareloaded.recipes.HellforgeRecipe;
+import com.kingrealzyt.terrariareloaded.recipes.HellforgeRecipeSerializer;
+import com.kingrealzyt.terrariareloaded.recipes.IHellforgeRecipe;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.IRecipeType;
@@ -17,8 +17,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class RecipeSerializerInit {
 
-    public static final IRecipeSerializer<HellForgeRecipe> HELLFORGE_RECIPE_SERIALIZER = new HellForgeRecipeSerializer();
-    public static final IRecipeType<IHellForgeRecipe> HELLFORGE_TYPE = registerType(IHellForgeRecipe.RECIPE_TYPE_ID);
+    public static final IRecipeSerializer<HellforgeRecipe> HELLFORGE_RECIPE_SERIALIZER = new HellforgeRecipeSerializer();
+    public static final IRecipeType<IHellforgeRecipe> HELLFORGE_TYPE = registerType(IHellforgeRecipe.RECIPE_TYPE_ID);
 
     public static final DeferredRegister<IRecipeSerializer<?>> RECIPE_SERIALIZERS = new DeferredRegister<>(
             ForgeRegistries.RECIPE_SERIALIZERS, TerrariaReloaded.MOD_ID);

@@ -10,13 +10,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 
-public class HellForgeRecipe implements IHellForgeRecipe {
+public class HellforgeRecipe implements IHellforgeRecipe {
 
 	private final ResourceLocation id;
 	private Ingredient input;
 	private final ItemStack output;
 
-	public HellForgeRecipe(ResourceLocation id, Ingredient input, ItemStack output) {
+	public HellforgeRecipe(ResourceLocation id, Ingredient input, ItemStack output) {
 		this.id = id;
 		this.output = output;
 		this.input = input;
