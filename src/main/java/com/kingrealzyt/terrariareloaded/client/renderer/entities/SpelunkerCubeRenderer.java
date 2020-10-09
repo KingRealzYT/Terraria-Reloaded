@@ -1,4 +1,4 @@
-package com.kingrealzyt.terrariareloaded.client.renderer.entities;
+/*ackage com.kingrealzyt.terrariareloaded.client.renderer.entities;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.client.model.DemonEyeModel;
@@ -23,4 +23,4 @@ public class SpelunkerCubeRenderer extends MobRenderer<SpelunkerCubeEntity, Spel
         return TEXTURE;
     }
 
-}
+}*/
