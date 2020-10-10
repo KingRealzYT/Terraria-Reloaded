@@ -2,6 +2,7 @@ package com.kingrealzyt.terrariareloaded.init;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.entities.enemy.CrabEntity;
+import com.kingrealzyt.terrariareloaded.entities.enemy.DemonEntity;
 import com.kingrealzyt.terrariareloaded.entities.enemy.DemonEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.EOCEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFEyeEntity;
@@ -108,6 +109,11 @@ public class ModEntityTypes {
             () -> EntityType.Builder.<DemonEyeEntity>create(DemonEyeEntity::new, EntityClassification.MONSTER)
                     .size(0.5f, 0.4f)
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "demon_eye").toString()));
+
+    public static final RegistryObject<EntityType<DemonEntity>> DEMON = ENTITY_TYPES.register("demon",
+            () -> EntityType.Builder.<DemonEntity>create(DemonEntity::new, EntityClassification.MONSTER)
+                    .size(0.6f, 1.4f)
+                    .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "demon").toString()));
 
     public static final RegistryObject<EntityType<ModSlimeEntity>> BLUE_SLIME = ENTITY_TYPES.register("blue_slime",
             () -> EntityType.Builder.<ModSlimeEntity>create(ModSlimeEntity::new, EntityClassification.MONSTER)

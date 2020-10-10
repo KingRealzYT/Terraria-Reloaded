@@ -43,5 +43,26 @@
     "subtitle": "boss_1",
     "sounds": [{"name": "terrariareloaded:music/boss_1",
       "stream": true}]
+  },
+
+  "demon_ambient": {
+    "category": "entity",
+    "subtitle": "demon_ambient",
+    "sounds": [{"name": "terrariareloaded:entity/demon/demon_ambient",
+      "stream": true}]
+  },
+
+  "demon_hurt": {
+    "category": "entity",
+    "subtitle": "demon_hurt",
+    "sounds": [{"name": "terrariareloaded:entity/demon/demon_hurt",
+      "stream": true}]
+  },
+
+  "demon_killed": {
+    "category": "entity",
+    "subtitle": "demon_killed",
+    "sounds": [{"name": "terrariareloaded:entity/demon/demon_killed",
+      "stream": true}]
   }
 }
