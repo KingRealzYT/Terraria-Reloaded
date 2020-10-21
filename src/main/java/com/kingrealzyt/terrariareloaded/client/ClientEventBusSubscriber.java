@@ -7,7 +7,6 @@ import com.kingrealzyt.terrariareloaded.client.gui.ShopNPCScreen;
 import com.kingrealzyt.terrariareloaded.client.model.npc.*;
 import com.kingrealzyt.terrariareloaded.client.renderer.entities.*;
 import com.kingrealzyt.terrariareloaded.client.renderer.entities.npc.ShopNPCRenderer;
-import com.kingrealzyt.terrariareloaded.entities.npc.ArmsDealerNPCEntity;
 import com.kingrealzyt.terrariareloaded.entities.npc.ShopNPCEntity;
 import com.kingrealzyt.terrariareloaded.init.ModBlocks;
 import com.kingrealzyt.terrariareloaded.init.ModContainers;
@@ -18,7 +17,6 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.monster.SlimeEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -42,9 +40,13 @@ public class ClientEventBusSubscriber {
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.WALL_OF_FLESH_EYE.get(), WOFEyeRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.WALL_OF_FLESH_MOUTH.get(), WOFMouthRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.DEMON_EYE.get(), DemonEyeRenderer::new);
-
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.EOC.get(), EOCRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.BLUE_SLIME.get(), ModSlimeRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.CRAB.get(), CrabRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.DEMON.get(), DemonRenderer::new);
+
+
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.GOLDEN_RAT.get(), GoldenRatRenderer::new);
 
         ScreenManager.registerFactory(ModContainers.PIGGY_BANK.get(), PiggyBankScreen::new);
         ScreenManager.registerFactory(ModContainers.SHOP_NPC.get(), ShopNPCScreen::new);

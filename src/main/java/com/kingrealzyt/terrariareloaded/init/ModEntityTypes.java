@@ -1,12 +1,15 @@
 package com.kingrealzyt.terrariareloaded.init;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
+import com.kingrealzyt.terrariareloaded.entities.enemy.CrabEntity;
+import com.kingrealzyt.terrariareloaded.entities.enemy.DemonEntity;
 import com.kingrealzyt.terrariareloaded.entities.enemy.DemonEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.EOCEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFMouthEntity;
 import com.kingrealzyt.terrariareloaded.entities.enemy.ModSlimeEntity;
 import com.kingrealzyt.terrariareloaded.entities.npc.*;
+import com.kingrealzyt.terrariareloaded.entities.passive.GoldenRatEntity;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.*;
 import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoEntity;
 import net.minecraft.entity.EntityClassification;
@@ -88,10 +91,29 @@ public class ModEntityTypes {
                     .size(3.5f, 3.5f)
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "eye_of_cthulhu").toString()));
 
+    //PASSIVE ENTITIES
+    public static final RegistryObject<EntityType<GoldenRatEntity>> GOLDEN_RAT = ENTITY_TYPES.register("golden_rat",
+            () -> EntityType.Builder.<GoldenRatEntity>create(GoldenRatEntity::new, EntityClassification.CREATURE)
+                    .size(0.5f, 0.4f)
+                    .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "golden_rat").toString()));
+
+
+    //HOSTILE ENTITIES
+    public static final RegistryObject<EntityType<CrabEntity>> CRAB = ENTITY_TYPES.register("crab",
+            () -> EntityType.Builder.<CrabEntity>create(CrabEntity::new, EntityClassification.MONSTER)
+                    .size(0.5f, 0.4f)
+                    .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "crab").toString()));
+
+
     public static final RegistryObject<EntityType<DemonEyeEntity>> DEMON_EYE = ENTITY_TYPES.register("demon_eye",
             () -> EntityType.Builder.<DemonEyeEntity>create(DemonEyeEntity::new, EntityClassification.MONSTER)
                     .size(0.5f, 0.4f)
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "demon_eye").toString()));
+
+    public static final RegistryObject<EntityType<DemonEntity>> DEMON = ENTITY_TYPES.register("demon",
+            () -> EntityType.Builder.<DemonEntity>create(DemonEntity::new, EntityClassification.MONSTER)
+                    .size(0.6f, 1.4f)
+                    .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "demon").toString()));
 
     public static final RegistryObject<EntityType<ModSlimeEntity>> BLUE_SLIME = ENTITY_TYPES.register("blue_slime",
             () -> EntityType.Builder.<ModSlimeEntity>create(ModSlimeEntity::new, EntityClassification.MONSTER)

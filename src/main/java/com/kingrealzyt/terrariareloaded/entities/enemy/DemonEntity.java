@@ -1,5 +1,6 @@
 package com.kingrealzyt.terrariareloaded.entities.enemy;
 
+import com.kingrealzyt.terrariareloaded.entities.boss.EOCEntity;
 import com.kingrealzyt.terrariareloaded.init.ModEntityTypes;
 import com.kingrealzyt.terrariareloaded.init.SoundInit;
 import net.minecraft.entity.*;
@@ -12,21 +13,21 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.BossInfo;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerBossInfo;
 
 import javax.annotation.Nullable;
 import java.util.EnumSet;
 
 @SuppressWarnings("all")
-public class DemonEyeEntity extends MonsterEntity {
-    protected static final DataParameter<Byte> DE_FLAGS = EntityDataManager.createKey(DemonEyeEntity.class, DataSerializers.BYTE);
+public class DemonEntity extends MonsterEntity {
+    protected static final DataParameter<Byte> DEMON_FLAGS = EntityDataManager.createKey(DemonEntity.class, DataSerializers.BYTE);
     private MobEntity owner;
     @Nullable
     private BlockPos boundOrigin;
@@ -34,23 +35,23 @@ public class DemonEyeEntity extends MonsterEntity {
     private int limitedLifeTicks;
 
     private static final double ALTITUDE_FLYING_THRESHOLD = 2;
-    private static final double MAX_HEALTH = 20.0F;
-    private static final double MOVEMENT_SPEED_FLYING = 0.7D;
-    private static final double FOLLOW_RANGE = 10.0D;
-    private static final double KNOCKBACK_RESISTANCE = 0.3F;
-    private static final double ATTACK_DAMAGE = 1.0; //TODO change it later
+    private static final double MAX_HEALTH = 50.0F;
+    private static final double MOVEMENT_SPEED_FLYING = 0.6D;
+    private static final double FOLLOW_RANGE = 19.0D;
+    private static final double KNOCKBACK_RESISTANCE = 0.5F;
+    private static final double ATTACK_DAMAGE = 4.0;
     private static final double ATTACKER_SWITCHING_CHANCE = 0.3D;
     private static final double MIN_ATTACK_RANGE = 0;
     private static final double MAX_ATTACK_RANGE = 8.0;
 
-    public DemonEyeEntity(EntityType<? extends DemonEyeEntity> p_i50190_1_, World p_i50190_2_) {
+    public DemonEntity(EntityType<? extends DemonEntity> p_i50190_1_, World p_i50190_2_) {
         super(p_i50190_1_, p_i50190_2_);
-        this.moveController = new DemonEyeEntity.MoveHelperController(this);
+        this.moveController = new DemonEntity.MoveHelperController(this);
         this.experienceValue = 3;
     }
 
-    public DemonEyeEntity(World worldIn, double x, double y, double z) {
-        this(ModEntityTypes.DEMON_EYE.get(), worldIn);
+    public DemonEntity(World worldIn, double x, double y, double z) {
+        this(ModEntityTypes.DEMON.get(), worldIn);
         this.setPosition(x, y, z);
     }
 
@@ -72,8 +73,8 @@ public class DemonEyeEntity extends MonsterEntity {
     protected void registerGoals() {
         super.registerGoals();
         this.goalSelector.addGoal(0, new SwimGoal(this));
-        this.goalSelector.addGoal(4, new DemonEyeEntity.ChargeAttackGoal());
-        this.goalSelector.addGoal(8, new DemonEyeEntity.MoveRandomGoal());
+        this.goalSelector.addGoal(4, new DemonEntity.ChargeAttackGoal());
+        this.goalSelector.addGoal(8, new DemonEntity.MoveRandomGoal());
         this.goalSelector.addGoal(9, new LookAtGoal(this, PlayerEntity.class, 3.0F, 1.0F));
         this.goalSelector.addGoal(10, new LookAtGoal(this, MobEntity.class, 8.0F));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
@@ -91,7 +92,7 @@ public class DemonEyeEntity extends MonsterEntity {
 
     protected void registerData() {
         super.registerData();
-        this.dataManager.register(DE_FLAGS, (byte)0);
+        this.dataManager.register(DEMON_FLAGS, (byte)0);
     }
 
     /**
@@ -138,19 +139,19 @@ public class DemonEyeEntity extends MonsterEntity {
     }
 
     private boolean getDEFlag(int mask) {
-        int i = this.dataManager.get(DE_FLAGS);
+        int i = this.dataManager.get(DEMON_FLAGS);
         return (i & mask) != 0;
     }
 
     private void setDEFlag(int mask, boolean value) {
-        int i = this.dataManager.get(DE_FLAGS);
+        int i = this.dataManager.get(DEMON_FLAGS);
         if (value) {
             i = i | mask;
         } else {
             i = i & ~mask;
         }
 
-        this.dataManager.set(DE_FLAGS, (byte)(i & 255));
+        this.dataManager.set(DEMON_FLAGS, (byte)(i & 255));
     }
 
     public boolean isCharging() {
@@ -199,8 +200,8 @@ public class DemonEyeEntity extends MonsterEntity {
          * method as well.
          */
         public boolean shouldExecute() {
-            if (DemonEyeEntity.this.getAttackTarget() != null && !DemonEyeEntity.this.getMoveHelper().isUpdating() && DemonEyeEntity.this.rand.nextInt(7) == 0) {
-                return DemonEyeEntity.this.getDistanceSq(DemonEyeEntity.this.getAttackTarget()) > 4.0D;
+            if (DemonEntity.this.getAttackTarget() != null && !DemonEntity.this.getMoveHelper().isUpdating() && DemonEntity.this.rand.nextInt(7) == 0) {
+                return DemonEntity.this.getDistanceSq(DemonEntity.this.getAttackTarget()) > 4.0D;
             } else {
                 return false;
             }
@@ -210,39 +211,40 @@ public class DemonEyeEntity extends MonsterEntity {
          * Returns whether an in-progress EntityAIBase should continue executing
          */
         public boolean shouldContinueExecuting() {
-            return DemonEyeEntity.this.getMoveHelper().isUpdating() && DemonEyeEntity.this.isCharging() && DemonEyeEntity.this.getAttackTarget() != null && DemonEyeEntity.this.getAttackTarget().isAlive();
+            return DemonEntity.this.getMoveHelper().isUpdating() && DemonEntity.this.isCharging() && DemonEntity.this.getAttackTarget() != null && DemonEntity.this.getAttackTarget().isAlive();
         }
 
         /**
          * Execute a one shot task or start executing a continuous task
          */
         public void startExecuting() {
-            LivingEntity livingentity = DemonEyeEntity.this.getAttackTarget();
+            LivingEntity livingentity = DemonEntity.this.getAttackTarget();
             Vec3d vec3d = livingentity.getEyePosition(1.0F);
-            DemonEyeEntity.this.moveController.setMoveTo(vec3d.x, vec3d.y, vec3d.z, 2.0D);
-            DemonEyeEntity.this.setCharging(true);
+            DemonEntity.this.moveController.setMoveTo(vec3d.x, vec3d.y, vec3d.z, 2.0D);
+            DemonEntity.this.setCharging(true);
+            DemonEntity.this.playSound(SoundInit.DEMON_AMBIENT.get(), 1.0F, 1.0F);
         }
 
         /**
          * Reset the task's internal state. Called when this task is interrupted by another one
          */
         public void resetTask() {
-            DemonEyeEntity.this.setCharging(false);
+            DemonEntity.this.setCharging(false);
         }
 
         /**
          * Keep ticking a continuous task that has already been started
          */
         public void tick() {
-            LivingEntity livingentity = DemonEyeEntity.this.getAttackTarget();
-            if (DemonEyeEntity.this.getBoundingBox().intersects(livingentity.getBoundingBox())) {
-                DemonEyeEntity.this.attackEntityAsMob(livingentity);
-                DemonEyeEntity.this.setCharging(false);
+            LivingEntity livingentity = DemonEntity.this.getAttackTarget();
+            if (DemonEntity.this.getBoundingBox().intersects(livingentity.getBoundingBox())) {
+                DemonEntity.this.attackEntityAsMob(livingentity);
+                DemonEntity.this.setCharging(false);
             } else {
-                double d0 = DemonEyeEntity.this.getDistanceSq(livingentity);
+                double d0 = DemonEntity.this.getDistanceSq(livingentity);
                 if (d0 < 9.0D) {
                     Vec3d vec3d = livingentity.getEyePosition(1.0F);
-                    DemonEyeEntity.this.moveController.setMoveTo(vec3d.x, vec3d.y, vec3d.z, 2.0D);
+                    DemonEntity.this.moveController.setMoveTo(vec3d.x, vec3d.y, vec3d.z, 2.0D);
                 }
             }
 
@@ -261,41 +263,41 @@ public class DemonEyeEntity extends MonsterEntity {
          * method as well.
          */
         public boolean shouldExecute() {
-            return DemonEyeEntity.this.owner != null && DemonEyeEntity.this.owner.getAttackTarget() != null && this.isSuitableTarget(DemonEyeEntity.this.owner.getAttackTarget(), this.field_220803_b);
+            return DemonEntity.this.owner != null && DemonEntity.this.owner.getAttackTarget() != null && this.isSuitableTarget(DemonEntity.this.owner.getAttackTarget(), this.field_220803_b);
         }
 
         /**
          * Execute a one shot task or start executing a continuous task
          */
         public void startExecuting() {
-            DemonEyeEntity.this.setAttackTarget(DemonEyeEntity.this.owner.getAttackTarget());
+            DemonEntity.this.setAttackTarget(DemonEntity.this.owner.getAttackTarget());
             super.startExecuting();
         }
     }
 
     class MoveHelperController extends MovementController {
-        public MoveHelperController(DemonEyeEntity vex) {
+        public MoveHelperController(DemonEntity vex) {
             super(vex);
         }
 
         public void tick() {
             if (this.action == Action.MOVE_TO) {
-                Vec3d vec3d = new Vec3d(this.posX - DemonEyeEntity.this.getPosX(), this.posY - DemonEyeEntity.this.getPosY(), this.posZ - DemonEyeEntity.this.getPosZ());
+                Vec3d vec3d = new Vec3d(this.posX - DemonEntity.this.getPosX(), this.posY - DemonEntity.this.getPosY(), this.posZ - DemonEntity.this.getPosZ());
                 double d0 = vec3d.length();
-                if (d0 < DemonEyeEntity.this.getBoundingBox().getAverageEdgeLength()) {
+                if (d0 < DemonEntity.this.getBoundingBox().getAverageEdgeLength()) {
                     this.action = Action.WAIT;
-                    DemonEyeEntity.this.setMotion(DemonEyeEntity.this.getMotion().scale(0.5D));
+                    DemonEntity.this.setMotion(DemonEntity.this.getMotion().scale(0.5D));
                 } else {
-                    DemonEyeEntity.this.setMotion(DemonEyeEntity.this.getMotion().add(vec3d.scale(this.speed * 0.05D / d0)));
-                    if (DemonEyeEntity.this.getAttackTarget() == null) {
-                        Vec3d vec3d1 = DemonEyeEntity.this.getMotion();
-                        DemonEyeEntity.this.rotationYaw = -((float)MathHelper.atan2(vec3d1.x, vec3d1.z)) * (180F / (float)Math.PI);
-                        DemonEyeEntity.this.renderYawOffset = DemonEyeEntity.this.rotationYaw;
+                    DemonEntity.this.setMotion(DemonEntity.this.getMotion().add(vec3d.scale(this.speed * 0.05D / d0)));
+                    if (DemonEntity.this.getAttackTarget() == null) {
+                        Vec3d vec3d1 = DemonEntity.this.getMotion();
+                        DemonEntity.this.rotationYaw = -((float)MathHelper.atan2(vec3d1.x, vec3d1.z)) * (180F / (float)Math.PI);
+                        DemonEntity.this.renderYawOffset = DemonEntity.this.rotationYaw;
                     } else {
-                        double d2 = DemonEyeEntity.this.getAttackTarget().getPosX() - DemonEyeEntity.this.getPosX();
-                        double d1 = DemonEyeEntity.this.getAttackTarget().getPosZ() - DemonEyeEntity.this.getPosZ();
-                        DemonEyeEntity.this.rotationYaw = -((float)MathHelper.atan2(d2, d1)) * (180F / (float)Math.PI);
-                        DemonEyeEntity.this.renderYawOffset = DemonEyeEntity.this.rotationYaw;
+                        double d2 = DemonEntity.this.getAttackTarget().getPosX() - DemonEntity.this.getPosX();
+                        double d1 = DemonEntity.this.getAttackTarget().getPosZ() - DemonEntity.this.getPosZ();
+                        DemonEntity.this.rotationYaw = -((float)MathHelper.atan2(d2, d1)) * (180F / (float)Math.PI);
+                        DemonEntity.this.renderYawOffset = DemonEntity.this.rotationYaw;
                     }
                 }
 
@@ -313,7 +315,7 @@ public class DemonEyeEntity extends MonsterEntity {
          * method as well.
          */
         public boolean shouldExecute() {
-            return !DemonEyeEntity.this.getMoveHelper().isUpdating() && DemonEyeEntity.this.rand.nextInt(7) == 0;
+            return !DemonEntity.this.getMoveHelper().isUpdating() && DemonEntity.this.rand.nextInt(7) == 0;
         }
 
         /**
@@ -328,17 +330,17 @@ public class DemonEyeEntity extends MonsterEntity {
          * Keep ticking a continuous task that hasd already been started
          */
         public void tick() {
-            BlockPos blockpos = DemonEyeEntity.this.getBoundOrigin();
+            BlockPos blockpos = DemonEntity.this.getBoundOrigin();
             if (blockpos == null) {
-                blockpos = new BlockPos(DemonEyeEntity.this);
+                blockpos = new BlockPos(DemonEntity.this);
             }
 //
             for(int i = 0; i < 3; ++i) {
-                BlockPos blockpos1 = blockpos.add(DemonEyeEntity.this.rand.nextInt(15) - 7, DemonEyeEntity.this.rand.nextInt(11) - 5, DemonEyeEntity.this.rand.nextInt(15) - 7);
-                if (DemonEyeEntity.this.world.isAirBlock(blockpos1)) {
-                    DemonEyeEntity.this.moveController.setMoveTo((double)blockpos1.getX() + 0.5D, (double)blockpos1.getY() + 0.5D, (double)blockpos1.getZ() + 0.5D, 0.25D);
-                    if (DemonEyeEntity.this.getAttackTarget() == null) {
-                        DemonEyeEntity.this.getLookController().setLookPosition((double)blockpos1.getX() + 0.5D, (double)blockpos1.getY() + 0.5D, (double)blockpos1.getZ() + 0.5D, 180.0F, 20.0F);
+                BlockPos blockpos1 = blockpos.add(DemonEntity.this.rand.nextInt(15) - 7, DemonEntity.this.rand.nextInt(11) - 5, DemonEntity.this.rand.nextInt(15) - 7);
+                if (DemonEntity.this.world.isAirBlock(blockpos1)) {
+                    DemonEntity.this.moveController.setMoveTo((double)blockpos1.getX() + 0.5D, (double)blockpos1.getY() + 0.5D, (double)blockpos1.getZ() + 0.5D, 0.25D);
+                    if (DemonEntity.this.getAttackTarget() == null) {
+                        DemonEntity.this.getLookController().setLookPosition((double)blockpos1.getX() + 0.5D, (double)blockpos1.getY() + 0.5D, (double)blockpos1.getZ() + 0.5D, 180.0F, 20.0F);
                     }
                     break;
                 }
@@ -346,5 +348,20 @@ public class DemonEyeEntity extends MonsterEntity {
 
         }
     }
+
+
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return SoundInit.DEMON_AMBIENT.get();
+    }
+    @Override
+    protected SoundEvent getDeathSound() {
+        return SoundInit.DEMON_KILLED.get();
+    }
+    @Override
+    protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
+        return SoundInit.DEMON_HURT.get();
+    }
+
 }
 

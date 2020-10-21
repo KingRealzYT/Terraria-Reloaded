@@ -1,4 +1,4 @@
-package com.kingrealzyt.terrariareloaded.client.model;
+/*package com.kingrealzyt.terrariareloaded.client.model;
 
 import com.kingrealzyt.terrariareloaded.entities.enemy.DemonEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.misc.SpelunkerCubeEntity;
@@ -34,3 +34,4 @@ public class SpelunkerCubeModel<T extends SpelunkerCubeEntity> extends EntityMod
     }
 
 }
+*/

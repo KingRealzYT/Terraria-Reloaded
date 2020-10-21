@@ -1,7 +1,6 @@
 package com.kingrealzyt.terrariareloaded.tileentities;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
-import com.kingrealzyt.terrariareloaded.blocks.Hellforge;
 import com.kingrealzyt.terrariareloaded.container.HellforgeContainer;
 import com.kingrealzyt.terrariareloaded.init.ModTileEntityTypes;
 import com.kingrealzyt.terrariareloaded.init.RecipeSerializerInit;

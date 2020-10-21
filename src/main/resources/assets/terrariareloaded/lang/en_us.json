@@ -3,6 +3,7 @@
   "entity.terrariareloaded.wall_of_flesh_eye": "Wall of Flesh",
   "entity.terrariareloaded.wall_of_flesh_mouth": "Wall of Flesh",
   "entity.terrariareloaded.demon_eye": "Demon Eye",
+  "entity.terrariareloaded.terrarian_projectile": "Terrar",
 
   "item.terrariareloaded.copper_shortsword": "Copper Shortsword",
   "item.terrariareloaded.copper_broadsword": "Copper Broadsword",
@@ -292,4 +293,5 @@
   "itemGroup.Tools": "Terraria Reloaded Tools",
   "itemGroup.BossSpawns": "Terraria Reloaded Boss Spawns",
   "itemGroup.Miscellaneous": "Terraria Reloaded Miscellaneous"
+
 }
