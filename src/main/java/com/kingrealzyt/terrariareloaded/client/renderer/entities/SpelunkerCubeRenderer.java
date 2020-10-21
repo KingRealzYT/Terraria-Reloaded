@@ -4,9 +4,12 @@ import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.client.model.DemonEyeModel;
 import com.kingrealzyt.terrariareloaded.client.model.SpelunkerCubeModel;
 import com.kingrealzyt.terrariareloaded.entities.enemy.DemonEyeEntity;
+import com.kingrealzyt.terrariareloaded.entities.misc.SpelunkerCubeEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
+import net.minecraft.client.renderer.entity.FallingBlockRenderer;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
+
 
 
 public class SpelunkerCubeRenderer extends MobRenderer<SpelunkerCubeEntity, SpelunkerCubeModel<SpelunkerCubeEntity>> {
@@ -24,3 +27,4 @@ public class SpelunkerCubeRenderer extends MobRenderer<SpelunkerCubeEntity, Spel
     }
 
 }
+//

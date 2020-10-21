@@ -2,6 +2,7 @@ package com.kingrealzyt.terrariareloaded.events;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.entities.projectiles.ThrowingKnifeEntity;
+import com.kingrealzyt.terrariareloaded.init.ModBlocks;
 import com.kingrealzyt.terrariareloaded.init.ModItems;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ArrowEntity;

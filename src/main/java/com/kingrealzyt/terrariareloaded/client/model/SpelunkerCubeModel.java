@@ -1,6 +1,7 @@
 package com.kingrealzyt.terrariareloaded.client.model;
 
 import com.kingrealzyt.terrariareloaded.entities.enemy.DemonEyeEntity;
+import com.kingrealzyt.terrariareloaded.entities.misc.SpelunkerCubeEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;

@@ -33,6 +33,4 @@ public class BombItem extends Item {
         }
         return ActionResult.resultConsume(playerIn.getHeldItem(handIn));
     }
-
-
 }

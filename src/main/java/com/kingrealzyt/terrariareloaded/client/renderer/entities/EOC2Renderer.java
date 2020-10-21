@@ -3,6 +3,7 @@ package com.kingrealzyt.terrariareloaded.client.renderer.entities;
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.client.model.EOC2Model;
 import com.kingrealzyt.terrariareloaded.entities.boss.EOC2Entity;
+import com.kingrealzyt.terrariareloaded.entities.boss.EOCEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;

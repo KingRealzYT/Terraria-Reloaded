@@ -46,7 +46,7 @@ public class SuspiciousEye extends Item {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         if(worldIn.isRemote) {
-            EOCEntity eoc = new EOCEntity(worldIn, playerIn.getPosXRandom(5), playerIn.getPosY() + 7.5, playerIn.getPosZRandom(5));
+            EOCEntity eoc = new EOCEntity(worldIn, playerIn.getPosX(), playerIn.getPosY() + 7.5, playerIn.getPosZ());
             worldIn.addEntity(eoc);
             playerIn.getHeldItem(handIn).shrink(1);
             playerIn.playSound(SoundInit.ENTITYBOSSROAR.get(), 1, 1);

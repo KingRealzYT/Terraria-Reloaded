@@ -45,7 +45,7 @@ public class ModFluids {
             .block(() -> ModFluids.HONEY_BLOCK.get()).bucket(() -> ModItems.HONEY_BUCKET.get());
 
     public static final RegistryObject<FlowingFluidBlock> HONEY_BLOCK = ModBlocks.BLOCKS.register("honey",
-            () -> new FlowingFluidBlock(() -> ModFluids.HONEY_FLUID.get(), Block.Properties.create(Material.WATER)
+            () -> new FlowingFluidBlock(() -> ModFluids.HONEY_FLUID.get(), Block.Properties.create(Material.LAVA)
                     .doesNotBlockMovement().hardnessAndResistance(100.0f).noDrops()));
 
 }

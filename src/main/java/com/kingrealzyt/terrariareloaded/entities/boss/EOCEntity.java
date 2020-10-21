@@ -1,7 +1,9 @@
 package com.kingrealzyt.terrariareloaded.entities.boss;
 
+import com.kingrealzyt.terrariareloaded.entities.enemy.DemonEyeEntity;
 import com.kingrealzyt.terrariareloaded.init.ModEntityTypes;
 import com.kingrealzyt.terrariareloaded.init.SoundInit;
+import net.minecraft.command.arguments.EntityAnchorArgument;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.controller.MovementController;
 import net.minecraft.entity.ai.goal.*;
@@ -16,11 +18,15 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.BossInfo;
@@ -31,339 +37,383 @@ import javax.annotation.Nullable;
 import java.util.EnumSet;
 
 @SuppressWarnings("all")
-public class EOCEntity extends MonsterEntity {
-    protected static final DataParameter<Byte> EOC_FLAGS = EntityDataManager.createKey(EOCEntity.class, DataSerializers.BYTE);
-    private MobEntity owner;
-    @Nullable
-    private BlockPos boundOrigin;
-    private boolean limitedLifespan;
-    private int limitedLifeTicks;
-
-    private static final double ALTITUDE_FLYING_THRESHOLD = 2;
-    private static final double MAX_HEALTH = 400.0D;
-    private static final double MOVEMENT_SPEED_FLYING = 0.7D;
-    private static final double FOLLOW_RANGE = 256.0D;
-    private static final double KNOCKBACK_RESISTANCE = 0.9F;
-    private static final double ATTACK_DAMAGE = 0.5; //TODO change it later
-    //If more players fighting against the eoc, then is this the chance, when the eoc switching the attacker
-    private static final double ATTACKER_SWITCHING_CHANCE = 0.3D;
-    private static final double MIN_ATTACK_RANGE = 0;
-    private static final double MAX_ATTACK_RANGE = 4096.0 * 2.0;
+public class EOCEntity extends FlyingEntity implements IEntityAdditionalSpawnData, IHostile {
+    public int damage = 18;
+    public float rx;
+    public float ry;
+    public float rz;
+    public boolean collision;
+    public boolean bounce;
+    public double velX;
+    public double velY;
+    public double velZ;
+    public double oldVelX;
+    public double oldVelY;
+    public double oldVelZ;
+    public double speed = 2.0D;
+    public double acc = 0.01D;
+    public static int phase = 1;
+    public boolean spawnEyes = true;
+    public int dashed = 0;
+    public int eyes = 0;
+    public int eyesNeeded = 0;
+    public int maxHealth;
+    public float bosshealth;
+    public double transformedRotation = 0.0D;
+    public int defense = 0;
+    public static boolean isEyeAlive = false;
+    public static boolean isEyeAlive2 = false;
+    public boolean ALREADY_SPAWNED = false;
+    public boolean REMOVED = false;
+    public BlockPos lastTarget;
+    public boolean transformed = false;
 
     private final ServerBossInfo bossInfo = (ServerBossInfo) (new ServerBossInfo(this.getDisplayName(), BossInfo.Color.RED, BossInfo.Overlay.PROGRESS)).setDarkenSky(true);
 
-    public EOCEntity(EntityType<? extends EOCEntity> p_i50190_1_, World p_i50190_2_) {
-        super(p_i50190_1_, p_i50190_2_);
-        this.moveController = new EOCEntity.MoveHelperController(this);
-        this.experienceValue = 3;
-    }
-
-    public EOCEntity(World worldIn, double x, double y, double z) {
-        this(ModEntityTypes.EOC.get(), worldIn);
-        this.setPosition(x, y, z);
-    }
-
-    public void move(MoverType typeIn, Vec3d pos) {
-        super.move(typeIn, pos);
-        this.doBlockCollisions();
-    }
-
-    /**
-     * Called to update the entity's position/logic.
-     */
-    public void tick() {
-        this.noClip = true;
-        super.tick();
-        this.noClip = false;
-        this.setNoGravity(true);
-        if (this.limitedLifespan && --this.limitedLifeTicks <= 0) {
-            this.limitedLifeTicks = 20;
-            this.attackEntityFrom(DamageSource.STARVE, 0.0F);
-        }
-    }
-
-    protected void registerGoals() {
-        super.registerGoals();
-        this.goalSelector.addGoal(0, new SwimGoal(this));
-        this.goalSelector.addGoal(4, new EOCEntity.ChargeAttackGoal());
-        this.goalSelector.addGoal(8, new EOCEntity.MoveRandomGoal());
-        this.goalSelector.addGoal(9, new LookAtGoal(this, PlayerEntity.class, 3.0F, 1.0F));
-        this.goalSelector.addGoal(10, new LookAtGoal(this, MobEntity.class, 8.0F));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
-    }
-
-    protected void registerAttributes() {
-        super.registerAttributes();
-        this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(400.0D);
-        this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
-        this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(10.0D);
-        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(MOVEMENT_SPEED_FLYING);
-        this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(FOLLOW_RANGE);
-        this.getAttributes().registerAttribute(SharedMonsterAttributes.FLYING_SPEED).setBaseValue(MOVEMENT_SPEED_FLYING);
-    }
-
-    protected void registerData() {
-        super.registerData();
-        this.dataManager.register(EOC_FLAGS, (byte)0);
-    }
-
-    /**
-     * (abstract) Protected helper method to read subclass entity data from NBT.
-     */
-    public void readAdditional(CompoundNBT compound) {
-        super.readAdditional(compound);
-        if (compound.contains("BoundX")) {
-            this.boundOrigin = new BlockPos(compound.getInt("BoundX"), compound.getInt("BoundY"), compound.getInt("BoundZ"));
+    public EOCEntity(EntityType<EOCEntity> type, World worldIn) {
+        super(type, worldIn);
+        this.init();
+        if (!worldIn.isRemote()) {
+            this.world.getServer().getPlayerList().sendMessage((new StringTextComponent("The Eye of Cthulhu has awoken!")).applyTextStyles(new TextFormatting[]{TextFormatting.BLUE, TextFormatting.BOLD}));
         }
 
-        if (compound.contains("LifeTicks")) {
-            this.setLimitedLife(compound.getInt("LifeTicks"));
-        }
-
+        this.maxHealth = 2800 + 500 * (worldIn.getPlayers().size() - 1);
+        this.bosshealth = (float)this.maxHealth;
+        this.setHealth((float)this.maxHealth);
+        phase = 0;
+        isEyeAlive = true;
     }
 
-    public void writeAdditional(CompoundNBT compound) {
-        super.writeAdditional(compound);
-        if (this.boundOrigin != null) {
-            compound.putInt("BoundX", this.boundOrigin.getX());
-            compound.putInt("BoundY", this.boundOrigin.getY());
-            compound.putInt("BoundZ", this.boundOrigin.getZ());
-        }
-
-        if (this.limitedLifespan) {
-            compound.putInt("LifeTicks", this.limitedLifeTicks);
-        }
-
+    public EOCEntity(World world) {
+        super(ModEntityTypes.EOC.get(), world);
+        this.init();
     }
 
-
-    public MobEntity getOwner() {
-        return this.owner;
-    }
-
-    @Nullable
-    public BlockPos getBoundOrigin() {
-        return this.boundOrigin;
-    }
-
-    public void setBoundOrigin(@Nullable BlockPos boundOriginIn) {
-        this.boundOrigin = null;
-    }
-
-    private boolean getEOCFlag(int mask) {
-        int i = this.dataManager.get(EOC_FLAGS);
-        return (i & mask) != 0;
-    }
-
-    private void setEOCFlag(int mask, boolean value) {
-        int i = this.dataManager.get(EOC_FLAGS);
-        if (value) {
-            i = i | mask;
-        } else {
-            i = i & ~mask;
-        }
-
-        this.dataManager.set(EOC_FLAGS, (byte)(i & 255));
-    }
-
-    public boolean isCharging() {
-        return this.getEOCFlag(1);
-    }
-
-    public void setCharging(boolean charging) {
-        this.setEOCFlag(1, charging);
-    }
-
-    public void setOwner(MobEntity ownerIn) {
-        this.owner = ownerIn;
-    }
-
-    public void setLimitedLife(int limitedLifeTicksIn) {
-        this.limitedLifespan = false;
-        this.limitedLifeTicks = limitedLifeTicksIn;
-    }
-
-    @Override
-    public void livingTick() {
-        this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
-        super.livingTick();
-    }
-
-
-    /**
-     * Gets how bright this entity is.
-     */
-    public float getBrightness() {
-        return 1.0F;
+    public void init() {
     }
 
     @Nullable
     public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
-        return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
+        this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue((double)(600));
+        this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1000.0D);
+        this.maxHealth = 600;
+        this.bosshealth = (float)this.maxHealth;
+        this.setHealth((float)this.maxHealth);
+        return spawnDataIn;
     }
 
-    @Override
-    public boolean isNonBoss() {
+
+    public void onCollideWithPlayer(PlayerEntity player) {
+        this.tryDamagePlayer(player);
+    }
+
+    public void tryDamagePlayer(PlayerEntity player) {
+        if (this.transformedRotation <= 0.0D || this.transformedRotation >= 1790.0D) {
+            if (player != null && (double)player.getDistance(this) <= 1.5D) {
+                if (phase == 1) {
+                    player.attackEntityFrom(DamageSource.causeMobDamage(this), 15.0F);
+                } else {
+                    player.attackEntityFrom(DamageSource.causeMobDamage(this), 23.0F);
+                }
+            }
+
+        }
+    }
+
+    public float getHealth() {
+        return this.bosshealth;
+    }
+
+    public boolean canRenderOnFire() {
         return false;
     }
 
-    class ChargeAttackGoal extends Goal {
-        public ChargeAttackGoal() {
-            this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
-        }
+    public void setFire(int seconds) {
+    }
 
-        /**
-         * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
-         * method as well.
-         */
-        public boolean shouldExecute() {
-            if (EOCEntity.this.getAttackTarget() != null && !EOCEntity.this.getMoveHelper().isUpdating() && EOCEntity.this.rand.nextInt(7) == 0) {
-                return EOCEntity.this.getDistanceSq(EOCEntity.this.getAttackTarget()) > 4.0D;
-            } else {
-                return false;
+    public void tick() {
+        isEyeAlive2 = isEyeAlive;
+        this.ALREADY_SPAWNED = true;
+        boolean despawn = true;
+
+        for(int i = 0; i < this.world.getPlayers().size(); ++i) {
+            if (((PlayerEntity)this.world.getPlayers().get(i)).getHealth() > 0.0F) {
+                despawn = false;
+                break;
             }
         }
 
-        /**
-         * Returns whether an in-progress EntityAIBase should continue executing
-         */
-        public boolean shouldContinueExecuting() {
-            return EOCEntity.this.getMoveHelper().isUpdating() && EOCEntity.this.isCharging() && EOCEntity.this.getAttackTarget() != null && EOCEntity.this.getAttackTarget().isAlive();
+        if (despawn) {
+            this.REMOVED = true;
+            isEyeAlive = false;
+            this.remove();
         }
 
-        /**
-         * Execute a one shot task or start executing a continuous task
-         */
-        public void startExecuting() {
-            LivingEntity livingentity = EOCEntity.this.getAttackTarget();
-            Vec3d vec3d = livingentity.getEyePosition(1.0F);
-            EOCEntity.this.moveController.setMoveTo(vec3d.x, vec3d.y, vec3d.z, 2.0D);
-            EOCEntity.this.setCharging(true);
-            EOCEntity.this.playSound(SoundInit.ENTITYBOSSROAR.get(), 1.0F, 1.0F);
+        super.tick();
+        this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(9999.0D);
+        this.setNoGravity(true);
+        this.noClip = true;
+        double motionY = this.getMotion().y;
+        double motionX = this.getMotion().x;
+        double motionZ = this.getMotion().z;
+        if (phase == 1) {
+            this.defense = 12;
+        } else {
+            this.defense = 0;
         }
 
-        /**
-         * Reset the task's internal state. Called when this task is interrupted by another one
-         */
-        public void resetTask() {
-            EOCEntity.this.setCharging(false);
-        }
+        if (!this.world.isRemote) {
+            motionY = 0.0D;
+            this.rotationPitch = 0.0F;
+            this.rotationYaw = 0.0F;
+            this.rotationYawHead = 0.0F;
+            PlayerEntity target = null;
+            double distance = 1000.0D;
 
-        /**
-         * Keep ticking a continuous task that has already been started
-         */
-        public void tick() {
-            LivingEntity livingentity = EOCEntity.this.getAttackTarget();
-            if (EOCEntity.this.getBoundingBox().intersects(livingentity.getBoundingBox())) {
-                EOCEntity.this.attackEntityAsMob(livingentity);
-                EOCEntity.this.setCharging(false);
-            } else {
-                double d0 = EOCEntity.this.getDistanceSq(livingentity);
-                if (d0 < 9.0D) {
-                    Vec3d vec3d = livingentity.getEyePosition(1.0F);
-                    EOCEntity.this.moveController.setMoveTo(vec3d.x, vec3d.y, vec3d.z, 2.0D);
+            for(int i = 0; i < this.world.getPlayers().size(); ++i) {
+                double dist = ((PlayerEntity)this.world.getPlayers().get(i)).getPositionVector().distanceTo(this.getPositionVector());
+                if (dist < distance) {
+                    distance = dist;
+                    target = (PlayerEntity)this.world.getPlayers().get(i);
                 }
             }
 
-        }
-    }
+            if (this.world.getDayTime() % 24000L < 15000L || this.world.getDayTime() % 24000L > 22500L) {
+                this.velY = 10.0D;
+            }
 
-    class CopyOwnerTargetGoal extends TargetGoal {
-        private final EntityPredicate field_220803_b = (new EntityPredicate()).setLineOfSiteRequired().setUseInvisibilityCheck();
+            if (phase == 0) {
+                phase = 1;
+            }
 
-        public CopyOwnerTargetGoal(CreatureEntity creature) {
-            super(creature, false);
-        }
+            if (phase == 1 || phase == 2) {
+                if (this.spawnEyes) {
+                    if (this.eyesNeeded == 0) {
+                        this.eyesNeeded = this.rand.nextInt(2) + 2;
+                        if (this.getHealth() <= (float)this.maxHealth * 0.25F) {
+                            this.eyesNeeded = 1;
+                        }
+                    } else if (this.ticksExisted % 35 == 0 && this.rand.nextBoolean()) {
+                        if (this.eyes < this.eyesNeeded) {
+                            ++this.eyes;
+                            if (phase == 1 && this.world.getEntitiesWithinAABB(DemonEyeEntity.class, this.getBoundingBox().expand(15.0D, 15.0D, 15.0D)).size() <= 8) {
+                                DemonEyeEntity eye = new DemonEyeEntity.create(this.world, (CompoundNBT)null, (ITextComponent)null, (PlayerEntity)null, this.getPosition(), SpawnReason.EVENT, false, false);
+                                eye.setPosition(this.getPosX(), this.getPosY(), this.getPosZ());
+                                eye.setHealth(8.0F);
+                                eye.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(12.0D);
+                                this.world.addEntity(eye);
+                                eye.noClip = true;
+                            }
+                        } else {
+                            this.spawnEyes = false;
+                            this.dashed = 0;
+                        }
+                    }
 
-        /**
-         * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
-         * method as well.
-         */
-        public boolean shouldExecute() {
-            return EOCEntity.this.owner != null && EOCEntity.this.owner.getAttackTarget() != null && this.isSuitableTarget(EOCEntity.this.owner.getAttackTarget(), this.field_220803_b);
-        }
+                    if (target != null) {
 
-        /**
-         * Execute a one shot task or start executing a continuous task
-         */
-        public void startExecuting() {
-            EOCEntity.this.setAttackTarget(EOCEntity.this.owner.getAttackTarget());
-            super.startExecuting();
-        }
-    }
+                        if (!target.isAlive()) {
+                            isEyeAlive = false;
+                        }
 
-    class MoveHelperController extends MovementController {
-        public MoveHelperController(EOCEntity vex) {
-            super(vex);
-        }
+                        if (this.velX > -4.0D && this.getPosX() > target.getPosX() + (double)target.getWidth()) {
+                            this.velX -= 0.08D;
+                            if (this.velX > 4.0D) {
+                                this.velX -= 0.04D;
+                            } else if (this.velX > 0.0D) {
+                                this.velX -= 0.2D;
+                            }
 
-        public void tick() {
-            if (this.action == MovementController.Action.MOVE_TO) {
-                Vec3d vec3d = new Vec3d(this.posX - EOCEntity.this.getPosX(), this.posY - EOCEntity.this.getPosY(), this.posZ - EOCEntity.this.getPosZ());
-                double d0 = vec3d.length();
-                if (d0 < EOCEntity.this.getBoundingBox().getAverageEdgeLength()) {
-                    this.action = MovementController.Action.WAIT;
-                    EOCEntity.this.setMotion(EOCEntity.this.getMotion().scale(0.5D));
+                            if (this.velX < -4.0D) {
+                                this.velX = -4.0D;
+                            }
+                        } else if (this.velX < 4.0D && this.getPosX() + 1.0D < target.getPosX()) {
+                            this.velX += 0.08D;
+                            if (this.velX < -4.0D) {
+                                this.velX += 0.04D;
+                            } else if (this.velX < 0.0D) {
+                                this.velX += 0.2D;
+                            }
+
+                            if (this.velX > 4.0D) {
+                                this.velX = 4.0D;
+                            }
+                        }
+
+                        if (this.velZ > -4.0D && this.getPosZ() > target.getPosZ() + (double)target.getWidth()) {
+                            this.velZ -= 0.08D;
+                            if (this.velZ > 4.0D) {
+                                this.velZ -= 0.04D;
+                            } else if (this.velZ > 0.0D) {
+                                this.velZ -= 0.2D;
+                            }
+
+                            if (this.velZ < -4.0D) {
+                                this.velZ = -4.0D;
+                            }
+                        } else if (this.velZ < 4.0D && this.getPosZ() + 1.0D < target.getPosZ()) {
+                            this.velZ += 0.07999999821186066D;
+                            if (this.velZ < -4.0D) {
+                                this.velZ += 0.04D;
+                            } else if (this.velZ < 0.0D) {
+                                this.velZ += 0.2D;
+                            }
+
+                            if (this.velZ > 4.0D) {
+                                this.velZ = 4.0D;
+                            }
+                        }
+
+                        if (this.velY > -2.5D && this.getPosY() > target.getPosY() + (double)target.getHeight() + 5.0D) {
+                            this.velY -= 0.30000001192092896D;
+                            if (this.velY > 2.5D) {
+                                this.velY -= 0.05D;
+                            } else if (this.velY > 0.0D) {
+                                this.velY -= 0.15D;
+                            }
+
+                            if (this.velY < -2.5D) {
+                                this.velY = -2.5D;
+                            }
+                        } else if (this.velY < 2.5D && this.getPosY() + 1.0D < target.getPosY() + 5.0D) {
+                            this.velY += 0.30000001192092896D;
+                            if (this.velY < -2.5D) {
+                                this.velY += 0.05D;
+                            } else if (this.velY < 0.0D) {
+                                this.velY += 0.15D;
+                            }
+
+                            if (this.velY > 2.5D) {
+                                this.velY = 2.5D;
+                            }
+                        }
+                    }
                 } else {
-                    EOCEntity.this.setMotion(EOCEntity.this.getMotion().add(vec3d.scale(this.speed * 0.05D / d0)));
-                    if (EOCEntity.this.getAttackTarget() == null) {
-                        Vec3d vec3d1 = EOCEntity.this.getMotion();
-                        EOCEntity.this.rotationYaw = -((float)MathHelper.atan2(vec3d1.x, vec3d1.z)) * (180F / (float)Math.PI);
-                        EOCEntity.this.renderYawOffset = EOCEntity.this.rotationYaw;
-                    } else {
-                        double d2 = EOCEntity.this.getAttackTarget().getPosX() - EOCEntity.this.getPosX();
-                        double d1 = EOCEntity.this.getAttackTarget().getPosZ() - EOCEntity.this.getPosZ();
-                        EOCEntity.this.rotationYaw = -((float)MathHelper.atan2(d2, d1)) * (180F / (float)Math.PI);
-                        EOCEntity.this.renderYawOffset = EOCEntity.this.rotationYaw;
+                    this.velX *= 0.949999988079071D;
+                    this.velY *= 0.949999988079071D;
+                    this.velZ *= 0.949999988079071D;
+                    float speed = 2.0F;
+                    if (phase == 2) {
+                        speed = 2.0F;
+                    }
+
+                    if (this.getHealth() <= (float)this.maxHealth * 0.4F) {
+                        speed = 2.0F;
+                    }
+
+                    boolean fast = false;
+                    Vec3d motion = new Vec3d(this.velX, this.velY, this.velZ);
+                    if (target != null && (motion.length() <= 1.0D || this.getHealth() <= (float)this.maxHealth * 0.4F && this.getHealth() >= (float)this.maxHealth * 0.25F && this.dashed >= 3 && motion.length() <= 2.5D || this.getHealth() <= (float)this.maxHealth * 0.25F && motion.length() < 2.5D)) {
+                        if (this.getHealth() > (float)this.maxHealth * 0.4F) {
+                            if (this.dashed < 3) {
+                                ++this.dashed;
+                            } else {
+                                this.eyesNeeded = 0;
+                                this.spawnEyes = true;
+                                this.eyes = 0;
+                            }
+                        } else if (this.getHealth() < (float)this.maxHealth * 0.25F) {
+                            speed = 4.0F;
+                            fast = true;
+                            if (this.lastTarget == null) {
+                                this.lastTarget = target.getPosition();
+                            }
+
+                            if (this.dashed < 5) {
+                                ++this.dashed;
+                            } else {
+                                this.dashed = 0;
+                                speed = 1.0F;
+                                this.lastTarget = null;
+                            }
+                        } else {
+                            if (this.lastTarget == null) {
+                                this.lastTarget = target.getPosition();
+                            }
+
+                            if (this.dashed < 6) {
+                                ++this.dashed;
+                            } else {
+                                this.dashed = 0;
+                                this.lastTarget = null;
+                            }
+
+                            if (this.dashed < 3) {
+                                speed = 2.0F;
+                            } else {
+                                speed = 4.0F;
+                                fast = true;
+                            }
+                        }
+
+                        if (target != null) {
+                            Vec3d direction = new Vec3d(target.lastTickPosX - target.getMotion().x - this.getPosX(), target.lastTickPosY - target.getMotion().y - this.posY, target.lastTickPosZ - target.getMotion().z - this.posZ);
+                            direction = (new Vec3d(direction.x * 100.0D, direction.y * 100.0D, direction.z * 100.0D)).normalize();
+                            direction = new Vec3d(direction.x * (double)speed, direction.y * (double)speed, direction.z * (double)speed);
+                            this.velX = direction.x * 2.0D;
+                            this.velY = direction.y * 2.0D;
+                            this.velZ = direction.z * 2.0D;
+                        }
                     }
                 }
+            }
+            if (this.getHealth() <= (float)this.maxHealth * 0.65F && transformed == false) {
+                transformed = true;
+                phase = 2;
+            }
 
+            this.bounce = false;
+            this.oldVelX = this.velX + 0.0D;
+            this.oldVelY = this.velY + 0.0D;
+            this.oldVelZ = this.velZ + 0.0D;
+            motionX = this.velX * 0.25D;
+            motionY = this.velY * 0.25D;
+            motionZ = this.velZ * 0.25D;
+            if (target != null) {
+                this.lookAt(EntityAnchorArgument.Type.EYES, target.getPositionVec());
+            }
+
+            if (target != null) {
+                this.rx = (float)Math.toDegrees(Math.atan2(this.getPosY() - target.getPosY(), this.getPosX() - target.getPosX()));
+                this.rz = (float)Math.toDegrees(Math.atan2(this.getPosY() - target.getPosY(), this.getPosZ() - target.getPosZ()));
             }
         }
+
+        this.setMotion(motionX, motionY, motionZ);
+        this.dataManager.set(phase_data, phase);
+        if (!this.world.isRemote) {
+            this.setHealth(this.bosshealth);
+        }
+
+        this.maxHurtTime = 0;
+        this.hurtResistantTime = 0;
+        if ((Integer)this.getDataManager().get(phase_data) != 1 && this.transformedRotation < 1790.0D) {
+            if (this.ticksExisted % 10 == 0 && this.world.getEntitiesWithinAABB(DemonEyeEntity.class, this.getBoundingBox().expand(15.0D, 15.0D, 15.0D)).size() <= 8) {
+                DemonEyeEntity eye = (DemonEyeEntity)ModEntityTypes.DEMON_EYE.create(this.world, (CompoundNBT)null, (ITextComponent)null, (PlayerEntity)null, this.getPosition(), SpawnReason.EVENT, false, false);
+                eye.setPosition(this.getPosX(), this.getPosY(), this.getPosZ());
+                eye.setHealth(8.0F);
+                eye.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(12.0D);
+                this.world.addEntity(eye);
+                eye.noClip = true;
+                eye.setCustomName(new StringTextComponent("Servant of Cthulhu"));
+            }
+
+            this.transformedRotation += (1800.0D - this.transformedRotation) * 0.07999999821186066D;
+            this.ry = (float)this.transformedRotation;
+            this.rx = 0.0F;
+            this.rz = 0.0F;
+            this.velX = 0.0D;
+            this.velY = 0.0D;
+            this.velZ = 0.0D;
+            motionX = 0.0D;
+            motionY = 0.0D;
+            motionZ = 0.0D;
+            this.rotationYaw = this.ry;
+        }
+
     }
 
-    class MoveRandomGoal extends Goal {
-        public MoveRandomGoal() {
-            this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
-        }
 
-        /**
-         * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
-         * method as well.
-         */
-        public boolean shouldExecute() {
-            return !EOCEntity.this.getMoveHelper().isUpdating() && EOCEntity.this.rand.nextInt(7) == 0;
-        }
 
-        /**
-         * Returns whether an in-progress EntityAIBase should continue executing
-         */
-        public boolean shouldContinueExecuting() {
-            return false;
-        }
-//
-
-        /**
-         * Keep ticking a continuous task that hasd already been started
-         */
-        public void tick() {
-            BlockPos blockpos = EOCEntity.this.getBoundOrigin();
-            if (blockpos == null) {
-                blockpos = new BlockPos(EOCEntity.this);
-            }
-//
-            for(int i = 0; i < 3; ++i) {
-                BlockPos blockpos1 = blockpos.add(EOCEntity.this.rand.nextInt(15) - 7, EOCEntity.this.rand.nextInt(11) - 5, EOCEntity.this.rand.nextInt(15) - 7);
-                if (EOCEntity.this.world.isAirBlock(blockpos1)) {
-                    EOCEntity.this.moveController.setMoveTo((double)blockpos1.getX() + 0.5D, (double)blockpos1.getY() + 0.5D, (double)blockpos1.getZ() + 0.5D, 0.25D);
-                    if (EOCEntity.this.getAttackTarget() == null) {
-                        EOCEntity.this.getLookController().setLookPosition((double)blockpos1.getX() + 0.5D, (double)blockpos1.getY() + 0.5D, (double)blockpos1.getZ() + 0.5D, 180.0F, 20.0F);
-                    }
-                    break;
-                }
-            }
-
-        }
-    }
 }
 
