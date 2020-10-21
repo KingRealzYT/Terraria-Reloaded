@@ -39,6 +39,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
@@ -88,7 +89,7 @@ public class TerrariaReloaded {
         }
         
         try {
-			Field musicTicker = Minecraft.class.getDeclaredField("musicTicker");
+			Field musicTicker = ObfuscationReflectionHelper.findField(Minecraft.class, "field_147126_aw");
 			musicTicker.setAccessible(true);
 			musicTicker.set(Minecraft.getInstance(), new TMusicTicker(Minecraft.getInstance()));
 		} catch (Exception e1) {

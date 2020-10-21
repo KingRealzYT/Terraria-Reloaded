@@ -83,19 +83,19 @@ public class EOCEntity extends MonsterEntity {
     public EOCEntity(EntityType<? extends EOCEntity> p_i50190_1_, World p_i50190_2_) {
         super(p_i50190_1_, p_i50190_2_);
         this.experienceValue = 3;
-        this.setHealth(2800);
         this.maxHealth = 2800;
+        this.setHealth(maxHealth);
         isEyeAlive = true;
         phase = 1;
         System.out.println(phase);
+        System.out.println(this.getHealth());
         if (!world.isRemote()) {
         	this.world.getServer().getPlayerList().sendMessage((new StringTextComponent("The Eye of Cthulhu has awoken!")).applyTextStyles(new TextFormatting[]{TextFormatting.DARK_PURPLE, TextFormatting.BOLD}));
         }
     }
 
-    public EOCEntity(World worldIn, double x, double y, double z) {
-        this(ModEntityTypes.EOC.get(), worldIn);
-        this.setPosition(x, y, z);
+    public EOCEntity(World worldIn) {
+        this(ModEntityTypes.EOC, worldIn);
         phase = 1;
         
     }
@@ -104,8 +104,8 @@ public class EOCEntity extends MonsterEntity {
     public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
        this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue((double)(2800));
        this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1000.0D);
-       this.setHealth(2800);
        this.maxHealth = 2800;
+       this.setHealth(maxHealth);
        phase = 1;
        return spawnDataIn;
     }
@@ -137,7 +137,6 @@ public class EOCEntity extends MonsterEntity {
     public void tick() {
         isEyeAlive2 = isEyeAlive;
         this.ALREADY_SPAWNED = true;
-
         super.tick();
         this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(9999.0D);
         this.setNoGravity(true);

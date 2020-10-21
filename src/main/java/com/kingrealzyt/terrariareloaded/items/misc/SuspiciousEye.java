@@ -4,9 +4,11 @@ import java.util.List;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.entities.boss.EOCEntity;
+import com.kingrealzyt.terrariareloaded.init.ModEntityTypes;
 import com.kingrealzyt.terrariareloaded.init.SoundInit;
 
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -38,16 +40,22 @@ public class SuspiciousEye extends Item {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
     	ItemStack itemstack = playerIn.getHeldItem(handIn);
+    	playerIn.getCooldownTracker().setCooldown(this, 20);
     	
     	List<EOCEntity> eocs = worldIn.getEntitiesWithinAABB(EOCEntity.class, new AxisAlignedBB(new BlockPos(playerIn.getPosX() - 150, playerIn.getPosY() - 150, playerIn.getPosZ() - 150), new BlockPos(playerIn.getPosX() + 150, playerIn.getPosY() + 150, playerIn.getPosZ() + 150)));
 		if (eocs.size() > 0) {
 			return new ActionResult<>(ActionResultType.SUCCESS, itemstack);
 		}
-    	
-    	EOCEntity eoc = new EOCEntity(worldIn, playerIn.getPosXRandom(5), playerIn.getPosY() + 7.5, playerIn.getPosZRandom(5));
-	    worldIn.addEntity(eoc); 
-	    playerIn.getHeldItem(handIn).shrink(1);
-	    playerIn.playSound(SoundInit.ENTITYBOSSROAR.get(), 1, 1);
-        return ActionResult.resultConsume(playerIn.getHeldItem(handIn));
+		
+		float posX = 0, posY = worldIn.rand.nextInt(20) - 10, posZ = 0;
+	    	
+		if (worldIn.getDayTime() % 24000L > 15000 && worldIn.getDayTime() % 24000L < 22000) {
+			playerIn.playSound(SoundInit.ENTITYBOSSROAR.get(), 1, 1);
+			EOCEntity eoc = ModEntityTypes.EOC.create(worldIn, null, null, null, playerIn.getPosition(), SpawnReason.EVENT, false, false);
+			eoc.setPosition(playerIn.getPosition().getX() + posX, playerIn.getPosition().getY() + posY, playerIn.getPosition().getZ() + posZ);
+			worldIn.addEntity(eoc);
+			playerIn.getHeldItem(handIn).shrink(1);
+		}
+		return new ActionResult<>(ActionResultType.SUCCESS, itemstack);
     }
 }
