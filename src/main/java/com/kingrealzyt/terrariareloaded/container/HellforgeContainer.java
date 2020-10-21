@@ -74,7 +74,7 @@ public class HellforgeContainer extends Container {
 
     @Override
     public boolean canInteractWith(PlayerEntity playerIn) {
-        return isWithinUsableDistance(canInteractWithCallable, playerIn, ModBlocks.HELLFORGE.get());
+        return isWithinUsableDistance(canInteractWithCallable, playerIn, ModBlocks.HELLFORGE);
     }
 
     @Nonnull

@@ -22,7 +22,8 @@ public class RenderEOC extends LivingRenderer<EOCEntity, EOCPhaseModel>
      * Allows the render to do any OpenGL state modifications necessary before the model is rendered. Args:
      * entityLiving, partialTickTime
      */
-    protected void preRenderCallback(EOCEntity entitylivingbaseIn, float partialTickTime)
+    @SuppressWarnings("all")
+	protected void preRenderCallback(EOCEntity entitylivingbaseIn, float partialTickTime)
     {
         float f = 8;
         

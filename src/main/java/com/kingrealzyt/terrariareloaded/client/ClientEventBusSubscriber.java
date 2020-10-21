@@ -69,21 +69,21 @@ public class ClientEventBusSubscriber {
 
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
-        RenderTypeLookup.setRenderLayer(ModBlocks.DEATHWEED_CROP.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.SHIVERTHORN_CROP.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.WATERLEAF_CROP.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.FIREBLOSSOM_CROP.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.MOONGLOW_CROP.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.DAYBLOOM_CROP.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.BLINKROOT_CROP.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.GLOWING_MUSHROOM.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.DEATHWEED_CROP, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.SHIVERTHORN_CROP, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.WATERLEAF_CROP, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.FIREBLOSSOM_CROP, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.MOONGLOW_CROP, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.DAYBLOOM_CROP, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.BLINKROOT_CROP, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.GLOWING_MUSHROOM, RenderType.getCutout());
 
-        RenderTypeLookup.setRenderLayer(ModBlocks.LIFE_FRUIT_BUSH.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.JUNGLE_SPORES_BUSH.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.EBONWOOD_SAPLING.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.SHADEWOOD_SAPLING.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.EBONWOOD_LEAVES.get(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(ModBlocks.SHADEWOOD_LEAVES.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(ModBlocks.LIFE_FRUIT_BUSH, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.JUNGLE_SPORES_BUSH, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.EBONWOOD_SAPLING, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.SHADEWOOD_SAPLING, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.EBONWOOD_LEAVES, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(ModBlocks.SHADEWOOD_LEAVES, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(ModFluids.HONEY_FLUID.get(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(ModFluids.HONEY_FLOWING.get(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(ModFluids.HONEY_BLOCK.get(), RenderType.getTranslucent());

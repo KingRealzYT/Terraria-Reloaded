@@ -1,36 +1,32 @@
 package com.kingrealzyt.terrariareloaded.entities.boss;
 
-import com.kingrealzyt.terrariareloaded.entities.enemy.DemonEyeEntity;
+import javax.annotation.Nullable;
+
 import com.kingrealzyt.terrariareloaded.init.ModEntityTypes;
 import com.kingrealzyt.terrariareloaded.init.SoundInit;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.controller.MovementController;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.AbstractRaiderEntity;
+
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ILivingEntityData;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.BossInfo;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.BossInfo;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerBossInfo;
-
-import javax.annotation.Nullable;
-import java.util.EnumSet;
 
 @SuppressWarnings("all")
 public class EOCEntity extends MonsterEntity {
@@ -41,7 +37,7 @@ public class EOCEntity extends MonsterEntity {
     private boolean limitedLifespan;
     private int limitedLifeTicks;
     
-    public static int phase = 1;
+    public static int phase;
     public int damage = 18;
     public float rx;
     public float ry;
@@ -87,11 +83,20 @@ public class EOCEntity extends MonsterEntity {
     public EOCEntity(EntityType<? extends EOCEntity> p_i50190_1_, World p_i50190_2_) {
         super(p_i50190_1_, p_i50190_2_);
         this.experienceValue = 3;
+        this.setHealth(2800);
+        this.maxHealth = 2800;
+        isEyeAlive = true;
+        phase = 1;
+        System.out.println(phase);
+        if (!world.isRemote()) {
+        	this.world.getServer().getPlayerList().sendMessage((new StringTextComponent("The Eye of Cthulhu has awoken!")).applyTextStyles(new TextFormatting[]{TextFormatting.DARK_PURPLE, TextFormatting.BOLD}));
+        }
     }
 
     public EOCEntity(World worldIn, double x, double y, double z) {
         this(ModEntityTypes.EOC.get(), worldIn);
         this.setPosition(x, y, z);
+        phase = 1;
         
     }
     
@@ -99,7 +104,9 @@ public class EOCEntity extends MonsterEntity {
     public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
        this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue((double)(2800));
        this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1000.0D);
+       this.setHealth(2800);
        this.maxHealth = 2800;
+       phase = 1;
        return spawnDataIn;
     }
     
@@ -119,24 +126,17 @@ public class EOCEntity extends MonsterEntity {
 
         }
      }
+     
+     public void dropLoot(DamageSource source, boolean b) { 
+    	 if (!world.isRemote()) {
+    		 this.world.getServer().getPlayerList().sendMessage((new StringTextComponent("The Eye of Cthulhu has been defeated!")).applyTextStyles(new TextFormatting[]{TextFormatting.DARK_PURPLE, TextFormatting.BOLD}));
+    	 }
+    	 isEyeAlive = false;
+     }
     
     public void tick() {
         isEyeAlive2 = isEyeAlive;
         this.ALREADY_SPAWNED = true;
-        boolean despawn = true;
-
-        for(int i = 0; i < this.world.getPlayers().size(); ++i) {
-           if (((PlayerEntity)this.world.getPlayers().get(i)).getHealth() > 0.0F) {
-              despawn = false;
-              break;
-           }
-        }
-
-        if (despawn) {
-           this.REMOVED = true;
-           isEyeAlive = false;
-           this.remove();
-        }
 
         super.tick();
         this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(9999.0D);
@@ -166,7 +166,7 @@ public class EOCEntity extends MonsterEntity {
                  target = (PlayerEntity)this.world.getPlayers().get(i);
               }
            }
-
+           
            if (this.world.getDayTime() % 24000L < 15000L || this.world.getDayTime() % 24000L > 22500L) {
               this.velY = 10.0D;
            }
@@ -324,7 +324,7 @@ public class EOCEntity extends MonsterEntity {
                  }
               }
 
-           if (this.getHealth() <= (float)this.maxHealth * 0.65F && transformed == false) {
+           if (this.getHealth() <= 1400 && transformed == false) {
           	transformed = true;
           	world.playSound((PlayerEntity)null, this.getPosX(), this.getPosY(), this.getPosZ(), SoundInit.ROAR, SoundCategory.PLAYERS, 100, 1);
               phase = 2;
@@ -345,26 +345,9 @@ public class EOCEntity extends MonsterEntity {
         }
 
         this.setMotion(motionX, motionY, motionZ);
-        if (!this.world.isRemote) {
-           this.setHealth(this.bosshealth);
-        }
 
         this.maxHurtTime = 0;
         this.hurtResistantTime = 0;
-        if (phase != 1 && this.transformedRotation < 1790.0D) {
-           this.transformedRotation += (1800.0D - this.transformedRotation) * 0.07999999821186066D;
-           this.ry = (float)this.transformedRotation;
-           this.rx = 0.0F;
-           this.rz = 0.0F;
-           this.velX = 0.0D;
-           this.velY = 0.0D;
-           this.velZ = 0.0D;
-           motionX = 0.0D;
-           motionY = 0.0D;
-           motionZ = 0.0D;
-           this.rotationYaw = this.ry;
-        }
-
      }
 
    

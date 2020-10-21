@@ -17,7 +17,7 @@ public class ModBiomes {
 
     public static final DeferredRegister<Biome> BIOMES = new DeferredRegister<>(ForgeRegistries.BIOMES, TerrariaReloaded.MOD_ID);
 
-    public static final RegistryObject<Biome> CRIMSON = BIOMES.register("crimson", () -> new CrimsonBiome(new Biome.Builder().scale(1f).temperature(0.2f).waterColor(10694464).waterFogColor(16748683).surfaceBuilder(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(ModBlocks.CRIMSON_GRASS_BLOCK.get().getDefaultState(), ModBlocks.CRIMSTONE.get().getDefaultState(), ModBlocks.CRIMSAND.get().getDefaultState())).category(Biome.Category.PLAINS).downfall(0.0001f).depth(0.125f).parent(null).precipitation(Biome.RainType.RAIN)));
+    public static final RegistryObject<Biome> CRIMSON = BIOMES.register("crimson", () -> new CrimsonBiome(new Biome.Builder().scale(1f).temperature(0.2f).waterColor(10694464).waterFogColor(16748683).surfaceBuilder(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(ModBlocks.CRIMSON_GRASS_BLOCK.getDefaultState(), ModBlocks.CRIMSTONE.getDefaultState(), ModBlocks.CRIMSAND.getDefaultState())).category(Biome.Category.PLAINS).downfall(0.0001f).depth(0.125f).parent(null).precipitation(Biome.RainType.RAIN)));
 
 
     public static void registerBiomes()

@@ -5,6 +5,7 @@ import java.lang.reflect.Field;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.kingrealzyt.terrariareloaded.client.TMusicTicker;
 import com.kingrealzyt.terrariareloaded.init.ModBiomes;
 import com.kingrealzyt.terrariareloaded.init.ModBlocks;
 import com.kingrealzyt.terrariareloaded.init.ModContainers;
@@ -22,6 +23,7 @@ import com.kingrealzyt.terrariareloaded.world.capability.player.PlayerCoinCapabi
 import com.kingrealzyt.terrariareloaded.world.capability.player.PlayerCoinCapabilityStorage;
 import com.kingrealzyt.terrariareloaded.world.gen.ModStructureGen;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.item.ItemGroup;
@@ -47,7 +49,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class TerrariaReloaded {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "terrariareloaded";
-
+        
     public TerrariaReloaded() {
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::setup);
@@ -56,13 +58,11 @@ public class TerrariaReloaded {
         SoundInit.SOUNDS.register(modEventBus);
         ModItems.init();
         ModFluids.init();
-        ModBlocks.init();
         ModContainers.CONTAINERS.register(modEventBus);
         ModEntityTypes.ENTITY_TYPES.register(modEventBus);
         ModFeatures.FEATURES.register(modEventBus);
         ModTileEntityTypes.TILEENTITY_TYPES.register(modEventBus);
         RecipeSerializerInit.RECIPE_SERIALIZERS.register(modEventBus);
-        ModBiomes.BIOMES.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
@@ -86,13 +86,20 @@ public class TerrariaReloaded {
             } catch (IllegalAccessException err) {}
           }	
         }
+        
+        try {
+			Field musicTicker = Minecraft.class.getDeclaredField("musicTicker");
+			musicTicker.setAccessible(true);
+			musicTicker.set(Minecraft.getInstance(), new TMusicTicker(Minecraft.getInstance()));
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
 
     }
 
     @SubscribeEvent
     public static void OnRegisterBiomes(final RegistryEvent.Register<Biome> event)
     {
-        ModBiomes.registerBiomes();
     }
 
     @SubscribeEvent
@@ -111,7 +118,7 @@ public class TerrariaReloaded {
     public static final ItemGroup BLOCKS = new ItemGroup("Blocks") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(ModBlocks.COBALT_ORE.get());
+            return new ItemStack(ModBlocks.COBALT_ORE);
         }
     };
 

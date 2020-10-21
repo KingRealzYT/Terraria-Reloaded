@@ -46,7 +46,7 @@ public class GlowingMushroom extends MushroomBlock implements IPlantable {
         BlockPos blockpos = pos.down();
         BlockState blockstate = worldIn.getBlockState(blockpos);
         Block block = blockstate.getBlock();
-        if (block == ModBlocks.MUSHROOM_GRASS_BLOCK.get()) {
+        if (block == ModBlocks.MUSHROOM_GRASS_BLOCK) {
             return true;
         } else {
             return false;
