@@ -6,7 +6,6 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraftforge.common.ToolType;
-import sun.rmi.runtime.Log;
 
 public class ModLogBlock extends LogBlock {
 
