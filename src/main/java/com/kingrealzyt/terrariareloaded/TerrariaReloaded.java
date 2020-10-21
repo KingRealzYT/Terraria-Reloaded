@@ -1,11 +1,29 @@
 package com.kingrealzyt.terrariareloaded;
 
-import com.kingrealzyt.terrariareloaded.init.*;
+import java.lang.reflect.Field;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.kingrealzyt.terrariareloaded.init.ModBiomes;
+import com.kingrealzyt.terrariareloaded.init.ModBlocks;
+import com.kingrealzyt.terrariareloaded.init.ModContainers;
+import com.kingrealzyt.terrariareloaded.init.ModEntityTypes;
+import com.kingrealzyt.terrariareloaded.init.ModFeatures;
+import com.kingrealzyt.terrariareloaded.init.ModFluids;
+import com.kingrealzyt.terrariareloaded.init.ModItems;
+import com.kingrealzyt.terrariareloaded.init.ModTileEntityTypes;
+import com.kingrealzyt.terrariareloaded.init.RecipeSerializerInit;
+import com.kingrealzyt.terrariareloaded.init.SoundInit;
+import com.kingrealzyt.terrariareloaded.util.HealthLimitRemover;
+import com.kingrealzyt.terrariareloaded.util.ReflectionUtil;
 import com.kingrealzyt.terrariareloaded.world.capability.player.IPlayerCoinCapability;
 import com.kingrealzyt.terrariareloaded.world.capability.player.PlayerCoinCapabilityFactory;
 import com.kingrealzyt.terrariareloaded.world.capability.player.PlayerCoinCapabilityStorage;
 import com.kingrealzyt.terrariareloaded.world.gen.ModStructureGen;
-import net.minecraft.block.ComposterBlock;
+
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -23,8 +41,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 @Mod("terrariareloaded")
 @Mod.EventBusSubscriber(modid = TerrariaReloaded.MOD_ID, bus = Bus.MOD)
@@ -59,6 +75,17 @@ public class TerrariaReloaded {
 
     private void doClientStuff(final FMLClientSetupEvent event) {
 
+    	ReflectionUtil.getFieldByValue(SharedMonsterAttributes.class, null, SharedMonsterAttributes.MAX_HEALTH);
+        for (Field field : SharedMonsterAttributes.class.getDeclaredFields()) {
+          if (field.getType().isAssignableFrom(IAttribute.class)) {
+            field.setAccessible(true);
+            try {
+              if (field.get((Object)null) == SharedMonsterAttributes.MAX_HEALTH) {
+                ReflectionUtil.setStaticFinalField(field, HealthLimitRemover.MAX_HEALTH);
+              } 
+            } catch (IllegalAccessException err) {}
+          }	
+        }
 
     }
 
