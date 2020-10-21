@@ -1,6 +1,5 @@
 package com.kingrealzyt.terrariareloaded.client.model;
 
-import com.kingrealzyt.terrariareloaded.entities.boss.EOC2Entity;
 import com.kingrealzyt.terrariareloaded.entities.boss.EOCEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
@@ -8,7 +7,7 @@ import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
 
-public class EOC2Model<T extends EOC2Entity> extends EntityModel<T> {
+public class EOC2Model extends EntityModel<EOCEntity> {
 
     private final ModelRenderer total;
     private final ModelRenderer head;
@@ -455,7 +454,7 @@ public class EOC2Model<T extends EOC2Entity> extends EntityModel<T> {
     }
 
     @Override
-    public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setRotationAngles(EOCEntity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         this.total.rotateAngleX = headPitch * ((float)Math.PI / 180F);
         this.total.rotateAngleY = netHeadYaw * ((float)Math.PI / 180F);
     }
@@ -473,7 +472,7 @@ public class EOC2Model<T extends EOC2Entity> extends EntityModel<T> {
     }
 
     @Override
-    public void setLivingAnimations(T entityIn, float limbSwing, float limbSwingAmount, float partialTick) {
+    public void setLivingAnimations(EOCEntity entityIn, float limbSwing, float limbSwingAmount, float partialTick) {
         this.arm1a.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
         this.arm1b.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;
         this.arm1c.rotateAngleX = MathHelper.cos(limbSwing * 0.5F) * 1F * limbSwingAmount * 0.2F;

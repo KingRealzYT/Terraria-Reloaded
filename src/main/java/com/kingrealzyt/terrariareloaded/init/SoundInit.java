@@ -22,5 +22,8 @@ public class SoundInit {
     public static final RegistryObject<SoundEvent> DEMON_HURT = SOUNDS.register("demon_hurt", () -> new SoundEvent(new ResourceLocation(TerrariaReloaded.MOD_ID, "demon_hurt")));
     public static final RegistryObject<SoundEvent> DEMON_AMBIENT = SOUNDS.register("demon_ambient", () -> new SoundEvent(new ResourceLocation(TerrariaReloaded.MOD_ID, "demon_ambient")));
     public static final RegistryObject<SoundEvent> DEMON_KILLED = SOUNDS.register("demon_killed", () -> new SoundEvent(new ResourceLocation(TerrariaReloaded.MOD_ID, "demon_killed")));
+    
+	public static final SoundEvent ROAR = new SoundEvent(new ResourceLocation(TerrariaReloaded.MOD_ID, "entity_boss_roar"));
+
 
 }
