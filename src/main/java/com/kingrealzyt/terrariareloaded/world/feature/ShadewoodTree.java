@@ -13,10 +13,10 @@ import java.util.Random;
 public class ShadewoodTree extends Tree {
 
     public static final TreeFeatureConfig SHADEWOOD_TREE_CONFIG = (new TreeFeatureConfig.Builder(
-            new SimpleBlockStateProvider(ModBlocks.SHADEWOOD_LOG.get().getDefaultState()),
-            new SimpleBlockStateProvider(ModBlocks.SHADEWOOD_LEAVES.get().getDefaultState()),
+            new SimpleBlockStateProvider(ModBlocks.SHADEWOOD_LOG.getDefaultState()),
+            new SimpleBlockStateProvider(ModBlocks.SHADEWOOD_LEAVES.getDefaultState()),
             new BlobFoliagePlacer(2, 0))).baseHeight(9).heightRandA(4).foliageHeight(3).ignoreVines()
-            .setSapling((IPlantable) ModBlocks.SHADEWOOD_SAPLING.get()).build();
+            .setSapling((IPlantable) ModBlocks.SHADEWOOD_SAPLING).build();
 
     @Override
     protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean b) {

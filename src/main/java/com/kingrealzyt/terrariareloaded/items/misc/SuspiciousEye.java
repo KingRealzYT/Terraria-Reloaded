@@ -1,31 +1,25 @@
 package com.kingrealzyt.terrariareloaded.items.misc;
 
+import java.util.List;
+
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
 import com.kingrealzyt.terrariareloaded.entities.boss.EOCEntity;
-import com.kingrealzyt.terrariareloaded.entities.projectiles.DynamiteEntity;
-import com.kingrealzyt.terrariareloaded.entities.projectiles.ThrowingKnifeEntity;
 import com.kingrealzyt.terrariareloaded.init.ModEntityTypes;
 import com.kingrealzyt.terrariareloaded.init.SoundInit;
+
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.boss.WitherEntity;
-import net.minecraft.entity.monster.CreeperEntity;
-import net.minecraft.entity.monster.DrownedEntity;
-import net.minecraft.entity.passive.CowEntity;
-import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class SuspiciousEye extends Item {
 
@@ -45,12 +39,23 @@ public class SuspiciousEye extends Item {
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        if(worldIn.isRemote) {
-            EOCEntity eoc = new EOCEntity(worldIn, playerIn.getPosX(), playerIn.getPosY() + 7.5, playerIn.getPosZ());
-            worldIn.addEntity(eoc);
-            playerIn.getHeldItem(handIn).shrink(1);
-            playerIn.playSound(SoundInit.ENTITYBOSSROAR.get(), 1, 1);
-        }
-        return ActionResult.resultConsume(playerIn.getHeldItem(handIn));
+    	ItemStack itemstack = playerIn.getHeldItem(handIn);
+    	playerIn.getCooldownTracker().setCooldown(this, 20);
+    	
+    	List<EOCEntity> eocs = worldIn.getEntitiesWithinAABB(EOCEntity.class, new AxisAlignedBB(new BlockPos(playerIn.getPosX() - 150, playerIn.getPosY() - 150, playerIn.getPosZ() - 150), new BlockPos(playerIn.getPosX() + 150, playerIn.getPosY() + 150, playerIn.getPosZ() + 150)));
+		if (eocs.size() > 0) {
+			return new ActionResult<>(ActionResultType.SUCCESS, itemstack);
+		}
+		
+		float posX = 0, posY = worldIn.rand.nextInt(20) - 10, posZ = 0;
+	    	
+		if (worldIn.getDayTime() % 24000L > 15000 && worldIn.getDayTime() % 24000L < 22000) {
+			playerIn.playSound(SoundInit.ENTITYBOSSROAR.get(), 1, 1);
+			EOCEntity eoc = ModEntityTypes.EOC.create(worldIn, null, null, null, playerIn.getPosition(), SpawnReason.EVENT, false, false);
+			eoc.setPosition(playerIn.getPosition().getX() + posX, playerIn.getPosition().getY() + posY, playerIn.getPosition().getZ() + posZ);
+			worldIn.addEntity(eoc);
+			playerIn.getHeldItem(handIn).shrink(1);
+		}
+		return new ActionResult<>(ActionResultType.SUCCESS, itemstack);
     }
 }

@@ -64,5 +64,212 @@
     "subtitle": "demon_killed",
     "sounds": [{"name": "terrariareloaded:entity/demon/demon_killed",
       "stream": true}]
+  },
+  "menu_music": {
+    "category": "music",
+    "sounds": [
+        {
+			"name": "terrariareloaded:music/title_screen",
+			"stream": true
+		}
+    ]
+  },
+  "day1": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/day1",
+			"stream": true
+		}
+	]
+  },
+  "snow": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/snow",
+			"stream": true
+		}
+	]
+  },
+  "corruption": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/corruption",
+			"stream": true
+		}
+	]
+  },
+  "desert": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/desert",
+			"stream": true
+		}
+	]
+  },
+  "night": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/night",
+			"stream": true
+		}
+	]
+  },
+  "underground": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/underground1",
+			"stream": true
+		}
+	]
+  },
+  "underground_corruption": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/underground_corruption",
+			"stream": true
+		}
+	]
+  },
+  "blood_moon": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/blood_moon",
+			"stream": true
+		}
+	]
+  }, 
+  "boss1": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/boss1",
+			"stream": true
+		}
+	]
+  },
+  "boss2": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/boss2",
+			"stream": true
+		}
+	]
+  },
+  "underworld": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/underworld",
+			"stream": true
+		}
+	]
+  },
+  "sc": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/sc",
+			"stream": true
+		}
+	]
+  },
+  "hallow": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/hallow",
+			"stream": true
+		}
+	]
+  },
+  "boss3": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/boss3",
+			"stream": true
+		}
+	]
+  },
+  "crimson": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/crimson",
+			"stream": true
+		}
+	]
+  },
+  "ocean": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/ocean",
+			"stream": true
+		}
+	]
+  },
+  "jungle": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/jungle",
+			"stream": true
+		}
+	]
+  },
+"lunar_event": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/lunar_event",
+			"stream": true
+		}
+	]
+  },
+"moon_lord": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/moon_lord",
+			"stream": true
+		}
+	]
+  },
+"plantera": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/plantera",
+			"stream": true
+		}
+	]
+  },
+"golem": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/golem",
+			"stream": true
+		}
+	]
+  },
+"rain": {
+	"category": "music",
+	"sounds": [
+		{
+			"name": "terrariareloaded:music/rain",
+			"stream": true
+		}
+	]
   }
 }

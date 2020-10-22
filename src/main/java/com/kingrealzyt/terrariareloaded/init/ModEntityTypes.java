@@ -1,25 +1,48 @@
 package com.kingrealzyt.terrariareloaded.init;
 
 import com.kingrealzyt.terrariareloaded.TerrariaReloaded;
-import com.kingrealzyt.terrariareloaded.entities.enemy.CrabEntity;
-import com.kingrealzyt.terrariareloaded.entities.enemy.DemonEntity;
-import com.kingrealzyt.terrariareloaded.entities.enemy.DemonEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.EOCEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.boss.WOFMouthEntity;
+import com.kingrealzyt.terrariareloaded.entities.enemy.CrabEntity;
+import com.kingrealzyt.terrariareloaded.entities.enemy.DemonEntity;
+import com.kingrealzyt.terrariareloaded.entities.enemy.DemonEyeEntity;
 import com.kingrealzyt.terrariareloaded.entities.enemy.ModSlimeEntity;
-import com.kingrealzyt.terrariareloaded.entities.npc.*;
+import com.kingrealzyt.terrariareloaded.entities.npc.ArmsDealerNPCEntity;
+import com.kingrealzyt.terrariareloaded.entities.npc.DemolitionistNPCEntity;
+import com.kingrealzyt.terrariareloaded.entities.npc.DryadNPCEntity;
+import com.kingrealzyt.terrariareloaded.entities.npc.DyeTraderNPCEntity;
+import com.kingrealzyt.terrariareloaded.entities.npc.GuideNPCEntity;
+import com.kingrealzyt.terrariareloaded.entities.npc.MerchantNPCEntity;
+import com.kingrealzyt.terrariareloaded.entities.npc.TinkererNPCEntity;
 import com.kingrealzyt.terrariareloaded.entities.passive.GoldenRatEntity;
-import com.kingrealzyt.terrariareloaded.entities.projectiles.*;
+import com.kingrealzyt.terrariareloaded.entities.projectiles.BombEntity;
+import com.kingrealzyt.terrariareloaded.entities.projectiles.DynamiteEntity;
+import com.kingrealzyt.terrariareloaded.entities.projectiles.GrenadeEntity;
+import com.kingrealzyt.terrariareloaded.entities.projectiles.PoisonedKnifeEntity;
+import com.kingrealzyt.terrariareloaded.entities.projectiles.TerrarianYoyoProjectile;
+import com.kingrealzyt.terrariareloaded.entities.projectiles.ThrowingKnifeEntity;
 import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoEntity;
+
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EntityType.Builder;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
+@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 public class ModEntityTypes {
+	
+	
+	public static EntityType<EOCEntity> EOC;
+	
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = new DeferredRegister<>(ForgeRegistries.ENTITIES, TerrariaReloaded.MOD_ID);
     // PROJECTILE ENTITIES
     public static final RegistryObject<EntityType<ThrowingKnifeEntity>> THROWING_KNIFE_ENTITY = ENTITY_TYPES
@@ -85,11 +108,6 @@ public class ModEntityTypes {
                     .size(1.7f, 1.7f)
                     .immuneToFire()
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "wall_of_flesh_mouth").toString()));
-
-    public static final RegistryObject<EntityType<EOCEntity>> EOC = ENTITY_TYPES.register("eye_of_cthulhu",
-            () -> EntityType.Builder.<EOCEntity>create(EOCEntity::new, EntityClassification.MONSTER)
-                    .size(3.5f, 3.5f)
-                    .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "eye_of_cthulhu").toString()));
 
     //PASSIVE ENTITIES
     public static final RegistryObject<EntityType<GoldenRatEntity>> GOLDEN_RAT = ENTITY_TYPES.register("golden_rat",
@@ -164,5 +182,17 @@ public class ModEntityTypes {
                     .size(0.6f, 1.75f)
                     .immuneToFire()
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "npc_tinkerer").toString()));
+    
+    
+    @SubscribeEvent
+    public static void registerEntities(final RegistryEvent.Register<EntityType<?>> event) {
+    	ModEntityTypes.EOC = register("terrariareloaded:eye_of_cthulhu", Builder.<EOCEntity>create(EOCEntity::new, EntityClassification.MISC).immuneToFire().setCustomClientFactory((spawnEntity, world) -> {
+    	  	return new EOCEntity(world);
+    	}));
+    }
+    
+    private static <T extends Entity> EntityType<T> register(String id, EntityType.Builder<T> builder) {
+	      return Registry.register(Registry.ENTITY_TYPE, id, builder.build(id));
+ }
 
 }

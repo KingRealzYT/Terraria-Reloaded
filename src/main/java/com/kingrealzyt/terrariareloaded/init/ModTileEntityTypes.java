@@ -12,5 +12,5 @@ public class ModTileEntityTypes {
 
 
     public static final RegistryObject<TileEntityType<HellforgeTileEntity>> HELLFORGE = TILEENTITY_TYPES
-            .register("hellforge", ()-> TileEntityType.Builder.create(HellforgeTileEntity::new, ModBlocks.HELLFORGE.get()).build(null));
+            .register("hellforge", ()-> TileEntityType.Builder.create(HellforgeTileEntity::new, ModBlocks.HELLFORGE.getBlock()).build(null));
 }
