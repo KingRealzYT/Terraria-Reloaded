@@ -175,7 +175,7 @@ public class ModBlocks {
 		    RUBY_ORE = new GemOre().setRegistryName("ruby_ore"),
 		    AMETHYST_ORE = new GemOre().setRegistryName("amethyst_ore"),
 		    TOPAZ_ORE = new GemOre().setRegistryName("topaz_ore"),
-		    SAPPHIRE_ORE = new GemOre().setRegistryName("saphire_ore"),
+		    SAPPHIRE_ORE = new GemOre().setRegistryName("sapphire_ore"),
 		    AMBER_ORE = new GemOre().setRegistryName("amber_ore"),
 
 		    SILVER_ORE = new SilverOre().setRegistryName("silver_ore"),
@@ -185,7 +185,7 @@ public class ModBlocks {
 		    DEMONITE_ORE = new DemoniteOre().setRegistryName("demonite_ore"),
 		    CRIMTANE_ORE = new DemoniteOre().setRegistryName("crimtane_ore"),
 		    HELLSTONE_ORE = new HellstoneOre().setRegistryName("hellstone_ore"),
-		    COBALT_ORE = new CobaltOre().setRegistryName("cobalt_re"),
+		    COBALT_ORE = new CobaltOre().setRegistryName("cobalt_ore"),
 		    PALLADIUM_ORE = new CobaltOre().setRegistryName("palladium_ore"),
 		    MYTHRIL_ORE = new MythrilOre().setRegistryName("mythril_ore"),
 		    ORICHALCUM_ORE = new MythrilOre().setRegistryName("orichalcum_ore"),
@@ -239,7 +239,7 @@ public class ModBlocks {
 		    CRIMSTONE = new ModStoneBlock().setRegistryName("crimstone"),
 		    PEARLSTONE = new ModStoneBlock().setRegistryName("pearlstone"),
 		    BLUE_GRANITE = new ModStoneBlock().setRegistryName("blue_granite"),
-		    MARBLE = new ModStoneBlock().setRegistryName("marble"),
+            MARBLE = new ModStoneBlock().setRegistryName("marble"),
 
 
 		    MUDSTONE_BRICKS = new ModStoneBlock().setRegistryName("mudstone_bricks"),
@@ -254,7 +254,7 @@ public class ModBlocks {
 		    CRIMSTONE_BRICKS = new ModStoneBlock().setRegistryName("crimstone_bricks"),
 		    PEARLSTONE_BRICKS = new ModStoneBlock().setRegistryName("pearlstone_bricks"),
 		    SMOOTH_BLUE_GRANITE = new ModStoneBlock().setRegistryName("smooth_blue_granite"),
-		   	SMOOTH_MARBLE = new ModStoneBlock().setRegistryName("smoth_marble"),
+		   	SMOOTH_MARBLE = new ModStoneBlock().setRegistryName("smooth_marble"),
 
 		    EBONSAND = new ModSandBlock(0x523f5a).setRegistryName("ebonsand"),
 		    CRIMSAND = new ModSandBlock(0xc34343).setRegistryName("crimsand"),
