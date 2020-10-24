@@ -16,12 +16,7 @@ import com.kingrealzyt.terrariareloaded.entities.npc.GuideNPCEntity;
 import com.kingrealzyt.terrariareloaded.entities.npc.MerchantNPCEntity;
 import com.kingrealzyt.terrariareloaded.entities.npc.TinkererNPCEntity;
 import com.kingrealzyt.terrariareloaded.entities.passive.GoldenRatEntity;
-import com.kingrealzyt.terrariareloaded.entities.projectiles.BombEntity;
-import com.kingrealzyt.terrariareloaded.entities.projectiles.DynamiteEntity;
-import com.kingrealzyt.terrariareloaded.entities.projectiles.GrenadeEntity;
-import com.kingrealzyt.terrariareloaded.entities.projectiles.PoisonedKnifeEntity;
-import com.kingrealzyt.terrariareloaded.entities.projectiles.TerrarianYoyoProjectile;
-import com.kingrealzyt.terrariareloaded.entities.projectiles.ThrowingKnifeEntity;
+import com.kingrealzyt.terrariareloaded.entities.projectiles.*;
 import com.kingrealzyt.terrariareloaded.entities.yoyo.YoyoEntity;
 
 import net.minecraft.entity.Entity;
@@ -94,6 +89,13 @@ public class ModEntityTypes {
             .register("terrarian_projectile",
                     () -> EntityType.Builder.<TerrarianYoyoProjectile>create(TerrarianYoyoProjectile::new, EntityClassification.MISC)
             .size(0.3F, 0.3F).build(new ResourceLocation(TerrariaReloaded.MOD_ID + ":terrarian_projectile").toString()));
+
+    public static final RegistryObject<EntityType<EnchantedSwordProjectileEntity>> ENCHANTED_SWORD_PROJECTILE_ENTITY = ENTITY_TYPES
+            .register("enchanted_sword_projectile",
+                    () -> EntityType.Builder
+                            .<EnchantedSwordProjectileEntity>create(EnchantedSwordProjectileEntity::new, EntityClassification.MISC)
+                            .size(1.0f, 1.0f)
+                            .build(new ResourceLocation(TerrariaReloaded.MOD_ID + ":enchanted_sword_projectile").toString()));
 
     //BOSS ENTITIES
 

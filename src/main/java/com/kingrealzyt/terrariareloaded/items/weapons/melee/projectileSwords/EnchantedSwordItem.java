@@ -1,8 +1,6 @@
 package com.kingrealzyt.terrariareloaded.items.weapons.melee.projectileSwords;
 
-import com.kingrealzyt.terrariareloaded.entities.projectiles.EnchantedSwordProjectile;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
+import com.kingrealzyt.terrariareloaded.entities.projectiles.EnchantedSwordProjectileEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
@@ -17,7 +15,7 @@ public class EnchantedSwordItem extends SwordItem {
     @Override
     public boolean onEntitySwing(ItemStack stack, LivingEntity player) {
         World world = player.getEntityWorld();
-        EnchantedSwordProjectile projectile = new EnchantedSwordProjectile(world, player);
+        EnchantedSwordProjectileEntity projectile = new EnchantedSwordProjectileEntity(world, player);
         projectile.shoot(player, player.rotationPitch, player.rotationYaw, projectile.offset, projectile.velocity, projectile.inaccuracy);
         world.addEntity(projectile);
 
