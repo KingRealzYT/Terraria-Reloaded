@@ -10,6 +10,7 @@ import com.kingrealzyt.terrariareloaded.items.LifeFruitItem;
 import com.kingrealzyt.terrariareloaded.items.MiscItemBase;
 import com.kingrealzyt.terrariareloaded.items.misc.*;
 import com.kingrealzyt.terrariareloaded.items.tools.others.PickaxeAxeItem;
+import com.kingrealzyt.terrariareloaded.items.weapons.melee.projectileSwords.EnchantedSwordItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.melee.yoyo.YoyoItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.ranged.repeaters.*;
 import com.kingrealzyt.terrariareloaded.items.weapons.throwing.*;
@@ -180,7 +181,7 @@ public class ModItems {
     public static final RegistryObject<SwordItem> ORANGE_PHASEBLADE = ITEMS.register("orange_phaseblade", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
     public static final RegistryObject<SwordItem> BLOOD_BUTCHERER = ITEMS.register("blood_butcherer", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
     public static final RegistryObject<SwordItem> STARFURY = ITEMS.register("starfury", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
-    public static final RegistryObject<SwordItem> ENCHANTED_SWORD = ITEMS.register("enchanted_sword", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
+    public static final RegistryObject<EnchantedSwordItem> ENCHANTED_SWORD = ITEMS.register("enchanted_sword", () -> new EnchantedSwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
     public static final RegistryObject<SwordItem> PURPLE_CLUBBERFISH = ITEMS.register("purple_clubberfish", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
     public static final RegistryObject<SwordItem> BEE_KEEPER = ITEMS.register("bee_keeper", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
     public static final RegistryObject<SwordItem> FALCON_BLADE = ITEMS.register("falcon_blade", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
