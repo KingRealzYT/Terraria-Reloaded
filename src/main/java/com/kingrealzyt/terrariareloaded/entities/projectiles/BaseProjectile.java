@@ -36,7 +36,7 @@ public class BaseProjectile extends SnowballEntity{
         if (result.getType() == RayTraceResult.Type.ENTITY) {
             Entity entity = ((EntityRayTraceResult) result).getEntity();
             if (entity instanceof LivingEntity) {
-                entity.attackEntityFrom(DamageSource.causePlayerDamage(this, null), DAMAGE);
+                entity.attackEntityFrom(DamageSource.causePlayerDamage(null), damage);
             }
         }
     }
