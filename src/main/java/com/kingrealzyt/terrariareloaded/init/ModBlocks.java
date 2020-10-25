@@ -167,7 +167,7 @@ public class ModBlocks {
 	public static void registerBlocks(final RegistryEvent.Register<Block> event) {
 		event.getRegistry().registerAll(
 				
-			HONEY = new FlowingFluidBlock(() -> ModFluids.HONEY_FLUID.get(), Block.Properties.create(Material.WATER)
+			HONEY = new FlowingFluidBlock(ModFluids.HONEY_FLUID::get, Block.Properties.create(Material.WATER)
                     .doesNotBlockMovement().hardnessAndResistance(100.0f).noDrops()).setRegistryName("honey"),
 				
 			SHIMMERING_DIAMOND_ORE = new GemOre().setRegistryName("shimmering_diamond_ore"),

@@ -3,6 +3,7 @@ package com.kingrealzyt.terrariareloaded.entities.projectiles;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.SnowballEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class EnchantedSwordProjectileEntity extends BaseProjectile{
@@ -18,4 +19,8 @@ public class EnchantedSwordProjectileEntity extends BaseProjectile{
         super(worldIn, playerIn);
     }
 
+    @Override
+    public boolean isGlowing() {
+        return true;
+    }
 }
