@@ -91,11 +91,11 @@ public class ModEntityTypes {
             .size(0.3F, 0.3F).build(new ResourceLocation(TerrariaReloaded.MOD_ID + ":terrarian_projectile").toString()));
 
     public static final RegistryObject<EntityType<EnchantedSwordProjectileEntity>> ENCHANTED_SWORD_PROJECTILE_ENTITY = ENTITY_TYPES
-            .register("enchanted_sword_beam",
+            .register("enchanted_sword_projectile",
                     () -> EntityType.Builder
                             .<EnchantedSwordProjectileEntity>create(EnchantedSwordProjectileEntity::new, EntityClassification.MISC)
                             .size(1.0f, 1.0f)
-                            .build(new ResourceLocation(TerrariaReloaded.MOD_ID + ":enchanted_sword_beam").toString()));
+                            .build(new ResourceLocation(TerrariaReloaded.MOD_ID + ":enchanted_sword_projectile").toString()));
 
     //BOSS ENTITIES
 
