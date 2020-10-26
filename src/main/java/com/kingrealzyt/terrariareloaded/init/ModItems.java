@@ -190,6 +190,10 @@ public class ModItems {
     public static final RegistryObject<SwordItem> NIGHTS_EDGE = ITEMS.register("nights_edge", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
     //public static final RegistryObject<SwordItem> LUMINITE_SWORD = ITEMS.register("luminite_sword", () -> new SwordItem(ModItemTier.LUMINITE, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
 
+    //Projectiles
+    public static final RegistryObject<Item> PROJECTILE = ITEMS.register("projectile", () -> new Item(new Item.Properties()));
+
+
     // Block Items
 
     public static final RegistryObject<Item> HELLFORGE_ITEM = ITEMS.register("hellforge", () -> new BlockItemBase(ModBlocks.HELLFORGE));

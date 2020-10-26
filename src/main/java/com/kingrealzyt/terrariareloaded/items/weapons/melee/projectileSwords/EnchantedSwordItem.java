@@ -15,10 +15,9 @@ public class EnchantedSwordItem extends SwordItem {
     @Override
     public boolean onEntitySwing(ItemStack stack, LivingEntity player) {
         World world = player.getEntityWorld();
-        EnchantedSwordProjectileEntity projectile = new EnchantedSwordProjectileEntity(player, );
-        projectile.shoot(player, player.rotationPitch, player.rotationYaw, projectile.offset, projectile.velocity, projectile.inaccuracy);
+        EnchantedSwordProjectileEntity projectile = new EnchantedSwordProjectileEntity(world, player);
+        projectile.shoot(player, player.rotationPitch, player.rotationYaw, projectile.OFFSET, projectile.VELOCITY, projectile.INACCURACY);
         world.addEntity(projectile);
-
         return false;
     }
 }

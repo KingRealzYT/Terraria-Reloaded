@@ -39,15 +39,15 @@ public class BaseProjectile extends ProjectileItemEntity {
 
     @Override
     protected Item getDefaultItem() {
-        return ModItems.THROWING_KNIFE_ITEM.get();
-    } // change the throwing knife item to whatever item you got
+        return ModItems.PROJECTILE.get();
+    } // change the PROJECCTILE to whatever item you got
 
     @Override
     protected void onImpact(RayTraceResult result) {
         if (result.getType() == RayTraceResult.Type.ENTITY) {
             Entity entity = ((EntityRayTraceResult) result).getEntity();
             if (entity instanceof LivingEntity) {
-                entity.attackEntityFrom(DamageSource.causeThrownDamage(this, null));
+                entity.attackEntityFrom(DamageSource.causeThrownDamage(this, null), DAMAGE);
             }
         }
         else if (!this.world.isRemote) {
@@ -81,7 +81,7 @@ public class BaseProjectile extends ProjectileItemEntity {
 
     @Override
     protected float getGravityVelocity() {
-        return 0.1F;
+        return GRAVITY;
     }
 
     private void spawnItem(){
