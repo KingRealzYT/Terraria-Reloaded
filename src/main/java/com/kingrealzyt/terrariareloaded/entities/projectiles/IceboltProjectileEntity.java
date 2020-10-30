@@ -6,9 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.projectile.DamagingProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileItemEntity;
-import net.minecraft.entity.projectile.SnowballEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.IPacket;
@@ -18,7 +16,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 
-public class EnchantedSwordProjectileEntity extends ProjectileItemEntity {
+public class IceboltProjectileEntity extends ProjectileItemEntity {
     public static final float  DAMAGE = 10.0f;
     public static final float  GRAVITY = 0.0f;
     public static final float  VELOCITY = 1.0f;
@@ -29,17 +27,17 @@ public class EnchantedSwordProjectileEntity extends ProjectileItemEntity {
     public static final int DURATION = 100; //toggle this to set the duration the projectile lasts in the world(seconds)
     public int tick = 0;
 
-    public EnchantedSwordProjectileEntity(EntityType<? extends ProjectileItemEntity> type, World worldIn) {
+    public IceboltProjectileEntity(EntityType<? extends ProjectileItemEntity> type, World worldIn) {
         super(type, worldIn);
     }
 
-    public EnchantedSwordProjectileEntity(World worldIn, LivingEntity livingEntityIn) {
-        super(ModEntityTypes.ENCHANTED_SWORD_PROJECTILE_ENTITY.get(), livingEntityIn, worldIn);
+    public IceboltProjectileEntity(World worldIn, LivingEntity livingEntityIn) {
+        super(ModEntityTypes.ICEBOLT_PROJECTILE_ENTITY.get(), livingEntityIn, worldIn);
     } // change the throwing knife entity to your entity
 
     @Override
     protected Item getDefaultItem() {
-        return ModItems.ENCHANTED_SWORD_PROJECTILE.get();
+        return ModItems.ICEBOLT_PROJECTILE.get();
     } // change the throwing knife item to whatever item you got
 
     @Override

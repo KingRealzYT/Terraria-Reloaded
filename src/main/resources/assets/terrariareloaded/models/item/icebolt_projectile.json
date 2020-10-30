@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "terrariareloaded:items/icebolt_projectile"
+  }
+}

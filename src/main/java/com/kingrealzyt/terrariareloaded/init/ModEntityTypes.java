@@ -97,6 +97,13 @@ public class ModEntityTypes {
                             .size(1.0f, 1.0f)
                             .build(new ResourceLocation(TerrariaReloaded.MOD_ID + ":enchanted_sword_projectile").toString()));
 
+    public static final RegistryObject<EntityType<IceboltProjectileEntity>> ICEBOLT_PROJECTILE_ENTITY = ENTITY_TYPES
+            .register("icebolt_projectile",
+                    () -> EntityType.Builder
+                            .<IceboltProjectileEntity>create(IceboltProjectileEntity::new, EntityClassification.MISC)
+                            .size(1.0f, 1.0f)
+                            .build(new ResourceLocation(TerrariaReloaded.MOD_ID + ":iceblade_projectile").toString()));
+
     //BOSS ENTITIES
 
     public static final RegistryObject<EntityType<WOFEyeEntity>> WALL_OF_FLESH_EYE = ENTITY_TYPES.register("wall_of_flesh_eye",

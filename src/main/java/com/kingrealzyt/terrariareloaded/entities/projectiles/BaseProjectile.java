@@ -39,7 +39,7 @@ public class BaseProjectile extends ProjectileItemEntity {
 
     @Override
     protected Item getDefaultItem() {
-        return ModItems.PROJECTILE.get();
+        return ModItems.ENCHANTED_SWORD_PROJECTILE.get();
     } // change the PROJECCTILE to whatever item you got
 
     @Override

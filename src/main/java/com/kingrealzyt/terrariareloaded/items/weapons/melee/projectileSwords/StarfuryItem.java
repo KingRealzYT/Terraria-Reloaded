@@ -7,8 +7,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.world.World;
 
-public class EnchantedSwordItem extends SwordItem {
-    public EnchantedSwordItem(IItemTier tier, int attackDamageIn, float attackSpeedIn, Properties builder) {
+public class StarfuryItem extends SwordItem {
+    public StarfuryItem(IItemTier tier, int attackDamageIn, float attackSpeedIn, Properties builder) {
         super(tier, attackDamageIn, attackSpeedIn, builder);
     }
 

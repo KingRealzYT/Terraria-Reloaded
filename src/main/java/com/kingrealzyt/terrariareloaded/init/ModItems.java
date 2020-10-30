@@ -11,6 +11,7 @@ import com.kingrealzyt.terrariareloaded.items.MiscItemBase;
 import com.kingrealzyt.terrariareloaded.items.misc.*;
 import com.kingrealzyt.terrariareloaded.items.tools.others.PickaxeAxeItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.melee.projectileSwords.EnchantedSwordItem;
+import com.kingrealzyt.terrariareloaded.items.weapons.melee.projectileSwords.IceBladeItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.melee.yoyo.YoyoItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.ranged.repeaters.*;
 import com.kingrealzyt.terrariareloaded.items.weapons.throwing.*;
@@ -166,7 +167,7 @@ public class ModItems {
     public static final RegistryObject<SwordItem> BONE_SWORD = ITEMS.register("bone_sword", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
     public static final RegistryObject<SwordItem> CANDY_CANE_SWORD = ITEMS.register("candy_cane_sword", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
     public static final RegistryObject<SwordItem> KATANA = ITEMS.register("katana", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
-    public static final RegistryObject<SwordItem> ICE_BLADE = ITEMS.register("ice_blade", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
+    public static final RegistryObject<IceBladeItem> ICE_BLADE = ITEMS.register("ice_blade", () -> new IceBladeItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
     public static final RegistryObject<SwordItem> LIGHTS_BANE = ITEMS.register("lights_bane", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
     public static final RegistryObject<SwordItem> TRAGIC_UMBRELLA = ITEMS.register("tragic_umbrella", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
     public static final RegistryObject<SwordItem> MURAMASA = ITEMS.register("muramasa", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
@@ -189,9 +190,6 @@ public class ModItems {
     public static final RegistryObject<SwordItem> FIERY_GREATSWORD = ITEMS.register("fiery_greatsword", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
     public static final RegistryObject<SwordItem> NIGHTS_EDGE = ITEMS.register("nights_edge", () -> new SwordItem(ModItemTier.COPPER, 1, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
     //public static final RegistryObject<SwordItem> LUMINITE_SWORD = ITEMS.register("luminite_sword", () -> new SwordItem(ModItemTier.LUMINITE, 0, 0.0F, new Item.Properties().group(TerrariaReloaded.WEAPONS).setNoRepair()));
-
-    //Projectiles
-    public static final RegistryObject<Item> PROJECTILE = ITEMS.register("projectile", () -> new Item(new Item.Properties()));
 
 
     // Block Items
@@ -304,7 +302,7 @@ public class ModItems {
     public static final RegistryObject<Item> VALOR_YOYO = registerYoyo("valor", YoyoType.VALOR);
     public static final RegistryObject<Item> WOODEN_YOYO = registerYoyo("wooden", YoyoType.WOODEN);
     public static final RegistryObject<Item> YELETS_YOYO = registerYoyo("yelets", YoyoType.YELETS);
-    public static final RegistryObject<Item> TERRARIAN_YOYO_PROJECTILE = ITEMS.register("terrarian_yoyo_projectile", () -> new Item(new Item.Properties()));
+
 
     //Foods
     public static final RegistryObject<Item> GOLDFISH_SOUP = registerBaseFoodItem("goldfish_soup", 5, 1.0F, "'Simple, yet refreshing.'");
@@ -326,6 +324,16 @@ public class ModItems {
     public static final RegistryObject<Item> MARSHMALLOW = registerBaseFoodItem("marshmallow", 2, 1.0F, "'How many can you fit in your mouth?'");
     public static final RegistryObject<Item> COOKED_MARSHMALLOW = registerBaseFoodItem("cooked_marshmallow", 2, 1.0F, "'How can I have some more of nothing?'");
     public static final RegistryObject<Item> SAKE = registerBaseFoodItem("sake", 4, 1.0F, "'Drink too much of this, and you become karate master.'");
+
+    //Projectiles
+    public static final RegistryObject<Item> TERRARIAN_YOYO_PROJECTILE = ITEMS.register("terrarian_yoyo_projectile", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> ENCHANTED_SWORD_PROJECTILE = ITEMS.register("enchanted_sword_projectile", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> ICEBOLT_PROJECTILE = ITEMS.register("icebolt_projectile", () -> new Item(new Item.Properties()));
+
+
+
+
+
 
     /**
      * Use this for default description

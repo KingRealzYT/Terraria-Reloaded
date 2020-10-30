@@ -29,10 +29,12 @@ public class ClientEventBusSubscriber {
     public static void onClientSetup(FMLClientSetupEvent event) {
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.THROWING_KNIFE_ENTITY.get(), RenderThrowingKnife::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.POISONED_KNIFE_ENTITY.get(), RenderPoisonedKnife::new);
-
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.ENCHANTED_SWORD_PROJECTILE_ENTITY.get(), RenderEnchantedSwordProjectile::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.DYNAMITE_ENTITY.get(), RenderDynamite::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.GRENADE_ENTITY.get(), RenderGrenade::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.BOMB_ENTITY.get(), RenderBomb::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.ICEBOLT_PROJECTILE_ENTITY.get(), RenderIceboltProjectile::new);
+
 
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.TERRARIAN_PROJECTILE_ENTITY.get(), TerrarianYoyoProjectileRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.YOYO_ENTITY.get(), YoyoEntityRenderer::new);
@@ -52,7 +54,7 @@ public class ClientEventBusSubscriber {
         ScreenManager.registerFactory(ModContainers.SHOP_NPC.get(), ShopNPCScreen::new);
         ScreenManager.registerFactory(ModContainers.HELLFORGE.get(), HellforgeScreen::new);
 
-//ADDFORNPC
+        //ADD FOR NPC
         registerNpcRenderer(ModEntityTypes.NPC_MERCHANT.get(), new MerchantNPCModel<>());
         registerNpcRenderer(ModEntityTypes.NPC_GUIDE.get(), new GuideNPCModel<>());
         registerNpcRenderer(ModEntityTypes.NPC_DYE_TRADER.get(), new DyeTraderNPCModel<>());
