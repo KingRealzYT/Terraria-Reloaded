@@ -13,6 +13,7 @@ import com.kingrealzyt.terrariareloaded.items.tools.others.PickaxeAxeItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.melee.projectileSwords.EnchantedSwordItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.melee.projectileSwords.IceBladeItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.melee.yoyo.YoyoItem;
+import com.kingrealzyt.terrariareloaded.items.weapons.ranged.bows.ModBowItem;
 import com.kingrealzyt.terrariareloaded.items.weapons.ranged.repeaters.*;
 import com.kingrealzyt.terrariareloaded.items.weapons.throwing.*;
 import com.kingrealzyt.terrariareloaded.util.enums.ModItemTier;
@@ -281,7 +282,6 @@ public class ModItems {
     public static final RegistryObject<Item> GRENADE_ITEM = ITEMS.register("grenade_item", () -> new GrenadeItem(new Item.Properties().group(TerrariaReloaded.THROW)));
 
     //Yoyos
-
     public static final RegistryObject<Item> AMAROK_YOYO = registerYoyo("amarok", YoyoType.AMAROK);
     public static final RegistryObject<Item> AMAZON_YOYO = registerYoyo("amazon", YoyoType.AMAZON);
     public static final RegistryObject<Item> ARTERY_YOYO = registerYoyo("artery", YoyoType.ARTERY);
@@ -303,6 +303,8 @@ public class ModItems {
     public static final RegistryObject<Item> WOODEN_YOYO = registerYoyo("wooden", YoyoType.WOODEN);
     public static final RegistryObject<Item> YELETS_YOYO = registerYoyo("yelets", YoyoType.YELETS);
 
+    //Bows
+    public static final RegistryObject<ModBowItem> PLATINUM_BOW = ITEMS.register("platinum_bow", () -> new ModBowItem(new Item.Properties().group(TerrariaReloaded.WEAPONS), 10.0f, 72000, 1.0f, 1.0f, false, false));
 
     //Foods
     public static final RegistryObject<Item> GOLDFISH_SOUP = registerBaseFoodItem("goldfish_soup", 5, 1.0F, "'Simple, yet refreshing.'");
@@ -329,6 +331,7 @@ public class ModItems {
     public static final RegistryObject<Item> TERRARIAN_YOYO_PROJECTILE = ITEMS.register("terrarian_yoyo_projectile", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> ENCHANTED_SWORD_PROJECTILE = ITEMS.register("enchanted_sword_projectile", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> ICEBOLT_PROJECTILE = ITEMS.register("icebolt_projectile", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> RAYCAST_PROJECTILE = ITEMS.register("raycast_projectile", () -> new Item(new Item.Properties()));
 
 
 

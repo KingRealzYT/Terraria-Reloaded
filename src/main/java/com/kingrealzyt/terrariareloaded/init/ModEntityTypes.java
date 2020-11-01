@@ -37,9 +37,16 @@ public class ModEntityTypes {
 	
 	
 	public static EntityType<EOCEntity> EOC;
-	
+
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = new DeferredRegister<>(ForgeRegistries.ENTITIES, TerrariaReloaded.MOD_ID);
     // PROJECTILE ENTITIES
+    public static final RegistryObject<EntityType<RaycastProjectile>> RAYCAST_PROJECTILE = ENTITY_TYPES
+            .register("raycast_projectile",
+                    () -> EntityType.Builder
+                            .<RaycastProjectile>create(RaycastProjectile::new, EntityClassification.MISC)
+                            .size(1.0f, 1.0f)
+                            .build(new ResourceLocation(TerrariaReloaded.MOD_ID + ":raycast_projectile").toString()));
+
     public static final RegistryObject<EntityType<ThrowingKnifeEntity>> THROWING_KNIFE_ENTITY = ENTITY_TYPES
             .register("throwing_knife",
                     () -> EntityType.Builder
@@ -192,7 +199,7 @@ public class ModEntityTypes {
                     .immuneToFire()
                     .build(new ResourceLocation(TerrariaReloaded.MOD_ID, "npc_tinkerer").toString()));
     
-    
+
     @SubscribeEvent
     public static void registerEntities(final RegistryEvent.Register<EntityType<?>> event) {
     	ModEntityTypes.EOC = register("terrariareloaded:eye_of_cthulhu", Builder.<EOCEntity>create(EOCEntity::new, EntityClassification.MISC).immuneToFire().setCustomClientFactory((spawnEntity, world) -> {
